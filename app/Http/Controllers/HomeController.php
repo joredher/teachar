@@ -41,6 +41,6 @@ class HomeController extends Controller
 
 //        return view('home');
 
-        return view('administrador.configuracion.index');
+        return view('administracion.configuracion.index');
     }
 }

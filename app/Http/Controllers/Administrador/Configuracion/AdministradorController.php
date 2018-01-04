@@ -8,6 +8,6 @@ use App\Http\Controllers\Controller;
 class AdministradorController extends Controller
 {
     public function index(){
-        return view('administrador.configuracion.index');
+        return view('administracion.configuracion.index');
     }
 }

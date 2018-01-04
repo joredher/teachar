@@ -62,7 +62,7 @@
                 modal:{
                     title:'',
                 },
-                resource_url:'/administrador/configuracion/docentes/obtener-docentes',
+                resource_url:'/administracion/configuracion/docentes/obtener-docentes',
                 datos:{
                     busqueda:'',
                 },
@@ -74,6 +74,7 @@
                     username:'',
                     status:'',
                 },
+                cargando: false
             },
             components:{
                 VPaginator: VuePaginator,
@@ -82,7 +83,18 @@
                 updateResource(data){
                     laddaButtonSearch.stop();
                     this.docentes = data;
-                }
+                },
+
+                buscar(){
+                    laddaButtonSearch.start();
+                    app.$refs.vpaginator.fetchData(this.resource_url)
+                },
+
+                limpiarBusqueda(){
+                    this.datos.busqueda = '';
+                    laddaButtonSearch.start();
+                    this.$refs.vpaginator.fetchData(this.resource_url);
+                },
             },
             mounted(){
                 $("#myModal").on("show.bs.modal", function () {
