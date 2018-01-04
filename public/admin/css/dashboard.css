@@ -91,6 +91,10 @@ h1 {
     text-shadow: 1px 1px 2px #DEDEDE;
 }
 
+.sidebar div div img {
+    width: 100px;
+}
+
 /*Botones de barra navegació*/
 
 

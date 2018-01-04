@@ -60,6 +60,12 @@ class User extends Authenticatable
 
 //    protected $table = 'users';
 
+    public function scopeBuscar($query, $data){
+        return $query->where('identification', 'like', '%'.$data.'%')
+                    ->orWhere('name', 'like', '%'.$data.'%')
+                    ->orWhere('lastname', 'like', '%'.$data.'%')
+                    ->orWhere('username', 'like', '%'.$data.'%');
+    }
 
 
 }

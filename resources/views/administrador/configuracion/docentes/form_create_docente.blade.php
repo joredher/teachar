@@ -56,13 +56,16 @@
 @section('scripts')
     <script>
         var app = new Vue({
-            el: '#contenido',
+            el : '#contenido',
             data:{
                 docentes:[],
                 modal:{
                     title:'',
                 },
-                resource_url:'',
+                resource_url:'/administrador/configuracion/docentes/obtener-docentes',
+                datos:{
+                    busqueda:'',
+                },
                 docente:{
                     id:'',
                     identification:'',
@@ -76,7 +79,10 @@
                 VPaginator: VuePaginator,
             },
             methods:{
-
+                updateResource(data){
+                    laddaButtonSearch.stop();
+                    this.docentes = data;
+                }
             },
             mounted(){
                 $("#myModal").on("show.bs.modal", function () {
