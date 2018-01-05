@@ -84,7 +84,6 @@
                     laddaButtonSearch.stop();
                     this.docentes = data;
                 },
-
                 buscar(){
                     laddaButtonSearch.start();
                     app.$refs.vpaginator.fetchData(this.resource_url)
@@ -96,11 +95,11 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
             },
-            mounted(){
-                $("#myModal").on("show.bs.modal", function () {
-                    // this.modal.title = (this.docente.id != ''?'Edición de ':'Nuevo ') + 'Cliente';
-                });
-            }
+            // mounted(){
+            //     $("#myModal").on("show.bs.modal", function () {
+            //         // this.modal.title = (this.docente.id != ''?'Edición de ':'Nuevo ') + 'Cliente';
+            //     });
+            // }
         })
     </script>
 @endsection

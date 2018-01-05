@@ -89,6 +89,9 @@
         </main>
      </div>
 </div>
+
+
+<script src="{{asset('js/app.js')}}"></script>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -97,9 +100,6 @@
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
-
-
-<script src="{{asset('js/app.js')}}"></script>
 
 @yield('scripts')
 
