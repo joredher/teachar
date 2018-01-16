@@ -30,6 +30,11 @@ Route::group(['middleware' => 'auth'], function (){
 
             Route::get('docentes','RegistroDocentesController@vIndex')->name('docentes');
             Route::post('obtener-docentes','RegistroDocentesController@obtenerDocente');
+
+
+            Route::get('modulos','ModulosController@index')->name('modulos');
+            Route::post('obtener-modulos', 'ModulosController@obtener');
+
         });
 
 });
