@@ -225,17 +225,41 @@
         </SOURCES>
       </library>
     </orderEntry>
+<<<<<<< HEAD
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
+=======
+<<<<<<< HEAD
+=======
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+<<<<<<< HEAD
+>>>>>>> 02f96b45b0201d17641c9ee3e50fa390f8ef6b2b
           <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
         </CLASSES>
         <SOURCES>
           <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
           <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
+<<<<<<< HEAD
         </SOURCES>
       </library>
     </orderEntry>
+=======
+=======
+          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/vendor/phar-io/manifest/tests/_fixture/test.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/phpunit/phpunit/tests/_files/phpunit-example-extension/tools/phpunit.d/phpunit-example-extension-1.0.1.phar/" />
+>>>>>>> 49ef1b667f61cd455b1d7ea5c592db0289fe3afa
+        </SOURCES>
+      </library>
+    </orderEntry>
+>>>>>>> f99dea12869a7e78e09d836f135fb16ac0277954
+>>>>>>> 02f96b45b0201d17641c9ee3e50fa390f8ef6b2b
   </component>
 </module>
