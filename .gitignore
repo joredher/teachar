@@ -20,8 +20,5 @@ Homestead.json
 .rocketeer/
 .idea/workspace.xml
 *.xml
-<<<<<<< HEAD
-=======
 *.xml
->>>>>>> 02f96b45b0201d17641c9ee3e50fa390f8ef6b2b
 .idea/teachar.iml
