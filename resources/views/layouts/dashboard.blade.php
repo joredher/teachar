@@ -22,8 +22,8 @@
     {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
-
+    {{--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>--}}
+    <script defer src="{{ asset('js/fontawesome.js') }}"></script>
 </head>
 <body class="capaFondo">
 <div class="container-fluid">
