@@ -49,7 +49,7 @@
                     </li>
                     <li class="nav-item">
                     <span>
-                        <a class="nav-link" href="#"><i class="fas fa-suitcase"></i> Módulos</a>
+                        <a class="nav-link" href="{{ URL::route('modulos') }}"><i class="fas fa-suitcase"></i> Módulos</a>
                     </span>
                     </li>
                     <li class="nav-item">
@@ -100,6 +100,11 @@
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
+
+<script>
+    Vue.use(VeeValidate);
+    Vue.use(VuePaginator);
+</script>
 
 @yield('scripts')
 

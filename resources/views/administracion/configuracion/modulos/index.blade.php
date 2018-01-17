@@ -26,8 +26,8 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Fecha creacion</th>
                                 <th>Estado</th>
+                                <th>Fecha creacion</th>
                                 <th>Opciones</th>
                             </tr>
                             </thead>
@@ -35,8 +35,8 @@
                             <tr v-for="modulo in modulos" >
                                 <td>@{{ modulo.id }}</td>
                                 <td>@{{ modulo.nombre }}</td>
-                                <td>@{{ modulo.created_at }}</td>
                                 <td>@{{ modulo.estado }}</td>
+                                <td>@{{ modulo.created_at }}</td>
                                 <td><button class="btn btn-sm btn-warning " v-on:click="mostrarEditar(modulo)" >Editar</button></td>
                             </tr>
                             </tbody>
@@ -97,6 +97,9 @@
                     this.modulo ={
                         id: '',
                         nombre: '',
+                        descripcion:'',
+                        imagen:Object,
+                        estado: 1,
 
                     }
                 },
