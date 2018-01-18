@@ -16,6 +16,14 @@
                         {{--<input type="text" class="form-control" v-model="modulo.nombre"  :disabled="modulo.id !=''" required>--}}
                         <textarea class="form-control" v-model="modulo.descripcion" rows="4" style="resize: none"></textarea>
                     </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="modulo.id !=''">
+                        <label for="">Activo</label>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" v-model="modulo.estado">
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

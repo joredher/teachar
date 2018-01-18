@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function (){
 
             Route::get('modulos','ModulosController@index')->name('modulos');
             Route::post('obtener-modulos', 'ModulosController@obtener');
+            Route::post('guardar', 'ModulosController@guardar');
 
         });
 
