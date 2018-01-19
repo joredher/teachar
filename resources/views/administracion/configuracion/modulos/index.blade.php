@@ -68,7 +68,8 @@
                     id: '',
                     nombre: '',
                     descripcion:'',
-                    estado:1,
+                    imagen:Object,
+                    estado: 1,
 
                 },
 

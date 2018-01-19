@@ -16,7 +16,7 @@ class RegistroDocentesController extends Controller
         try{
             $request = json_decode($request->getContent());
             $docentes = User::Buscar($request->datos->busqueda)
-                ->orderBy('id','asc')->paginate(20);
+                ->orderBy('id','asc')->paginate(1);
 
             return response()->json($docentes);
         }catch (\Exception $exception){

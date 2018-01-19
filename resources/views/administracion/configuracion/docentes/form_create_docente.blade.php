@@ -37,7 +37,7 @@
                                 <td><span v-text="docente.name + docente.lastname"></span></td>
                                 <td><span v-text="docente.username"></span></td>
                                 <td><span v-text="docente.status"></span></td>
-                                <td><span v-text=""></span></td>
+                                <td><button class="btn btn-sm btn-warning " v-on:click="mostrarEditar(docente)" >Editar</button></td>
 
                             </tr>
                             </tbody>
@@ -59,10 +59,7 @@
             el : '#contenido',
             data:{
                 docentes:[],
-                modal:{
-                    title:'',
-                },
-                resource_url:'/administracion/configuracion/docentes/obtener-docentes',
+                resource_url: '/administracion/configuracion/obtener-docentes',
                 datos:{
                     busqueda:'',
                 },
@@ -74,26 +71,54 @@
                     username:'',
                     status:'',
                 },
+                docenteEnEdicion: '',
                 cargando: false
             },
             components:{
                 VPaginator: VuePaginator,
             },
             methods:{
-                updateResource(data){
-                    laddaButtonSearch.stop();
+
+                updateResource:function (data) {
+                    // this.modulos = Object.assign({},this.modulos,data);
+                    //laddaButtonSearch.stop();
                     this.docentes = data;
                 },
-                buscar(){
-                    laddaButtonSearch.start();
-                    app.$refs.vpaginator.fetchData(this.resource_url)
+
+                mostrarEditar: function (docente) {
+                    this.docenteEnEdicion = docente;
+                    this.docente = JSON.parse(JSON.stringify(docente));
+                    this.docente.status = (this.docente.status == 'Activo');
+                    $('#myModal').modal('show');
+
                 },
 
-                limpiarBusqueda(){
-                    this.datos.busqueda = '';
-                    laddaButtonSearch.start();
-                    this.$refs.vpaginator.fetchData(this.resource_url);
+                formReset : function () {
+                    this.docente ={
+                        id:'',
+                        identification:'',
+                        name:'',
+                        lastname:'',
+                        username:'',
+                        status:'',
+
+                    }
                 },
+
+                // updateResource(data){
+                //     // laddaButtonSearch.stop();
+                //     this.docentes = data;
+                // },
+                // buscar(){
+                //     // laddaButtonSearch.start();
+                //     app.$refs.vpaginator.fetchData(this.resource_url)
+                // },
+                //
+                // limpiarBusqueda(){
+                //     this.datos.busqueda = '';
+                //     // laddaButtonSearch.start();
+                //     this.$refs.vpaginator.fetchData(this.resource_url);
+                // },
             },
             // mounted(){
             //     $("#myModal").on("show.bs.modal", function () {
