@@ -66,7 +66,7 @@ class ModulosController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
-                    'descripcion' => 'required|max:150',
+                    'descripcion' => 'required|max:150',  // temporal ampliar cap
                     'estado' => 'required'
                 ]);
                 if ($validador->fails()){
