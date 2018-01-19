@@ -67,6 +67,9 @@
                 modulo :{
                     id: '',
                     nombre: '',
+                    descripcion:'',
+                    imagen:Object,
+                    estado: 1,
 
                 },
 
