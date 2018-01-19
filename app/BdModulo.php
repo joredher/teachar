@@ -11,4 +11,10 @@ class BdModulo extends Model
             ->orwhere('estado', 'like', $data. '%');
     }
 
+    public function setEstadoAttribute($value){
+        $estado = ($value) ? 1 : 2;
+        $this->attributes['estado'] = $estado;
+    }
+
+
 }

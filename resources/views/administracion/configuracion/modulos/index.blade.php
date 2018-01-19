@@ -107,6 +107,41 @@
                     }
                 },
 
+                guardar : function () {
+                    this.cargando = true;
+                    this.$http.post('/administracion/configuracion/guardar',this.modulo).then((response)=>{
+                        this.cargando = false;
+                        if (response.body.estado == 'ok'){
+                            if (response.body.tipo == 'update'){
+                                var index = this.modulos.indexOf(this.moduloEnEdicion);
+                                app.$refs.vpaginator.fetchData(this.resource_url);
+                                $('#myModal').modal('hide');
+                                this.formReset();
+                                toastr.success('Modelo Actializado Correctamente');
+                            }else {
+                                //nuevo
+                                this.modulo.id = response.body.id;
+                                this.formReset();
+                                app.$refs.vpaginator.fetchData(this.resource_url);
+                                toastr.success('Modulo Creado Correctamente');
+                                $('#myModal').modal('hide');
+                                this.formReset();
+                            }
+                        }else if (response.body.estado == 'validador'){
+                            errores = response.body.errors;
+                            jQuery.each(errores,function (i,value) {
+                                toastr.warning(i.toUpperCase()+": "+value)
+                            })
+                        }else{
+                            // errores = response.body.error;
+                            toastr.warning(response.body.error)
+                        }
+                    },(error)=>{
+                        this.cargando = false;
+                        toastr.error('error al hacer algo ::'+ error.status+ '' + error.statusText + '( '+error.url+')');
+                    });
+                },
+
 
             },
             mounted(){
