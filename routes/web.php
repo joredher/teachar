@@ -39,9 +39,9 @@ Route::group(['middleware' => 'auth'], function (){
 
 
             // temas
-            Route::get('temas','TemasController@index')->name('temas');
-            Route::post('obtener-temas', 'TemasController@obtener');
-            Route::post('guardar', 'TemasController@guardar');
+//            Route::get('temas','TemasController@index')->name('temas');
+//            Route::post('obtener-temas', 'TemasController@obtener');
+//            Route::post('guardar', 'TemasController@guardar');
 
 
 

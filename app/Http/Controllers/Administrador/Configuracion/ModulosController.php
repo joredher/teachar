@@ -21,8 +21,8 @@ class ModulosController extends Controller
         try{
             $request = json_decode($request->getContent());
             $modulos = BdModulo::Buscar($request->datos->busqueda)
-                ->orderBy('id','desc')
-                ->paginate(1);
+                ->orderBy('id','asc')
+                ->paginate(4);
 //dd($modulos);
             return response()->json($modulos);
 
