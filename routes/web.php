@@ -28,8 +28,9 @@ Route::group(['middleware' => 'auth'], function (){
         ->group(function (){
             Route::get('/', 'AdministradorController@index')->name('/');
 
-            Route::get('docentes','RegistroDocentesController@vIndex')->name('docentes');
-            Route::post('obtener-docentes','RegistroDocentesController@obtenerDocente');
+            Route::get('docentes','DocentesController@vIndex')->name('docentes');
+            Route::post('obtener-docentes','DocentesController@obtener');
+            Route::post('guardar-docente','DocentesController@guardar');
 
             // modulos
             Route::get('modulos','ModulosController@index')->name('modulos');
