@@ -100,6 +100,9 @@
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
+<script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
+<script src="{{asset('vendors/js/extensions/listjs/list.pagination.min.js')}}"></script>
+
 
 <script>
     Vue.use(VeeValidate);

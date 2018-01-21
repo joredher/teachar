@@ -8,3 +8,6 @@
 // Bootstrap
 //@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~bootstrap/scss/bootstrap";
+
+//Import Toastr uso global
+@import "../vendors/css/extensions/toastr.css";
