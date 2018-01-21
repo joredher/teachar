@@ -3,7 +3,7 @@
 	*{
 		background-image: url('../../imagenes/Mantenimiento.jpg');
 		background-repeat: no-repeat;
-		z-index: 9999999999999;
+        z-index: auto;
 
 	}
 
@@ -19,6 +19,9 @@
 
 @media screen and (min-width: 480px){
 
+	.btn-home{
+		padding: 5px 6px;
+	}
 
 }
 
@@ -34,10 +37,8 @@
     div{
         visibility: visible;
     }
-}
 
-@media screen and (min-width: 295px ) {
-	*{
-		z-index: auto;
-	}
+    .btn-home{
+        padding: 10px 30px;
+    }
 }

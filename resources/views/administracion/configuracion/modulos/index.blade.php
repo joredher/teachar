@@ -33,10 +33,10 @@
                             </thead>
                             <tbody>
                             <tr v-for="modulo in modulos" >
-                                <td>@{{ modulo.id }}</td>
-                                <td>@{{ modulo.nombre }}</td>
-                                <td>@{{ modulo.estado }}</td>
-                                <td>@{{ modulo.created_at }}</td>
+                                <td><span v-text="modulo.id"></span></td>
+                                <td><span v-text="modulo.nombre"></span></td>
+                                <td><span v-text="modulo.estado"></span></td>
+                                <td><span v-text="modulo.created_at"></span></td>
                                 <td><button class="btn btn-sm btn-warning " v-on:click="mostrarEditar(modulo)" >Editar</button></td>
                             </tr>
                             </tbody>

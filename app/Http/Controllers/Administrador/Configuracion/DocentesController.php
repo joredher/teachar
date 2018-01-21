@@ -20,7 +20,7 @@ class DocentesController extends Controller
             $request = json_decode($request->getContent());
             $docentes = User::Buscar($request->datos->busqueda)
                 ->orderBy('id','desc')
-                ->paginate(1);
+                ->paginate(4);
 
             return response()->json($docentes);
 

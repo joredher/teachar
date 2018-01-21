@@ -11,7 +11,7 @@
                                {{--<i class="icon ion-plus-circled white"></i>Crear--}}
                            {{--</a>--}}
                        {{--</div>--}}
-                       <button type="button" class="btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
+                       <button type="button" class="btn btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
                            <i class="fas fa-plus" aria-hidden="true"></i>
                            <span>Crear</span>
                        </button>
@@ -37,7 +37,7 @@
                                 <td><span v-text="docente.name + docente.lastname"></span></td>
                                 <td><span v-text="docente.username"></span></td>
                                 <td><span v-text="docente.status"></span></td>
-                                <td><button class="btn btn-sm btn-warning " v-on:click="Editar(docente)" >Editar</button></td>
+                                <td><button class="btn btn-sm btn-warning " @click="Editar(docente)" >Editar</button></td>
 
                             </tr>
                             </tbody>
@@ -74,6 +74,10 @@
 
                 },
 
+                modal:{
+                    title:'',
+                },
+
                 docenteEnEdicion : '',
                 cargando : false,
             },
@@ -93,8 +97,6 @@
                     this.docenteEnEdicion = docente;
                     this.docente = JSON.parse(JSON.stringify(docente));
                     this.docente.status = (this.docente.status == 'Activo');
-                    $('#myModal').modal('show');
-
                 },
 
                 formReset : function () {
@@ -150,6 +152,11 @@
                 var app = this;
                 $("#myModal").on("hidden.bs.modal", function () {
                     app.formReset();
+                });
+
+                $("#myModal").on("show.bs.modal", function () {
+                    app.modal.title = (app.docente.id != ''?'Edición de ':'Nuevo ') + 'Docente';
+//                    app.complementosConceptosCartera();
                 });
             }
         })
