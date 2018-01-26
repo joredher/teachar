@@ -34,10 +34,10 @@
                             <tbody>
                             <tr v-for="docente in docentes">
                                 <td><span v-text="docente.identification"></span></td>
-                                <td><span v-text="docente.name + docente.lastname"></span></td>
+                                <td><span v-text="docente.name +' '+docente.last_name"></span></td>
                                 <td><span v-text="docente.username"></span></td>
                                 <td><span v-text="docente.status"></span></td>
-                                <td><button class="btn btn-sm btn-warning " @click="Editar(docente)" >Editar</button></td>
+                                <td><button class="btn btn-sm btn-warning " @click="mostrarEditar(docente)" >Editar</button></td>
 
                             </tr>
                             </tbody>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <v-paginator ref="vpaginator" :resource="resource_url" @update="updateResource" :datos="datos"></v-paginator>
+                <v-paginator ref="vpaginator" :resource_url="resource_url" @update="updateResource" :datos="datos"></v-paginator>
             </div>
         </div>
         @include('administracion.configuracion.docentes.modal.form_create')
@@ -93,7 +93,7 @@
                     this.docentes = data;
                 },
 
-                Editar: function (docente) {
+                mostrarEditar: function (docente) {
                     this.docenteEnEdicion = docente;
                     this.docente = JSON.parse(JSON.stringify(docente));
                     this.docente.status = (this.docente.status == 'Activo');

@@ -63,7 +63,7 @@ class User extends Authenticatable
     public function scopeBuscar($query, $data){
         return $query->where('identification', 'like', '%'.$data.'%')
                     ->orWhere('name', 'like', '%'.$data.'%')
-                    ->orWhere('lastname', 'like', '%'.$data.'%')
+                    ->orWhere('last_name', 'like', '%'.$data.'%')
                     ->orWhere('username', 'like', '%'.$data.'%');
     }
 
