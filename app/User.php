@@ -64,7 +64,13 @@ class User extends Authenticatable
         return $query->where('identification', 'like', '%'.$data.'%')
                     ->orWhere('name', 'like', '%'.$data.'%')
                     ->orWhere('last_name', 'like', '%'.$data.'%')
-                    ->orWhere('username', 'like', '%'.$data.'%');
+                    ->orWhere('username', 'like', '%'.$data.'%')
+                    ->orWhere('state', 'like', '%'.$data.'%');
+    }
+
+    public function setEstadoAttribute($value){
+        $state = ($value) ? 1 : 2;
+        $this->attributes['state'] = $state;
     }
 
 

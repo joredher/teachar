@@ -1,5 +1,5 @@
 <form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="display: inline-block">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -7,31 +7,47 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
                         <label for="">Identificación </label>
                         <input type="number" class="form-control" v-model="docente.identification" :disabled="docente.id !=''" v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
                         <label for="">Nombre </label>
                         <input type="text" class="form-control" v-model="docente.name"  v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
                         <label for="">Apellido </label>
-                        <input type="text" class="form-control" v-model="docente.lastname" v-validate="'required'">
+                        <input type="text" class="form-control" v-model="docente.last_name" v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
                         <label for="">Nombre de Usuario </label>
                         {{--<input type="text" class="form-control" v-model="modulo.nombre"  :disabled="modulo.id !=''" required>--}}
-                        <input type="text" class="form-control" v-model="docente.username" rows="4" style="resize: none">
+                        <input type="text" class="form-control" v-model="docente.username" v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="docente.id !=''">
-                        <label for="">Activo</label>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" v-model="docente.status">
-                            </label>
-                        </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="">Correo Electónico</label>
+                        <input type="email" class="form-control" v-model="docente.email" v-validate="'required'">
                     </div>
+                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">--}}
+                        {{--<label for="">Contraseña</label>--}}
+                        {{--<input type="email" class="form-control" v-model="docente.password" v-validate="'required'">--}}
+                    {{--</div>--}}
+                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">--}}
+                        {{--<label for="">Repetir Contraseña</label>--}}
+                        {{--<input type="email" class="form-control" v-model="docente.password" v-validate="'required'">--}}
+                    {{--</div>--}}
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label for="">Estado</label>
+                        <switch-bs id="state" :value="docente.state" @update:value="val => docente.state = val"></switch-bs>
+                    </div>
+                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="docente.id !=''">--}}
+                        {{--<label for="">Activo</label>--}}
+                        {{--<div class="checkbox">--}}
+                            {{--<label>--}}
+                                {{--<input type="checkbox" v-model="docente.state">--}}
+                            {{--</label>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <div class="modal-footer">

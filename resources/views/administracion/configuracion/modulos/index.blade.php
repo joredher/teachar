@@ -37,7 +37,7 @@
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
                                 <td><span v-text="modulo.created_at"></span></td>
-                                <td><button class="btn btn-sm btn-warning " v-on:click="mostrarEditar(modulo)" >Editar</button></td>
+                                <td><button class="btn btn-sm btn-info " v-on:click="mostrarEditar(modulo)" >Editar</button></td>
                             </tr>
                             </tbody>
 
@@ -72,7 +72,9 @@
                     estado: 1,
 
                 },
-
+                modal:{
+                    title:'',
+                },
                 moduloEnEdicion : '',
                 cargando : false,
             },
@@ -148,6 +150,10 @@
                 var app = this;
                 $("#myModal").on("hidden.bs.modal", function () {
                     app.formReset();
+                });
+
+                $("#myModal").on("show.bs.modal", function () {
+                    app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
                 });
             }
         })

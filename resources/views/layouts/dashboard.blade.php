@@ -23,6 +23,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
     {{--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>--}}
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/switchery.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/plugins/forms/switch.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/colors/palette-switch.min.css" rel="stylesheet" />
     <script defer src="{{ asset('js/fontawesome.js') }}"></script>
 </head>
 <body class="capaFondo">
@@ -102,6 +106,8 @@
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
 <script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
 <script src="{{asset('vendors/js/extensions/listjs/list.pagination.min.js')}}"></script>
+<script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+
 
 
 <script>

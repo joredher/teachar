@@ -36,8 +36,8 @@
                                 <td><span v-text="docente.identification"></span></td>
                                 <td><span v-text="docente.name +' '+docente.last_name"></span></td>
                                 <td><span v-text="docente.username"></span></td>
-                                <td><span v-text="docente.status"></span></td>
-                                <td><button class="btn btn-sm btn-warning " @click="mostrarEditar(docente)" >Editar</button></td>
+                                <td><span v-text="docente.state"></span></td>
+                                <td><button class="btn btn-sm btn-info " @click="mostrarEditar(docente)" >Editar</button></td>
 
                             </tr>
                             </tbody>
@@ -55,6 +55,7 @@
 @endsection
 
 @section('scripts')
+    @include('helpers.switch')
     <script>
         var app = new Vue({
             el: '#contenido',
@@ -70,7 +71,9 @@
                     name:'',
                     lastname:'',
                     username:'',
-                    status:'',
+                    email:'',
+                    // password:'',
+                    state:'',
 
                 },
 
@@ -96,7 +99,9 @@
                 mostrarEditar: function (docente) {
                     this.docenteEnEdicion = docente;
                     this.docente = JSON.parse(JSON.stringify(docente));
-                    this.docente.status = (this.docente.status == 'Activo');
+                    this.docente.state = (this.docente.state == 'Activo');
+                    $('#myModal').modal('show');
+
                 },
 
                 formReset : function () {
@@ -106,7 +111,9 @@
                         name:'',
                         lastname:'',
                         username:'',
-                        status:'',
+                        email:'',
+                        // password:'',
+                        state:'',
 
                     }
                 },
@@ -156,80 +163,8 @@
 
                 $("#myModal").on("show.bs.modal", function () {
                     app.modal.title = (app.docente.id != ''?'Edición de ':'Nuevo ') + 'Docente';
-//                    app.complementosConceptosCartera();
                 });
             }
         })
-        // var app = new Vue({
-        //     el : '#contenido',
-        //     data:{
-        //         docentes:[],
-        //         resource_url: '/administracion/configuracion/obtener-docentes',
-        //         datos:{
-        //             busqueda:'',
-        //         },
-        //         docente:{
-        //             id:'',
-        //             identification:'',
-        //             name:'',
-        //             lastname:'',
-        //             username:'',
-        //             status:'',
-        //         },
-        //         docenteEnEdicion: '',
-        //         cargando: false
-        //     },
-        //     components:{
-        //         VPaginator: VuePaginator,
-        //     },
-        //     methods:{
-        //
-        //         updateResource:function (data) {
-        //             // this.modulos = Object.assign({},this.modulos,data);
-        //             //laddaButtonSearch.stop();
-        //             this.docentes = data;
-        //         },
-        //
-        //         mostrarEditar: function (docente) {
-        //             this.docenteEnEdicion = docente;
-        //             this.docente = JSON.parse(JSON.stringify(docente));
-        //             this.docente.status = (this.docente.status == 'Activo');
-        //             $('#myModal').modal('show');
-        //
-        //         },
-        //
-        //         formReset : function () {
-        //             this.docente ={
-        //                 id:'',
-        //                 identification:'',
-        //                 name:'',
-        //                 lastname:'',
-        //                 username:'',
-        //                 status:'',
-        //
-        //             }
-        //         },
-        //
-        //         // updateResource(data){
-        //         //     // laddaButtonSearch.stop();
-        //         //     this.docentes = data;
-        //         // },
-        //         // buscar(){
-        //         //     // laddaButtonSearch.start();
-        //         //     app.$refs.vpaginator.fetchData(this.resource_url)
-        //         // },
-        //         //
-        //         // limpiarBusqueda(){
-        //         //     this.datos.busqueda = '';
-        //         //     // laddaButtonSearch.start();
-        //         //     this.$refs.vpaginator.fetchData(this.resource_url);
-        //         // },
-        //     },
-        //     // mounted(){
-        //     //     $("#myModal").on("show.bs.modal", function () {
-        //     //         // this.modal.title = (this.docente.id != ''?'Edición de ':'Nuevo ') + 'Cliente';
-        //     //     });
-        //     // }
-        // })
     </script>
 @endsection

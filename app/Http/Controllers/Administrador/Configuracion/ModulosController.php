@@ -23,7 +23,7 @@ class ModulosController extends Controller
             $modulos = BdModulo::Buscar($request->datos->busqueda)
                 ->orderBy('id','asc')
                 ->paginate(4);
-//dd($modulos);
+                //dd($modulos);
             return response()->json($modulos);
 
         }catch (\Exception $exception){
