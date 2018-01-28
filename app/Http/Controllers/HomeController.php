@@ -40,7 +40,7 @@ class HomeController extends Controller
 //        }
 
 //        return view('home');
-
+//        $request->user()->authorizeRoles(['admin']);
         return view('administracion.configuracion.index');
     }
 }

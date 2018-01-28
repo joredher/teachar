@@ -12,9 +12,14 @@ use Illuminate\Validation\Rule;
 
 class ModulosController extends Controller
 {
-    public function index(){
-        return view('administracion.configuracion.modulos.index');
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    public function index(Request $request){
+        $request->user()->authorizeRoles('admin');
+        return view('administracion.configuracion.modulos.index');
     }
 
     public function obtener(Request $request){

@@ -9,34 +9,69 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+//    public function roles(){
+//        return $this->belongsToMany('App\Role')->withTimestamps();
+//    }
+
+
+
     public function roles(){
-        return $this->belongsToMany('App\Role')->withTimestamps();
+        return $this->belongsToMany('App\Role','role_user')->withTimestamps();
+    }
+//
+//    public function authorizeRoles($roles)
+//    {
+//        if (is_array($roles)) {
+//            return $this->hasAnyRole($roles) ||
+//                abort(401, 'Acción no autorizada.');
+//        }
+//        return $this->hasRole($roles) ||
+//            abort(401, 'Acción no autorizada.');
+//    }
+////    /**
+////     * Check multiple roles
+////     * @param array $roles
+////     */
+//    public function hasAnyRole($roles)
+//    {
+//        return null !== $this->roles()->whereIn('name', $roles)->first();
+//    }
+////    /**
+////     * Check one role
+////     * @param string $role
+////     */
+//    public function hasRole($role)
+//    {
+//        return null !== $this->roles()->where('name', $role)->first();
+//    }
+
+    public function authorizeRoles($roles){
+        if ($this->hasAnyRole($roles)){
+            return true;
+        }
+        abort(401, 'Está acción no está autorizada.');
     }
 
-    public function authorizeRoles($roles)
-    {
-        if (is_array($roles)) {
-            return $this->hasAnyRole($roles) ||
-                abort(401, 'Acción no autorizada.');
+    public function hasAnyRole($roles){
+        if (is_array($roles)){
+            foreach ($roles as $role){
+                if ($this->hasRole($role)){
+                    return true;
+                }
+            }
+        }else{
+            if ($this->hasRole($roles)){
+                return true;
+            }
         }
-        return $this->hasRole($roles) ||
-            abort(401, 'Acción no autorizada.');
+        return false;
     }
-//    /**
-//     * Check multiple roles
-//     * @param array $roles
-//     */
-    public function hasAnyRole($roles)
-    {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
-    }
-//    /**
-//     * Check one role
-//     * @param string $role
-//     */
-    public function hasRole($role)
-    {
-        return null !== $this->roles()->where('name', $role)->first();
+
+    public function hasRole($role){
+        if ($this->roles()->where('name', $role)->first()){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -61,7 +96,8 @@ class User extends Authenticatable
 //    protected $table = 'users';
 
     public function scopeBuscar($query, $data){
-        return $query->where('identification', 'like', '%'.$data.'%')
+        return $query
+                    ->where('identification', 'like', '%'.$data.'%')
                     ->orWhere('name', 'like', '%'.$data.'%')
                     ->orWhere('last_name', 'like', '%'.$data.'%')
                     ->orWhere('username', 'like', '%'.$data.'%')
