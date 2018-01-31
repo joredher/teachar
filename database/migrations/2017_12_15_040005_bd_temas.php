@@ -16,7 +16,7 @@ class BdTemas extends Migration
         Schema::create('bd_temas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre')->unique();
-            $table->string('contenido')->unique();
+            $table->string('contenido');
             $table->integer('modulo_id')->unsigned();
             $table->foreign('modulo_id')->references('id')->on('bd_modulos')
                 ->onUpdate('cascade')->onDelete('cascade');

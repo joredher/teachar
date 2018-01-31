@@ -16,8 +16,13 @@ class User extends Authenticatable
 
 
     public function roles(){
-        return $this->belongsToMany('App\Role','role_user')->withTimestamps();
+        return $this->belongsToMany('App\Role','role_user','user_id','role_id')->withTimestamps();
     }
+
+    public function user(){
+        return $this->belongsTo('App\User','user_id','id');
+    }
+
 //
 //    public function authorizeRoles($roles)
 //    {

@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function (){
 
             Route::get('docentes','DocentesController@vIndex')->name('docentes');
             Route::post('obtener-docentes','DocentesController@obtener');
-            Route::post('guardar-docente','DocentesController@guardar');
+            Route::post('guardar-docente','DocentesController@guardarDocente');
 
             // modulos
             Route::get('modulos','ModulosController@index')->name('modulos');

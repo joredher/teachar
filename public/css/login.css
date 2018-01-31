@@ -476,7 +476,8 @@ footer p{
 
 @media screen and (min-width: 767px) {
     .capaFondo{
-        background-size: 250%;
+        background-size: 270%;
+        /*background-size: 250%;*/
     }
 
 .loggin{
@@ -611,7 +612,8 @@ footer p{
 @media screen and (min-width: 950px) {
 
     .capaFondo{
-        background-size: 200%;
+        background-size: 250%;
+        /*background-size: 200%;*/
     }
 
 .loggin{
@@ -745,6 +747,8 @@ footer p{
 
 @media screen and (min-width: 1024px){
     .capaFondo{
-        background-size: 125%;
+		background-size: 195%;
+        /*background-size: 125%;*/
+        /*background-size: 125%;*/
     }
 }

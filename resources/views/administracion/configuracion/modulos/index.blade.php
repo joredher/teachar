@@ -11,7 +11,7 @@
                         {{--<i class="icon ion-plus-circled white"></i>Crear--}}
                         {{--</a>--}}
                         {{--</div>--}}
-                        <button type="button" class="btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
+                        <button type="button" class="btn btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                             <span>Crear</span>
                         </button>
@@ -54,6 +54,7 @@
 @endsection
 
 @section('scripts')
+    @include('helpers.switch')
     <script>
 
         var app = new Vue({

@@ -7,47 +7,30 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Identificación </label>
                         <input type="number" class="form-control" v-model="docente.identification" :disabled="docente.id !=''" v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Nombre </label>
                         <input type="text" class="form-control" v-model="docente.name"  v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Apellido </label>
                         <input type="text" class="form-control" v-model="docente.last_name" v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
                         <label for="">Nombre de Usuario </label>
-                        {{--<input type="text" class="form-control" v-model="modulo.nombre"  :disabled="modulo.id !=''" required>--}}
-                        <input type="text" class="form-control" v-model="docente.username" v-validate="'required'">
+                        <input type="text" class="form-control" v-model="docente.username" v-validate="'required'" :disabled="docente.id !=''">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <label for="">Correo Electónico</label>
                         <input type="email" class="form-control" v-model="docente.email" v-validate="'required'">
                     </div>
-                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">--}}
-                        {{--<label for="">Contraseña</label>--}}
-                        {{--<input type="email" class="form-control" v-model="docente.password" v-validate="'required'">--}}
-                    {{--</div>--}}
-                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">--}}
-                        {{--<label for="">Repetir Contraseña</label>--}}
-                        {{--<input type="email" class="form-control" v-model="docente.password" v-validate="'required'">--}}
-                    {{--</div>--}}
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Estado</label>
-                        <switch-bs id="state" :value="docente.state" @update:value="val => docente.state = val"></switch-bs>
+                        <switch-ts id="state" :value="docente.state" @update:value="val => docente.state = val"></switch-ts>
                     </div>
-                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="docente.id !=''">--}}
-                        {{--<label for="">Activo</label>--}}
-                        {{--<div class="checkbox">--}}
-                            {{--<label>--}}
-                                {{--<input type="checkbox" v-model="docente.state">--}}
-                            {{--</label>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                 </div>
             </div>
             <div class="modal-footer">
