@@ -69,10 +69,10 @@
                     id:'',
                     identification:'',
                     name:'',
-                    lastname:'',
+                    last_name:'',
                     username:'',
                     email:'',
-                    // password:'',
+                    password: '',
                     state:'',
 
                 },
@@ -109,10 +109,10 @@
                         id:'',
                         identification:'',
                         name:'',
-                        lastname:'',
+                        last_name:'',
                         username:'',
                         email:'',
-                        // password:'',
+                        password: '',
                         state:'',
 
                     }
@@ -138,7 +138,7 @@
                                 $('#myModal').modal('hide');
                                 this.formReset();
                             }
-                        }else if (response.body.status == 'validador'){
+                        }else if (response.body.estado == 'validador'){
                             errores = response.body.errors;
                             jQuery.each(errores,function (i,value) {
                                 toastr.warning(i.toUpperCase()+": "+value)

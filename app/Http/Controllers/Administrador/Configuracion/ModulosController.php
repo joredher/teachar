@@ -86,7 +86,7 @@ class ModulosController extends Controller
                 $modulo -> descripcion = $request->descripcion;
                 $modulo -> imagen = $request->estado;
                 $modulo -> estado = $request->estado;
-                $modulo -> user_id =Auth::user()->id;
+                $modulo -> user_id = Auth::user()->id;
                 $modulo -> save();
 
                 return response()->json([

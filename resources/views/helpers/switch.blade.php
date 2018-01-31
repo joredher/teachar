@@ -8,7 +8,7 @@
     </fieldset>
 </script>
 <script>
-    Vue.component('switch-bs', {
+    Vue.component('switch-ts', {
         template: '#switch',
         props:['id','value', 'labelon', 'labeloff', 'disabled', 'type','classcontent'],
         data: function () {
