@@ -36,7 +36,7 @@
                                 <td><span v-text="modulo.id"></span></td>
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
-                                <td><span v-text="modulo.created_at"></span></td>
+                                <td><span v-text="modulo.fecha"></span></td>
                                 <td><button class="btn btn-sm btn-info " v-on:click="mostrarEditar(modulo)" >Editar</button></td>
                             </tr>
                             </tbody>
@@ -69,6 +69,7 @@
                     id: '',
                     nombre: '',
                     descripcion:'',
+                    fecha:'',
                     imagen:Object,
                     estado: 1,
 
@@ -104,6 +105,7 @@
                         id: '',
                         nombre: '',
                         descripcion:'',
+                        fecha:'',
                         imagen:Object,
                         estado: 1,
 

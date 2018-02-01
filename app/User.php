@@ -4,15 +4,22 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Jenssegers\Date\Date;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $appends = ['fecha'];
 //    public function roles(){
 //        return $this->belongsToMany('App\Role')->withTimestamps();
 //    }
 
+
+    public function getFechaAttribute(){
+        $fecha = new Date($this->created_at);
+        return $fecha->format('d \d\e F');
+    }
 
 
     public function roles(){
