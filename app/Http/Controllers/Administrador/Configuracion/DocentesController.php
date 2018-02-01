@@ -26,11 +26,12 @@ class DocentesController extends Controller
     public function obtener(Request $request){
         try{
             $request = json_decode($request->getContent());
-            $docentes = User::Buscar($request->datos->busqueda)->with('roles')->orderBy('id','asc')->paginate(6);
-//                ->orderBy('id','asc')
-//                ->paginate(4);
+            $users = User::Buscar($request->datos->busqueda)->with('roles')->orderBy('id','asc')->paginate(6);
+//            $users = User::whereHas('roles', function ($query){
+//               $query->where('name','profe');
+//            })->paginate(6);
 
-            return response()->json($docentes);
+            return response()->json($users);
 
         }catch (\Exception $exception){
             return response()->json($exception);
@@ -98,13 +99,6 @@ class DocentesController extends Controller
                 $docente -> save();
                 $docente -> roles()->attach(2);
 
-                foreach ($docente->roles()->get() as $rol){
-                    var_dump($rol->name);
-                }
-//                dd($request->$docente); //                $docente -> user_id = Auth::user()->id;
-
-
-
                 return response()->json([
                     'estado' => 'ok',
                     'id' => $docente->id,
@@ -119,3 +113,8 @@ class DocentesController extends Controller
         }
     }
 }
+
+//                foreach ($docente->roles()->get() as $rol){
+//                    var_dump($rol->name);
+//                }
+////                dd($request->$docente); //                $docente -> user_id = Auth::user()->id;

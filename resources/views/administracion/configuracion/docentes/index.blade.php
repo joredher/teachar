@@ -74,13 +74,11 @@
                     email:'',
                     password: '',
                     state:'',
-
                 },
 
                 modal:{
                     title:'',
                 },
-
                 docenteEnEdicion : '',
                 cargando : false,
             },
@@ -91,9 +89,8 @@
 
             methods:{
                 updateResource:function (data) {
-                    // this.modulos = Object.assign({},this.modulos,data);
-                    //laddaButtonSearch.stop();
                     this.docentes = data;
+                    console.log(data)
                 },
 
                 mostrarEditar: function (docente) {

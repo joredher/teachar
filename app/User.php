@@ -19,9 +19,9 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role','role_user','user_id','role_id')->withTimestamps();
     }
 
-    public function user(){
-        return $this->belongsTo('App\User','user_id','id');
-    }
+//    public function user(){
+//        return $this->belongsTo('App\User','user_id','id');
+//    }
 
 //
 //    public function authorizeRoles($roles)
@@ -101,12 +101,16 @@ class User extends Authenticatable
 //    protected $table = 'users';
 
     public function scopeBuscar($query, $data){
-        return $query
-                    ->where('identification', 'like', '%'.$data.'%')
-                    ->orWhere('name', 'like', '%'.$data.'%')
-                    ->orWhere('last_name', 'like', '%'.$data.'%')
-                    ->orWhere('username', 'like', '%'.$data.'%')
-                    ->orWhere('state', 'like', '%'.$data.'%');
+        return $query->where(function ($query) use ($data){
+            $query->where('identification', 'like', '%'.$data.'%')
+                ->orWhere('name', 'like', '%'.$data.'%')
+                ->orWhere('last_name', 'like', '%'.$data.'%')
+                ->orWhere('username', 'like', '%'.$data.'%')
+                ->orWhere('state', 'like', '%'.$data.'%');
+        })->whereHas('roles', function ($query){
+            $query->where('name','profe');
+        });
+
     }
 
     public function setEstadoAttribute($value){
