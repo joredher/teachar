@@ -72,6 +72,7 @@ input[type="text"], input[type="password"]{
 	background-color: rgba(255, 255, 255, 0.6);
 	padding-top: 5px;
 	padding-left: 25px;
+	outline: none;
 }
 
 .efecto-login{
@@ -124,6 +125,7 @@ input[type="text"], input[type="password"]{
 	border-radius: 4px;
 	background-color: #2ECC71;
 	border-bottom: 4px solid #27AE60;
+	outline: none;
 	}
 
 /*.btn_login:hover{*/
@@ -145,7 +147,7 @@ input[type="text"], input[type="password"]{
 {
 	transform: translate(0px,5px);
 	-webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+	border-bottom: 1px solid #2ECC71;
 }
 
 footer{
