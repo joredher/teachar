@@ -18,6 +18,7 @@
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Módulo </label>
                         <select name="" id="" class="form-control" v-model="tema.modulo_id" v-validate="'required'">
+                            <option value="" disabled>Seleccionar Opción </option>
                             <option v-for="modulo in modulos" v-bind:value="modulo.id" v-text="modulo.nombre"></option>
                         </select>
                     </div>

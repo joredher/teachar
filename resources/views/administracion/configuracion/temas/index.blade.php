@@ -1,16 +1,31 @@
 @extends('layouts.dashboard')
 
+@section('estilos')
+    <style type="text/css">
+        .form-control:focus{
+            outline: none;
+            background-color: #fff;
+            border-color: #CED4DA;
+            box-shadow: none;
+        }
+
+        .btn:focus{
+            outline: none;
+            box-shadow: none;
+        }
+
+        .btn{
+            cursor: pointer;
+        }
+    </style>
+@endsection
+
 @section('contenido')
     <section id="contenido">
         <div class="card">
             <div class="card-header pb-3">
                 <div class="row">
                     <div class="col-md-2 col-sm-4 col-xs-12 float-xs-left">
-                        {{--<div class="md-form form-group">--}}
-                        {{--<a href="" class="btn btn-primary btn-lg">--}}
-                        {{--<i class="icon ion-plus-circled white"></i>Crear--}}
-                        {{--</a>--}}
-                        {{--</div>--}}
                         <button type="button" class="btn btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
                             <i class="fas fa-plus" aria-hidden="true"></i>
                             <span>Crear</span>
@@ -35,7 +50,7 @@
                             <tr v-for="tema in temas" >
                                 <td><span v-text="tema.id"></span></td>
                                 <td><span v-text="tema.nombre"></span></td>
-                                <td><span v-text="tema.contenido"></span></td>
+                                <td><span v-text="tema.estado"></span></td>
                                 <td><span v-text="tema.fecha"></span></td>
                                 <td><button class="btn btn-sm btn-info " v-on:click="mostrarEditar(tema)" >Editar</button></td>
                             </tr>

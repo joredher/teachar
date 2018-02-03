@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <!-- Link de Iconos: http://ionicons.com/#cdn -->
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/dashboardMediaQuery.css') }}">
     {{--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
@@ -27,6 +28,9 @@
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/switchery.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/plugins/forms/switch.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/colors/palette-switch.min.css" rel="stylesheet" />
+
+    @yield('estilos')
+
     <script defer src="{{ asset('js/fontawesome.js') }}"></script>
 </head>
 <body class="capaFondo">
@@ -104,6 +108,7 @@
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
+<script src="{{asset('js/toastr.js')}}"></script>
 <script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
 <script src="{{asset('vendors/js/extensions/listjs/list.pagination.min.js')}}"></script>
 <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>

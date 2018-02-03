@@ -1,5 +1,25 @@
 @extends('layouts.dashboard')
 
+@section('estilos')
+    <style type="text/css">
+        .form-control:focus{
+            outline: none;
+            background-color: #fff;
+            border-color: #CED4DA;
+            box-shadow: none;
+        }
+
+        .btn:focus{
+            outline: none;
+            box-shadow: none;
+        }
+
+        .btn{
+            cursor: pointer;
+        }
+    </style>
+@endsection
+
 @section('contenido')
     <section id="contenido">
         <div class="card">
