@@ -24,20 +24,27 @@
                         <table class="table table-hover">
                             <thead class="bg-info bg-light">
                             <tr>
-                                <th>Identificación</th>
-                                <th>Nombre Completo</th>
-                                <th>Username</th>
-                                <th>Estado</th>
-                                <th>Opciones</th>
+                                <th class="text-left">Identificación</th>
+                                <th class="text-left">Nombre Completo</th>
+                                <th class="text-center">Username</th>
+                                <th class="text-left">Estado</th>
+                                <th class="text-left">Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="docente in docentes">
-                                <td><span v-text="docente.identification"></span></td>
-                                <td><span v-text="docente.name +' '+docente.last_name"></span></td>
-                                <td><span v-text="docente.username"></span></td>
-                                <td><span v-text="docente.state"></span></td>
-                                <td><button class="btn btn-sm btn-info " @click="mostrarEditar(docente)" >Editar</button></td>
+                            <tr v-for="(docente, index) in docentes">
+                                <td class="text-left"><span class="text-right" v-text="docente.identification"></span></td>
+                                <td class="text-left"><span v-text="docente.name +' '+docente.last_name"></span></td>
+                                <td class="text-center"><span v-text="docente.username"></span></td>
+                                <td class="text-left"><span v-text="docente.state"></span></td>
+                                <td class="row mr-auto text-center pl-4">
+                                    <div class="col-xs-1 pr-1">
+                                        <button class="btn btn-sm btn-info " @click="mostrarEditar(docente, index)" ><i class="fas fa-edit"></i></button>
+                                    </div>
+                                    <div class="col-xs-1 pl-1">
+                                        <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(docente, index)"><i class="fas fa-trash-alt" ></i></button>
+                                    </div>
+                                </td>
 
                             </tr>
                             </tbody>
@@ -93,14 +100,6 @@
                     console.log(data)
                 },
 
-                mostrarEditar: function (docente) {
-                    this.docenteEnEdicion = docente;
-                    this.docente = JSON.parse(JSON.stringify(docente));
-                    this.docente.state = (this.docente.state == 'Activo');
-                    $('#myModal').modal('show');
-
-                },
-
                 formReset : function () {
                     this.docente ={
                         id:'',
@@ -148,6 +147,37 @@
                         this.cargando = false;
                         toastr.error('error al hacer algo ::'+ error.status+ '' + error.statusText + '( '+error.url+')');
                     });
+                },
+
+                mostrarEditar: function (docente, index) {
+                    this.docenteEnEdicion = docente;
+                    this.docente = JSON.parse(JSON.stringify(docente));
+                    this.docente.state = (this.docente.state == 'Activo');
+                    $('#myModal').modal('show');
+
+                },
+
+                eliminarDato(docente, index){
+                    // this.docentes.splice(docente, 1);
+
+                    // console.log('Eliminar ' + index);
+                    // this.docentes.splice(index, 1);
+                    var vue = this;
+
+                    // console.log(docente.id);
+
+                    var params ={
+                        'id': this.docentes[docente, index].id,
+                        '_method': 'DELETE',
+                        '_token': $('meta[name=csrf-token]').attr('contenido')
+                    };
+
+                    this.$http.post('/administracion/configuracion/docentes', params, function (data) {
+                        if (data.success){
+                            vue.docentes.splice(vue.docentes.indexOf(docente, index), 1);
+                        }
+                    }, 'json');
+
                 },
 
 

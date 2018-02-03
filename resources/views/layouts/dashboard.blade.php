@@ -58,7 +58,7 @@
                     </li>
                     <li class="nav-item">
                     <span>
-                        <a class="nav-link" href="#"><i class="fas fa-window-restore"></i> Temas</a>
+                        <a class="nav-link" href="{{ URL::route('temas') }}"><i class="fas fa-window-restore"></i> Temas</a>
                     </span>
                     </li>
 

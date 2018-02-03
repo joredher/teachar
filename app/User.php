@@ -120,7 +120,7 @@ class User extends Authenticatable
 
     }
 
-    public function setEstadoAttribute($value){
+    public function setStateAttribute($value){
         $state = ($value) ? 1 : 2;
         $this->attributes['state'] = $state;
     }

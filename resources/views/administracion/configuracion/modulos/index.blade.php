@@ -114,7 +114,7 @@
 
                 guardar : function () {
                     this.cargando = true;
-                    this.$http.post('/administracion/configuracion/guardar',this.modulo).then((response)=>{
+                    this.$http.post('/administracion/configuracion/guardar-modulo',this.modulo).then((response)=>{
                         this.cargando = false;
                         if (response.body.estado == 'ok'){
                             if (response.body.tipo == 'update'){

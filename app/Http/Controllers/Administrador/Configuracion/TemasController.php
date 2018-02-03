@@ -3,14 +3,13 @@
 namespace App\Http\Controllers\Administrador\Configuracion;
 
 use App\BdModulo;
+use App\BdTema;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
-
-class ModulosController extends Controller
+class TemasController extends Controller
 {
     public function __construct()
     {
@@ -19,23 +18,32 @@ class ModulosController extends Controller
 
     public function index(Request $request){
         $request->user()->authorizeRoles('admin');
-        return view('administracion.configuracion.modulos.index');
+        return view('administracion.configuracion.temas.index');
     }
 
-    public function obtener(Request $request){
+    public function obtenerTemas(Request $request){
         try{
             $request = json_decode($request->getContent());
-            $modulos = BdModulo::Buscar($request->datos->busqueda)
+            $temas = BdTema::Buscar($request->datos->busqueda)->with('BdModulo')
                 ->orderBy('id','asc')
                 ->paginate(4);
-                //dd($modulos);
-            return response()->json($modulos);
+            //dd($modulos);
+            return response()->json($temas);
 
         }catch (\Exception $exception){
             return response()->json($exception);
         }
     }
 
+    public function obtenerComplemento(){
+        try{
+            return response()->json([
+                'modulos' => BdModulo::all()
+            ]);
+        }catch (\Exception $exception){
+            return response()->json($exception);
+        }
+    }
 
     public function guardar(Request $request){
         try{
@@ -43,9 +51,8 @@ class ModulosController extends Controller
                 //update
                 $validador = Validator::make($request->all(),
                     [
-                        'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
-                        'descripcion' => 'required|max:150',
-                        'estado' => 'required'
+                        'nombre' => ['required', Rule::unique('bd_temas')->ignore($request->id)],
+                        'contenido' => 'required|max:150',
                     ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -54,24 +61,24 @@ class ModulosController extends Controller
                     ]);
                 }
 
-                $modulo = BdModulo::find($request->id);
-                $modulo -> nombre = $request->nombre;
-                $modulo -> descripcion = $request->descripcion;
-                $modulo -> estado = $request->estado;
-                $modulo -> save();
+                $tema = BdTema::find($request->id);
+                $tema -> nombre = $request->nombre;
+                $tema -> contenido = $request->contenido;
+                $tema -> estado = $request->estado;
+                $tema -> modulo_id = $request->modulo_id;
+                $tema -> save();
 
                 return response()->json([
                     'estado' => 'ok',
-                    'id' => $modulo ->id,
+                    'id' => $tema ->id,
                     'tipo' => 'update'
                 ]);
 
             }else{
                 //Create
                 $validador = Validator::make($request->all(),[
-                    'nombre' =>  'required | unique:bd_modulos',
-                    'descripcion' => 'required|max:150',  // temporal ampliar cap
-                    'estado' => 'required'
+                    'nombre' =>  'required | unique:bd_temas',
+                    'contenido' => 'required|max:150',
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -80,17 +87,17 @@ class ModulosController extends Controller
                     ]);
                 }
 
-                $modulo = new BdModulo();
-                $modulo -> nombre = $request->nombre;
-                $modulo -> descripcion = $request->descripcion;
-                $modulo -> imagen = $request->estado;
-                $modulo -> estado = $request->estado;
-                $modulo -> user_id = Auth::user()->id;
-                $modulo -> save();
+                $tema = new BdTema();
+                $tema -> nombre = $request->nombre;
+                $tema -> contenido = $request->contenido;
+                $tema -> estado = $request->estado;
+                $tema -> modulo_id = $request->modulo_id;
+                $tema -> save();
+
 
                 return response()->json([
                     'estado' => 'ok',
-                    'id' => $modulo-> id,
+                    'id' => $tema-> id,
                     'tipo' => 'save',
                 ]);
             }
@@ -101,12 +108,4 @@ class ModulosController extends Controller
             ]);
         }
     }
-
 }
-
-/* public function obtener(Request $request){
-        $modulos = BdModulo::all();
-        return response()->json($modulos);
-        //return $modulos;
-    }
-                $modulo -> estado = $request->estado;*/

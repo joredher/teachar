@@ -38,6 +38,30 @@ class DocentesController extends Controller
         }
     }
 
+
+    public function destroy(Request $request){
+        try{
+            if ($request->id != ''){
+                $id = $request->get('id');
+                $user = User::find($id);
+                foreach ($user->roles as $role){
+                    echo $role->pivot->role_id;
+                }
+                if ($user){
+                    $user->delete();
+                    $data['success'] = true;
+                    return $data;
+                }
+                $data['success'] = false;
+                return $data;
+            }
+        }catch (\Exception $exception){
+            return response()->json($exception);
+        }
+
+
+    }
+
     public function guardarDocente(Request $request){
         try{
             if ($request->id != ''){
@@ -117,4 +141,4 @@ class DocentesController extends Controller
 //                foreach ($docente->roles()->get() as $rol){
 //                    var_dump($rol->name);
 //                }
-////                dd($request->$docente); //                $docente -> user_id = Auth::user()->id;
+////                dd($request->$docente); //$docente -> user_id = Auth::user()->id;

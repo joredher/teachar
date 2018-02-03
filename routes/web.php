@@ -31,17 +31,19 @@ Route::group(['middleware' => 'auth'], function (){
             Route::get('docentes','DocentesController@vIndex')->name('docentes');
             Route::post('obtener-docentes','DocentesController@obtener');
             Route::post('guardar-docente','DocentesController@guardarDocente');
+            Route::delete('docentes', 'DocentesController@destroy');
 
             // modulos
             Route::get('modulos','ModulosController@index')->name('modulos');
             Route::post('obtener-modulos', 'ModulosController@obtener');
-            Route::post('guardar', 'ModulosController@guardar');
+            Route::post('guardar-modulo', 'ModulosController@guardar');
 
 
             // temas
-//            Route::get('temas','TemasController@index')->name('temas');
-//            Route::post('obtener-temas', 'TemasController@obtener');
-//            Route::post('guardar', 'TemasController@guardar');
+            Route::get('temas','TemasController@index')->name('temas');
+            Route::post('obtener-temas', 'TemasController@obtenerTemas');
+            Route::get('obtener-complemento', 'TemasController@obtenerComplemento');
+            Route::post('guardar-tema', 'TemasController@guardar');
 
 
 
