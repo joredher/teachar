@@ -10,13 +10,15 @@ class BdTema extends Model
     protected $appends = ['fecha'];
 
     public function BdModulo(){
-        return $this->belongsTo('App\BdModulo');
+        return $this->belongsTo('App\BdModulo','modulo_id');
     }
 
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
             ->orwhere('contenido', 'like', $data. '%')
-            ->orwhere('estado', 'like', $data. '%');
+            ->orwhere('estado', 'like', $data. '%')->orWhereHas('BdModulo', function ($query) use ($data){
+                $query->where('nombre', 'like', $data. '%');
+            });
     }
 
     public function setEstadoAttribute($value){

@@ -19,6 +19,8 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/admin-home', 'HomeController@index')->middleware('AuthAdmin');
+//Route::get('/home', 'HomeController@index')->middleware('AuthAdmin');
+
 Route::get('/show', 'HomeController@show');
 Route::get('/', 'HomeController@index')->name('main');
 
@@ -31,13 +33,12 @@ Route::group(['middleware' => 'auth'], function (){
             Route::get('docentes','DocentesController@vIndex')->name('docentes');
             Route::post('obtener-docentes','DocentesController@obtener');
             Route::post('guardar-docente','DocentesController@guardarDocente');
-            Route::delete('docentes', 'DocentesController@destroy');
+            Route::delete('eliminar-docente', 'DocentesController@destroy');
 
             // modulos
             Route::get('modulos','ModulosController@index')->name('modulos');
             Route::post('obtener-modulos', 'ModulosController@obtener');
             Route::post('guardar-modulo', 'ModulosController@guardar');
-
 
             // temas
             Route::get('temas','TemasController@index')->name('temas');
@@ -45,9 +46,6 @@ Route::group(['middleware' => 'auth'], function (){
             Route::get('obtener-complemento', 'TemasController@obtenerComplemento');
             Route::post('guardar-tema', 'TemasController@guardar');
 
-
-
         });
 
 });
-//Route::get('/home', 'HomeController@index')->middleware('AuthAdmin');

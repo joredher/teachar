@@ -19,10 +19,10 @@
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/dashboardMediaQuery.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
     {{--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
     {{--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>--}}
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/switchery.min.css" rel="stylesheet" />
@@ -107,6 +107,7 @@
 <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('vendors/js/buttons/spin.min.js')}}"></script>
 <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
 <script src="{{asset('js/toastr.js')}}"></script>
 <script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
@@ -129,8 +130,6 @@
     }catch ( ee ){
         console.log('Falta definir lada button');
     }
-
-
 </script>
 </body>
 </html>

@@ -24,14 +24,7 @@
     <section id="contenido">
         <div class="card">
             <div class="card-header pb-3">
-                <div class="row">
-                    <div class="col-md-2 col-sm-4 col-xs-12 float-xs-left">
-                        <button type="button" class="btn btn-home animate btn-new-1" data-toggle="modal" data-target="#myModal">
-                            <i class="fas fa-plus" aria-hidden="true"></i>
-                            <span>Crear</span>
-                        </button>
-                    </div>
-                </div>
+                @include('helpers.filtro')
             </div>
             <div class="card-body">
                 <div class="card-block card-dashboard">
@@ -52,7 +45,7 @@
                                 <td><span v-text="tema.nombre"></span></td>
                                 <td><span v-text="tema.estado"></span></td>
                                 <td><span v-text="tema.fecha"></span></td>
-                                <td><button class="btn btn-sm btn-info " v-on:click="mostrarEditar(tema)" >Editar</button></td>
+                                <td><button class="btn btn-sm btn-info " @click="mostrarEditar(tema)" data-toggle="modal" data-target="#myModal">Editar</button></td>
                             </tr>
                             </tbody>
 
@@ -81,14 +74,7 @@
                 datos : {
                     busqueda :''
                 },
-                tema :{
-                    id: '',
-                    nombre: '',
-                    contenido:'',
-                    fecha:'',
-                    estado: 1,
-                    modulo_id: '',
-                },
+                tema :{},
                 modal:{
                     title:'',
                 },
@@ -102,15 +88,19 @@
 
             methods:{
                 updateResource:function (data) {
+                    laddaButtonSearch.stop();
                     this.temas = data;
                 },
 
-                mostrarEditar: function (tema) {
-                    this.temaEnEdicion = tema;
-                    this.tema = JSON.parse(JSON.stringify(tema));
-                    this.tema.estado = (this.tema.estado == 'Activo');
-                    $('#myModal').modal('show');
+                buscar(){
+                    laddaButtonSearch.start();
+                    this.$refs.vpaginator.fetchData(this.resource_url)
+                },
 
+                limpiar(){
+                    this.datos.busqueda = '';
+                    laddaButtonSearch.start();
+                    this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
                 formReset : function () {
@@ -136,41 +126,58 @@
                 },
 
                 guardar : function () {
-                    this.cargando = true;
-                    this.$http.post('/administracion/configuracion/guardar-tema',this.tema).then((response)=>{
-                        this.cargando = false;
-                        if (response.body.estado == 'ok'){
-                            if (response.body.tipo == 'update'){
-                                var index = this.temas.indexOf(this.temaEnEdicion);
-                                app.$refs.vpaginator.fetchData(this.resource_url);
-                                $('#myModal').modal('hide');
-                                this.formReset();
-                                toastr.success('Tema Actializado Correctamente');
-                            }else {
-                                //nuevo
-                                this.tema.id = response.body.id;
-                                this.formReset();
-                                app.$refs.vpaginator.fetchData(this.resource_url);
-                                toastr.success('Tema Creado Correctamente');
-                                $('#myModal').modal('hide');
-                                this.formReset();
-                            }
-                        }else if (response.body.estado == 'validador'){
-                            errores = response.body.errors;
-                            jQuery.each(errores,function (i,value) {
-                                toastr.warning(i.toUpperCase()+": "+value)
-                            })
-                        }else{
-                            // errores = response.body.error;
-                            toastr.warning(response.body.error)
+                    var app = this;
+                    this.$validator.validateAll().then((result) => {
+                        if (result) {
+                            laddaButton.start();
+                            this.$http.post('/administracion/configuracion/guardar-tema',this.tema).then((response)=>{
+                                laddaButton.stop();
+                                if(response.body.estado=='ok'){
+                                    if(response.body.tipo == 'update'){
+                                        var index = this.temas.indexOf(this.temaEnEdicion);
+                                        toastr["success"]('Tema actualizado correctamente.');
+                                    }else{
+                                        // this.docentes.push(response.body.docentes.length.id);
+                                        this.tema.id = response.body.id;
+                                        toastr["success"]('Tema creado correctamente.');
+                                    }
+                                    app.$refs.vpaginator.fetchData(this.resource_url);
+                                    $('#myModal').modal('hide');
+                                }else if(response.body.estado == 'validador'){
+                                    errores = response.body.errors;
+                                    jQuery.each(errores,function (i,value) {
+                                        toastr.warning( i.toUpperCase()+": "+value)
+                                    })
+                                }else{
+                                    toastr.warning(response.body.error)
+                                }
+                            },(error)=>{
+                                laddaButton.stop();
+                                toastr.error('Error al hacer algo:: '+error.status + ' '+error.statusText+' ('+error.url+')');
+                            });
+                            return;
                         }
-                    },(error)=>{
-                        this.cargando = false;
-                        toastr.error('error al hacer algo ::'+ error.status+ '' + error.statusText + '( '+error.url+')');
+                        var error = app.errors.items[0];
+                        if($('.form-control[data-vv-name$="'+error.field+'"]').hasClass('form-control')){
+                            $('.nav-tabs').find('li:nth-child('+(($('.form-control[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
+                            $('.form-control[data-vv-name$="'+error.field+'"]').focus();
+                        }else{
+                            $('.nav-tabs').find('li:nth-child('+(($('.dropdown[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
+                            $('.dropdown[data-vv-name$="'+error.field+'"]').find('.form-control').focus();
+                        }
+                        toastr.warning(error.field.toUpperCase()+": "+error.msg);
                     });
                 },
 
+                mostrarEditar: function (tema) {
+                    this.temaEnEdicion = tema;
+                    this.tema = JSON.parse(JSON.stringify(tema));
+                    this.tema.estado = (this.tema.estado == 'Activo')?1:0;
+                },
 
+            },
+            beforeMount(){
+                this.formReset();
             },
             mounted(){
                 var app = this;

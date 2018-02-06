@@ -44,11 +44,10 @@ class DocentesController extends Controller
             if ($request->id != ''){
                 $id = $request->get('id');
                 $user = User::find($id);
-                foreach ($user->roles as $role){
-                    echo $role->pivot->role_id;
-                }
+
                 if ($user){
                     $user->delete();
+                    $user->roles()->detach(2);
                     $data['success'] = true;
                     return $data;
                 }
@@ -58,8 +57,6 @@ class DocentesController extends Controller
         }catch (\Exception $exception){
             return response()->json($exception);
         }
-
-
     }
 
     public function guardarDocente(Request $request){
