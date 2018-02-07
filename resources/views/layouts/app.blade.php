@@ -1,81 +1,67 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" class="loaded">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="csrf-token" id="token" content="{{ csrf_token() }}"  value="{{ csrf_token() }}">
+    <meta name="description" content="Proyecto de Grado - Aplicativo Web con Realidad Aumentada">
+    <meta name="author" content="Jorge Eduardo Hernández Oropeza y Edisson Fernando Quiñonez Díaz">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
+
+    <title> TeachAR | @yield('title')</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- Link de Iconos: http://ionicons.com/#cdn -->
+    @yield('links')
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
+    <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
+    {{--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
+    {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
+    {{--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>--}}
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/switchery.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/plugins/forms/switch.min.css" rel="stylesheet" />
+    <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/colors/palette-switch.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body class="capaFondo">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+    {{--@if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))--}}
+        {{--@yield('profe-content')--}}
+        @yield('admin-content')
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+    {{--@else--}}
+        {{--@yield('admin-content')--}}
+    {{--@endif--}}
 
-                <div class="navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="card">
-                                <a href="#" class="card-header" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="card-body">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        @yield('content')
-    </div>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script defer src="{{ asset('js/fontawesome.js') }}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="{{asset('admin/js/popper.min.js')}}"></script>
+    <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('vendors/js/buttons/spin.min.js')}}"></script>
+    <script src="{{asset('vendors/js/buttons/ladda.min.js')}}"></script>
+    <script src="{{asset('js/toastr.js')}}"></script>
+    <script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
+    <script src="{{asset('vendors/js/extensions/listjs/list.pagination.min.js')}}"></script>
+    <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    @yield('scriptjs')
+    <script>
+        try{
+            var laddaButton = Ladda.create(document.querySelector('.ladda-button-submit'));
+            var laddaButtonSearch = Ladda.create(document.querySelector('.ladda-button-search'));
+        }catch ( ee ){
+            console.log('Falta definir lada button');
+        }
+    </script>
 </body>
 </html>

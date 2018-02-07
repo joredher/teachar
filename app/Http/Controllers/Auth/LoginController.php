@@ -20,14 +20,15 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-//    public function authenticated(Request $request, $user)
+//    public function authenticated(Request $request)
 //    {
 //        // Logic that determines where to send the user
 //        if($request->user()->hasRole('profe')){
-//            return view('docente.configuracion.index');
+//            return view('usuarion.configuracion.index');
 //        }
+//
 //        if($request->user()->hasRole('admin')){
-//            return view('administrador.configuracion.index');
+//            return view('administracion.configuracion.index');
 //        }
 //    }
 

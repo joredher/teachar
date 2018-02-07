@@ -159,7 +159,7 @@
                 mostrarEditar: function (modulo) {
                     this.moduloEnEdicion = modulo;
                     this.modulo = JSON.parse(JSON.stringify(modulo));
-                    this.modulo.estado = (this.modulo.estado == 'Activo');
+                    this.modulo.estado = (this.modulo.estado == 'Activo')?1:0;
                 },
 
 

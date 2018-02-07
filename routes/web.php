@@ -49,3 +49,13 @@ Route::group(['middleware' => 'auth'], function (){
         });
 
 });
+
+//Route::group(['middleware' => ['role:profe']], function (){
+//    Route::prefix('usuarion/configuracion')
+//        ->namespace('Usuario\Configuracion')
+//        ->group(function (){
+//
+//            Route::get('/','UsuarioController@index')->name('/');
+//
+//        });
+//});
