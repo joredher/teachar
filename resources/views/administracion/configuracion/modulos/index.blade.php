@@ -40,12 +40,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="modulo in modulos" >
+                            <tr v-for="(modulo, index) in modulos" >
                                 <td><span v-text="modulo.id"></span></td>
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
                                 <td><span v-text="modulo.fecha"></span></td>
-                                <td><button class="btn btn-sm btn-info " @click="mostrarEditar(modulo)" data-toggle="modal" data-target="#myModal">Editar</button></td>
+                                <td class="row mr-auto text-center pl-4">
+                                    <div class="col-xs-1 pr-1">
+                                        <button class="btn btn-sm btn-info " @click="mostrarEditar(modulo, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                    <div class="col-xs-1 pl-1">
+                                        <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(modulo, index)"><i class="fas fa-trash-alt" ></i></button>
+                                    </div>
+                                </td>
+                                {{--<td><button class="btn btn-sm btn-info " @click="mostrarEditar(modulo)" data-toggle="modal" data-target="#myModal">Editar</button></td>--}}
                             </tr>
                             </tbody>
 
@@ -156,10 +164,29 @@
                     });
                 },
 
-                mostrarEditar: function (modulo) {
+                mostrarEditar: function (modulo, index) {
                     this.moduloEnEdicion = modulo;
                     this.modulo = JSON.parse(JSON.stringify(modulo));
                     this.modulo.estado = (this.modulo.estado == 'Activo')?1:0;
+                },
+
+                eliminarDato(modulo, index){
+                    var vue = this;
+                    var params ={
+                        'id': vue.modulos[index].id,
+                        '_method': 'DELETE',
+                        '_token': $('meta[name=csrf-token]').attr('content')
+                    };
+
+                    this.$http.post('/administracion/configuracion/eliminar-modulo', params).then((response)=>{
+                        if (response.body.estado=='ok'){
+                            if(response.body.tipo=='delete')
+                                vue.modulos.splice(modulo,1);
+                            toastr.info(' Módulo  eliminado ');
+                        }
+                        vue.$refs.vpaginator.fetchData(this.resource_url);
+                    })
+
                 },
 
 

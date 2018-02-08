@@ -36,6 +36,28 @@ class ModulosController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+        try{
+            if ($request->id != ''){
+                $id = $request->get('id');
+                $modulo = BdModulo::find($id);
+
+                if ($modulo){
+                    $modulo->delete();
+                    return response()->json([
+                        'estado' => 'ok',
+                        'id' => $modulo->id,
+                        'tipo' => 'delete',
+                    ]);
+//                    return $data;
+                }
+                $data['success'] = false;
+                return $data;
+            }
+        }catch (\Exception $exception){
+            return response()->json($exception);
+        }
+    }
 
     public function guardar(Request $request){
         try{

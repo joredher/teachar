@@ -45,6 +45,29 @@ class TemasController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+        try{
+            if ($request->id != ''){
+                $id = $request->get('id');
+                $tema = BdTema::find($id);
+
+                if ($tema){
+                    $tema->delete();
+                    return response()->json([
+                        'estado' => 'ok',
+                        'id' => $tema->id,
+                        'tipo' => 'delete',
+                    ]);
+//                    return $data;
+                }
+                $data['success'] = false;
+                return $data;
+            }
+        }catch (\Exception $exception){
+            return response()->json($exception);
+        }
+    }
+
     public function guardar(Request $request){
         try{
             if ($request->id != ''){

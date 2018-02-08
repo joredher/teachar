@@ -40,12 +40,20 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="tema in temas" >
+                            <tr v-for="(tema, index) in temas" >
                                 <td><span v-text="tema.id"></span></td>
                                 <td><span v-text="tema.nombre"></span></td>
                                 <td><span v-text="tema.estado"></span></td>
                                 <td><span v-text="tema.fecha"></span></td>
-                                <td><button class="btn btn-sm btn-info " @click="mostrarEditar(tema)" data-toggle="modal" data-target="#myModal">Editar</button></td>
+                                <td class="row mr-auto text-center pl-4">
+                                    <div class="col-xs-1 pr-1">
+                                        <button class="btn btn-sm btn-info " @click="mostrarEditar(tema, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                    </div>
+                                    <div class="col-xs-1 pl-1">
+                                        <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(tema, index)"><i class="fas fa-trash-alt" ></i></button>
+                                    </div>
+                                </td>
+                                {{--<td><button class="btn btn-sm btn-info " @click="mostrarEditar(tema)" data-toggle="modal" data-target="#myModal">Editar</button></td>--}}
                             </tr>
                             </tbody>
 
@@ -169,10 +177,29 @@
                     });
                 },
 
-                mostrarEditar: function (tema) {
+                mostrarEditar: function (tema, index) {
                     this.temaEnEdicion = tema;
                     this.tema = JSON.parse(JSON.stringify(tema));
                     this.tema.estado = (this.tema.estado == 'Activo')?1:0;
+                },
+
+                eliminarDato(tema, index){
+                    var vue = this;
+                    var params ={
+                        'id': vue.temas[index].id,
+                        '_method': 'DELETE',
+                        '_token': $('meta[name=csrf-token]').attr('content')
+                    };
+
+                    this.$http.post('/administracion/configuracion/eliminar-tema', params).then((response)=>{
+                        if (response.body.estado=='ok'){
+                            if(response.body.tipo=='delete')
+                                vue.temas.splice(tema, 1);
+                            toastr.info(' Tema  eliminado ');
+                        }
+                        vue.$refs.vpaginator.fetchData(this.resource_url);
+                    })
+
                 },
 
             },

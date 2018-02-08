@@ -182,12 +182,14 @@
                         '_token': $('meta[name=csrf-token]').attr('content')
                     };
 
-                    this.$http.post('/administracion/configuracion/eliminar-docente', params, function (data) {
-                        if (data.success() != false){
-                            vue.docentes.splice(vue.docentes.indexOf(index),1);
-                            toastr.info('Docente eliminado correctamente.');
-                        }
-                    }, 'json');
+                    this.$http.post('/administracion/configuracion/eliminar-docente', params).then((response)=>{
+                        if (response.body.estado=='ok'){
+                            if(response.body.tipo=='delete')
+                                vue.docentes.splice(docente,1);
+                                toastr.info('Docente eliminado ');
+                            }
+                            vue.$refs.vpaginator.fetchData(this.resource_url);
+                        })
 
                 },
 

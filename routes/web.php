@@ -39,12 +39,15 @@ Route::group(['middleware' => 'auth'], function (){
             Route::get('modulos','ModulosController@index')->name('modulos');
             Route::post('obtener-modulos', 'ModulosController@obtener');
             Route::post('guardar-modulo', 'ModulosController@guardar');
+            Route::delete('eliminar-modulo', 'ModulosController@destroy');
 
             // temas
             Route::get('temas','TemasController@index')->name('temas');
             Route::post('obtener-temas', 'TemasController@obtenerTemas');
             Route::get('obtener-complemento', 'TemasController@obtenerComplemento');
             Route::post('guardar-tema', 'TemasController@guardar');
+            Route::delete('eliminar-tema', 'TemasController@destroy');
+
 
         });
 

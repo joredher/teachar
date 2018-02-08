@@ -48,8 +48,13 @@ class DocentesController extends Controller
                 if ($user){
                     $user->delete();
                     $user->roles()->detach(2);
-                    $data['success'] = true;
-                    return $data;
+//                    $data['success'] = true;
+                    return response()->json([
+                        'estado' => 'ok',
+                        'id' => $user->id,
+                        'tipo' => 'delete',
+                    ]);
+//                    return $data;
                 }
                 $data['success'] = false;
                 return $data;
