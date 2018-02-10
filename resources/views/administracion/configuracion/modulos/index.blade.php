@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                             <tr v-for="(modulo, index) in modulos" >
-                                <td><span v-text="modulo.id"></span></td>
+                                <td><span v-text="index + 1"></span></td>
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
                                 <td><span v-text="modulo.fecha"></span></td>

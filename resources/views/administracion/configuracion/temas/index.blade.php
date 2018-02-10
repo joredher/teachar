@@ -41,7 +41,7 @@
                             </thead>
                             <tbody>
                             <tr v-for="(tema, index) in temas" >
-                                <td><span v-text="tema.id"></span></td>
+                                <td><span v-text="index + 1"></span></td>
                                 <td><span v-text="tema.nombre"></span></td>
                                 <td><span v-text="tema.estado"></span></td>
                                 <td><span v-text="tema.fecha"></span></td>
