@@ -15,6 +15,6 @@ class UsuarioController extends Controller
     public function index(Request $request){
 
         $request->user()->authorizeRoles('profe');
-        return view('usuarion.configuracion.index');
+        return view('usuarios.configuracion.index');
     }
 }

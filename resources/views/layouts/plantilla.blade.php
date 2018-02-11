@@ -7,8 +7,8 @@
 
 @endsection
 
-@section('profe-content')
-    <div class="m-auto">
+@section('content-profe')
+
         @yield('contenido')
-    </div>
+
 @endsection

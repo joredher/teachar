@@ -23,14 +23,14 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-//        $request->user()->authorizeRoles(['admin','profe']);
+        $request->user()->authorizeRoles(['admin','profe']);
 
-//        if ($request->user()->hasRole('profe')){
-//            return view('docente.configuracion.index');
-//        }
-//        if($request->user()->hasRole('admin')){
-//            return view('administrador.configuracion.dashboard');
-//        }
+        if ($request->user()->hasRole('profe')){
+            return view('usuarios.configuracion.index');
+        }
+        if($request->user()->hasRole('admin')){
+            return view('administracion.configuracion.index');
+        }
 
 //        if($request->user()->hasRole('profe')){
 //            return view('docente.configuracion.index');
@@ -41,6 +41,6 @@ class HomeController extends Controller
 
 //        return view('home');
 //        $request->user()->authorizeRoles(['admin']);
-        return view('administracion.configuracion.index');
+//        return view('administracion.configuracion.index');
     }
 }

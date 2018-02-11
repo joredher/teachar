@@ -24,7 +24,7 @@ Auth::routes();
 Route::get('/show', 'HomeController@show');
 Route::get('/', 'HomeController@index')->name('main');
 
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => ['AuthAdmin']], function (){
     Route::prefix('administracion/configuracion')
         ->namespace('Administrador\Configuracion')
         ->group(function (){
@@ -47,18 +47,16 @@ Route::group(['middleware' => 'auth'], function (){
             Route::get('obtener-complemento', 'TemasController@obtenerComplemento');
             Route::post('guardar-tema', 'TemasController@guardar');
             Route::delete('eliminar-tema', 'TemasController@destroy');
-
-
         });
 
 });
 
-//Route::group(['middleware' => ['role:profe']], function (){
-//    Route::prefix('usuarion/configuracion')
-//        ->namespace('Usuario\Configuracion')
-//        ->group(function (){
-//
-//            Route::get('/','UsuarioController@index')->name('/');
-//
-//        });
-//});
+Route::group(['middleware' => ['AuthUser']], function (){
+    Route::prefix('usuarios/configuracion')
+        ->namespace('Usuario\Configuracion')
+        ->group(function (){
+
+            Route::get('/','UsuarioController@index')->name('/');
+
+        });
+});

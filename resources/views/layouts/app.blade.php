@@ -16,30 +16,37 @@
 
     <!-- Custom styles for this template -->
     <!-- Link de Iconos: http://ionicons.com/#cdn -->
-    @yield('links')
     <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
     {{--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
-    {{--<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>--}}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <script defer src="{{ asset('js/fontawesome.js') }}"></script>
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/css/forms/toggle/switchery.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/plugins/forms/switch.min.css" rel="stylesheet" />
     <link href="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/css/core/colors/palette-switch.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+    @yield('links')
 </head>
 <body class="capaFondo">
 
+
+    @if(Auth::user()->hasRole('admin'))
+        @yield('admin-content')
+    @else
+        @yield('content-profe')
+    @endif
     {{--@if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))--}}
         {{--@yield('profe-content')--}}
-        @yield('admin-content')
+        {{--@yield('admin-content')--}}
 
     {{--@else--}}
         {{--@yield('admin-content')--}}
     {{--@endif--}}
 
 
-    <script defer src="{{ asset('js/fontawesome.js') }}"></script>
+
     <script src="{{asset('js/app.js')}}"></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
