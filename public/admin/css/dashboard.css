@@ -118,7 +118,7 @@ h1 {
 /*Fondo de Barra Navegación*/
 .navFondo{
     width: 100%;
-    background-image: url(../../imagenes/Homepage.gif);
+    /*background-image: url(../../imagenes/Homepage.gif);*/
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: 300%;

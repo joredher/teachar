@@ -58,10 +58,21 @@ class User extends Authenticatable
 //    }
 
     public function authorizeRoles($roles){
+
+//        if (is_array($roles)){
+//            return $this->hasAnyRole($roles) ||
+//                abort(401,'Está acción no está autorizada.');
+//        }
+//
+//        return $this->hasRole($roles) ||
+//            abort(401,'Está acción no está autorizada.');
+
         if ($this->hasAnyRole($roles)){
             return true;
         }
-        abort(401, 'Está acción no está autorizada.');
+        return view('errors.404','Acción no encontrada',404);
+//        return redirect('/layouts/404','404');
+//        abort(404, 'Está acción no está autorizada.');
     }
 
     public function hasAnyRole($roles){
