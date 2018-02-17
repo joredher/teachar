@@ -61,13 +61,27 @@ class ModulosController extends Controller
 
     public function guardar(Request $request){
         try{
+//            $exploded = explode(',', $request->imagen);
+//
+//            $decoded = base64_decode($exploded[0]);
+//
+//
+//            if (str_contains($exploded[0], 'jpeg'))
+//                $extension = 'jpg';
+//            else
+//                $extension = 'png';
+//
+//            $fileName = str_random().'.'.$extension;
+//
+//            $path = public_path().'/imagenes/modulos/'.$fileName;
+//
+//            file_put_contents($path, $decoded);
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                         'descripcion' => 'required|max:150',
-                        'estado' => 'required'
                     ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -79,6 +93,7 @@ class ModulosController extends Controller
                 $modulo = BdModulo::find($request->id);
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
+                $modulo -> imagen = $request->imagen;
                 $modulo -> estado = $request->estado;
                 $modulo -> save();
 
@@ -93,7 +108,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
                     'descripcion' => 'required|max:150',  // temporal ampliar cap
-                    'estado' => 'required'
+//                    'estado' => 'required'
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -105,7 +120,7 @@ class ModulosController extends Controller
                 $modulo = new BdModulo();
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
-                $modulo -> imagen = $request->estado;
+                $modulo -> imagen = $request->imagen;
                 $modulo -> estado = $request->estado;
                 $modulo -> user_id = Auth::user()->id;
                 $modulo -> save();

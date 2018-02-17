@@ -7,10 +7,17 @@ use Jenssegers\Date\Date;
 
 class BdModulo extends Model
 {
+
+    protected $fillable = [
+        'user_id', 'nombre', 'descripcion', 'imagen'
+    ];
+
     protected $appends = ['fecha'];
 
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
+            ->orwhere('descripcion', 'like', $data. '%')
+            ->orwhere('imagen', 'like', $data. '%')
             ->orwhere('estado', 'like', $data. '%');
     }
 

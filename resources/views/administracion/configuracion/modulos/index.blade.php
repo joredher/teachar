@@ -17,6 +17,31 @@
         .btn{
             cursor: pointer;
         }
+
+        /*****************/
+        /** Foto AVATAR **/
+        /*****************/
+
+        .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            text-align: center;
+        }
+        .kv-avatar {
+            display: inline-block;
+        }
+        .kv-avatar .file-input {
+            display: table-cell;
+            width: 213px;
+        }
+        .kv-reqd {
+            color: red;
+            font-family: monospace;
+            font-weight: normal;
+        }
+
     </style>
 @endsection
 
@@ -45,6 +70,11 @@
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
                                 <td><span v-text="modulo.fecha"></span></td>
+                                {{--<td>--}}
+                                    {{--<div class="card form-group pt-2" v-if="modulo.id != ''">--}}
+                                        {{--<img  :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen"  class="card-img-top" alt="Card image cap">--}}
+                                    {{--</div>--}}
+                                {{--</td>--}}
                                 <td class="row mr-auto text-center pl-4">
                                     <div class="col-xs-1 pr-1">
                                         <button class="btn btn-sm btn-info " @click="mostrarEditar(modulo, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
@@ -109,14 +139,26 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
+                // imageChanged(e){
+                //     console.log(e.target.files[0])
+                //     var fileReader = new FileReader()
+                //
+                //     fileReader.readAsDataURL(e.target.files[0])
+                //
+                //     fileReader.onload = (e) =>{
+                //         this.modulo.imagen = e.target.result
+                //     }
+                //     console.log(this.modulo)
+                // },
+
                 formReset : function () {
                     this.modulo ={
                         id: '',
                         nombre: '',
                         descripcion:'',
-                        fecha:'',
-                        imagen:Object,
+                        imagen:'',
                         estado: 1,
+                        fecha:'',
 
                     }
                 },
