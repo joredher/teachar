@@ -32,8 +32,13 @@ a:visited:hover {
     margin: 0;
 }
 
+.texto{
+    font-size: 2.6rem;
+    font-weight: lighter;
+}
+
 #oopss {
-    background: #e74c3c;
+    background: #8CC8FF;
     text-align: center;
     margin-bottom: 50px;
     font-weight: 400;
@@ -74,6 +79,20 @@ a:visited:hover {
     margin: 40px 0 0 0;
 }
 
+.hmpg {
+    display: inline-block;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hmpg:hover, .hmpg:focus, .hmpg:active {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
 #error-text span {
     position: relative;
     background: white;/*#ef4824*/;
@@ -85,6 +104,9 @@ a:visited:hover {
     transition: all .5s;
     cursor: pointer;
     margin: 0 0 40px 0;
+    transition-property: box-shadow;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
 #error-text span:hover {
@@ -95,6 +117,8 @@ a:visited:hover {
     -ms-animation: jelly .5s;
     -o-animation: jelly .5s;
     animation: jelly .5s;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.29);
+
 }
 
 #error-text span:after {
@@ -157,6 +181,10 @@ a:visited:hover {
     }
     #error-text a:hover {
         color: #fff;
+    }
+
+    .texto{
+        font-size: 2.2rem;
     }
 }
 

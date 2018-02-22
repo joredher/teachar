@@ -18,7 +18,7 @@
 <div id='oopss'>
     <div id='error-text'>
         <span>404</span>
-        <p>PÁGINA NO ENCONTRADA</p>
+        <p class="texto">PÁGINA NO ENCONTRADA</p>
         <p class='hmpg'><a href="{{ \Illuminate\Support\Facades\URL::route('/') }}" class="back">VOLVER A INICIO</a></p>
     </div>
 </div>

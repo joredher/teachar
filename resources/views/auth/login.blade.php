@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
 </head>
-<body class="capaFondo">
-<div>
+<body>
+<div id="wrapper">
+    <div id="logginID">
         <div class="loggin">
             <img src="{{asset('imagenes/logo/logo_teach_2.png')}}" alt="Imagen de Login">
             @if (count($errors) > 0)
@@ -45,7 +46,6 @@
                 </div>
             </form>
         </div>
-
         <footer>
             <div class="info">
                 <div class="desarrolladores">
@@ -62,5 +62,10 @@
             </p>
         </footer>
     </div>
+    <div id="clouds"></div>
+    <div id="ground"></div>
+</div>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<script src="{{asset('js/login.js')}}"></script>
 </body>
 </html>
