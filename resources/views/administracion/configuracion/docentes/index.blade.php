@@ -1,5 +1,8 @@
 @extends('layouts.dashboard')
 
+@section('modulo-url', '#')
+@section('modulo-nombre', 'Docentes')
+
 @section('estilos')
     <style type="text/css">
         .form-control:focus{

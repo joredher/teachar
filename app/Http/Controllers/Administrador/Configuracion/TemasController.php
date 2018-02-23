@@ -26,7 +26,7 @@ class TemasController extends Controller
             $request = json_decode($request->getContent());
             $temas = BdTema::Buscar($request->datos->busqueda)->with('BdModulo')
                 ->orderBy('id','asc')
-                ->paginate(4);
+                ->paginate(3);
             //dd($modulos);
             return response()->json($temas);
 

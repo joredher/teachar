@@ -83,6 +83,7 @@
                                 <i class="fas fa-bars"> </i>
                             </a>
                         </div>
+
                         <div class="form-inline nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <span class="font-weight-bold mr-1 pt-2">{{ Auth::user()->name }}</span>
                             <a href="#" class="nav-link">
@@ -97,7 +98,7 @@
         <section class="statistics">
             <div class="container-fluid">
                 <div class="row d-flex">
-                    <div class="col-sm-12 col-xl-12" style="top: 50px">
+                    <div class="col-sm-12 col-xl-12" style="top: 25px">
                         @yield('contenido')
                     </div>
                 </div>
@@ -106,6 +107,18 @@
         <footer class="main-footer">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-sm-12">
+                        <div aria-label="breadcrumb" class="navbar-brand d-none d-md-block d-sm-inline-flex">
+                            <ol class="breadcrumb bg-transparent">
+                                <li class="breadcrumb-item">
+                                    <a href="{{route('/')}}">Inicio</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    <a href="@yield('modulo-url')">@yield('modulo-nombre')</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
                         <p>Trabajo de Grado &copy; 2018</p>
                     </div>

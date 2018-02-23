@@ -2928,7 +2928,7 @@ a > code {
 .card {
     background-color: #fff;
     border: 0 solid #eee;
-    border-radius: 0;
+    /*border-radius: 0;*/
 }
 
 .card > .list-group:first-child .list-group-item:first-child {
@@ -3120,4 +3120,15 @@ button:focus{
 .boxCard{
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
     border-radius: 3px;
+}
+
+.breadcrumb{
+    padding: .0rem 0rem;
+    margin-bottom: 0;
+}
+
+.breadcrumb .breadcrumb-item a{
+    text-decoration: none;
+    font-size: 0.80rem;
+    color: #777;
 }

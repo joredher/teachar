@@ -1,5 +1,8 @@
 @extends('layouts.dashboard')
 
+@section('modulo-url', '#')
+@section('modulo-nombre', 'Temas')
+
 @section('estilos')
     <style type="text/css">
         .form-control:focus{
@@ -40,7 +43,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="(tema, index) in temas" >
+                            <tr v-for="(tema, index) in temas">
                                 <td><span v-text="index + 1"></span></td>
                                 <td><span v-text="tema.nombre"></span></td>
                                 <td><span v-text="tema.estado"></span></td>

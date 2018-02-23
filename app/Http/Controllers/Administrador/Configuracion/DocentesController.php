@@ -26,7 +26,7 @@ class DocentesController extends Controller
     public function obtener(Request $request){
         try{
             $request = json_decode($request->getContent());
-            $users = User::Buscar($request->datos->busqueda)->with('roles')->orderBy('id','asc')->paginate(6);
+            $users = User::Buscar($request->datos->busqueda)->with('roles')->orderBy('id','asc')->paginate(3);
 //            $users = User::whereHas('roles', function ($query){
 //               $query->where('name','profe');
 //            })->paginate(6);

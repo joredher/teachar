@@ -5,7 +5,7 @@
             <span>Crear</span>
         </button>
     </div>
-    <div class="col-md-5 col-sm-6 col-xs-12 float-xs-right pt-2 pl-5">
+    <div class="col-md-5 col-sm-6 col-xs-12 float-xs-right pt-2">
         <form class="input-group" @submit.prevent="buscar()">
             <span class="input-group-btn" v-show="datos.busqueda != ''">
                 <button class="btn btn-info" type="button" @click="limpiar()"><i class="fas fa-eraser white"></i></button>
