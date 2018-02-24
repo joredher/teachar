@@ -15,3 +15,14 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.browserSync('http://localhost:8000');
+// const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+// mix.webpackConfig({
+//     plugins : [
+//         new BrowserSyncPlugin({
+//             open: 'external',
+//             host: 'localhost',
+//             proxy: 'localhost',
+//             files: ['resources/views/**/*.php', 'app/**/*.php', 'routes/**/*.php']
+//         })
+//     ]
+// });

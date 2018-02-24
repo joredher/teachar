@@ -44,18 +44,5 @@
                 Hola {{ Auth::user()->name }} <span class="caret"></span>
             </a>
         </div>
-        <div class="card-body">
-            <li>
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </li>
-        </div>
     </div>
 @endsection

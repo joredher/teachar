@@ -34,7 +34,7 @@
 
     @if(Auth::user()->hasRole('admin'))
         @yield('admin-content')
-    @else
+    @elseif(Auth::user()->hasRole('profe'))
         @yield('content-profe')
     @endif
     {{--@if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))--}}
