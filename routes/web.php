@@ -58,5 +58,7 @@ Route::group(['middleware' => ['AuthUser']], function (){
 
             Route::get('/usuarios/configuracion/','UsuarioController@index')->name('index');
 
+//            Route::get('modulos-usuario','ModuloUserController@index')->name('modulos-usuario');
+
         });
 });

@@ -26,17 +26,27 @@ body > .container {
     padding: 60px 15px 0;
 }
 
+.into-back{
+    width: 150px;/*250px*/
+    height: 162px;
+    border: solid;
+    margin-right: 10px;
+}
+
+.into img{
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
 header nav{
     height: 160px;
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
-
-header nav .regresar{
-    padding: 60px 20px;
-    top: 0;
-    left: 0;
-    border-right: 1.2px grey solid;
-}
+/*header nav .regresar{*/
+    /*padding: 60px 20px;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*border-right: 1.2px grey solid;*/
+/*}*/
 
 .footer > .container {
     padding-right: 15px;

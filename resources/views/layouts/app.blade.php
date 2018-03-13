@@ -18,6 +18,7 @@
     <!-- Link de Iconos: http://ionicons.com/#cdn -->
     <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="stylesheet" href="{{asset('vendors/css/buttons/ladda-themeless.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/preloader.css')}}">
     {{--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     {{--<link rel="stylesheet" href="{{asset('../../css/roboto.css')}}" type="text/css">--}}
     <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
@@ -31,6 +32,11 @@
 </head>
 <body class="capaFondo">
 
+    {{--<div class="preloader-wrapper">--}}
+        {{--<div class="preloader">--}}
+            {{--<img src="{{asset('imagenes/preloader.gif')}}" alt="preloader">--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
     @if(Auth::user()->hasRole('admin'))
         @yield('admin-content')
@@ -61,6 +67,8 @@
     <script src="{{asset('vendors/js/extensions/listjs/list.min.js')}}"></script>
     <script src="{{asset('vendors/js/extensions/listjs/list.pagination.min.js')}}"></script>
     <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    {{--<script src="https://code.jquery.com/jquery-3.2.1.js"></script>--}}
+    {{--<script src="{{asset('js/preloader.js')}}"></script>--}}
     @yield('scriptjs')
     <script>
         try{

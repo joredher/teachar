@@ -1,5 +1,15 @@
 @extends('layouts.plantilla')
 
+@section('into-back')
+    <div class="py-4 my-3 text-right">
+        <div class="d-block mx-auto pl-5">
+            <div class="into">
+                <img class="rounded-circle border border-top-0 border-dark" src="{{asset('imagenes/default_avatar_male.jpg')}}" alt="Avatar" width="72px">
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('contenido')
     <div class="panel-body">
         <div class="card border-0">
@@ -10,39 +20,9 @@
 
                 {{--<h1> Bienvenido {{ Auth::user()->name }}</h1>--}}
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5">
-                        <div class="card p-0 boxCard">
-                            <div class="">
-                                <img src="{{asset('imagenes/imagenAdmin2.jpg')}}" class="img-fluid" alt="">
-                            </div>
-                            <div class="card-body text-center">
-                                <h4 class="card-title">{{ Auth::user()->name.' '.Auth::user()->last_name }}</h4>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ Auth::user()->identification}}</h6>
-                                <p class="card-text">
-                                    {{ Auth::user()->email }}
-                                    {{--Ser administrador es tener la visión,--}}
-                                    {{--y capacidad de aplicar, desarrollar,--}}
-                                    {{--planificar, organizar, direccionar y--}}
-                                    {{--tener el control en una institución.--}}
-                                </p>
-                                {{--<a href="#" class="btn btn-dark">Iniciar</a>--}}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
 
-
-                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="card-header">
-            <a href="#" class="card-header" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                Hola {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
         </div>
     </div>
 @endsection
