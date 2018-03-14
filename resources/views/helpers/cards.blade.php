@@ -1,32 +1,30 @@
-<script type="text/x-template" id="cards">
-    <div class="card" v-if="value">
+<script type="text/x-template" id="cards-template">
+    <div v-for="modulo in modulos" class="card text-center bg-danger">
         <div class="card-body">
-            <div class="card-block clearfix">
-
-            </div>
-        </div>
-        <div class="card-footer">
-
+            <h4 class="text-white" v-text="modulo.nombre"></h4>
+            {{--<h4 class="text-dark" v-text="value.nombre"></h4> v-if="value"--}}
         </div>
     </div>
 </script>
 <script>
-    Vue.component('cards', {
-        template: '#cards',
-        props:['value'],
+    Vue.component('cards-template', {
+        template: '#cards-template',
+        props:['value', 'nombre', 'index', 'modulos'],
         data: function () {
             return {
+                modulos: []
             }
         },
-        watch: {
-            value: function() {
-                console.log('value in card');
-                console.log(this.value);
-            }
+        created: function () {
+          // this.getModulos();
         },
-        methods:{
+        methods: {
+            // getModulos: function () {
+            //     var urlModulos = 'get-modulos';
+            //     axios.get(urlModulos).then(response => {
+            //        this.modulos = response.data
+            //     });
+            // }
         },
-        mounted(){
-        }
     });
 </script>

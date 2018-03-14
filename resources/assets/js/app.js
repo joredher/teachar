@@ -1,4 +1,4 @@
-
+// import Vue from "vue"
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -30,8 +30,10 @@ Vue.http.interceptors.push((Request, next) => {
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
-//
+
+ Vue.component('modulos', require('./components/modulos/Modulo.vue'));
+ // Vue.component('modulos', require('./components/ExampleComponent.vue'));
+
 // const app = new Vue({
-//     el: '#app'
+//     el: '#contenido'
 // });

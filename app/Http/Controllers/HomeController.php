@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BdModulo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,7 +27,9 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(['admin','profe']);
 
         if ($request->user()->hasRole('profe')){
-            return view('usuarios.configuracion.index');
+            $modulos = BdModulo::all();
+            return view('usuarios.configuracion.modulos-usuario.index', ['modulos'=>$modulos]);
+//            return view('usuarios.configuracion.index');
         }
         if($request->user()->hasRole('admin')){
             return view('administracion.configuracion.index');

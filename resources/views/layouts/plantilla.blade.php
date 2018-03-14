@@ -55,7 +55,7 @@
         </header>
 
         <!-- Inicia contenido de Página -->
-        <main role="main" class="container">
+        <main role="main" class="container-fluid">
             @yield('contenido')
         </main>
 
@@ -64,4 +64,13 @@
                 <span class="text-muted">TeachAR - Ciencias Básicas.</span>
             </div>
         </footer>
+@endsection
+
+@section('scriptjs')
+    <script>
+        // Vue.use(VeeValidate);
+        Vue.use(VuePaginator);
+    </script>
+    @yield('scripts')
+
 @endsection
