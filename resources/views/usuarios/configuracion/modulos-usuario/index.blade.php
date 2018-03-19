@@ -11,18 +11,13 @@
 @endsection
 
 @section('contenido')
-    <section id="contenido">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <modulos :modulos="{{json_encode($modulos)}}">
-
-                </modulos>
-                {{--<cards-template></cards-template>--}}
-            </div>
-        </div>
+    <section id="ucontenido">
+        <modulos :modulos="{{json_encode($modulos)}}"></modulos>{{--<cards-template></cards-template>--}}
     </section>
 @endsection
 
 @section('scripts')
     @include('helpers.cards')
+    {{--<script src="{{asset('js/ucomponents.js')}}"></script>--}}
+
 @endsection

@@ -20,31 +20,49 @@
         .btn{
             cursor: pointer;
         }
+        /*** Upload Image ***/
 
-        /*****************/
-        /** Foto AVATAR **/
-        /*****************/
-
-        .kv-avatar .krajee-default.file-preview-frame,.kv-avatar .krajee-default.file-preview-frame:hover {
-            margin: 0;
-            padding: 0;
-            border: none;
-            box-shadow: none;
-            text-align: center;
+        .btn-file {
+            position: relative;
+            overflow: hidden;
         }
-        .kv-avatar {
-            display: inline-block;
-        }
-        .kv-avatar .file-input {
-            display: table-cell;
-            width: 213px;
-        }
-        .kv-reqd {
-            color: red;
-            font-family: monospace;
-            font-weight: normal;
+        .btn-file input[type=file] {
+            position: absolute;
+            top: 0;
+            right: 0;
+            min-width: 100%;
+            min-height: 100%;
+            font-size: 100px;
+            text-align: right;
+            filter: alpha(opacity=0);
+            opacity: 0;
+            outline: none;
+            background: white;
+            cursor: inherit;
+            display: block;
         }
 
+        #img-upload, #img-upload-post{
+            width: 50%;
+        }
+        /*.custom-file-input:lang(es)~.custom-file-label::after {*/
+            /*content: "Elegir";*/
+        /*}*/
+
+        /*.custom-file-label::after{*/
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*right: 0;*/
+            /*left: 0;*/
+            /*z-index: 1;*/
+            /*height: calc(2.25rem + 2px);*/
+            /*padding: .375rem .75rem;*/
+            /*line-height: 1.5;*/
+            /*color: #495057;*/
+            /*background-color: #fff;*/
+            /*border: 1px solid #ced4da;*/
+            /*border-radius: .25rem;*/
+        /*}*/
     </style>
 @endsection
 
@@ -104,6 +122,7 @@
 
 @section('scripts')
     @include('helpers.switch')
+    @include('helpers.vcropp')
     <script>
 
         var app = new Vue({
@@ -143,15 +162,33 @@
                 },
 
                 // imageChanged(e){
-                //     console.log(e.target.files[0])
-                //     var fileReader = new FileReader()
                 //
-                //     fileReader.readAsDataURL(e.target.files[0])
+                //     if(window.FileReader){
+                //         var file = e.target.files[0];
+                //         var fileReader = new FileReader();
+                //         if(file && file.type.match('image.*')){
+                //             fileReader.readAsDataURL(file);
+                //         }else{
+                //             $('#img-upload').css('display','none');
+                //             $('#img-upload').attr('src', '');
+                //             // this.modulo.imagen = ''
+                //         }
+                //         fileReader.onloadend = (e) =>{
+                //             // this.modulo.imagen = e.target.result;
+                //             if (typeof e.id === 'undefined' || this.modulo.imagen === null){
+                //                 this.modulo.imagen = fileReader.result;
+                //                 $('#img-upload').attr('src', this.modulo.imagen);
+                //                 $('#img-upload').css('display','block');
+                //             }
+                //             // else{
+                //             //     $('#img-upload').attr('src', 'http://localhost:8000/imagenes/modulos/' + this.modulo.imagen);
+                //             //     $('#img-upload').css('display','block');
+                //             // }this.imageChanged(this);
+                //         };
                 //
-                //     fileReader.onload = (e) =>{
-                //         this.modulo.imagen = e.target.result
                 //     }
-                //     console.log(this.modulo)
+                //     console.log(e.target.files[0]);
+                //     console.log(this.modulo);
                 // },
 
                 formReset : function () {
@@ -162,7 +199,9 @@
                         imagen:'',
                         estado: 1,
                         fecha:'',
-
+                    };
+                    if(this.$refs.vcropp){
+                      this.$refs.vcropp.destroy();
                     }
                 },
 
@@ -171,6 +210,7 @@
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
+                            this.modulo.imagen = this.$refs.vcropp.getImage();
                             this.$http.post('/administracion/configuracion/guardar-modulo',this.modulo).then((response)=>{
                                 laddaButton.stop();
                                 if(response.body.estado=='ok'){
@@ -183,6 +223,7 @@
                                     }
                                     app.$refs.vpaginator.fetchData(this.resource_url);
                                     $('#myModal').modal('hide');
+
                                 }else if(response.body.estado == 'validador'){
                                     errores = response.body.errors;
                                     jQuery.each(errores,function (i,value) {
@@ -199,10 +240,10 @@
                         }
                         var error = app.errors.items[0];
                         if($('.form-control[data-vv-name$="'+error.field+'"]').hasClass('form-control')){
-                            $('.nav-tabs').find('li:nth-child('+(($('.form-control[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
+                            $('.nav-tabs-modulo').find('li:nth-child('+(($('.form-control[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
                             $('.form-control[data-vv-name$="'+error.field+'"]').focus();
                         }else{
-                            $('.nav-tabs').find('li:nth-child('+(($('.dropdown[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
+                            $('.nav-tabs-modulo').find('li:nth-child('+(($('.dropdown[data-vv-name$="'+error.field+'"]').closest(".tab-pane").index())+1)+')').find('a').click();
                             $('.dropdown[data-vv-name$="'+error.field+'"]').find('.form-control').focus();
                         }
                         toastr.warning(error.field.toUpperCase()+": "+error.msg);
@@ -213,6 +254,7 @@
                     this.moduloEnEdicion = modulo;
                     this.modulo = JSON.parse(JSON.stringify(modulo));
                     this.modulo.estado = (this.modulo.estado == 'Activo')?1:0;
+                    // $('#imgInpText').val(this.modulo.imagen);
                 },
 
                 eliminarDato(modulo, index){
@@ -243,11 +285,34 @@
                 var app = this;
                 $("#myModal").on("hidden.bs.modal", function () {
                     app.formReset();
+                    // $('#img-upload').attr('src', '');
+                    // $('#imgInpText').val('');
                 });
 
                 $("#myModal").on("show.bs.modal", function () {
                     app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
                 });
+                // /*** Imagen***/
+                // $(document).on('change', '.btn-file :file', function() {
+                //     var input = $(this),
+                //         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                //     input.trigger('fileselect', [label]);
+                // });
+                // $('.btn-file :file').on('fileselect', function(event, label) {
+                //
+                //     var input = $(this).parents('.input-group').find(':text'),
+                //         log = label;
+                //
+                //     if( input.length ) {
+                //         if (app.modulo.imagen === null || app.modulo.id === '' || app.modulo.imagen !== ''){
+                //             input.val(log);
+                //         }
+                //     } else {
+                //         if( log ) alert(log);
+                //     }
+                //
+                // });
+                // $('#imgInp').click('change', app.imageChanged, false);
             }
         })
     </script>

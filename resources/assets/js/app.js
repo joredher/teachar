@@ -29,11 +29,3 @@ Vue.http.interceptors.push((Request, next) => {
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
-
- Vue.component('modulos', require('./components/modulos/Modulo.vue'));
- // Vue.component('modulos', require('./components/ExampleComponent.vue'));
-
-// const app = new Vue({
-//     el: '#contenido'
-// });

@@ -12,11 +12,12 @@ body {
 main {
     /*background-color: red;*/
     padding-top: 15px;
+    overflow-y: visible;
 }
 
 main section{
-    background-color: #0A246A;
-    height: 100px;
+    /*background-color: #0A246A;*/
+    /*height: 100px;*/
 }
 
 .footer {
@@ -26,6 +27,7 @@ main section{
     height: 60px;
     line-height: 60px;
     background-color: #f5f5f5;
+    z-index: 99999;
 }
 
 
@@ -67,3 +69,132 @@ header nav{
 code {
     font-size: 80%;
 }
+/**** Cards ****/
+
+/*.cards {*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
+    /*-webkit-justify-content: center;*/
+    /*justify-content: center;*/
+    /*-webkit-flex-wrap: wrap;*/
+    /*flex-wrap: wrap;*/
+    /*margin-top: 15px;*/
+    /*padding: 1.5%;*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+/*}*/
+
+/*.card2 {*/
+    /*position: relative;*/
+    /*margin-bottom: 20px;*/
+    /*padding-bottom: 30px;*/
+    /*background: #fefff9;*/
+    /*color: #363636;*/
+    /*text-decoration: none;*/
+    /*-moz-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;*/
+    /*-webkit-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;*/
+    /*box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;*/
+    /*-moz-border-radius: 4px;*/
+    /*-webkit-border-radius: 4px;*/
+    /*border-radius: 4px;*/
+/*}*/
+
+/*!*** Media Query ***!*/
+
+/*@media (max-width: 700px) {*/
+    /*.card2 {*/
+        /*width: 100%;*/
+    /*}*/
+/*}*/
+/*@media (min-width: 700px) {*/
+    /*.card2 {*/
+        /*max-width: 320px;*/
+        /*margin-right: 20px;*/
+        /*margin-bottom: 20px;*/
+    /*}*/
+    /*.card2:nth-child(even) {*/
+        /*margin-right: 0;*/
+    /*}*/
+/*}*/
+/*@media (min-width: 980px) {*/
+    /*.card2:nth-child(even) {*/
+        /*margin-right: 20px;*/
+    /*}*/
+    /*.card2:nth-child(3n) {*/
+        /*margin-right: 0;*/
+    /*}*/
+/*}*/
+
+/*.card2 span {*/
+    /*display: block;*/
+/*}*/
+/*.card2 .card2-summary {*/
+    /*padding: 5% 5% 3% 5%;*/
+/*}*/
+/*.card2 .card2-header {*/
+    /*position: relative;*/
+    /*height: 175px;*/
+    /*overflow: hidden;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    /*background-color: rgba(255, 255, 255, 0.15);*/
+    /*background-blend-mode: overlay;*/
+    /*-moz-border-radius: 4px 4px 0 0;*/
+    /*-webkit-border-radius: 4px;*/
+    /*border-radius: 4px 4px 0 0;*/
+/*}*/
+/*.card2 .card2-header:hover, .card2 .card2-header:focus {*/
+    /*background-color: rgba(255, 255, 255, 0);*/
+/*}*/
+/*.card2 .card2-title {*/
+    /*background: rgba(157, 187, 63, 0.85);*/
+    /*padding: 3.5% 0 2.5% 0;*/
+    /*color: white;*/
+    /*font-family: 'Roboto Condensed', sans-serif;*/
+    /*text-transform: uppercase;*/
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+/*}*/
+/*.card2 .card2-title h3 {*/
+    /*font-size: 1.2em;*/
+    /*line-height: 1.2;*/
+    /*padding: 0 3.5%;*/
+    /*margin: 0;*/
+/*}*/
+/*.card2 .card2-meta {*/
+    /*max-height: 0;*/
+    /*overflow: hidden;*/
+    /*color: #666;*/
+    /*font-size: .78em;*/
+    /*text-transform: uppercase;*/
+    /*position: absolute;*/
+    /*bottom: 5%;*/
+    /*padding: 0 5%;*/
+    /*-moz-transition-property: max-height;*/
+    /*-o-transition-property: max-height;*/
+    /*-webkit-transition-property: max-height;*/
+    /*transition-property: max-height;*/
+    /*-moz-transition-duration: 0.4s;*/
+    /*-o-transition-duration: 0.4s;*/
+    /*-webkit-transition-duration: 0.4s;*/
+    /*transition-duration: 0.4s;*/
+    /*-moz-transition-timing-function: ease-in-out;*/
+    /*-o-transition-timing-function: ease-in-out;*/
+    /*-webkit-transition-timing-function: ease-in-out;*/
+    /*transition-timing-function: ease-in-out;*/
+/*}*/
+/*.card2:hover, .card2:focus {*/
+    /*background: white;*/
+    /*-moz-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;*/
+    /*-webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;*/
+    /*box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;*/
+/*}*/
+/*.card2:hover .card2-title, .card2:focus .card2-title {*/
+    /*background: rgba(157, 187, 63, 0.95);*/
+/*}*/
+/*.card2:hover .card2-meta, .card2:focus .card2-meta {*/
+    /*max-height: 1em;*/
+/*}*/

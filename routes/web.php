@@ -28,7 +28,7 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
     Route::prefix('administracion/configuracion')
         ->namespace('Administrador\Configuracion')
         ->group(function (){
-            Route::get('/', 'AdministradorController@index')->name('/');
+            Route::get('home', 'AdministradorController@index')->name('/');
 
             Route::get('docentes','DocentesController@vIndex')->name('docentes');
             Route::post('obtener-docentes','DocentesController@obtener');

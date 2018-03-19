@@ -40,8 +40,10 @@
 
     @if(Auth::user()->hasRole('admin'))
         @yield('admin-content')
+        <script src="{{asset('js/app.js')}}"></script>
     @elseif(Auth::user()->hasRole('profe'))
         @yield('content-profe')
+        <script src="{{asset('js/ucomponents.js')}}"></script>
     @endif
     {{--@if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))--}}
         {{--@yield('profe-content')--}}
@@ -53,7 +55,7 @@
 
 
 
-    <script src="{{asset('js/app.js')}}"></script>
+    {{--<script src="{{asset('js/app.js')}}"></script>--}}
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

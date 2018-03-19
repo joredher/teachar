@@ -67,10 +67,7 @@
 @endsection
 
 @section('scriptjs')
-    <script>
-        // Vue.use(VeeValidate);
-        Vue.use(VuePaginator);
-    </script>
+
     @yield('scripts')
 
 @endsection
