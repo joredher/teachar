@@ -48803,9 +48803,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Validator", function() { return Validator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorBag", function() { return ErrorBag; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rules", function() { return Rules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorComponent", function() { return ErrorComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "version", function() { return version; });
 /**
-  * vee-validate v2.0.5
+  * vee-validate v2.0.6
   * (c) 2018 Abdelrahman Awad
   * @license MIT
   */
@@ -49271,6 +49272,17 @@ var merge = function (target, source) {
 
 var ErrorBag = function ErrorBag () {
   this.items = [];
+};
+
+ErrorBag.prototype[typeof Symbol === 'function' ? Symbol.iterator : '@@iterator'] = function () {
+    var this$1 = this;
+
+  var index = 0;
+  return {
+    next: function () {
+      return { value: this$1.items[index++], done: index > this$1.items.length };
+    }
+  };
 };
 
 /**
@@ -50031,7 +50043,8 @@ Generator.resolveModel = function resolveModel (binding, vnode) {
     return null;
   }
 
-  var watchable = /^[a-z_]+[0-9]*(\w*\.[a-z_]\w*)*$/i.test(model.expression) && hasPath(model.expression, vnode.context);
+  // https://github.com/vuejs/vue/blob/dev/src/core/util/lang.js#L26
+  var watchable = !/[^\w.$]/.test(model.expression) && hasPath(model.expression, vnode.context);
   var lazy = !!(model.modifiers && model.modifiers.lazy);
   if (!watchable) {
     return { expression: null, lazy: lazy };
@@ -50712,6 +50725,17 @@ var FieldBag = function FieldBag () {
 };
 
 var prototypeAccessors$4 = { length: {} };
+
+FieldBag.prototype[typeof Symbol === 'function' ? Symbol.iterator : '@@iterator'] = function () {
+    var this$1 = this;
+
+  var index = 0;
+  return {
+    next: function () {
+      return { value: this$1.items[index++], done: index > this$1.items.length };
+    }
+  };
+};
 
 /**
  * Gets the current items length.
@@ -51805,7 +51829,7 @@ var messages = {
     var max = ref[1];
 
     if (max) {
-      return ("The " + field + " length be between " + length + " and " + max + ".");
+      return ("The " + field + " length must be between " + length + " and " + max + ".");
     }
 
     return ("The " + field + " length must be " + length + ".");
@@ -55739,7 +55763,29 @@ var mapFields = function (fields) {
   }, {});
 };
 
-var version = '2.0.5';
+var ErrorComponent = {
+  name: 'vv-error',
+  inject: ['$validator'],
+  functional: true,
+  props: {
+    for: {
+      type: String,
+      required: true
+    },
+    tag: {
+      type: String,
+      default: 'span'
+    }
+  },
+  render: function render (createElement, ref) {
+    var props = ref.props;
+    var injections = ref.injections;
+
+    return createElement(props.tag, injections.$validator.errors.first(props.for));
+  }
+};
+
+var version = '2.0.6';
 
 var rulesPlugin = function (ref) {
   var Validator$$1 = ref.Validator;
@@ -55762,6 +55808,7 @@ var index_esm = {
   mapFields: mapFields,
   Validator: Validator,
   ErrorBag: ErrorBag,
+  ErrorComponent: ErrorComponent,
   Rules: Rules,
   version: version
 };

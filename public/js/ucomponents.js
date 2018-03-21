@@ -47392,6 +47392,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'modulos',
@@ -47422,15 +47423,15 @@ var render = function() {
       { staticClass: "card-columns" },
       _vm._l(_vm.modulos, function(modulo) {
         return _c(
-          "div",
+          "a",
           {
             staticClass: "card img-fluid text-light",
-            staticStyle: { width: "500px" }
+            staticStyle: { width: "50%" }
           },
           [
             _c("img", {
               staticClass: "card-img-top text-light",
-              attrs: { src: "https://placeimg.com/640/480/nature", alt: "img" }
+              attrs: { src: modulo.imagen, alt: "img" }
             }),
             _vm._v(" "),
             _c(

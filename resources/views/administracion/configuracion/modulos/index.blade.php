@@ -91,20 +91,14 @@
                                 <td><span v-text="modulo.nombre"></span></td>
                                 <td><span v-text="modulo.estado"></span></td>
                                 <td><span v-text="modulo.fecha"></span></td>
-                                {{--<td>--}}
-                                    {{--<div class="card form-group pt-2" v-if="modulo.id != ''">--}}
-                                        {{--<img  :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen"  class="card-img-top" alt="Card image cap">--}}
-                                    {{--</div>--}}
-                                {{--</td>--}}
                                 <td class="row mr-auto text-center pl-4">
                                     <div class="col-xs-1 pr-1">
-                                        <button class="btn btn-sm btn-info " @click="mostrarEditar(modulo, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(modulo, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
                                     </div>
                                     <div class="col-xs-1 pl-1">
                                         <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(modulo, index)"><i class="fas fa-trash-alt" ></i></button>
                                     </div>
                                 </td>
-                                {{--<td><button class="btn btn-sm btn-info " @click="mostrarEditar(modulo)" data-toggle="modal" data-target="#myModal">Editar</button></td>--}}
                             </tr>
                             </tbody>
 
@@ -161,36 +155,6 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
-                // imageChanged(e){
-                //
-                //     if(window.FileReader){
-                //         var file = e.target.files[0];
-                //         var fileReader = new FileReader();
-                //         if(file && file.type.match('image.*')){
-                //             fileReader.readAsDataURL(file);
-                //         }else{
-                //             $('#img-upload').css('display','none');
-                //             $('#img-upload').attr('src', '');
-                //             // this.modulo.imagen = ''
-                //         }
-                //         fileReader.onloadend = (e) =>{
-                //             // this.modulo.imagen = e.target.result;
-                //             if (typeof e.id === 'undefined' || this.modulo.imagen === null){
-                //                 this.modulo.imagen = fileReader.result;
-                //                 $('#img-upload').attr('src', this.modulo.imagen);
-                //                 $('#img-upload').css('display','block');
-                //             }
-                //             // else{
-                //             //     $('#img-upload').attr('src', 'http://localhost:8000/imagenes/modulos/' + this.modulo.imagen);
-                //             //     $('#img-upload').css('display','block');
-                //             // }this.imageChanged(this);
-                //         };
-                //
-                //     }
-                //     console.log(e.target.files[0]);
-                //     console.log(this.modulo);
-                // },
-
                 formReset : function () {
                     this.modulo ={
                         id: '',
@@ -223,7 +187,7 @@
                                     }
                                     app.$refs.vpaginator.fetchData(this.resource_url);
                                     $('#myModal').modal('hide');
-
+                                    $('#inputFoto').val('')
                                 }else if(response.body.estado == 'validador'){
                                     errores = response.body.errors;
                                     jQuery.each(errores,function (i,value) {
@@ -254,7 +218,6 @@
                     this.moduloEnEdicion = modulo;
                     this.modulo = JSON.parse(JSON.stringify(modulo));
                     this.modulo.estado = (this.modulo.estado == 'Activo')?1:0;
-                    // $('#imgInpText').val(this.modulo.imagen);
                 },
 
                 eliminarDato(modulo, index){
@@ -285,34 +248,12 @@
                 var app = this;
                 $("#myModal").on("hidden.bs.modal", function () {
                     app.formReset();
-                    // $('#img-upload').attr('src', '');
-                    // $('#imgInpText').val('');
                 });
 
-                $("#myModal").on("show.bs.modal", function () {
+                $("#myModal").on("shown.bs.modal", function () {
+                    $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
                     app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
                 });
-                // /*** Imagen***/
-                // $(document).on('change', '.btn-file :file', function() {
-                //     var input = $(this),
-                //         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                //     input.trigger('fileselect', [label]);
-                // });
-                // $('.btn-file :file').on('fileselect', function(event, label) {
-                //
-                //     var input = $(this).parents('.input-group').find(':text'),
-                //         log = label;
-                //
-                //     if( input.length ) {
-                //         if (app.modulo.imagen === null || app.modulo.id === '' || app.modulo.imagen !== ''){
-                //             input.val(log);
-                //         }
-                //     } else {
-                //         if( log ) alert(log);
-                //     }
-                //
-                // });
-                // $('#imgInp').click('change', app.imageChanged, false);
             }
         })
     </script>

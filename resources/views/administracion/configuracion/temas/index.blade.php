@@ -50,7 +50,7 @@
                                 <td><span v-text="tema.fecha"></span></td>
                                 <td class="row mr-auto text-center pl-4">
                                     <div class="col-xs-1 pr-1">
-                                        <button class="btn btn-sm btn-info " @click="mostrarEditar(tema, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(tema, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
                                     </div>
                                     <div class="col-xs-1 pl-1">
                                         <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(tema, index)"><i class="fas fa-trash-alt" ></i></button>

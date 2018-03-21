@@ -26,7 +26,7 @@
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" v-if="modulo.id != '' && modulo.imagen" >
                                         <label for="">Imagen Actual: </label>
                                        <div>
-                                           <img :src="modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">
+                                           <img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">
                                        </div>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="modulo.id !=''">
@@ -50,29 +50,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">--}}
-                        {{--<img id="img-upload">--}}
-                        {{--<div v-if="modulo.id !== '' ">--}}
-                            {{--<img v-show="modulo.imagen !== null" :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" id="get-upload-img" alt="imagen" width="100px">--}}
-                        {{--</div>--}}
-                        {{--<div v-else>--}}
-                            {{--<img id="img-upload">--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">--}}
-                        {{--<label>Subir Imagen</label>--}}
-                        {{--<div class="input-group">--}}
-                            {{--<span class="input-group-btn">--}}
-                                {{--<span class="btn btn-default btn-file">--}}
-                                    {{--Elegir… <input type="file" id="imgInp" @change="imageChanged">--}}
-                                {{--</span>--}}
-                            {{--</span>--}}
-                            {{--<input type="text" class="form-control" id="imgInpText" readonly>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
                 </div>
             </div>
             <div class="modal-footer">

@@ -6,7 +6,6 @@
 @section('links')
     <link rel="stylesheet" href="{{asset('vendors/js/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/css/dashboardMediaQuery.css') }}">
     @yield('estilos')
 @endsection
 

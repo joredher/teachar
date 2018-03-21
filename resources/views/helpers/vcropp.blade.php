@@ -40,7 +40,7 @@
                 options: {
                     viewMode: 1,
                     aspectRatio: this.ratio?this.ratio: '',
-                    autoCropArea: 0.65,
+                    autoCropArea: 0.65,// 0.8
                     minContainerWidth:this.minWidth?this.minWidth: 521,
                     minContainerHeight:this.minHeight?this.minHeight: 240,
                     restore: false,

@@ -1,13 +1,14 @@
 <template>
     <div>
         <div class="card-columns">
-            <div v-for="modulo in modulos" class="card img-fluid text-light" style="width:500px">
-                <img src="https://placeimg.com/640/480/nature" class="card-img-top text-light" alt="img">
+            <a v-for="modulo in modulos" class="card img-fluid text-light" style="width: 50%;">
+                <img :src="modulo.imagen" class="card-img-top text-light" alt="img">
+                <!--<img src="https://placeimg.com/640/480/nature" class="card-img-top text-light" alt="img">-->
                 <div class="card-img-overlay">
                     <h4 class="card-title" v-text="modulo.nombre"></h4>
                     <P class="card-text" v-text="modulo.descripcion"></P>
                 </div>
-            </div>
+            </a>
         </div>
         <!--<div class="card-deck"> :class="color()"-->
         <!--<div class="cards">-->

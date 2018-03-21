@@ -60,18 +60,17 @@ class ModulosController extends Controller
 
     public function guardar(Request $request){
         try{
-//            $exploded = array_pad(explode(',', $request->imagen),2,null);
-//            $decoded = base64_decode($exploded[1]);
-//
-//            if (str_contains($exploded[0], 'jpeg'))
-//                $extension = 'jpg';
-//            else
-//                $extension = 'png';
-//
-//            $fileName = str_random().'.'.$extension;
-//            $path = public_path().'/imagenes/modulos/'.$fileName;
-//            file_put_contents($path, $decoded);
+            $exploded = array_pad(explode(',', $request->imagen),2,null);
+            $decoded = base64_decode($exploded[1]);
 
+            if (str_contains($exploded[0], 'jpeg'))
+                $extension = 'jpg';
+            else
+                $extension = 'png';
+
+            $fileName = str_random().'.'.$extension;
+            $path = public_path().'/imagenes/modulos/'.$fileName;
+            file_put_contents($path, $decoded);
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
@@ -79,21 +78,21 @@ class ModulosController extends Controller
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                         'descripcion' => 'required|max:150',
                     ]);
+
                 if ($validador->fails()){
                     return response()->json([
                         'estado' => 'validador',
                         'errors' => $validador->errors()
                     ]);
                 }
-
                 $modulo = BdModulo::find($request->id);
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
-                $modulo -> imagen = '';
                 if ($request->imagen){
-                    $modulo->imagen = $request->imagen;
+                    $modulo->imagen = $fileName;
                 }
                 $modulo -> estado = $request->estado;
+//                $modulo -> user_id = Auth::user()->id;
                 $modulo -> save();
 
                 return response()->json([
@@ -101,8 +100,8 @@ class ModulosController extends Controller
                     'id' => $modulo ->id,
                     'tipo' => 'update'
                 ]);
-
-            }else{
+            }
+            else{
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
@@ -115,12 +114,11 @@ class ModulosController extends Controller
                         'errors' => $validador->errors()
                     ]);
                 }
-
                 $modulo = new BdModulo();
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
                 if ($request->imagen){
-                    $modulo->imagen = $request->imagen;
+                    $modulo->imagen = $fileName;
                 }
                 $modulo -> estado = $request->estado;
                 $modulo -> user_id = Auth::user()->id;
@@ -141,10 +139,3 @@ class ModulosController extends Controller
     }
 
 }
-
-/* public function obtener(Request $request){
-        $modulos = BdModulo::all();
-        return response()->json($modulos);
-        //return $modulos;
-    }
-                $modulo -> estado = $request->estado;*/
