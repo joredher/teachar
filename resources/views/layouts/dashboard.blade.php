@@ -4,7 +4,6 @@
 @section('title', 'Admin')
 
 @section('links')
-    <link rel="stylesheet" href="{{asset('vendors/js/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
     @yield('estilos')
 @endsection
@@ -135,7 +134,6 @@
     <script src="{{asset('admin/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
     <script src="{{asset('vendors/js/jquery.cookie/jquery.cookie.js') }}"></script>
     <script src="{{asset('vendors/js/jquery-validation/jquery.validate.min.js')}}"></script>
-    <script src="{{asset('vendors/js//malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"> </script>
     <script src="{{asset('admin/js/dashboard.js')}} "></script>
     <script>
         Vue.use(VeeValidate);

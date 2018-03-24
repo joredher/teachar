@@ -1,29 +1,25 @@
 <template>
     <div>
-        <div class="card-columns">
-            <a v-for="modulo in modulos" class="card img-fluid text-light" style="width: 50%;">
-                <img :src="modulo.imagen" class="card-img-top text-light" alt="img">
-                <!--<img src="https://placeimg.com/640/480/nature" class="card-img-top text-light" alt="img">-->
-                <div class="card-img-overlay">
-                    <h4 class="card-title" v-text="modulo.nombre"></h4>
-                    <P class="card-text" v-text="modulo.descripcion"></P>
+        <div class="row">
+            <div class="col-sm-12 col-md-4 col-lg-3 pb-3" v-for="modulo in modulos">
+                <div class="contentCard">
+                    <a class="card styCard">
+                        <div class="card-front" :style="{ 'background-image' : 'url(' + modulo.foto + ')' }">
+                            <h4 class="card-title" v-text="modulo.nombre"></h4>
+                            <!--<img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="card-img-top" alt="img">
+                            :style="{ backgroundImage: 'ulr(' + modulo.foto + ')' }"-->
+                        </div>
+                        <div class="card-back">
+                            <div class="content">
+                                <P class="card-text" v-text="modulo.descripcion"></P>
+                                <br/>
+                                <p id="modulo"></p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-            </a>
+            </div>
         </div>
-        <!--<div class="card-deck"> :class="color()"-->
-        <!--<div class="cards">-->
-            <!--<a class="card2" v-for="modulo in modulos"  href="#">-->
-			<!--<span class="card2-header" style="background-image: url(http://placeimg.com/400/200/animals);">-->
-				<!--<span class="card2-title">-->
-					<!--<h3 v-text="modulo.nombre"></h3>-->
-				<!--</span>-->
-			<!--</span>-->
-                <!--<span class="card2-summary" v-text="modulo.descripcion"></span>-->
-                <!--<span class="card2-meta">-->
-				<!--Published: June 18th, 2015-->
-			<!--</span>-->
-            <!--</a>-->
-        <!--</div>-->
     </div>
 </template>
 <script>
@@ -33,12 +29,31 @@
         data: function () {
             return {
                 coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
+                // image: modulo.foto,
             }
         },
        methods:{
            color() {
                return this.coloress[Math.floor(Math.random() * this.coloress.length)];
-           }
+           },
+
+           // getUrlMap(){
+           //     console.log(modulos);
+           //     var url = this.backgroungImage + modulos.imagen.;
+           //     return {'background-image': 'url("' + url + '")' }
+           //
+           //     // $('.card-front').css('background-image', 'url("'+ url + '")');
+           //     // var url = 'http://localhost:8000/imagenes/modulos/';
+           // }
+
+       },
+       mounted(){
+            $('.styCard').on('click', function () {
+                $(this).toggleClass('flipped');
+            });
+
+            // var url = this.backgroungImage;
+            // $('.card-front').css('background-image', 'url("'+ url + '")');
        }
     };
 </script>

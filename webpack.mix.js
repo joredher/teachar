@@ -16,3 +16,24 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
 mix.browserSync('http://localhost:8000');
+
+// let cssLoaders = require('url-loader');
+// module.exports = {
+//     module:{
+//         rules:[
+//             {
+//                 test: /\.(png|jpg|gif)$/,
+//                 use: [
+//                     {
+//                         loader: 'url-loader',
+//                         options: {
+//                             limit: 8192,
+//                             name:'[name].[hash:7].[ext]'
+//                         }
+//                     }
+//                 ]
+//             }
+//         ]
+//     }
+// };
+

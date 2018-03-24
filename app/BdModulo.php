@@ -17,8 +17,8 @@ class BdModulo extends Model
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
             ->orwhere('descripcion', 'like', $data. '%')
-            ->orwhere('imagen', 'like', $data. '%')
             ->orwhere('estado', 'like', $data. '%');
+        //            ->orwhere('imagen', 'like', $data. '%')
     }
 
     public function setEstadoAttribute($value){

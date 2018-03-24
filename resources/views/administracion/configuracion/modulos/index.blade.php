@@ -42,27 +42,9 @@
             display: block;
         }
 
-        #img-upload, #img-upload-post{
+        #img-upload{
             width: 50%;
         }
-        /*.custom-file-input:lang(es)~.custom-file-label::after {*/
-            /*content: "Elegir";*/
-        /*}*/
-
-        /*.custom-file-label::after{*/
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*right: 0;*/
-            /*left: 0;*/
-            /*z-index: 1;*/
-            /*height: calc(2.25rem + 2px);*/
-            /*padding: .375rem .75rem;*/
-            /*line-height: 1.5;*/
-            /*color: #495057;*/
-            /*background-color: #fff;*/
-            /*border: 1px solid #ced4da;*/
-            /*border-radius: .25rem;*/
-        /*}*/
     </style>
 @endsection
 
@@ -160,7 +142,7 @@
                         id: '',
                         nombre: '',
                         descripcion:'',
-                        imagen:'',
+                        foto:'',
                         estado: 1,
                         fecha:'',
                     };
@@ -174,7 +156,7 @@
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
-                            this.modulo.imagen = this.$refs.vcropp.getImage();
+                            this.modulo.foto = this.$refs.vcropp.getImage();
                             this.$http.post('/administracion/configuracion/guardar-modulo',this.modulo).then((response)=>{
                                 laddaButton.stop();
                                 if(response.body.estado=='ok'){
@@ -251,8 +233,8 @@
                 });
 
                 $("#myModal").on("shown.bs.modal", function () {
-                    $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
                     app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
+                    $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
                 });
             }
         })

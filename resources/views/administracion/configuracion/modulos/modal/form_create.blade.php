@@ -1,4 +1,4 @@
-<form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" enctype="multipart/form-data">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="display: inline-block">
@@ -23,10 +23,11 @@
                                         <label for="">Descripción </label>
                                         <textarea class="form-control" v-model="modulo.descripcion" data-vv-name=" Descripción " rows="4" style="resize: none"></textarea>
                                     </div>
-                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" v-if="modulo.id != '' && modulo.imagen" >
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" v-if="modulo.id != '' && modulo.imagen !== ''" >
                                         <label for="">Imagen Actual: </label>
                                        <div>
-                                           <img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">
+                                           <img :src="modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
+                                           {{--<img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">--}}
                                        </div>
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="modulo.id !=''">

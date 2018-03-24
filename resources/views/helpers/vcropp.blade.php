@@ -1,6 +1,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.1/cropper.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.1/cropper.min.css">
-<script type="text/x-template" id="imagenCrop">
+<script type="text/x-template" id="vcroppTpl">
     <div width="100%">
         <div class="card p-0">
             <div class="card-body">
@@ -32,7 +32,7 @@
 
 <script>
     Vue.component('vcropp',{
-        template: '#imagenCrop',
+        template: '#vcroppTpl',
         data: function () {
             return {
                 ready:false,
@@ -80,7 +80,7 @@
                     console.log('default');
                     return
                 }
-                return $('#'+(app.target?app.target:'croppimage')).cropper('getCroppedCanvas',{width:160}).toDataURL('image/png')
+                return $('#'+(app.target?app.target:'croppimage')).cropper('getCroppedCanvas',{width:771}).toDataURL('image/png')
             },
 
             destroy:function () {

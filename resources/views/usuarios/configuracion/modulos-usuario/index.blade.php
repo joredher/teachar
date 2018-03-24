@@ -12,12 +12,18 @@
 
 @section('contenido')
     <section id="ucontenido">
-        <modulos :modulos="{{json_encode($modulos)}}"></modulos>{{--<cards-template></cards-template>--}}
+        <div class="ucontenido">
+            <modulos  :modulos="{{json_encode($modulos)}}"></modulos>{{--<cards-template></cards-template>--}}
+        </div>
     </section>
 @endsection
 
 @section('scripts')
     @include('helpers.cards')
+
+    <script type="text/javascript">
+
+    </script>
     {{--<script src="{{asset('js/ucomponents.js')}}"></script>--}}
 
 @endsection

@@ -47389,10 +47389,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'modulos',
@@ -47400,12 +47396,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
+            // image: modulo.foto,
         };
     },
     methods: {
         color: function color() {
             return this.coloress[Math.floor(Math.random() * this.coloress.length)];
         }
+    },
+    mounted: function mounted() {
+        $('.styCard').on('click', function () {
+            $(this).toggleClass('flipped');
+        });
+
+        // var url = this.backgroungImage;
+        // $('.card-front').css('background-image', 'url("'+ url + '")');
     }
 });
 
@@ -47420,38 +47425,45 @@ var render = function() {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "card-columns" },
+      { staticClass: "row" },
       _vm._l(_vm.modulos, function(modulo) {
-        return _c(
-          "a",
-          {
-            staticClass: "card img-fluid text-light",
-            staticStyle: { width: "50%" }
-          },
-          [
-            _c("img", {
-              staticClass: "card-img-top text-light",
-              attrs: { src: modulo.imagen, alt: "img" }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-img-overlay" },
-              [
-                _c("h4", {
-                  staticClass: "card-title",
-                  domProps: { textContent: _vm._s(modulo.nombre) }
-                }),
-                _vm._v(" "),
-                _c("P", {
-                  staticClass: "card-text",
-                  domProps: { textContent: _vm._s(modulo.descripcion) }
-                })
-              ],
-              1
-            )
-          ]
-        )
+        return _c("div", { staticClass: "col-sm-12 col-md-4 col-lg-3 pb-3" }, [
+          _c("div", { staticClass: "contentCard" }, [
+            _c("a", { staticClass: "card styCard" }, [
+              _c(
+                "div",
+                {
+                  staticClass: "card-front",
+                  style: { "background-image": "url(" + modulo.foto + ")" }
+                },
+                [
+                  _c("h4", {
+                    staticClass: "card-title",
+                    domProps: { textContent: _vm._s(modulo.nombre) }
+                  })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-back" }, [
+                _c(
+                  "div",
+                  { staticClass: "content" },
+                  [
+                    _c("P", {
+                      staticClass: "card-text",
+                      domProps: { textContent: _vm._s(modulo.descripcion) }
+                    }),
+                    _vm._v(" "),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("p", { attrs: { id: "modulo" } })
+                  ],
+                  1
+                )
+              ])
+            ])
+          ])
+        ])
       })
     )
   ])

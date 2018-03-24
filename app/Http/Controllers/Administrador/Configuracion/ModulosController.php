@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Administrador\Configuracion;
 use App\BdModulo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
-
+use Validator;
 
 class ModulosController extends Controller
 {
@@ -41,6 +40,8 @@ class ModulosController extends Controller
             if ($request->id != ''){
                 $id = $request->get('id');
                 $modulo = BdModulo::find($id);
+//                $fileName = Input::get('imagen');
+//                $path = public_path().'/imagenes/modulos/';
                 if ($modulo){
                     $modulo->delete();
                     return response()->json([
@@ -60,23 +61,26 @@ class ModulosController extends Controller
 
     public function guardar(Request $request){
         try{
-            $exploded = array_pad(explode(',', $request->imagen),2,null);
-            $decoded = base64_decode($exploded[1]);
+//            $exploded = array_pad(explode(',', $request->imagen),2,null);
+//            $decoded = base64_decode($exploded[1]);
+//
+//            if(str_contains($exploded[0], 'jpeg'))
+//                $extension = 'jpg';
+//            else
+//                $extension = 'png';
+//
+//            $fileName = str_random().'.'.$extension;
+//            $path = public_path().'/imagenes/modulos/'.$fileName;
+//            file_put_contents($path, $decoded);
+//            file_put_contents($path, $decoded);
 
-            if (str_contains($exploded[0], 'jpeg'))
-                $extension = 'jpg';
-            else
-                $extension = 'png';
-
-            $fileName = str_random().'.'.$extension;
-            $path = public_path().'/imagenes/modulos/'.$fileName;
-            file_put_contents($path, $decoded);
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                         'descripcion' => 'required|max:150',
+//                        'imagen' => 'require|image|max:1024*1024*1'
                     ]);
 
                 if ($validador->fails()){
@@ -88,8 +92,10 @@ class ModulosController extends Controller
                 $modulo = BdModulo::find($request->id);
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
-                if ($request->imagen){
-                    $modulo->imagen = $fileName;
+                $modulo-> foto = '';
+                if ($request->foto){
+                    $modulo->foto = $request->foto;
+//                    $modulo->foto = $fileName;
                 }
                 $modulo -> estado = $request->estado;
 //                $modulo -> user_id = Auth::user()->id;
@@ -106,7 +112,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
                     'descripcion' => 'required|max:150',  // temporal ampliar cap
-//                    'estado' => 'required'
+//                    'imagen' => 'require|image|max:1024*1024*1'
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -117,8 +123,9 @@ class ModulosController extends Controller
                 $modulo = new BdModulo();
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
-                if ($request->imagen){
-                    $modulo->imagen = $fileName;
+                if($request->foto){
+                    $modulo->foto = $request->foto;
+//                    $modulo->foto = $fileName;
                 }
                 $modulo -> estado = $request->estado;
                 $modulo -> user_id = Auth::user()->id;
