@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-3 pb-3" v-for="modulo in modulos">
-                <div class="contentCard">
+            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-5" v-for="modulo in modulos">
+                <div class="contentCard zoomIn animated">
                     <a class="card styCard">
-                        <div class="card-front" :style="{ 'background-image' : 'url(' + modulo.foto + ')' }">
-                            <h4 class="card-title" v-text="modulo.nombre"></h4>
+                        <div class="card-front">
+                            <h4 class="" v-text="modulo.nombre"></h4>
                             <!--<img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="card-img-top" alt="img">
                             :style="{ backgroundImage: 'ulr(' + modulo.foto + ')' }"-->
                         </div>
@@ -48,9 +48,9 @@
 
        },
        mounted(){
-            $('.styCard').on('click', function () {
-                $(this).toggleClass('flipped');
-            });
+            // $('.styCard').on('click', function () {
+            //     $(this).toggleClass('flipped');
+            // });
 
             // var url = this.backgroungImage;
             // $('.card-front').css('background-image', 'url("'+ url + '")');

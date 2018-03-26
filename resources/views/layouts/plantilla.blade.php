@@ -39,7 +39,7 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="form-inline mt-2 mt-md-0 pr-5">
+                    <div class="form-inline mt-2 mt-md-0 pr-5 pulse animated">
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();" class="text-dark">
                             <i class="fas fa-sign-out-alt fa-w-16 fa-2x">
@@ -55,9 +55,11 @@
         </header>
 
         <!-- Inicia contenido de Página -->
-        <main role="main" class="container-fluid">
-            @yield('contenido')
-        </main>
+        <div class="scroll-user mCustomScrollbar">
+            <main role="main" class="container-fluid">
+                @yield('contenido')
+            </main>
+        </div>
 
         <footer class="footer">
             <div class="container">
@@ -67,6 +69,16 @@
 @endsection
 
 @section('scriptjs')
+
+    <script type="text/javascript">
+        (function ($) {
+            $(window).on("load", function () {
+                $(".scroll-user").mCustomScrollbar({
+                    axis:"y"
+                });
+            })
+        })(jQuery);
+    </script>
 
     @yield('scripts')
 
