@@ -25,7 +25,7 @@ class ModulosController extends Controller
         try{
             $request = json_decode($request->getContent());
             $modulos = BdModulo::Buscar($request->datos->busqueda)
-                ->orderBy('id','asc')
+                ->orderBy('id','asc')->with(['BdTema'])
                 ->paginate(3);
                 //dd($modulos);
             return response()->json($modulos);
@@ -79,7 +79,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
-                        'descripcion' => 'required|max:150',
+                        'descripcion' => 'required|max:300',
 //                        'imagen' => 'require|image|max:1024*1024*1'
                     ]);
 
@@ -111,7 +111,8 @@ class ModulosController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
-                    'descripcion' => 'required|max:150',  // temporal ampliar cap
+                    'descripcion' => 'required|max:300',
+                    'foto' => 'required'// temporal ampliar cap
 //                    'imagen' => 'require|image|max:1024*1024*1'
                 ]);
                 if ($validador->fails()){

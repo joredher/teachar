@@ -19,11 +19,6 @@
 @endsection
 
 @section('scripts')
-    @include('helpers.cards')
-
-    <script type="text/javascript">
-
-    </script>
     {{--<script src="{{asset('js/ucomponents.js')}}"></script>--}}
 
 @endsection

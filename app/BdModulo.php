@@ -32,7 +32,7 @@ class BdModulo extends Model
     }
 
     public function BdTema(){
-        return $this->belongsToMany('App\BdTema');
+        return $this->hasMany('App\BdTema','modulo_id','id');
     }
 
 

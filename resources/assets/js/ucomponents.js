@@ -7,6 +7,7 @@ require('animate.css');
 
 
  Vue.component('modulos', require('./components/modulos/Modulo.vue'));
+ Vue.component('temas', require('./components/temas/Temas.vue'));
  // Vue.component('modulos', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({

@@ -52,13 +52,6 @@ header nav{
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
-/*main {*/
-    /*z-index: -1;*/
-    /*max-height: -webkit-fill-available;*/
-    /*overflow-y: scroll;*/
-/*}*/
-
-
 /**** Cards ****/
 .contentCard{
     height: 400px;
@@ -90,7 +83,6 @@ header nav{
     height: 100%;
     color: #03446A;
     /*text-align: center;*/
-    justify-content: center;
     border-radius: 6px;
     backface-visibility: hidden;
     display: -webkit-box;
@@ -104,11 +96,63 @@ header nav{
 .styCard .card-front{
     font-family: Lily Script One;
     font-size: 60px;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .styCard .card-back {
     -webkit-transform: rotateY(180deg);
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
+}
+
+.card-back .content-back {
+    padding: 3.5rem 2.5rem 0.5rem;
+    font-family: 'Nunito', Sans-Serif;
+}
+
+.btn_push{
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    background-color: #2ECC71;
+    border-bottom: 4px solid #27AE60;
+    outline: none;
+    cursor: pointer;
+}
+
+/*.btn_login:hover{*/
+/*padding: 9.5px 20px;  */
+/*-webkit-transition-duration-top: 0.4s;*/
+/*background-color: #2ECC85;*/
+/*color: #fff;*/
+/*text-shadow: 0px 0px 0px #000;*/
+/*font-family: 'roboto';*/
+/*filter:blur(0.55px);*/
+/*}*/
+
+.btn_push:hover{
+    -webkit-transition-duration-top: 0.4s;
+    background-color: #2ECC85;
+}
+
+.btn_push:active
+{
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid #2ECC71;
+}
+
+.btn_push:focus
+{
+    outline: none;
+    box-shadow: none;
 }
 
 /*.styCard.flipped {*/
