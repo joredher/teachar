@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
 //            return redirect('/home');
             if ($request->user()->hasRole('profe')){
-                return redirect('/usuarios/configuracion/');
+                return redirect('/usuario/');
 
             }
             if ($request->user()->hasRole('admin')){

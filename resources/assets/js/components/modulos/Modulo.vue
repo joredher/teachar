@@ -6,15 +6,13 @@
                     <a class="card styCard">
                         <div class="card-front" :style="{ 'background-image': 'url(' + modulo.foto + ')' }">
                             <h4 class="" v-text="modulo.nombre"></h4>
-                            <!--<img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="card-img-top" alt="img">
-                            :style="{ backgroundImage: 'ulr(' + modulo.foto + ')' }"-->
                         </div>
                         <div class="card-back">
                             <div class="content-back d-inline-block text-center">
                                 <P class="card-text text-justify" v-text="modulo.descripcion"></P>
                                 <br/>
                                 <p id="modulo"></p>
-                                <a href="" class="btn btn_push underline text-light"> Ir </a>
+                                <a :href="'/usuario/modulo/'+modulo.id" class="btn btn_push underline text-light"> Ir </a>
                             </div>
                         </div>
                     </a>
@@ -38,23 +36,11 @@
                return this.coloress[Math.floor(Math.random() * this.coloress.length)];
            },
 
-           // getUrlMap(){
-           //     console.log(modulos);
-           //     var url = this.backgroungImage + modulos.imagen.;
-           //     return {'background-image': 'url("' + url + '")' }
-           //
-           //     // $('.card-front').css('background-image', 'url("'+ url + '")');
-           //     // var url = 'http://localhost:8000/imagenes/modulos/';
-           // }
-
        },
        mounted(){
             // $('.styCard').on('click', function () {
             //     $(this).toggleClass('flipped');
             // });
-
-            // var url = this.backgroungImage;
-            // $('.card-front').css('background-image', 'url("'+ url + '")');
        }
     };
 </script>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Usuario\Configuracion;
+namespace App\Http\Controllers\Usuario;
 
 use App\BdModulo;
 use Illuminate\Http\Request;
@@ -13,12 +13,13 @@ class UsuarioController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(Request $request){
+    public function index(Request $request)
+    {
 
         $request->user()->authorizeRoles('profe');
-//        return view('usuarios.configuracion.modulos-usuario.index');
+        $modulos = BdModulo::all();
+        return view('usuario.modulos-usuario.index', ['modulos' => $modulos]);
     }
-
     public function getModulos(Request $request){
         $modulos = BdModulo::Buscar($request->datos->busqueda)->orderBy('id', 'asc')->get();
         return $modulos;

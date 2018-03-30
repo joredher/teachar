@@ -52,11 +52,13 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
 });
 
 Route::group(['middleware' => ['AuthUser']], function (){
-    Route::prefix('usuarios/configuracion')
-        ->namespace('Usuario\Configuracion')
+    Route::get('usuario','HomeController@index');
+    Route::prefix('usuario')
+        ->namespace('Usuario')
         ->group(function (){
 
             Route::get('modulos-usuario','UsuarioController@index')->name('index');
+            Route::get('modulo/{id}', 'ModuloUsuarioController@show')->name('temas-usuario');
 //            Route::get('get-modulos','UsuarioController@getModulos');
 
         });

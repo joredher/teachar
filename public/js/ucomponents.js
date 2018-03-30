@@ -47889,8 +47889,7 @@ window.Vue = __webpack_require__(36);
 __webpack_require__(39);
 
 Vue.component('modulos', __webpack_require__(55));
-Vue.component('temas', __webpack_require__(58));
-// Vue.component('modulos', require('./components/ExampleComponent.vue'));
+Vue.component('temas', __webpack_require__(63));
 
 var app = new Vue({
   el: '#ucontenido'
@@ -47972,8 +47971,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'modulos',
@@ -47993,9 +47990,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         // $('.styCard').on('click', function () {
         //     $(this).toggleClass('flipped');
         // });
-
-        // var url = this.backgroungImage;
-        // $('.card-front').css('background-image', 'url("'+ url + '")');
     }
 });
 
@@ -48049,7 +48043,7 @@ var render = function() {
                         "a",
                         {
                           staticClass: "btn btn_push underline text-light",
-                          attrs: { href: "" }
+                          attrs: { href: "/usuario/modulo/" + modulo.id }
                         },
                         [_vm._v(" Ir ")]
                       )
@@ -48076,14 +48070,20 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
 var normalizeComponent = __webpack_require__(44)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(64)
 /* template */
-var __vue_template__ = null
+var __vue_template__ = __webpack_require__(65)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48100,10 +48100,128 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\temas\\Temas.vue"
+Component.options.__file = "resources\\assets\\js\\components\\temas\\Tema.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-75c63a6c", Component.options)
+  } else {
+    hotAPI.reload("data-v-75c63a6c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
 
 module.exports = Component.exports
 
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'temas',
+    props: ['modulo'],
+    data: function data() {
+        return {
+            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
+            // image: modulo.foto,
+        };
+    },
+    methods: {
+        color: function color() {
+            return this.coloress[Math.floor(Math.random() * this.coloress.length)];
+        }
+    },
+    mounted: function mounted() {}
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.modulo.bd_tema, function(tema) {
+        return _c(
+          "div",
+          { staticClass: "col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-5" },
+          [
+            _c("div", { staticClass: "contentCard zoomIn animated" }, [
+              _c("a", { staticClass: "card styCard" }, [
+                _c("div", { staticClass: "card-front" }, [
+                  _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } })
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ])
+            ])
+          ]
+        )
+      })
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-back" }, [
+      _c("div", { staticClass: "content-back d-inline-block text-center" }, [
+        _c("br"),
+        _vm._v(" "),
+        _c("p", { attrs: { id: "tema" } })
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-75c63a6c", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

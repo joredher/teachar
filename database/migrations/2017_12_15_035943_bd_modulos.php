@@ -16,7 +16,7 @@ class BdModulos extends Migration
         Schema::create('bd_modulos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre')->unique();
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->binary('foto')->nullable();
             $table->enum('estado',['Activo','Inactivo']);
             $table->integer('user_id')->unsigned();
