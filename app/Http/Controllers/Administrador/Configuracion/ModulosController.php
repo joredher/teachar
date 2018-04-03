@@ -79,7 +79,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
-                        'descripcion' => 'required|max:300',
+                        'descripcion' => 'required',
 //                        'imagen' => 'require|image|max:1024*1024*1'
                     ]);
 
@@ -111,7 +111,7 @@ class ModulosController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
-                    'descripcion' => 'required|max:300',
+                    'descripcion' => 'required',
                     'foto' => 'required'// temporal ampliar cap
 //                    'imagen' => 'require|image|max:1024*1024*1'
                 ]);

@@ -20,9 +20,8 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/admin-home', 'HomeController@index')->middleware('AuthAdmin');
 //Route::get('/home', 'HomeController@index')->middleware('AuthAdmin');
-
-Route::get('/show', 'HomeController@show');
 Route::get('/', 'HomeController@index')->name('main');
+Route::get('/show', 'HomeController@show');
 
 Route::group(['middleware' => ['AuthAdmin']], function (){
     Route::prefix('administracion/configuracion')
@@ -52,7 +51,7 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
 });
 
 Route::group(['middleware' => ['AuthUser']], function (){
-    Route::get('usuario','HomeController@index');
+//    Route::get('usuario','HomeController@index');
     Route::prefix('usuario')
         ->namespace('Usuario')
         ->group(function (){

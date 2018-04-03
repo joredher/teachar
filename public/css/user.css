@@ -1,6 +1,128 @@
 @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
 /* User Style
 -------------------------------------------------- */
+
+.body_primero{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*color: #fff;*/
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-general{
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.contenedor-general .layout_contenedor:first-child{
+    /*background-color: #667697;*/
+    background-color: #39B3DF;
+    /*background-color: #F7F7F7;*/
+}
+
+.contenedor-general .layout_contenedor:nth-child(2){
+    background-color: #fff;
+}
+
+.layout_contenedor{
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.centro{
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Nunito', Sans-Serif;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+.centro img{
+    width: 60%;
+    transition: all 0.3s;
+    cursor: pointer !important;
+}
+
+.layout_contenedor:first-child .centro img{
+    width: 50%;
+    border-radius: 50%;
+}
+
+.card{
+    width: 80%;
+    margin: 0 auto;
+    border: 0;
+    cursor: pointer;
+}
+
+.card .card-header{
+    background-color: #39B3DF;
+}
+
+.card:hover{
+    transition: all 0.3s ease;
+    transform: scale3d(1.05,1.05,1.05);
+    box-shadow: 0px 5px 28px -12px rgba(0,0,0,0.25), 0 4px 12px 1px rgba(0,0,0,0.22);
+    /*box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);*/
+}
+
+.card-body h5{
+    font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    color: #0C1021;
+    font-weight: bold;
+}
+
+#aparecer{
+    display: none;
+    margin: 0 auto;
+}
+
+.layout_contenedor:nth-child(2):hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.layout_contenedor:nth-child(2) .centro img{
+    opacity: 0.5;
+}
+
+.layout_contenedor:nth-child(2) .centro img:hover{
+    transition: all 0.3s;
+    transform: scale3d(1.1,1.1,1.1);
+}
+
+.layout_contenedor:nth-child(2) .centro:hover img#desaparecer{
+    transition: all 0.3s;
+    display: none;
+}
+
+.layout_contenedor:nth-child(2) .centro:hover img#aparecer{
+    display: block;
+    transition: all 0.3s;
+    opacity: 1;
+}
+
+/*.layout_contenedor:hover .centro img{*/
+    /*opacity: 1;*/
+/*}*/
+
+/* CSS de Módulos y Temas
+-------------------------------------------------- */
+
 html {
     position: relative;
     min-height: 100%;
@@ -45,11 +167,16 @@ header{
     position: fixed;
     z-index: 9999;
     width: 100%;
+    height: 160px;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 header nav{
-    height: 160px;
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    width: 100%;
+}
+
+header > nav .container-fluid button{
+    outline: none;
 }
 
 /**** Cards ****/
@@ -202,10 +329,11 @@ header nav{
 -------------------------------------------------- */
 
 .into-back{
-    width: 150px;/*250px*/
-    height: 162px;
+    margin: 10px;
+    /*width: 150px;!*250px*!*/
+    /*height: 162px;*/
     /*border: solid;*/
-    margin-right: 10px;
+    /*margin-right: 10px;*/
 }
 
 .into img{
@@ -217,23 +345,53 @@ code {
 }
 /**** Media Query ****/
 
-/*@media screen and (max-width: 360px){*/
-    /*.container-fluid{*/
-        /*padding-top: 180px;*/
-    /*}*/
-/*}*/
+@media screen and (max-width: 360px){
 
-/*@media screen and (max-width: 480px) {*/
-    /*.container-fluid{*/
-        /*padding-top: 180px;*/
-    /*}*/
-/*}*/
+    .layout_contenedor:first-child .centro img{
+        width: 80%;
+    }
 
-/*@media screen and (max-width: 600px){*/
-    /*.container-fluid{*/
-        /*padding-top: 180px;*/
-    /*}*/
-/*}*/
+    .card-body h5{
+        font-size: 0.4em;
+    }
+
+    .layout_contenedor:nth-child(2) .centro img{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .layout_contenedor:first-child .centro img{
+        width: 90%;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    .card-body h5{
+        font-size: 0.6em;
+    }
+
+    .layout_contenedor:nth-child(2) .centro img{
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .layout_contenedor:first-child .centro img{
+        width: 90%;
+    }
+
+    .card-body h5{
+        font-size: 0.6em;
+    }
+
+    .layout_contenedor:nth-child(2) .centro img{
+        width: 100%;
+    }
+}
 
 /*@media screen and (max-width: 767px){*/
     /*.container-fluid{*/
