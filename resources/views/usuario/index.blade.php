@@ -45,7 +45,6 @@
     {{--<nav class="navbar fixed-bottom navbar-light bg-light">--}}
         {{--<a href="#" class="navbar-brand">HOLA MUNDO</a>--}}
     {{--</nav>--}}
-
     <script src="{{asset('admin/js/popper.min.js')}}"></script>
 
 </body>

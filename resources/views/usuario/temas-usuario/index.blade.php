@@ -13,8 +13,9 @@
             </div>
         </div>
     </div>
-
 @endsection
+
+@section('contenido-item', 'TEMAS')
 
 @section('contenido')
     <section id="ucontenido">
