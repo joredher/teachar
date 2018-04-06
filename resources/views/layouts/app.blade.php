@@ -10,7 +10,8 @@
         <meta name="description" content="Proyecto de Grado - Aplicativo Web con Realidad Aumentada">
         <meta name="author" content="Jorge Eduardo Hernández Oropeza y Edisson Fernando Quiñonez Díaz">
         <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
-        <script defer src="{{ asset('js/fontawesome.js') }}"></script>
+        {{--<script defer src="{{ asset('js/fontawesome.js') }}"></script>--}}
+        <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
         <!-- Bootstrap core CSS -->
         <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
         <!-- Custom styles for this template -->

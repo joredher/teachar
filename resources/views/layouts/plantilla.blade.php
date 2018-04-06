@@ -13,11 +13,11 @@
             </div>
 
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand font-weight-bold text-white" href="{{route('index')}}">
+                <a class="navbar-brand font-weight-bold text-dark" href="{{route('index')}}">
                     @yield('contenido-item')
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="text-white"> <i class="fas fa-bars"></i></span>
+                    <span class="text-dark"> <i class="fas fa-bars"></i></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -28,13 +28,13 @@
                     </ul>
                     <div class="form-inline my-2 my-lg-0">
                         <div class="mr-4">
-                            <a class="text-white" href="{{ route('main') }}">
+                            <a class="text-dark" href="{{ route('main') }}">
                                 <i class="fas fa-home fa-w-16 fa-2x"></i>
                             </a>
                         </div>
                         <div class="my-2 my-sm-0">
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();" class="text-white">
+                                        document.getElementById('logout-form').submit();" class="text-dark">
                                 <i class="fas fa-sign-out-alt fa-w-16 fa-2x"></i>
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

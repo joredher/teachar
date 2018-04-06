@@ -48145,6 +48145,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'temas',
@@ -48152,7 +48153,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
-            // image: modulo.foto,
         };
     },
     methods: {
@@ -48160,7 +48160,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             return this.coloress[Math.floor(Math.random() * this.coloress.length)];
         }
     },
-    mounted: function mounted() {}
+    mounted: function mounted() {
+        var $cell = $('.tcard');
+
+        //open and close card when clicked on card
+        $cell.find('.js-expander').click(function () {
+
+            var $thisCell = $(this).closest('.tcard');
+
+            if ($thisCell.hasClass('is-collapsed')) {
+                $cell.not($thisCell).removeClass('is-expanded').addClass('is-collapsed').addClass('is-inactive');
+                $thisCell.removeClass('is-collapsed').addClass('is-expanded');
+
+                if ($cell.not($thisCell).hasClass('is-inactive')) {
+                    //do nothing
+                } else {
+                    $cell.not($thisCell).addClass('is-inactive');
+                }
+            } else {
+                $thisCell.removeClass('is-expanded').addClass('is-collapsed');
+                $cell.not($thisCell).removeClass('is-inactive');
+            }
+        });
+
+        //close card when click on cross
+        $cell.find('.js-collapser').click(function () {
+
+            var $thisCell = $(this).closest('.tcard');
+
+            $thisCell.removeClass('is-expanded').addClass('is-collapsed');
+            $cell.not($thisCell).removeClass('is-inactive');
+        });
+    }
 });
 
 /***/ }),
@@ -48172,43 +48203,34 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      { staticClass: "row" },
-      _vm._l(_vm.modulo.bd_tema, function(tema) {
-        return _c(
-          "div",
-          { staticClass: "col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-5" },
-          [
-            _c("div", { staticClass: "contentCard zoomIn animated" }, [
-              _c("a", { staticClass: "card styCard" }, [
-                _c("div", { staticClass: "card-front" }, [
-                  _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } })
-                ]),
-                _vm._v(" "),
-                _vm._m(0, true)
+    _c("div", [
+      _c(
+        "div",
+        { staticClass: "cards" },
+        _vm._l(_vm.modulo.bd_tema, function(tema) {
+          return _c("a", { staticClass: "tcard [ is-collapsed ]" }, [
+            _c("div", { staticClass: "tcard__inner [ js-expander ]" }, [
+              _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } }),
+              _vm._v(" "),
+              _c("i", { staticClass: "fas fa-folder" })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "tcard__expander" }, [
+              _c("i", { staticClass: "fas fa-times-circle [ js-collapser ]" }),
+              _vm._v(" "),
+              _c("p", [
+                _c("span", {
+                  domProps: { textContent: _vm._s(tema.contenido) }
+                })
               ])
             ])
-          ]
-        )
-      })
-    )
+          ])
+        })
+      )
+    ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-back" }, [
-      _c("div", { staticClass: "content-back d-inline-block text-center" }, [
-        _c("br"),
-        _vm._v(" "),
-        _c("p", { attrs: { id: "tema" } })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

@@ -22,7 +22,7 @@
     <div class="contenedor-general">
         <div class="layout_contenedor" id="izquierda">
             <div class="centro">
-                <div class="card">
+                <div class="card intro">
                     <div class="card-header border-bottom-0">
                         <img src="{{asset('imagenes/default_avatar_male.jpg')}}" alt="user">
                     </div>
