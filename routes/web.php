@@ -46,6 +46,12 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
             Route::get('obtener-complemento', 'TemasController@obtenerComplemento');
             Route::post('guardar-tema', 'TemasController@guardar');
             Route::delete('eliminar-tema', 'TemasController@destroy');
+
+            // Objetos
+            Route::get('objetos', 'ObjetosController@index')->name('objetos');
+            Route::post('obtener-objetos', 'ObjetosController@obtener');
+            Route::post('guardar-objeto', 'ObjetosController@guardar');
+
         });
 
 });
@@ -62,3 +68,5 @@ Route::group(['middleware' => ['AuthUser']], function (){
 
         });
 });
+
+Route::get('/realidad-aumentada', 'AugmentRealityController@index')->name('realidad-aumentada');

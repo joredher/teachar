@@ -13,6 +13,10 @@ class BdTema extends Model
         return $this->belongsTo('App\BdModulo','modulo_id');
     }
 
+    public function BdObjeto(){
+        return $this->hasMany('App\BdObjeto','tema_id');
+    }
+
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
             ->orwhere('contenido', 'like', $data. '%')

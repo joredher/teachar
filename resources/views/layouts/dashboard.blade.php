@@ -5,6 +5,7 @@
 
 @section('links')
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('admin/css/_filemanagement.scss')}}">
     @yield('estilos')
 @endsection
 
@@ -47,6 +48,12 @@
                         <a href="{{route('modulos')}}">
                             <i class="fas fa-suitcase"></i>
                             <span class="oculto">Módulos</span>
+                        </a>
+                    </li
+                    ><li>
+                        <a href="{{route('objetos')}}">
+                            <i class="fas fa-box"></i>
+                            <span class="oculto">Objetos</span>
                         </a>
                     </li>
                     <li>
