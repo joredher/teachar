@@ -5,7 +5,8 @@
 
 @section('links')
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('admin/css/_filemanagement.scss')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css">
+    {{--<link rel="stylesheet" href="{{asset('admin/css/_filemanagement.scss')}}">--}}
     @yield('estilos')
 @endsection
 
@@ -49,17 +50,17 @@
                             <i class="fas fa-suitcase"></i>
                             <span class="oculto">Módulos</span>
                         </a>
-                    </li
-                    ><li>
-                        <a href="{{route('objetos')}}">
-                            <i class="fas fa-box"></i>
-                            <span class="oculto">Objetos</span>
-                        </a>
                     </li>
                     <li>
                         <a href="{{route('temas')}}">
                             <i class="fas fa-window-restore"> </i>
                             <span class="oculto">Temas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('objetos')}}">
+                            <i class="fas fa-box"></i>
+                            <span class="oculto">Objetos</span>
                         </a>
                     </li>
                     <li>
@@ -142,6 +143,7 @@
     <script src="{{asset('vendors/js/jquery.cookie/jquery.cookie.js') }}"></script>
     <script src="{{asset('vendors/js/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('admin/js/dashboard.js')}} "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
     <script>
         Vue.use(VeeValidate);
         Vue.use(VuePaginator);

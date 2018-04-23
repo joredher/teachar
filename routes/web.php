@@ -49,7 +49,8 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
 
             // Objetos
             Route::get('objetos', 'ObjetosController@index')->name('objetos');
-            Route::post('obtener-objetos', 'ObjetosController@obtener');
+            Route::post('obtener-objeto', 'ObjetosController@obtenerObjetos');
+            Route::get('obtener-complemento-objeto', 'ObjetosController@obtenerComplemento');
             Route::post('guardar-objeto', 'ObjetosController@guardar');
 
         });

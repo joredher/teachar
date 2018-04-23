@@ -27,15 +27,13 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(['admin','profe']);
 
         if ($request->user()->hasRole('profe')){
-
-//            $modulos = BdModulo::all();
-//            return view('usuario.modulos-usuario.index', ['modulos'=>$modulos]);
             return view('usuario.index');
         }
         if($request->user()->hasRole('admin')){
             return view('administracion.configuracion.index');
         }
-
+//            $modulos = BdModulo::all();
+//            return view('usuario.modulos-usuario.index', ['modulos'=>$modulos]);
 //        if($request->user()->hasRole('profe')){
 //            return view('docente.configuracion.index');
 //        }

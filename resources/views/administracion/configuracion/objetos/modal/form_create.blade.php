@@ -1,5 +1,5 @@
-<form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+<form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" enctype="multipart/form-data">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header" style="display: inline-block">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -7,8 +7,21 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <label>Nombre Objeto</label>
+                        <input type="text" name="name" class="form-control" v-model="objeto.nombre" data-vv-name=" Nombre "  v-validate="'required'">
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <label>Objetos</label>
+                        <file-input ref="file" v-on:file-change="setFiles"></file-input>
+                        {{--<input type="file" ref="file" class="d-none" @change="onChange" multiple>--}}
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <label for="">Temática Objeto </label>
+                        <select name="" id="" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
+                            <option value="" disabled>Seleccionar Tema </option>
+                            <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" v-text="tema.nombre"></option>
+                        </select>
                     </div>
                 </div>
             </div>

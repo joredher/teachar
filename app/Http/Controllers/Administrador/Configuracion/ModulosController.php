@@ -6,6 +6,7 @@ use App\BdModulo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Validator;
 
@@ -73,7 +74,6 @@ class ModulosController extends Controller
 //            $path = public_path().'/imagenes/modulos/'.$fileName;
 //            file_put_contents($path, $decoded);
 //            file_put_contents($path, $decoded);
-
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
@@ -145,5 +145,4 @@ class ModulosController extends Controller
             ]);
         }
     }
-
 }

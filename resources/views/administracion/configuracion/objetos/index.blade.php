@@ -20,30 +20,10 @@
         .btn{
             cursor: pointer;
         }
-        /*** Upload Image ***/
 
-        .btn-file {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-file input[type=file] {
-            position: absolute;
-            top: 0;
-            right: 0;
-            min-width: 100%;
-            min-height: 100%;
-            font-size: 100px;
-            text-align: right;
-            filter: alpha(opacity=0);
-            opacity: 0;
-            outline: none;
-            background: white;
-            cursor: inherit;
-            display: block;
-        }
-
-        #img-upload{
-            width: 50%;
+        #objetos{
+            background: #eee;
+            padding: 20px;
         }
     </style>
 @endsection
@@ -55,36 +35,9 @@
                 @include('helpers.filtro')
             </div>
             <div class="card-body">
-                <div class="card-block card-dashboard">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead class="bg-info bg-light">
-                            <tr>
-                                <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Opciones</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="(objeto, index) in objetos" >
-                                <td><span v-text="index + 1"></span></td>
-                                <td><span v-text="objeto.nombre"></span></td>
-                                <td class="row mr-auto text-center pl-4">
-                                    <div class="col-xs-1 pr-1">
-                                        <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(modulo, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
-                                    </div>
-                                    <div class="col-xs-1 pl-1">
-                                        <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(modulo, index)"><i class="fas fa-trash-alt" ></i></button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
 
-                        </table>
-                    </div>
-                </div>
             </div>
-            <div class="card-footer">
+            <div class="card-footer ">
                 <v-paginator ref="vpaginator" :resource_url="resource_url" @update="updateResource" :datos="datos"></v-paginator>
             </div>
         </div>
@@ -93,33 +46,35 @@
 @endsection
 
 @section('scripts')
-    @include('helpers.switch')
+    @include('helpers.FileInput')
     <script>
         var app = new Vue({
             el: '#contenido',
             data : {
-                objetos :[],
-                resource_url : '/administracion/configuracion/obtener-objetos',
+                objetos:[],
+                resource_url : '/administracion/configuracion/obtener-objeto',
+                temas:[],
                 datos : {
                     busqueda :''
                 },
-                objeto:{},
+                objeto :{},
                 modal:{
                     title:'',
                 },
+                files:[],
+                form: new FormData,
+                // files:[],
                 objetoEnEdicion : '',
-                cargando : false,
             },
-
             components:{
                 VPaginator: VuePaginator
             },
-
             methods:{
                 updateResource:function (data) {
                     laddaButtonSearch.stop();
                     this.objetos = data;
                 },
+
                 buscar(){
                     laddaButtonSearch.start();
                     this.$refs.vpaginator.fetchData(this.resource_url)
@@ -131,26 +86,73 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
+                setFiles(files){
+                  if (files !== undefined){
+                      this.files = files
+                  }
+                },
+
                 formReset : function () {
                     this.objeto ={
-                        id: '',
-                        nombre: '',
+                        id:'',
+                        nombre:'',
                         objeto:'',
+                        material:'',
+                        capaOne:'',
+                        capaTwo:'',
+                        tema_id:'',
+                        time:''
                     };
                 },
+
+                complementosFiles: function () {
+                    this.$http.get('/administracion/configuracion/obtener-complemento-objeto').then(
+                        (response)=> {
+                            this.temas = response.body.temas;
+                        },(error)=>{
+                            toastr.error(error.status + ' '+error.statusText+' ('+error.url+')');
+                        }
+                    );
+                },
+
+                // guardar : function () {
+                //     let formData = new FormData();
+                //     for(let  file of this.files){
+                //         formData.append('file_name[]', file, file.name);
+                //     }
+                //
+                //     this.$http.post('/administracion/configuracion/guardar-objeto', formData)
+                //         .then((response) => {
+                //             toastr["success"]('Objeto creado correctamente.');
+                //         },(error) => {
+                //             toastr.error(error.status + ' '+error.statusText+' ('+error.url+')');
+                //         }
+                //     );
+                //     // alert(this.files.name)
+                // },
 
                 guardar : function () {
                     var app = this;
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
-                            this.$http.post('/administracion/configuracion/guardar-objeto',this.objeto).then((response)=>{
+                            for (let i=0; i<this.files.length; i++){
+                                this.form.append('pics[]', this.files[i]);
+                                console.log(this.files[i])
+                            }
+
+                            this.$refs.file.value = [];
+                            // document.getElementById('upload-file').value=[];
+                            // this.modulo.foto = this.$refs.vcropp.getImage();
+                            this.$http.post('/administracion/configuracion/guardar-objeto',this.objeto && this.form).then((response)=>{
                                 laddaButton.stop();
+                                console.log(this.files[id]);
                                 if(response.body.estado=='ok'){
                                     if(response.body.tipo == 'update'){
                                         var index = this.objetos.indexOf(this.objetoEnEdicion);
                                         toastr["success"]('Objeto actualizado correctamente.');
                                     }else{
+                                        console.log(response);
                                         this.objeto.id = response.body.id;
                                         toastr["success"]('Objeto creado correctamente.');
                                     }
@@ -181,6 +183,9 @@
                         toastr.warning(error.field.toUpperCase()+": "+error.msg);
                     });
                 },
+
+
+
             },
             beforeMount(){
                 this.formReset();
@@ -191,11 +196,14 @@
                     app.formReset();
                 });
 
-                $("#myModal").on("shown.bs.modal", function () {
+                $("#myModal").on("show.bs.modal", function () {
                     app.modal.title = (app.objeto.id != ''?'Edición de ':'Nuevo ') + 'Objeto';
-                    $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
+                    app.complementosFiles();
+
                 });
+
             }
-        })
+        });
     </script>
+
 @endsection
