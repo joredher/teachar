@@ -52,6 +52,8 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
             Route::post('obtener-objeto', 'ObjetosController@obtenerObjetos');
             Route::get('obtener-complemento-objeto', 'ObjetosController@obtenerComplemento');
             Route::post('guardar-objeto', 'ObjetosController@guardar');
+            Route::delete('eliminar-objeto', 'ObjetosController@destroy');
+//            Route::post('guardar-objeto', 'ObjetosController@store');
 
         });
 

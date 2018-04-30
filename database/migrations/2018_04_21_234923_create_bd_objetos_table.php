@@ -15,11 +15,11 @@ class CreateBdObjetosTable extends Migration
     {
         Schema::create('bd_objetos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre')->unique();
-            $table->string('objeto');
-            $table->string('material')->nullable();
-            $table->string('capaOne')->nullable();
-            $table->string('capaTwo')->nullable();
+            $table->string('titulo')->unique();
+            $table->string('nombre_modelo');
+            $table->string('modelo');
+            $table->string('nombre_material');
+            $table->string('material');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id')->references('id')->on('bd_temas')
                 ->onUpdate('cascade')->onDelete('cascade');

@@ -1,5 +1,5 @@
 <form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" enctype="multipart/form-data">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog" role="document">s
         <div class="modal-content">
             <div class="modal-header" style="display: inline-block">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -9,16 +9,29 @@
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <label>Nombre Objeto</label>
-                        <input type="text" name="name" class="form-control" v-model="objeto.nombre" data-vv-name=" Nombre "  v-validate="'required'">
+                        <input type="text" name="titulo" class="form-control" v-model="objeto.titulo" data-vv-name=" Nombre "  v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <label>Objetos</label>
                         <file-input ref="file" v-on:file-change="setFiles"></file-input>
-                        {{--<input type="file" ref="file" class="d-none" @change="onChange" multiple>--}}
+                        <div class="form-group text-center" v-if="objeto.id !== ''">
+                            <hr class="mb-0">
+                            <label class="pt-1"><strong>Archivos Cargados</strong></label>
+                            <hr class="mt-0">
+                            <div class="row text-center">
+                                <div class="col-sm-6">
+                                    <p class="card-text">Nombre modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>
+                                </div>
+                            </div>
+                        </div>
+                        {{--<input type="file"  ref="file" class="d-none" @change="onChange" multiple>--}}
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Temática Objeto </label>
-                        <select name="" id="" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
+                        <select name="tema" id="" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
                             <option value="" disabled>Seleccionar Tema </option>
                             <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" v-text="tema.nombre"></option>
                         </select>

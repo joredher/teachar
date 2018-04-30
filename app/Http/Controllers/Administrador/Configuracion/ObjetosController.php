@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Administrador\Configuracion;
 
 use App\BdObjeto;
 use App\BdTema;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Rule;
+use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,6 +23,9 @@ class ObjetosController extends Controller
 
     public function index(Request $request){
         $request->user()->authorizeRoles('admin');
+
+//        $objetos = BdObjeto::orderBy('created_at', 'desc')->get();
+//        return view('administracion.configuracion.objetos.index', compact('objetos'));
         return view('administracion.configuracion.objetos.index');
     }
 
@@ -30,9 +35,7 @@ class ObjetosController extends Controller
             $objetos = BdObjeto::Buscar($request->datos->busqueda)->with('BdTema')
                 ->orderBy('id','asc')
                 ->paginate(3);
-            //dd($modulos);
             return response()->json($objetos);
-
         }catch (\Exception $exception){
             return response()->json($exception);
         }
@@ -48,42 +51,80 @@ class ObjetosController extends Controller
         }
     }
 
+    public function destroy(Request $request){
+        try{
+            if ($request->id != ''){
+                $id = $request->get('id');
+                $objeto = BdObjeto::find($id);
+//                $fileName = Input::get('imagen');
+//                $path = public_path().'/imagenes/modulos/';
+                if ($objeto && Storage::disk('local')->exists('/public/' . $objeto->tema_id . '/' . $objeto->modelo)
+                    && Storage::disk('local')->exists('/public/' . $objeto->tema_id . '/' . $objeto->material) ){
+                    if (Storage::disk('local')->delete('/public/' . $objeto->tema_id . '/' . $objeto->modelo) &&
+                        Storage::disk('local')->delete('/public/' . $objeto->tema_id . '/' . $objeto->material)){
+//                        $model = $request->modelo->delete();
+//                        $material = $request->material->delete();
+//
+//                        return [$model, $material];
+                        $objeto->delete();
+                        return response()->json([
+                            'estado' => 'ok',
+                            'id' => $objeto->id,
+                            'tipo' => 'delete',
+                        ]);
+                    }
+
+//                    return $data;
+                }
+                $data['success'] = false;
+                return $data;
+            }
+        }catch (\Exception $exception){
+            return response()->json($exception);
+        }
+    }
+
     public function guardar(Request $request){
         try{
 
-            $uploadedFiles = $request->pics;
-            dd($request->pics);
-            foreach ($uploadedFiles as $file){
+            if ($request->hasFile('file')){
+                $objetos = $request->file('file');
 
-//                $file->store('dummy');
-                $originalFileName = $file->getClientOriginalName();
-                $ext = $file->getClientOriginalExtension();
-                $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                $fileName = str_slug($fileNameOnly) . "-" . time() . "." . $ext;
-//                $uploadedFileName = Storage::putFileAS('/public/' . $this->getTemaDir() . '/' . $fileName);
-////                $uploadedFileName = $file->storeAs("public/", $this->getTemaDir() . "/" . $fileName);
-//                $archiv = [$uploadedFileName, $fileNameOnly];
+                foreach ($objetos as $objeto){
+                    $originalFileName = $objeto->getClientOriginalName();
+                    $extension = $objeto->getClientOriginalExtension();
 
-//                dd($archiv);
+                    if ($extension == 'mtl') {
+                        $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                        $materialName = str_slug($materialNameOnly) . "." . $extension;
+                        $uploadedMaterialName = $objeto->storeAs('public', $request->get('tema') . "/" . $materialName);
+//                        return [$uploadedFileName, $materialNameOnly];
+                    }
+                    if ($extension == 'obj') {
+                        $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                        $fileName = str_slug($fileNameOnly) . "." . $extension;
+                        $uploadedFileName = $objeto->storeAs('public', $request->get('tema') . "/" . $fileName);
+//                        return [$uploadedFileName, $fileNameOnly];
+                    }
+                }
 
-                if ($originalFileName . $ext === $originalFileName.'.obj'){
-                    $archiv = $fileName->store($this->getTemaDir());
-                }
-                if ($originalFileName . $ext === $originalFileName.'.mtl'){
-                    $material = $fileName->store($this->getTemaDir());
-                }
-                if ($originalFileName . $ext === $originalFileName.'.png'){
-                    $capaOne = $fileName->store($this->getTemaDir());
-                }
             }
+
+            if (Input::get('titulo')){
+                $titulo = $request->input('titulo');
+            }
+
+            if ($request->get('tema')){
+                $tema = $request->get('tema');
+            }
+
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
                     [
-                        'nombre' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
-                        'tema_id' => 'required'
+//                        'file_name' =>  'required',
+//                        'file_name' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
                     ]);
-
                 if ($validador->fails()){
                     return response()->json([
                         'estado' => 'validador',
@@ -92,12 +133,12 @@ class ObjetosController extends Controller
                 }
 
                 $objeto = BdObjeto::find($request->id);
-                $objeto -> file_name = $request->file_name;
-                $objeto -> objeto = $archiv;
-                $objeto -> material = $material;
-                $objeto -> capaOne = $capaOne;
-                $objeto -> capaTwo = $capaTwo;
-                $objeto -> tema_id = $request->tema_id;
+                $objeto -> titulo  = $titulo;
+                $objeto -> nombre_modelo = $fileNameOnly;
+                $objeto -> modelo = $uploadedFileName;
+                $objeto -> nombre_material = $materialNameOnly;
+                $objeto -> material = $uploadedMaterialName;
+                $objeto -> tema_id  = $tema;
                 $objeto -> save();
 
                 return response()->json([
@@ -105,12 +146,13 @@ class ObjetosController extends Controller
                     'id' => $objeto ->id,
                     'tipo' => 'update'
                 ]);
-            }
-            else{
+
+            }else{
                 //Create
                 $validador = Validator::make($request->all(),[
-                    'nombre' =>  'required|unique:bd_objetos',
-                    'tema_id' => 'required'
+                    'titulo' => 'required|unique:bd_objetos',
+                    'file' => 'required',
+                    'tema' => 'required|unique:bd_objetos',
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -118,14 +160,16 @@ class ObjetosController extends Controller
                         'errors' => $validador->errors()
                     ]);
                 }
+
                 $objeto = new BdObjeto();
-                $objeto -> file_name = $request->file_name;
-                $objeto -> objeto = $archiv;
-                $objeto -> material = $material;
-                $objeto -> capaOne = $capaOne;
-                $objeto -> capaTwo = $capaTwo;
-                $objeto -> tema_id = $request->tema_id;
+                $objeto -> titulo  = $titulo;
+                $objeto -> nombre_modelo = $fileNameOnly;
+                $objeto -> modelo = $uploadedFileName;
+                $objeto -> nombre_material = $materialNameOnly;
+                $objeto -> material = $uploadedMaterialName;
+                $objeto -> tema_id  = $tema;
                 $objeto -> save();
+
 
                 return response()->json([
                     'estado' => 'ok',
@@ -139,15 +183,5 @@ class ObjetosController extends Controller
                 'error' => $exception->getMessage(),
             ]);
         }
-    }
-
-    private function getTemaDir()
-    {
-        $temas = BdTema::all();
-
-        foreach ($temas as $tema){
-            $dire = $tema->name . '_' . $tema->id;
-        }
-        return $dire;
     }
 }

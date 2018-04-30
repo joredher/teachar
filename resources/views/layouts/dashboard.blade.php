@@ -5,7 +5,6 @@
 
 @section('links')
     <link href="{{asset('admin/css/dashboard.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.css">
     {{--<link rel="stylesheet" href="{{asset('admin/css/_filemanagement.scss')}}">--}}
     @yield('estilos')
 @endsection
@@ -111,7 +110,7 @@
             </div>
         </section>
         <footer class="main-footer">
-            <div class="container-fluid">
+            <div class="container-fluid" style="background-color: #F4F7FA;">
                 <div class="row">
                     <div class="col-sm-12">
                         <div aria-label="breadcrumb" class="navbar-brand d-none d-md-block d-sm-inline-flex">
@@ -143,10 +142,9 @@
     <script src="{{asset('vendors/js/jquery.cookie/jquery.cookie.js') }}"></script>
     <script src="{{asset('vendors/js/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('admin/js/dashboard.js')}} "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js"></script>
     <script>
         Vue.use(VeeValidate);
         Vue.use(VuePaginator);
     </script>
-        @yield('scripts')
+    @yield('scripts')
 @endsection

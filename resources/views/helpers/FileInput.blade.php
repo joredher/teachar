@@ -18,45 +18,50 @@
         // props:['id','value', 'labelon', 'labeloff', 'disabled', 'type','classcontent'],
         data: function () {
             return {
-                files:[]
+                files:[],
             }
         },
         watch: {
         },
-        methods:{
-            showFilePicker(){
+        methods: {
+            showFilePicker() {
                 this.$refs.file.click();
             },
-
-            onChange(e){
-                let selectedFiles = e.target.files;
+            onChange(e) {
+                // let selectedFiles = e.target.files;
+                this.files = e.target.files;
                 this.$emit('file-change', this.files);
 
-                if (!selectedFiles.length){
-                    return false;
-                    console.log("Hola");
-                }
-
-                for(let i=0; i<selectedFiles.length; i++){
-                    this.files.push(selectedFiles[i]);
-                }
-
-                console.log(this.files)
+                // if (!selectedFiles.length) {
+                //     return false;
+                //     console.log("Hola");
+                // }
+                //
+                // for (let i = 0; i < selectedFiles.length; i++) {
+                //     this.files.push(selectedFiles[i]);
+                // }
+                //
+                // console.log(this.files)
                 // this.files = e.target.files;
                 // this.files = e.target.files;
                 // console.log(e.target.files)
             },
 
-            getFilesName(){
+            getFilesName() {
                 let filesName = [];
 
-                if (this.files.length > 0){
-                    for (let file of  this.files){
+                if (this.files.length > 0) {
+                    for (let file of  this.files) {
                         filesName.push(file.name)
                     }
                 }
 
                 return filesName.join(", ");
+            },
+
+            destroy: function (e) {
+                var app = this;
+                app.files = [];
             },
         },
         mounted(){
