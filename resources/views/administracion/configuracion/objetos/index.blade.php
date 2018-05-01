@@ -36,42 +36,37 @@
                 @include('helpers.filtro')
             </div>
             <div class="card-body">
-                <div class="scroll mCustomScrollbas">
-                    <main role="main" class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4 pl-1 pr-1" v-for="(objeto, index) in objetos">
-                                <div class="conten bounceIn animated">
-                                    <a class="card sty">
-                                        <div class="card-front text-center">
-                                            <h4 v-text="objeto.titulo"></h4>
-                                            <p class="card-text">
-                                                <small class="text-muted">
-                                                    Creado hace: <span v-text="objeto.time"></span>
-                                                </small>
-                                            </p>
-                                            <hr>
-                                            <h5 class="card-title"><span v-text="objeto.bd_tema.nombre"></span></h5>
-                                            <p class="card-text">Nombre modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
-                                            <p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>
-                                            <hr>
-                                            <div>
-                                                    <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
-                                                    <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(objeto, index)"><i class="fas fa-trash-alt" ></i></button>
-                                            </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4 pl-1 pr-1" v-for="(objeto, index) in objetos">
+                            <div class="conten bounceIn animated">
+                                <a class="card sty">
+                                    <div class="card-front text-center">
+                                        <h4 v-text="objeto.titulo"></h4>
+                                        <p class="card-text">
+                                            <small class="text-muted">
+                                                Creado hace: <span v-text="objeto.time"></span>
+                                            </small>
+                                        </p>
+                                        <hr>
+                                        <h5 class="card-title"><span v-text="objeto.bd_tema.nombre"></span></h5>
+                                        <p class="card-text">Nombre modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
+                                        <p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>
+                                        <hr>
+                                        <div>
+                                            <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(objeto, index)"><i class="fas fa-trash-alt" ></i></button>
+                                            <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
                                         </div>
-                                        {{--<div class="card-back"> :style="{ 'background-image': 'url(' + modulo.foto + ')' }" --}}
-                                            {{--<div class="content-back d-inline-block text-center">--}}
-                                                {{--<P class="card-text text-justify" v-text="modulo.descripcion"></P>--}}
-                                                {{--<br/>--}}
-                                                {{--<p id="modulo"></p>--}}
-                                                {{--<a :href="'/usuario/modulo/'+modulo.id" class="btn btn_push underline text-light"> Ir </a>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    </main>
+                    </div>
+                </div>
+
+                <div class="scroll mCustomScrollbar">
+
                 </div>
             </div>
             <div class="card-footer ">

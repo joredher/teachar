@@ -56,31 +56,31 @@ class ObjetosController extends Controller
             if ($request->id != ''){
                 $id = $request->get('id');
                 $objeto = BdObjeto::find($id);
-//                $fileName = Input::get('imagen');
-//                $path = public_path().'/imagenes/modulos/';
-                if ($objeto && Storage::disk('local')->exists('/public/' . $objeto->tema_id . '/' . $objeto->modelo)
-                    && Storage::disk('local')->exists('/public/' . $objeto->tema_id . '/' . $objeto->material) ){
-                    if (Storage::disk('local')->delete('/public/' . $objeto->tema_id . '/' . $objeto->modelo) &&
-                        Storage::disk('local')->delete('/public/' . $objeto->tema_id . '/' . $objeto->material)){
-//                        $model = $request->modelo->delete();
-//                        $material = $request->material->delete();
-//
-//                        return [$model, $material];
-                        $objeto->delete();
-                        return response()->json([
-                            'estado' => 'ok',
-                            'id' => $objeto->id,
-                            'tipo' => 'delete',
-                        ]);
-                    }
 
-//                    return $data;
+                if ($objeto || $objeto->file_exists( storage_path($objeto->modelo)) && $objeto->file_exists( storage_path($objeto->material)))
+                {
+                    $objeto->delete();
+                    Storage::delete([$objeto->modelo, $objeto->material]);
+                    return response()->json([
+                        'estado' => 'ok',
+                        'id' => $objeto->id,
+                        'tipo' => 'delete',
+                    ]);
                 }
+//                    return $data;
                 $data['success'] = false;
                 return $data;
             }
         }catch (\Exception $exception){
             return response()->json($exception);
+        }
+    }
+
+    private function getDir($id){
+//        $temas = BdTema::all();
+        $temas = BdTema::where('id', '=' ,$id)->get();
+        foreach ($temas as $tema){
+            return $tema->nombre;
         }
     }
 
@@ -97,13 +97,17 @@ class ObjetosController extends Controller
                     if ($extension == 'mtl') {
                         $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                         $materialName = str_slug($materialNameOnly) . "." . $extension;
-                        $uploadedMaterialName = $objeto->storeAs('public', $request->get('tema') . "/" . $materialName);
+                        $uploadedMaterialName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $materialName);
+//                        $uploadedMaterialName = $objeto->storeAs('public', $request->get('tema') . "/" . $materialName);
 //                        return [$uploadedFileName, $materialNameOnly];
                     }
                     if ($extension == 'obj') {
                         $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                         $fileName = str_slug($fileNameOnly) . "." . $extension;
-                        $uploadedFileName = $objeto->storeAs('public', $request->get('tema') . "/" . $fileName);
+                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName );
+//                        Storage::putFileAs('/public/' . $request->get('tema') . '/' . $fileName);
+
+//                        $uploadedFileName = $objeto->storeAs('public', $request->get('tema') . "/" . $fileName);
 //                        return [$uploadedFileName, $fileNameOnly];
                     }
                 }
@@ -122,6 +126,9 @@ class ObjetosController extends Controller
                 //update
                 $validador = Validator::make($request->all(),
                     [
+                        'titulo' => 'required',
+                        'file' => 'required',
+                        'tema' => 'required',
 //                        'file_name' =>  'required',
 //                        'file_name' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
                     ]);
@@ -144,15 +151,18 @@ class ObjetosController extends Controller
                 return response()->json([
                     'estado' => 'ok',
                     'id' => $objeto ->id,
-                    'tipo' => 'update'
+                    'tipo' => 'update',
+                    'objetos' => BdObjeto::whereId($objeto->id)->with([
+                        'BdTema'
+                    ])->get(),
                 ]);
 
             }else{
                 //Create
                 $validador = Validator::make($request->all(),[
-                    'titulo' => 'required|unique:bd_objetos',
+                    'titulo' => 'required',
                     'file' => 'required',
-                    'tema' => 'required|unique:bd_objetos',
+                    'tema' => 'required',
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -175,6 +185,9 @@ class ObjetosController extends Controller
                     'estado' => 'ok',
                     'id' => $objeto-> id,
                     'tipo' => 'save',
+                    'objetos' => BdObjeto::whereId($objeto->id)->with([
+                        'BdTema'
+                    ])->get(),
                 ]);
             }
         } catch (\Exception $exception){

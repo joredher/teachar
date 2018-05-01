@@ -14,7 +14,7 @@ class BdTema extends Model
     }
 
     public function BdObjeto(){
-        return $this->hasMany('App\BdObjeto','tema_id');
+        return $this->hasMany('App\BdObjeto','tema_id', 'id');
     }
 
     public function scopeBuscar($query, $data){

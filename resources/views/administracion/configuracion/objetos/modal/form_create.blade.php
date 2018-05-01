@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Temática Objeto </label>
-                        <select name="tema" id="" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
+                        <select name="tema" id="tema" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
                             <option value="" disabled>Seleccionar Tema </option>
                             <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" v-text="tema.nombre"></option>
                         </select>

@@ -4120,18 +4120,4 @@ a.ob_box:active {
     height: 100%;
     position: absolute;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d ;
-    transition: transform 1s;
 }
-
-/*.sty .card-front{*/
-    /*font-size: 60px;*/
-    /*justify-content: center;*/
-    /*-webkit-box-align: center;*/
-    /*-moz-box-align: center;*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/

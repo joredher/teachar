@@ -110,7 +110,7 @@
             </div>
         </section>
         <footer class="main-footer">
-            <div class="container-fluid" style="background-color: #F4F7FA;">
+            <div class="container-fluid" style="    background-color: #F4F7FA;">
                 <div class="row">
                     <div class="col-sm-12">
                         <div aria-label="breadcrumb" class="navbar-brand d-none d-md-block d-sm-inline-flex">
