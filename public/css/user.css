@@ -470,6 +470,7 @@ header > nav .container-fluid button{
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
+    padding: 40%;
 }
 
 .tcard.is-expanded:hover .tcard__inner {
@@ -504,6 +505,10 @@ header > nav .container-fluid button{
     .tcard__expander {
         width: calc(300% + 60px);
     }
+
+    .tcard__expander  div{
+        width: calc(100% + 30px);
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .tcard:nth-of-type(2n+2) .tcard__expander {
@@ -516,6 +521,10 @@ header > nav .container-fluid button{
 
     .tcard__expander {
         width: calc(200% + 30px);
+    }
+
+    .tcard__expander  div{
+        width: calc(100% + 15px);
     }
 }
 

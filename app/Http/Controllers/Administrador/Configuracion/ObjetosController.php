@@ -126,11 +126,9 @@ class ObjetosController extends Controller
                 //update
                 $validador = Validator::make($request->all(),
                     [
-                        'titulo' => 'required',
+                        'titulo' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
                         'file' => 'required',
                         'tema' => 'required',
-//                        'file_name' =>  'required',
-//                        'file_name' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
                     ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -140,12 +138,12 @@ class ObjetosController extends Controller
                 }
 
                 $objeto = BdObjeto::find($request->id);
-                $objeto -> titulo  = $titulo;
+                $objeto -> titulo  = $request->titulo;
                 $objeto -> nombre_modelo = $fileNameOnly;
                 $objeto -> modelo = $uploadedFileName;
                 $objeto -> nombre_material = $materialNameOnly;
                 $objeto -> material = $uploadedMaterialName;
-                $objeto -> tema_id  = $tema;
+                $objeto -> tema_id  = $request->tema_id;
                 $objeto -> save();
 
                 return response()->json([
@@ -160,7 +158,7 @@ class ObjetosController extends Controller
             }else{
                 //Create
                 $validador = Validator::make($request->all(),[
-                    'titulo' => 'required',
+                    'titulo' => 'required|unique:bd_objetos',
                     'file' => 'required',
                     'tema' => 'required',
                 ]);

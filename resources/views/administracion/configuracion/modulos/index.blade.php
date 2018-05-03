@@ -137,6 +137,11 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
+                start(){
+                    toastr.warning('¡La imagen no debe ser tan pesada!.');
+                    toastr.info('¡Recomendable subir imagenes tipo .png, .jpg o jpeg!');
+                },
+
                 formReset : function () {
                     this.modulo ={
                         id: '',
@@ -236,6 +241,9 @@
                     app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
                     $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
                 });
+            },
+            created() {
+                this.start();
             }
         })
     </script>

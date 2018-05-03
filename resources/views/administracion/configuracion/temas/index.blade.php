@@ -82,6 +82,7 @@
                 temas :[],
                 resource_url : '/administracion/configuracion/obtener-temas',
                 modulos:[],
+                objetos:[],
                 datos : {
                     busqueda :''
                 },
@@ -114,6 +115,10 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
+                start(){
+                    toastr.info('Importante asignar un módulo a cada tema creado.');
+                },
+
                 formReset : function () {
                     this.tema ={
                         id: '',
@@ -130,6 +135,7 @@
                     this.$http.get('/administracion/configuracion/obtener-complemento').then(
                         (response)=> {
                             this.modulos = response.body.modulos;
+                            this.objetos = response.body.objetos
                         },(error)=>{
                             toastr.error(error.status + ' '+error.statusText+' ('+error.url+')');
                         }
@@ -219,6 +225,9 @@
                     app.modal.title = (app.tema.id != ''?'Edición de ':'Nuevo ') + 'Tema';
                     app.complementosTemas();
                 });
+            },
+            created() {
+                this.start();
             }
         })
     </script>

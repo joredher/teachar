@@ -9,7 +9,21 @@
                     </div>
                     <div class="tcard__expander">
                         <i class="fas fa-times-circle [ js-collapser ]"></i>
-                        <p> <span v-text="tema.contenido"></span></p>
+                        <div>
+                            <div class="row">
+                                <div class="col-sm-6 text-justify">
+                                    <p> <span v-text="tema.contenido"></span></p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <!--<video width="100%" height="100%" src="https://youtu.be/iOUNpPEFNT0" controls></video>-->
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <!--<div class="content-back d-inline-block text-center">-->
                         <!--&lt;!&ndash;<P class="card-text text-justify" v-text="tema.descripcion"></P>&ndash;&gt;-->
                         <!--&lt;!&ndash;<br/>&ndash;&gt;-->

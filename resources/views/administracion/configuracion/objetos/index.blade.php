@@ -54,7 +54,7 @@
                                         <p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>
                                         <hr>
                                         <div>
-                                            <button class="btn btn-sm btn-info " @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-info " disabled @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(objeto, index)"><i class="fas fa-trash-alt" ></i></button>
                                             <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
                                         </div>
@@ -123,6 +123,10 @@
                     this.$refs.vpaginator.fetchData(this.resource_url);
                 },
 
+                start(){
+                    toastr.info('¡Atento! Si ya existe un objeto asignado a un Tema, cree un nuevo tema para agregar el nuevo objeto.');
+                },
+
                 setFiles(files){
                   if (files !== undefined){
                       this.files = files
@@ -163,22 +167,6 @@
                         }
                     );
                 },
-
-                // guardar : function () {
-                //     let formData = new FormData();
-                //     for(let  file of this.files){
-                //         formData.append('file_name[]', file, file.name);
-                //     }
-                //
-                //     this.$http.post('/administracion/configuracion/guardar-objeto', formData)
-                //         .then((response) => {
-                //             toastr["success"]('Objeto creado correctamente.');
-                //         },(error) => {
-                //             toastr.error(error.status + ' '+error.statusText+' ('+error.url+')');
-                //         }
-                //     );
-                //     // alert(this.files.name)
-                // },
 
                 guardar : function () {
                     var app = this;
@@ -285,6 +273,9 @@
                     app.complementosFiles();
                 });
 
+            },
+            created() {
+                this.start();
             }
         });
     </script>

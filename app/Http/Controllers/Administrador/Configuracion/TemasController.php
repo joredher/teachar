@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Administrador\Configuracion;
 
 use App\BdModulo;
+use App\BdObjeto;
 use App\BdTema;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,7 +25,7 @@ class TemasController extends Controller
     public function obtenerTemas(Request $request){
         try{
             $request = json_decode($request->getContent());
-            $temas = BdTema::Buscar($request->datos->busqueda)->with('BdModulo')
+            $temas = BdTema::Buscar($request->datos->busqueda)->with(['BdModulo', 'BdObjeto'])
                 ->orderBy('id','asc')
                 ->paginate(3);
             //dd($modulos);
@@ -38,7 +39,8 @@ class TemasController extends Controller
     public function obtenerComplemento(){
         try{
             return response()->json([
-                'modulos' => BdModulo::all()
+                'modulos' => BdModulo::all(),
+                'objetos' => BdObjeto::all()
             ]);
         }catch (\Exception $exception){
             return response()->json($exception);
