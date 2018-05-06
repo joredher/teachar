@@ -98,13 +98,21 @@ class ObjetosController extends Controller
                         $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                         $materialName = str_slug($materialNameOnly) . "." . $extension;
                         $uploadedMaterialName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $materialName);
+//                        if ($objeto->move($uploadedMaterialName, $materialName)){
+//                            return $materialName;
+//                        }
+//                        $uploadedMaterialName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $materialName);
 //                        $uploadedMaterialName = $objeto->storeAs('public', $request->get('tema') . "/" . $materialName);
 //                        return [$uploadedFileName, $materialNameOnly];
                     }
                     if ($extension == 'obj') {
                         $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                         $fileName = str_slug($fileNameOnly) . "." . $extension;
-                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName );
+                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName);
+//                        if ($objeto->move($uploadedFileName, $fileName)){
+//                            return $fileName;
+//                        }
+//                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName );
 //                        Storage::putFileAs('/public/' . $request->get('tema') . '/' . $fileName);
 
 //                        $uploadedFileName = $objeto->storeAs('public', $request->get('tema') . "/" . $fileName);
@@ -172,9 +180,9 @@ class ObjetosController extends Controller
                 $objeto = new BdObjeto();
                 $objeto -> titulo  = $titulo;
                 $objeto -> nombre_modelo = $fileNameOnly;
-                $objeto -> modelo = $uploadedFileName;
+                $objeto -> modelo = $fileName;
                 $objeto -> nombre_material = $materialNameOnly;
-                $objeto -> material = $uploadedMaterialName;
+                $objeto -> material = $materialName;
                 $objeto -> tema_id  = $tema;
                 $objeto -> save();
 

@@ -47940,6 +47940,7 @@ Vue.component('modulos', __webpack_require__(55));
 Vue.component('aumentadas', __webpack_require__(58));
 Vue.component('temas', __webpack_require__(65));
 
+// require('aframe');
 var app = new Vue({
   el: '#ucontenido'
 });
@@ -48204,7 +48205,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48477,13 +48478,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+// import 'aframe'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "aumentadas",
     props: ['tema'],
     data: function data() {
         return {
-            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
+            // markers: [
+            //     {
+            //         id: 1,
+            //         roomName: 'Mahabodhi',
+            //         url: '/imagenes/path/pattern-marker.patt',
+            //         status: 'Available',
+            //         info: 'for next 30 mins',
+            //         color: '#4B77BE',
+            //     },
+            // ]
+            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
         };
     }
 });
@@ -48496,18 +48523,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c(
+        "a-scene",
+        { attrs: { id: "scene", embedded: "", arjs: "sourceType: webcam;" } },
+        [
+          _c(
+            "a-marker",
+            { attrs: { preset: "hiro" } },
+            [
+              _c("a-box", {
+                attrs: { position: "0 0.5 0", material: "color: black;" }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("a-entity", { attrs: { camera: "" } })
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("div", { staticClass: "card" }, [_c("h1", [_vm._v("Hola MUNILLO")])])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -48570,6 +48612,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -48690,7 +48733,23 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(0, true)
+                  _c("div", { staticClass: "col-sm-6" }, [
+                    _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-header" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn_push underline text-light",
+                            attrs: { href: "/usuario/modulo/tema/" + tema.id }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-play" }),
+                            _vm._v(" Ir ")
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
                 ])
               ])
             ])
@@ -48700,18 +48759,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-sm-6" }, [
-      _c("div", { staticClass: "card" }, [
-        _c("div", { staticClass: "card-header" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

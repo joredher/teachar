@@ -10,6 +10,7 @@ require('animate.css');
  Vue.component('aumentadas', require('./components/aumentadas/Aumentada.vue'));
  Vue.component('temas', require('./components/temas/Tema.vue'));
 
+ // require('aframe');
 const app = new Vue({
     el: '#ucontenido'
 });

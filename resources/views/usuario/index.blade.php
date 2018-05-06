@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" class="loaded">
 <head>
     <title> TeachAR | Docente</title>
@@ -16,7 +16,6 @@
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,700' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
-
 </head>
 <body class="body_primero">
     <div class="contenedor-general">

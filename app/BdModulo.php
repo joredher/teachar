@@ -9,7 +9,7 @@ class BdModulo extends Model
 {
 
     protected $fillable = [
-        'user_id', 'nombre', 'descripcion', 'imagen'
+        'user_id', 'nombre', 'descripcion', 'foto'
     ];
 
     protected $appends = ['fecha'];

@@ -29,7 +29,6 @@
 @endsection
 
 @section('contenido')
-    {{--<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>--}}
     <section id="contenido">
         <div class="card">
             <div class="card-header pb-3">
@@ -79,8 +78,6 @@
 
 @section('scripts')
     @include('helpers.FileInput')
-    {{--<script src="https://aframe.io/releases/0.2.0/aframe.js"></script>--}}
-    {{--<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>--}}
     <script>
         var app = new Vue({
             el: '#contenido',
@@ -144,12 +141,6 @@
                         tema_id:'',
                         time:'',
                         bd_tema:[]
-                        // nombre:'',
-                        // objeto:'',
-                        // material:'',
-                        // capaOne:'',
-                        // capaTwo:'',
-                        // tema_id:'',
                     };
 
                     if(this.$refs.file){
@@ -189,7 +180,6 @@
                             this.$refs.file.value = [];
 
                             // document.getElementById('upload-file').value=[];
-                            // this.modulo.foto = this.$refs.vcropp.getImage();
                             this.$http.post('/administracion/configuracion/guardar-objeto', formData).then((response)=>{
                                 laddaButton.stop();
                                 if(response.body.estado=='ok'){

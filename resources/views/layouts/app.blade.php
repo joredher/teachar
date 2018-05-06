@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" class="loaded">
     <head>
         <title> TeachAR | @yield('title')</title>

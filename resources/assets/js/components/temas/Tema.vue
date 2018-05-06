@@ -17,6 +17,7 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-header">
+                                            <a :href="'/usuario/modulo/tema/' + tema.id" class="btn btn_push underline text-light"> <i class="fas fa-play"></i> Ir </a>
                                             <!--<video width="100%" height="100%" src="https://youtu.be/iOUNpPEFNT0" controls></video>-->
                                         </div>
                                     </div>

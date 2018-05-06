@@ -3,7 +3,11 @@
 @section('title', 'Docente')
 
 @section('links')
+    {{--<meta name="apple-mobile-web-app-capable" content="yes">--}}
+    {{--<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>--}}
+    {{--<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>--}}
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
+
 @endsection
 
 @section('content-profe')
