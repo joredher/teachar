@@ -48205,7 +48205,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48491,6 +48491,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 // import 'aframe'
@@ -48525,28 +48546,83 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [
-      _c(
-        "a-scene",
-        { attrs: { id: "scene", embedded: "", arjs: "sourceType: webcam;" } },
+    _vm._l(_vm.tema.bd_objeto, function(objeto) {
+      return _c(
+        "div",
         [
           _c(
-            "a-marker",
-            { attrs: { preset: "hiro" } },
+            "a-scene",
+            { attrs: { id: "scene" } },
             [
-              _c("a-box", {
-                attrs: { position: "0 0.5 0", material: "color: black;" }
-              })
+              _c(
+                "a-assets",
+                [
+                  _c("a-asset-item", {
+                    attrs: { id: "obj1", src: "/storage/" + objeto.modelo }
+                  }),
+                  _vm._v(" "),
+                  _c("a-asset-item", {
+                    attrs: { id: "mtl1", src: "/storage/" + objeto.material }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("a-sky", { attrs: { color: "#DDDDDD" } }),
+              _vm._v(" "),
+              _c("a-light", {
+                attrs: {
+                  type: "directional",
+                  color: "#FFF",
+                  intensity: "0.5",
+                  position: "-1 1 2"
+                }
+              }),
+              _vm._v(" "),
+              _c("a-light", { attrs: { type: "ambient", color: "#FFF" } }),
+              _vm._v(" "),
+              _c("a-camera", {
+                attrs: {
+                  position: "0 1 -1",
+                  "cursor-visible": "true",
+                  "cursor-scale": "2",
+                  "cursor-color": "#0095DD",
+                  "cursor-opacity": "0.5"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "a-obj-model",
+                {
+                  attrs: {
+                    src: "#obj1",
+                    mtl: "#mtl1",
+                    position: "-0.5 1.10 -2",
+                    rotation: "0 180 0"
+                  }
+                },
+                [
+                  _c("a-animation", {
+                    attrs: {
+                      attribute: "rotation",
+                      from: "20 0 0",
+                      to: "20 360 0",
+                      direction: "alternate",
+                      dur: "4000",
+                      repeat: "indefinite",
+                      easing: "ease"
+                    }
+                  })
+                ],
+                1
+              )
             ],
             1
-          ),
-          _vm._v(" "),
-          _c("a-entity", { attrs: { camera: "" } })
+          )
         ],
         1
       )
-    ],
-    1
+    })
   )
 }
 var staticRenderFns = []

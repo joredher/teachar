@@ -60,7 +60,7 @@ class ObjetosController extends Controller
                 if ($objeto || $objeto->file_exists( storage_path($objeto->modelo)) && $objeto->file_exists( storage_path($objeto->material)))
                 {
                     $objeto->delete();
-                    Storage::delete([$objeto->modelo, $objeto->material]);
+                    Storage::disk('public')->delete([$objeto->modelo, $objeto->material]);
                     return response()->json([
                         'estado' => 'ok',
                         'id' => $objeto->id,
@@ -94,32 +94,58 @@ class ObjetosController extends Controller
                     $originalFileName = $objeto->getClientOriginalName();
                     $extension = $objeto->getClientOriginalExtension();
 
-                    if ($extension == 'mtl') {
-                        $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                        $materialName = str_slug($materialNameOnly) . "." . $extension;
-                        $uploadedMaterialName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $materialName);
-//                        if ($objeto->move($uploadedMaterialName, $materialName)){
-//                            return $materialName;
-//                        }
-//                        $uploadedMaterialName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $materialName);
-//                        $uploadedMaterialName = $objeto->storeAs('public', $request->get('tema') . "/" . $materialName);
-//                        return [$uploadedFileName, $materialNameOnly];
-                    }
-                    if ($extension == 'obj') {
-                        $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                        $fileName = str_slug($fileNameOnly) . "." . $extension;
-                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName);
-//                        if ($objeto->move($uploadedFileName, $fileName)){
-//                            return $fileName;
-//                        }
-//                        $uploadedFileName = $objeto->storeAs('public', $this->getDir($request->get('tema')) . '/' . $fileName );
-//                        Storage::putFileAs('/public/' . $request->get('tema') . '/' . $fileName);
+                    switch ($extension){
+                        case ('mtl'):
+                            $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                            $materialName = str_slug($materialNameOnly) . "." . $extension;
+                            $uploadedMaterialName = $this->getDir($request->get('tema')) . '/' . $materialName;
+                            $objeto->storeAs('public', $uploadedMaterialName);
+                        break;
+                        case ('obj'):
+                            $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                            $fileName = str_slug($fileNameOnly) . "." . $extension;
+                            $uploadedFileName = $this->getDir($request->get('tema')) . '/' . $fileName;
+                            $objeto->storeAs('public', $uploadedFileName);
+                        break;
+                        case ('jpg' || 'png'):
+                            $imagenNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                            $imagenName = str_slug($imagenNameOnly) . "." . $extension;
+                            $subirImage = $this->getDir($request->get('tema')) . '/' . $imagenName;
+                            $objeto->storeAs('public', $subirImage);
+                        break;
 
-//                        $uploadedFileName = $objeto->storeAs('public', $request->get('tema') . "/" . $fileName);
-//                        return [$uploadedFileName, $fileNameOnly];
                     }
+//                    if ($extension == 'mtl') {
+//                        $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+//                        $materialName = str_slug($materialNameOnly) . "." . $extension;
+//                        $uploadedMaterialName = $this->getDir($request->get('tema')) . '/' . $materialName;
+//                        $objeto->storeAs('public', $uploadedMaterialName);
+//                    }
+//                    if ($extension == 'obj') {
+//                        $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+//                        $fileName = str_slug($fileNameOnly) . "." . $extension;
+//                        $uploadedFileName = $this->getDir($request->get('tema')) . '/' . $fileName;
+//                        $objeto->storeAs('public', $uploadedFileName);
+//                    }
+//                    if ($extension == 'png') {
+//                        $texturaNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+//                        $texturaName = str_slug($texturaNameOnly) . "." . $extension;
+//                        $uploadedTexturaName = $this->getDir($request->get('tema')) . '/' . $texturaName;
+//                        $objeto->storeAs('public', $uploadedTexturaName);
+//                    }
+//                    if ($extension == 'dae') {
+//                        $colladaNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+//                        $colladaName = str_slug($colladaNameOnly) . "." . $extension;
+//                        $uploadedColladaName = $this->getDir($request->get('tema')) . '/' . $colladaName;
+//                        $objeto->storeAs('public', $uploadedColladaName);
+//                    }
+//                    if ($extension == 'gltf') {
+//                        $gltfNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+//                        $gltfName = str_slug($gltfNameOnly) . "." . $extension;
+//                        $uploadedGltfName = $this->getDir($request->get('tema')) . '/' . $gltfName;
+//                        $objeto->storeAs('public', $uploadedGltfName);
+//                    }
                 }
-
             }
 
             if (Input::get('titulo')){
@@ -135,7 +161,7 @@ class ObjetosController extends Controller
                 $validador = Validator::make($request->all(),
                     [
                         'titulo' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
-                        'file' => 'required',
+//                        'file' => 'required',
                         'tema' => 'required',
                     ]);
                 if ($validador->fails()){
@@ -149,7 +175,6 @@ class ObjetosController extends Controller
                 $objeto -> titulo  = $request->titulo;
                 $objeto -> nombre_modelo = $fileNameOnly;
                 $objeto -> modelo = $uploadedFileName;
-                $objeto -> nombre_material = $materialNameOnly;
                 $objeto -> material = $uploadedMaterialName;
                 $objeto -> tema_id  = $request->tema_id;
                 $objeto -> save();
@@ -167,7 +192,7 @@ class ObjetosController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'titulo' => 'required|unique:bd_objetos',
-                    'file' => 'required',
+//                    'file' => 'required',
                     'tema' => 'required',
                 ]);
                 if ($validador->fails()){
@@ -180,9 +205,8 @@ class ObjetosController extends Controller
                 $objeto = new BdObjeto();
                 $objeto -> titulo  = $titulo;
                 $objeto -> nombre_modelo = $fileNameOnly;
-                $objeto -> modelo = $fileName;
-                $objeto -> nombre_material = $materialNameOnly;
-                $objeto -> material = $materialName;
+                $objeto -> modelo = $uploadedFileName;
+                $objeto -> material = $uploadedMaterialName;
                 $objeto -> tema_id  = $tema;
                 $objeto -> save();
 

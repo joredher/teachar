@@ -18,7 +18,6 @@ class CreateBdObjetosTable extends Migration
             $table->string('titulo')->unique();
             $table->string('nombre_modelo');
             $table->string('modelo');
-            $table->string('nombre_material');
             $table->string('material');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id')->references('id')->on('bd_temas')

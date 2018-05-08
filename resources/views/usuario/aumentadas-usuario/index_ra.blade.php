@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="{{ asset('css/aumentadas/aumentadas.css') }}">
     <title>Prueba RA</title>
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-    <script src="{{ asset('js/aumentadas/aframe-ar.js') }}"></script>
+    {{--<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.js"></script>--}}
+    {{--<script src="https://prashant-andani.github.io/AR.js/aframe/build/aframe-ar.js"></script>--}}
+    {{--<script src="{{ asset('js/aumentadas/aframe-ar.js') }}"></script>--}}
 </head>
 <body>
 <section id="ucontenido">

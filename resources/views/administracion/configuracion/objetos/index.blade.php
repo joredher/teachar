@@ -49,8 +49,8 @@
                                         </p>
                                         <hr>
                                         <h5 class="card-title"><span v-text="objeto.bd_tema.nombre"></span></h5>
-                                        <p class="card-text">Nombre modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
-                                        <p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>
+                                        <p class="card-text">Modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
+                                        {{--<p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>--}}
                                         <hr>
                                         <div>
                                             <button class="btn btn-sm btn-info " disabled @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
@@ -64,9 +64,6 @@
                     </div>
                 </div>
 
-                <div class="scroll mCustomScrollbar">
-
-                </div>
             </div>
             <div class="card-footer ">
                 <v-paginator ref="vpaginator" :resource_url="resource_url" @update="updateResource" :datos="datos"></v-paginator>
@@ -136,7 +133,6 @@
                         titulo:'',
                         nombre_modelo:'',
                         modelo:'',
-                        nombre_material:'',
                         material:'',
                         tema_id:'',
                         time:'',
