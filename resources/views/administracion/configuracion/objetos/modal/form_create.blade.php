@@ -1,5 +1,5 @@
 <form @submit.prevent="guardar()" class="modal fade" id="myModal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" enctype="multipart/form-data">
-    <div class="modal-dialog" role="document">s
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="display: inline-block">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>

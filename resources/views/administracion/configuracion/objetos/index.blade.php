@@ -38,7 +38,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4 pl-1 pr-1" v-for="(objeto, index) in objetos">
-                            <div class="conten bounceIn animated">
+                            <div v-if="objeto.format !== 'mtl'" class="conten bounceIn animated">
                                 <a class="card sty">
                                     <div class="card-front text-center">
                                         <h4 v-text="objeto.titulo"></h4>
@@ -53,9 +53,9 @@
                                         {{--<p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>--}}
                                         <hr>
                                         <div>
-                                            <button class="btn btn-sm btn-info " disabled @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-info" disabled hidden @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
                                             <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(objeto, index)"><i class="fas fa-trash-alt" ></i></button>
-                                            <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                            {{--<button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>--}}
                                         </div>
                                     </div>
                                 </a>
@@ -90,9 +90,6 @@
                     title:'',
                 },
                 files:[],
-                // file:{},
-                // form: new FormData,
-                // files:[],
                 titulo:'',
                 tema_id:'',
                 objetoEnEdicion : '',
@@ -119,6 +116,7 @@
 
                 start(){
                     toastr.info('¡Atento! Si ya existe un objeto asignado a un Tema, cree un nuevo tema para agregar el nuevo objeto.');
+                    toastr.warning('Solo puede crear y elminar los objetos.');
                 },
 
                 setFiles(files){
@@ -132,8 +130,10 @@
                         id:'',
                         titulo:'',
                         nombre_modelo:'',
-                        modelo:'',
-                        material:'',
+                        src:'',
+                        format:'',
+                        // modelo:'',
+                        // material:'',
                         tema_id:'',
                         time:'',
                         bd_tema:[]

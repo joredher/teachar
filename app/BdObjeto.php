@@ -11,7 +11,7 @@ class BdObjeto extends Model
     protected $guarded = ['id'];
 
     protected $fillable = [
-        'titulo', 'nombre_objeto', 'objeto', 'nombre_material', 'material', 'tema_id'
+        'titulo', 'nombre_objeto', 'objeto', 'material', 'tema_id'
     ];
 
     protected $appends = [

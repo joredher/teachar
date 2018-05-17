@@ -209,3 +209,100 @@ body {
     margin: 15px;
     font-size: 1.2em;
 }
+
+/* CUSTOM*/
+
+.carga_mode img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -64px;
+    margin-top: -64px;
+}
+
+#error{
+    display: none;
+}
+
+
+
+#front span{
+    width: 64px;
+    height: 64px;
+    position: absolute;
+}
+
+#front span i{
+    cursor: pointer;
+}
+
+#front span i:first-child{
+    position: absolute;
+    z-index: 1;
+    color: white;
+}
+
+#front span i.icon-shadow {
+    position: relative;
+    left: .025em;
+    top: .025em;
+    color: #999;
+}
+
+.zoom-plus{
+    left: 100%;
+    top: 0;
+    margin-left: -74px;
+    margin-top: 10px;
+}
+
+.zoom-menus{
+    left: 100%;
+    top: 0;
+    margin-left: -74px;
+    margin-top: 84px;
+}
+
+.orientacion-obj{
+    left: 0;
+    top: 100%;
+    margin-left: 26px;
+    margin-top: -80px;
+}
+
+#marker-detection{
+    font-size: medium;
+    font-weight: bolder;
+    left: 0;
+    top: 100%;
+    margin-left: 42px;
+    margin-top: -80px;
+}
+
+.arrow_left{
+    left: 50%;
+    top: 100%;
+    margin-left: -106px;
+    margin-top: -80px;
+}
+
+.arrow_right{
+    left: 50%;
+    top: 100%;
+    margin-left: 42px;
+    margin-top: -80px;
+}
+
+.rotate-obj{
+    left: 50%;
+    top: 100%;
+    margin-left: -32px;
+    margin-top: -80px;
+}
+
+.expand-cam{
+    left: 100%;
+    top: 100%;
+    margin-left: -74px;
+    margin-top: -80px;
+}
