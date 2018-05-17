@@ -32,7 +32,6 @@
 
 <script src="{{asset('js/ucomponents.js')}}"></script>
 
-{{--<script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.min.js"></script>
 <script src="{{asset('js/aumentadas/webar.js')}}"></script>
 </body>

@@ -50,7 +50,6 @@
                                         <hr>
                                         <h5 class="card-title"><span v-text="objeto.bd_tema.nombre"></span></h5>
                                         <p class="card-text">Modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
-                                        {{--<p class="card-text">Nombre material: <strong v-text="objeto.nombre_material"></strong></p>--}}
                                         <hr>
                                         <div>
                                             <button class="btn btn-sm btn-info" disabled hidden @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
@@ -132,8 +131,7 @@
                         nombre_modelo:'',
                         src:'',
                         format:'',
-                        // modelo:'',
-                        // material:'',
+                        material:'',
                         tema_id:'',
                         time:'',
                         bd_tema:[]
@@ -160,14 +158,10 @@
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
-                            // for (let i=0; i<this.files.length; i++){
-                            //     this.form.append('pics[]', this.files[i]);
-                            //     console.log(this.files[i])
-                            // }
+
                             let formData = new FormData();
                             for (let file of this.files){
                                 formData.append('file[]', file, file.name)
-                                // this.form.append('file[]', file, file.name)
                             }
 
                             formData.append('titulo', this.objeto.titulo);
@@ -175,7 +169,6 @@
 
                             this.$refs.file.value = [];
 
-                            // document.getElementById('upload-file').value=[];
                             this.$http.post('/administracion/configuracion/guardar-objeto', formData).then((response)=>{
                                 laddaButton.stop();
                                 if(response.body.estado=='ok'){
@@ -219,7 +212,6 @@
                 mostrarEditar: function (objeto, index) {
                     this.objetoEnEdicion = objeto;
                     this.objeto = JSON.parse(JSON.stringify(objeto));
-                    // this.modulo.estado = (this.modulo.estado == 'Activo')?1:0;
                 },
 
 
