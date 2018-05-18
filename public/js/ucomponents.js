@@ -48205,7 +48205,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48546,21 +48546,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 // import 'aframe'
@@ -48581,31 +48566,90 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, {
                 id: 2,
                 name: 'kanji'
-            }]
+            }],
 
-            // aModel: [
-            //     {
-            //         // id: this.tema.bd_objeto[0].id,
-            //         format: this.tema.bd_objeto[0].format,
-            //         src: this.tema.bd_objeto[0].src,
-            //         scale: '1 1 1',
-            //         scaleInc: '0.8',
-            //         positionH: '0.0 0.0 0.0',
-            //         rotationH: '0.0 0.0 0.0',
-            //         positionV: '0.0 0.0 0.0',
-            //         rotationV: '0.0 0.0 0.0',
-            //     }
-            // ],
-
-            // objetoCount: this.tema.bd_objeto.length,
-            // objetoNbr: Math.floor(Math.random() * this.objetoCount)
-
+            objetoCount: this.tema.bd_objeto.length,
+            objetoNbr: Math.floor(Math.random() * this.objetoCount)
+            // sceneEL: document.querySelector('a-scene'),
+            // entityEL: document.querySelector('a-entity')
         };
     },
     methods: {},
     mounted: function mounted() {
 
         console.clear();
+
+        AFRAME.registerComponent('ejemplo', {
+            init: function init() {
+
+                var entityEL = document.querySelector('#crea_obj'),
+                    gltfModel = document.querySelector('#crea_gltf'),
+                    scaleBtn = $(".zoom-plus"),
+                    menusScale = $(".zoom-menus"),
+                    rotateBtn = $(".rotate-obj");
+
+                rotateBtn.click(function () {
+                    if (rotateBtn.hasClass("rotate_fade")) {
+                        gtlfModel.emit('endRotate');
+                        entityEL.emit('endRotate');
+                        rotateBtn.removeClass("rotate_fade");
+                    } else {
+                        gtlfModel.emit('rotate');
+                        entityEL.emit('rotate');
+                        rotateBtn.addClass("rotate_fade");
+                    }
+                });
+
+                var scaleFlag = 0;
+
+                scaleBtn.click(function () {
+                    if (scaleFlag === 0) {
+                        scaleFlag = 1;
+                        entityEL.object3D.scale.set(1.5, 1.5, 1.5);
+                        gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
+                        // scaleBtn.addClass("scale_one");
+                    } else if (scaleFlag === 1) {
+                        scaleFlag = 2;
+                        entityEL.object3D.scale.set(2, 2, 2);
+                        gltfModel.object3D.scale.set(2, 2, 2);
+                        // scaleBtn.addClass("scale_two");
+                        // scaleBtn.removeClass("scale_one");
+                    } else if (scaleFlag === 2) {
+                        scaleFlag = 3;
+                        entityEL.object3D.scale.set(2.5, 2.5, 2.5);
+                        gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
+                        // scaleBtn.removeClass("scale_two");
+                    } else if (scaleFlag === 3) {
+                        scaleFlag = 4;
+                        entityEL.object3D.scale.set(3, 3, 3);
+                        gltfModel.object3D.scale.set(3, 3, 3);
+                        // scaleBtn.removeClass("scale_two");
+                    }
+                });
+
+                menusScale.click(function () {
+                    if (scaleFlag === 4) {
+                        scaleFlag = 3;
+                        entityEL.object3D.scale.set(2.5, 2.5, 2.5);
+                        gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
+                    } else if (scaleFlag === 3) {
+                        scaleFlag = 2;
+                        entityEL.object3D.scale.set(2, 2, 2);
+                        gltfModel.object3D.scale.set(2, 2, 2);
+                    } else if (scaleFlag === 2) {
+                        scaleFlag = 1;
+                        entityEL.object3D.scale.set(1.5, 1.5, 1.5);
+                        gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
+                    } else if (scaleFlag === 1) {
+                        scaleFlag = 0;
+                        entityEL.object3D.scale.set(1, 1, 1);
+                        gltfModel.object3D.scale.set(1, 1, 1);
+                    }
+                });
+
+                // console.log(this.sceneEl);
+            }
+        });
 
         var gtlfModel = document.querySelector('#crea_gltf'),
             objModel = document.querySelector('#crea_obj'),
@@ -48614,68 +48658,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             switchBtn = $(".arrow_right"),
             gotitBtn = $(".gotit");
 
-        rotateBtn.click(function () {
-            if (rotateBtn.hasClass("rotate_fade")) {
-                gtlfModel.emit('endRotate');
-                objModel.emit('endRotate');
-                rotateBtn.removeClass("rotate_fade");
-            } else {
-                gtlfModel.emit('rotate');
-                objModel.emit('rotate');
-                rotateBtn.addClass("rotate_fade");
-            }
-        });
-
-        var scaleFlag = 0,
-            kyivFlag = false;
-
-        scaleBtn.click(function () {
-            if (scaleFlag == 0) {
-                scaleFlag = 1;
-                gtlfModel.setAttribute("scale", scale = "0.55 0.55 0.55");
-                objModel.setAttribute("scale", scale = "0.55 0.55 0.55");
-                scaleBtn.addClass("scale_one");
-            } else if (scaleFlag == 1) {
-                scaleFlag = 2;
-                gtlfModel.setAttribute("scale", scale = "0.7 0.7 0.7");
-                objModel.setAttribute("scale", scale = "0.7 0.7 0.7");
-                scaleBtn.addClass("scale_two");
-                scaleBtn.removeClass("scale_one");
-            } else if (scaleFlag == 2) {
-                scaleFlag = 0;
-                gtlfModel.setAttribute("scale", scale = "0.4 0.4 0.4");
-                objModel.setAttribute("scale", scale = "0.4 0.4 0.4");
-                scaleBtn.removeClass("scale_two");
-            }
-        });
-
-        switchBtn.click(function () {
-            if (kyivFlag == false) {
-                kyivFlag = true;
-                switchBtn.html("crea_gltf");
-                gtlfModel.setAttribute("visible", false);
-            } else {
-                kyivFlag = false;
-                switchBtn.html('crea_gltf');
-                gtlfModel.setAttribute("visible", true);
-            }
-        });
-
-        // var modelCount = this.tema.bd_objeto.length;
-        // var modelNbr = Math.floor(Math.random() * modelCount);
-
         document.getElementById("loader").style.display = "none";
-        // document.getElementById("error").style.display = "none";
-        //
-        // var vue = this;
-        // console.log(vue.objetoNbr);
-        // console.log(vue.aModel);
-        // // $('#tree-gltf').setAttribute("src", 'storage/' + vue.tema.bd_objeto[vue.objetoNbr].modelo);
-        //
-        // if (vue.objeto === 1) {
-        //     document.getElementById("leftArrow").style.display = "none";
-        //     document.getElementById("rightArrow").style.display = "none";
-        // }
+        document.getElementById("error").style.display = "none";
     }
 });
 
@@ -48701,6 +48685,7 @@ var render = function() {
               {
                 attrs: {
                   id: "scene",
+                  ejemplo: "",
                   stats: "",
                   arjs:
                     "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
@@ -48747,35 +48732,29 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c(
-                        "a-entity",
+                        "a-gltf-model",
+                        {
+                          attrs: {
+                            id: "crea_gltf",
+                            side: "double",
+                            src: "#gltf",
+                            position: "0.0 0.2 0",
+                            scale: "1 1 1"
+                          }
+                        },
                         [
-                          _c(
-                            "a-gltf-model",
-                            {
-                              attrs: {
-                                id: "crea_gltf",
-                                side: "double",
-                                src: "#gltf",
-                                position: "0.0 0.2 0",
-                                scale: "0.4 0.4 0.4"
-                              }
-                            },
-                            [
-                              _c("a-animation", {
-                                attrs: {
-                                  attribute: "rotation",
-                                  begin: "rotate",
-                                  end: "endRotate",
-                                  dur: "26000",
-                                  fill: "forward",
-                                  to: "0 270 0",
-                                  repeat: "indefinite",
-                                  easing: "linear"
-                                }
-                              })
-                            ],
-                            1
-                          )
+                          _c("a-animation", {
+                            attrs: {
+                              attribute: "rotation",
+                              begin: "rotate",
+                              end: "endRotate",
+                              dur: "26000",
+                              fill: "forward",
+                              to: "0 270 0",
+                              repeat: "indefinite",
+                              easing: "linear"
+                            }
+                          })
                         ],
                         1
                       ),
@@ -48787,8 +48766,8 @@ var render = function() {
                             id: "crea_obj",
                             side: "double",
                             rotation: "0 -90 0",
-                            position: "0.0 0.2 0",
-                            scale: "0.4 0.4 0.4",
+                            position: "0.0 0.9 0",
+                            scale: "1 1 1",
                             "obj-model": "obj: #obj1; mtl: #mtl1"
                           }
                         },
@@ -48822,61 +48801,7 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("div", { staticClass: "bounceIn", attrs: { id: "front" } }, [
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
-        _c("span", {
-          attrs: { id: "marker-detection", onclick: "CycleOrientation()" }
-        }),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "arrow_left",
-            attrs: { id: "leftArrow" },
-            on: {
-              click: function($event) {
-                _vm.NextObjeto(-1)
-              }
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-angle-double-left fa-w-16 fa-3x" }),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(4),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            staticClass: "arrow_right",
-            attrs: { id: "rightArrow" },
-            on: {
-              click: function($event) {
-                _vm.NextObjeto(+1)
-              }
-            }
-          },
-          [
-            _c("i", { staticClass: "fas fa-angle-double-right fa-w-16 fa-3x" }),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"
-            })
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(5)
-      ])
+      _vm._m(1)
     ],
     2
   )
@@ -48904,33 +48829,22 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "zoom-plus" }, [
-      _c("i", { staticClass: "fas fa-search-plus fa-w-16 fa-3x" }),
+    return _c("div", { staticClass: "bounceIn", attrs: { id: "front" } }, [
+      _c("span", { staticClass: "zoom-plus" }, [
+        _c("i", { staticClass: "fas fa-plus-circle fa-w-16 fa-3x" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-shadow fas fa-plus-circle fa-w-16 fa-3x" })
+      ]),
       _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-search-plus fa-w-16 fa-3x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "zoom-menus" }, [
-      _c("i", { staticClass: "fas fa-search-minus  fa-w-16 fa-3x" }),
+      _c("span", { staticClass: "zoom-menus" }, [
+        _c("i", { staticClass: "fas fa-minus-circle  fa-w-16 fa-3x" }),
+        _vm._v(" "),
+        _c("i", {
+          staticClass: "icon-shadow fas fa-minus-circle  fa-w-16 fa-3x"
+        })
+      ]),
       _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-search-minus  fa-w-16 fa-3x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      {
-        staticClass: "orientacion-obj",
-        attrs: { onclick: "CycleOrientation()" }
-      },
-      [
+      _c("span", { staticClass: "orientacion-obj" }, [
         _c("img", {
           attrs: {
             id: "marker-orientation",
@@ -48938,32 +48852,45 @@ var staticRenderFns = [
             alt: "orientacion"
           }
         })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "rotate-obj" }, [
-      _c("i", { staticClass: "fas fa-sync  fa-w-16 fa-3x" }),
+      ]),
       _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-sync fa-w-16 fa-3x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "expand-cam", attrs: { onclick: "screenfull.toggle()" } },
-      [
-        _c("i", { staticClass: "fas fa-expand fa-w-16 fa-3x" }),
+      _c("span", { attrs: { id: "marker-detection" } }),
+      _vm._v(" "),
+      _c("span", { staticClass: "arrow_left", attrs: { id: "leftArrow" } }, [
+        _c("i", { staticClass: "fas fa-angle-double-left fa-w-16 fa-3x" }),
         _vm._v(" "),
-        _c("i", { staticClass: "icon-shadow fas fa-expand fa-w-16 fa-3x" })
-      ]
-    )
+        _c("i", {
+          staticClass: "icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"
+        })
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "rotate-obj" }, [
+        _c("i", { staticClass: "fas fa-sync  fa-w-16 fa-4x" }),
+        _vm._v(" "),
+        _c("i", { staticClass: "icon-shadow fas fa-sync fa-w-16 fa-4x" })
+      ]),
+      _vm._v(" "),
+      _c("span", { staticClass: "arrow_right", attrs: { id: "rightArrow" } }, [
+        _c("i", { staticClass: "fas fa-angle-double-right fa-w-16 fa-3x" }),
+        _vm._v(" "),
+        _c("i", {
+          staticClass: "icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        {
+          staticClass: "expand-cam",
+          attrs: { onclick: "screenfull.toggle()" }
+        },
+        [
+          _c("i", { staticClass: "fas fa-expand fa-w-16 fa-3x" }),
+          _vm._v(" "),
+          _c("i", { staticClass: "icon-shadow fas fa-expand fa-w-16 fa-3x" })
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true

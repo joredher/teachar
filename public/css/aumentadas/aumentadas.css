@@ -93,8 +93,9 @@ body {
 .rotate {
     background-image: url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_3d_rotation_white_24px.svg);
     margin-left: 0;
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-radius: 25px;
+    /*border-top-left-radius: 18px;*/
+    /*border-bottom-left-radius: 18px;*/
 }
 
 .prev {
@@ -112,8 +113,26 @@ body {
 }
 
 .rotate_fade {
-    opacity: 0.4;
+    opacity: 0.6;
     background-color: #323965;
+    border-radius: 50%;
+    -webkit-transition: background-color, opacity 0.5s;
+    transition: background-color, opacity 0.5s ease;
+}
+
+.rotate_fade i::after {
+    content: "3D";
+    opacity: 1;
+    color: white;
+    background-color: rgba(50, 57, 101, 1.49);
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    top: 15%;
+    left: 11%;
+    font-size: 1.5rem;
+    z-index: 99;
+    transition: background-color, opacity 0.5s ease;
 }
 
 .scale {
@@ -251,14 +270,14 @@ body {
 
 .zoom-plus{
     left: 100%;
-    top: 0;
+    top: 2.5%;
     margin-left: -74px;
     margin-top: 10px;
 }
 
 .zoom-menus{
     left: 100%;
-    top: 0;
+    top: 2.5%;
     margin-left: -74px;
     margin-top: 84px;
 }
@@ -296,8 +315,8 @@ body {
 .rotate-obj{
     left: 50%;
     top: 100%;
-    margin-left: -32px;
-    margin-top: -80px;
+    margin-left: -44px;/* -32px*/
+    margin-top: -85px;
 }
 
 .expand-cam{
