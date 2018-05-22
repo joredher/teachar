@@ -228,17 +228,6 @@ header > nav .container-fluid button{
 }
 
 .styCard div{
-    /*position: absolute;*/
-    /*height: 100%;*/
-    /*width: 100%;*/
-    /*background: white;*/
-    /*line-height: 300px;*/
-    /*color: #03446a;*/
-    /*text-align: center;*/
-    /*font-size: 60px;*/
-    /*border-radius: 5px;*/
-    /*backface-visibility: hidden;*/
-
     position: absolute;
     width: 100%;
     height: 100%;
@@ -256,27 +245,6 @@ header > nav .container-fluid button{
     font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: #03446A;
-
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*color: #03446A;*/
-    /*-webkit-backface-visibility: hidden;*/
-    /*-moz-backface-visibility: hidden;*/
-    /*backface-visibility: hidden;*/
-    /*!*text-align: center;*!*/
-    /*border-radius: 6px;*/
-    /*display: -ms-flexbox;*/
-    /*display: box;*/
-    /*display: flex;*/
-    /*-o-box-pack: center;*/
-    /*justify-content: center;*/
-    /*-o-box-align: center;*/
-    /*align-items: center;*/
-    /*-webkit-box-pack: center;*/
-    /*-moz-box-pack: center;*/
-    /*-ms-flex-pack: center;*/
-    /*-webkit-font-smoothing: antialiased;*/
 }
 
 .styCard .card-front{
@@ -285,7 +253,7 @@ header > nav .container-fluid button{
     justify-content: center;
     -webkit-box-align: center;
     -moz-box-align: center;
-    background-repeat: no-repeat;
+    background-repeat: round; /*no-repeat*/
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -307,8 +275,8 @@ header > nav .container-fluid button{
     color: #fff;
     border: none;
     border-radius: 4px;
-    background-color: #2ECC71;
-    border-bottom: 4px solid #27AE60;
+    background-color: #39B3DF; /*#2ECC71*/
+    border-bottom: 4px solid #228AE6;
     outline: none;
     cursor: pointer;
 }
@@ -325,14 +293,14 @@ header > nav .container-fluid button{
 
 .btn_push:hover{
     -webkit-transition-duration-top: 0.4s;
-    background-color: #2ECC85;
+    background-color: #39B3DE; /*#2ECC85*/
 }
 
 .btn_push:active
 {
     transform: translate(0px,5px);
     -webkit-transform: translate(0px,5px);
-    border-bottom: 1px solid #2ECC71;
+    border-bottom: 1px solid #39B3DF;
 }
 
 .btn_push:focus
@@ -368,6 +336,14 @@ header > nav .container-fluid button{
 }
 .styCard:hover::after, .styCard:focus::after {
     opacity: 0.6;
+}
+
+.card-front h4:first-child{
+    border-radius: 5px;
+    box-shadow: 0px 5px 50px 4px #6C757D;
+    background-color: rgba(40, 60, 70, 0.7)
+    /*background-color: rgba(34, 138, 230, 0.8) !*#228AE6*!*/
+    /*background-color: rgba(34, 138, 230, 0.7) !*#228AE6*!*/
 }
 
 /* COMPONENTE TEMAS*/
@@ -456,9 +432,9 @@ header > nav .container-fluid button{
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: #eceef1;
-    font-size: 1.5em;
+    font-size: 1.2rem;
 }
 
 .tcard__expander .fa-times-circle{
@@ -510,7 +486,10 @@ header > nav .container-fluid button{
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
-    padding: 40%;
+    padding: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
+    /*padding: 40%;*/
 }
 
 .tcard.is-expanded:hover .tcard__inner {
@@ -547,7 +526,7 @@ header > nav .container-fluid button{
     }
 
     .tcard__expander  div{
-        width: calc(100% + 30px);
+        /*width: calc(100% + 30px);*/
     }
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {

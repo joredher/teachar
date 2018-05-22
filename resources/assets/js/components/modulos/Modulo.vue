@@ -5,7 +5,7 @@
                 <div class="contentCard zoomIn animated">
                     <a class="card styCard">
                         <div class="card-front" :style="{ 'background-image': 'url(' + modulo.foto + ')' }">
-                            <h4 class="" v-text="modulo.nombre"></h4>
+                            <h4 class="text-white position-absolute p-2" v-text="modulo.nombre"></h4>
                         </div>
                         <div class="card-back">
                             <div class="content-back d-inline-block text-center">

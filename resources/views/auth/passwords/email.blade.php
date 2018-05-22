@@ -1,47 +1,68 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{--<meta name="csrf-token" id="token" content="{{ csrf_token() }}" value="{{ csrf_token() }}">--}}
+    <title>Teach AR</title>
+    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
+    <link rel="stylesheet" href="{{asset('css/login.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
+    <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
+    <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
+</head>
+<body class="container-reset">
+    <div id="wrapper">
+        <div class="loggin reset">
+            <img src="{{asset('imagenes/logo/logo_teach_2.png')}}" alt="Imagen de Login">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+                {{ csrf_field() }}
+                <label for="reset"></label>
+                <div>
+                    <div class="efecto-login">
+                        {{--<input type="text" name="username" placeholder="Nombre de Usuario" id="user-username" required>--}}
+                        <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Correo Electónico" required>
+                        @if ($errors->has('email'))
+                            <span class="alert alert-danger">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="opcion">
+                        <input type="submit" name="submit" value="Link Reset" class="btn_login">
+                        <a href="{{ route('main') }}"><i class="fas fa-undo-alt"></i> Volver a Iniciar Sesión</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer>
+            <div class="info">
+                <div class="desarrolladores">
+                    <p>Semillero COMUNITIC</p>
+                    <p>Ingeniería de Sistemas</p>
+                </div>
+                <div class="desarrolladores">
+                    <p>Edisson Fernando Quiñonez Díaz</p>
+                    <p>Jorge Eduardo Hernández Oropeza</p>
                 </div>
             </div>
-        </div>
+            <p>
+                © 2018 Trabajo de Grado | Política de Privacidad UNISANGIL.
+            </p>
+        </footer>
+        <div id="clouds"></div>
+        <div id="ground"></div>
     </div>
 </div>
-@endsection
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="{{asset('js/login.js')}}"></script>
+</body>
+</html>

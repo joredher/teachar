@@ -19,9 +19,7 @@
 
 @section('contenido')
     <section id="ucontenido">
-        <div>
-            <temas :modulo="{{json_encode($modulo)}}"> </temas>
-        </div>
+        <temas :modulo="{{json_encode($modulo)}}"> </temas>
     </section>
 @endsection
 

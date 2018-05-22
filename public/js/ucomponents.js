@@ -48070,6 +48070,7 @@ var render = function() {
                   },
                   [
                     _c("h4", {
+                      staticClass: "text-white position-absolute p-2",
                       domProps: { textContent: _vm._s(modulo.nombre) }
                     })
                   ]
@@ -48205,7 +48206,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48546,6 +48547,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 // import 'aframe'
@@ -48671,140 +48674,142 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._l(_vm.tema.bd_objeto, function(objeto) {
-        return _c(
-          "div",
-          [
-            _c(
-              "a-scene",
-              {
-                attrs: {
-                  id: "scene",
-                  ejemplo: "",
-                  stats: "",
-                  arjs:
-                    "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-                }
-              },
-              [
-                _c(
-                  "a-assets",
-                  [
-                    objeto.format === "obj"
-                      ? _c("a-asset-item", {
-                          attrs: { id: "obj1", src: "/storage/" + objeto.src }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    objeto.format === "obj"
-                      ? _c("a-asset-item", {
-                          attrs: {
-                            id: "mtl1",
-                            src: "/storage/" + objeto.material
-                          }
-                        })
-                      : _vm._e(),
-                    _vm._v(" "),
-                    objeto.format === "gltf"
-                      ? _c("a-asset-item", {
-                          attrs: { id: "gltf", src: "/storage/" + objeto.src }
-                        })
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.markers, function(marker) {
-                  return _c(
-                    "a-marker",
-                    { key: marker.id, attrs: { preset: marker.name } },
+  return _c("div", [
+    _c(
+      "div",
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _vm._l(_vm.tema.bd_objeto, function(objeto) {
+          return _c(
+            "div",
+            [
+              _c(
+                "a-scene",
+                {
+                  attrs: {
+                    id: "scene",
+                    ejemplo: "",
+                    stats: "",
+                    arjs:
+                      "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+                  }
+                },
+                [
+                  _c(
+                    "a-assets",
                     [
-                      _c("a-entity", {
-                        attrs: {
-                          light:
-                            "type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"
-                        }
-                      }),
+                      objeto.format === "obj"
+                        ? _c("a-asset-item", {
+                            attrs: { id: "obj1", src: "/storage/" + objeto.src }
+                          })
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "a-gltf-model",
-                        {
-                          attrs: {
-                            id: "crea_gltf",
-                            side: "double",
-                            src: "#gltf",
-                            position: "0.0 0.2 0",
-                            scale: "1 1 1"
-                          }
-                        },
-                        [
-                          _c("a-animation", {
+                      objeto.format === "obj"
+                        ? _c("a-asset-item", {
                             attrs: {
-                              attribute: "rotation",
-                              begin: "rotate",
-                              end: "endRotate",
-                              dur: "26000",
-                              fill: "forward",
-                              to: "0 270 0",
-                              repeat: "indefinite",
-                              easing: "linear"
+                              id: "mtl1",
+                              src: "/storage/" + objeto.material
                             }
                           })
-                        ],
-                        1
-                      ),
+                        : _vm._e(),
                       _vm._v(" "),
-                      _c(
-                        "a-entity",
-                        {
-                          attrs: {
-                            id: "crea_obj",
-                            side: "double",
-                            rotation: "0 -90 0",
-                            position: "0.0 0.9 0",
-                            scale: "1 1 1",
-                            "obj-model": "obj: #obj1; mtl: #mtl1"
-                          }
-                        },
-                        [
-                          _c("a-animation", {
-                            attrs: {
-                              attribute: "rotation",
-                              begin: "rotate",
-                              end: "endRotate",
-                              dur: "26000",
-                              fill: "forward",
-                              to: "0 270 0",
-                              repeat: "indefinite",
-                              easing: "linear"
-                            }
+                      objeto.format === "gltf"
+                        ? _c("a-asset-item", {
+                            attrs: { id: "gltf", src: "/storage/" + objeto.src }
                           })
-                        ],
-                        1
-                      )
+                        : _vm._e()
                     ],
                     1
-                  )
-                }),
-                _vm._v(" "),
-                _c("a-entity", { attrs: { camera: "" } })
-              ],
-              2
-            )
-          ],
-          1
-        )
-      }),
-      _vm._v(" "),
-      _vm._m(1)
-    ],
-    2
-  )
+                  ),
+                  _vm._v(" "),
+                  _vm._l(_vm.markers, function(marker) {
+                    return _c(
+                      "a-marker",
+                      { key: marker.id, attrs: { preset: marker.name } },
+                      [
+                        _c("a-entity", {
+                          attrs: {
+                            light:
+                              "type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "a-gltf-model",
+                          {
+                            attrs: {
+                              id: "crea_gltf",
+                              side: "double",
+                              src: "#gltf",
+                              position: "0.0 0.2 0",
+                              scale: "1 1 1"
+                            }
+                          },
+                          [
+                            _c("a-animation", {
+                              attrs: {
+                                attribute: "rotation",
+                                begin: "rotate",
+                                end: "endRotate",
+                                dur: "26000",
+                                fill: "forward",
+                                to: "0 270 0",
+                                repeat: "indefinite",
+                                easing: "linear"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a-entity",
+                          {
+                            attrs: {
+                              id: "crea_obj",
+                              side: "double",
+                              rotation: "0 -90 0",
+                              position: "0.0 0.9 0",
+                              scale: "1 1 1",
+                              "obj-model": "obj: #obj1; mtl: #mtl1"
+                            }
+                          },
+                          [
+                            _c("a-animation", {
+                              attrs: {
+                                attribute: "rotation",
+                                begin: "rotate",
+                                end: "endRotate",
+                                dur: "26000",
+                                fill: "forward",
+                                to: "0 270 0",
+                                repeat: "indefinite",
+                                easing: "linear"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("a-entity", { attrs: { camera: "" } })
+                ],
+                2
+              )
+            ],
+            1
+          )
+        }),
+        _vm._v(" "),
+        _vm._m(1)
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -48994,6 +48999,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'temas',
@@ -49054,7 +49060,7 @@ var render = function() {
     _c("div", [
       _c(
         "div",
-        { staticClass: "cards" },
+        { staticClass: "cards slideInDown animated" },
         _vm._l(_vm.modulo.bd_tema, function(tema) {
           return _c("a", { staticClass: "tcard [ is-collapsed ]" }, [
             _c("div", { staticClass: "tcard__inner [ js-expander ]" }, [
