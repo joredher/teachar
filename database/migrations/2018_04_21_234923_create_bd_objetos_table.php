@@ -17,8 +17,9 @@ class CreateBdObjetosTable extends Migration
             $table->increments('id');
             $table->string('titulo')->unique();
             $table->string('nombre_modelo');
-            $table->string('modelo');
+            $table->string('src');
             $table->string('material');
+            $table->string('format');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id')->references('id')->on('bd_temas')
                 ->onUpdate('cascade')->onDelete('cascade');

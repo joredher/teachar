@@ -1,7 +1,7 @@
 <script type="text/x-template" id="FileInput">
     <div>
         <div class="input-group">
-            <input type="text" readonly :value="getFilesName()" class="form-control" placeholder="Sube el objeto">
+            <input type="text" readonly :value="getFilesName()" class="form-control" placeholder="Carga un objeto">
             {{--<input type="text" readonly :value="getFilesName()" class="form-control" placeholder="Sube el objeto">--}}
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button" @click="showFilePicker">

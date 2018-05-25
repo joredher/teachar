@@ -110,7 +110,7 @@
             </div>
         </section>
         <footer class="main-footer">
-            <div class="container-fluid" style="    background-color: #F4F7FA;">
+            <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
                         <div aria-label="breadcrumb" class="navbar-brand d-none d-md-block d-sm-inline-flex">
@@ -128,7 +128,7 @@
                         <p>Trabajo de Grado &copy; 2018</p>
                     </div>
                     <div class="col-sm-6 text-right">
-                        <p>Presentado a <a href="http://www.unisangil.edu.co" class="external text-info">Unisangil</a></p>
+                        <p>Presentado a <a href="http://www.unisangil.edu.co" class="external text-info text-bold">Unisangil</a></p>
                     </div>
                 </div>
             </div>

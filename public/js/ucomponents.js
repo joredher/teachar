@@ -49006,7 +49006,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['modulo'],
     data: function data() {
         return {
-            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
+            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
+            coloress: ['color_bg_primero', 'color_bg_segundo', 'color_bg_tercero', 'color_bg_cuarto']
         };
     },
     methods: {
@@ -49063,11 +49064,18 @@ var render = function() {
         { staticClass: "cards slideInDown animated" },
         _vm._l(_vm.modulo.bd_tema, function(tema) {
           return _c("a", { staticClass: "tcard [ is-collapsed ]" }, [
-            _c("div", { staticClass: "tcard__inner [ js-expander ]" }, [
-              _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } }),
-              _vm._v(" "),
-              _c("i", { staticClass: "fas fa-folder" })
-            ]),
+            _c(
+              "div",
+              {
+                staticClass: "tcard__inner [ js-expander ]",
+                class: _vm.color()
+              },
+              [
+                _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } }),
+                _vm._v(" "),
+                _c("i", { staticClass: "fas fa-folder" })
+              ]
+            ),
             _vm._v(" "),
             _c("div", { staticClass: "tcard__expander" }, [
               _c("i", { staticClass: "fas fa-times-circle [ js-collapser ]" }),

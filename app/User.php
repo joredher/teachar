@@ -3,7 +3,9 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Cache;
 use Jenssegers\Date\Date;
 
 class User extends Authenticatable
@@ -14,7 +16,6 @@ class User extends Authenticatable
 //    public function roles(){
 //        return $this->belongsToMany('App\Role')->withTimestamps();
 //    }
-
 
     public function getFechaAttribute(){
         $fecha = new Date($this->created_at);
@@ -135,6 +136,22 @@ class User extends Authenticatable
         $state = ($value) ? 1 : 2;
         $this->attributes['state'] = $state;
     }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
+    }
+
+    public function isOnline(){
+        return Cache::has('user-is-online-' . $this->id);
+    }
+
 
 
 }

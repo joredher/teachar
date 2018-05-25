@@ -80,7 +80,6 @@ class ModulosController extends Controller
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                         'descripcion' => 'required',
-//                        'imagen' => 'require|image|max:1024*1024*1'
                     ]);
 
                 if ($validador->fails()){
@@ -112,8 +111,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
                     'descripcion' => 'required',
-                    'foto' => 'required'// temporal ampliar cap
-//                    'imagen' => 'require|image|max:1024*1024*1'
+                    'foto' => 'required'
                 ]);
                 if ($validador->fails()){
                     return response()->json([

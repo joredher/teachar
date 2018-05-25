@@ -211,6 +211,12 @@
                     app.modal.title = (app.docente.id != ''?'Edición de ':'Nuevo ') + 'Docente';
                 });
 
+                $("#correoUser").focusout(function () {
+                    var emailAdrees = $(this).val();
+                    var emailUser = emailAdrees.substring(0, emailAdrees.indexOf("@"));
+                    var nombreUser = $("#userName").val(emailUser);
+                    app.docente.username = nombreUser.val();
+                })
             }
         });
     </script>

@@ -9,23 +9,23 @@
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Identificación </label>
-                        <input type="number" id="identificacion" class="form-control" v-model.number="docente.identification" :disabled="docente.id !=''" data-vv-name=" Identificación " v-validate="'required|numeric|max:10'">
+                        <input type="number" id="identificacion" class="form-control" placeholder="Número de identidad" v-model.number="docente.identification" :disabled="docente.id !=''" data-vv-name=" Identificación " v-validate="'required|numeric|max:10'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Nombre </label>
-                        <input type="text" class="form-control" v-model="docente.name" data-vv-name=" Nombre " v-validate="'required'">
+                        <input type="text" class="form-control" placeholder="Nombres del docente" v-model="docente.name" data-vv-name=" Nombre " v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-4"  >
                         <label for="">Apellido </label>
-                        <input type="text" class="form-control" v-model="docente.last_name" data-vv-name=" Apellido " v-validate="'required'">
+                        <input type="text" class="form-control" placeholder="Apellidos del docente" v-model="docente.last_name" data-vv-name=" Apellido " v-validate="'required'">
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6"  >
+                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <label for="">Nombre de Usuario </label>
-                        <input type="text" class="form-control" v-model="docente.username" data-vv-name=" Nombre de Usuario " v-validate="'required'" :disabled="docente.id !=''">
+                        <input id="userName" type="text" class="form-control" placeholder="Nombre de usuario (Auto-generado)" v-model="docente.username" data-vv-name=" Nombre de Usuario " v-validate="'required'" :disabled="docente.id !='' || docente.id == ''">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-6">
                         <label for="">Correo Electónico</label>
-                        <input type="email" class="form-control" v-model="docente.email" data-vv-name=" Correo Electrónico " v-validate="'required'">
+                        <input id="correoUser" type="email" class="form-control" placeholder="Correo del docente" v-model="docente.email" data-vv-name=" Correo Electrónico " v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Estado</label>

@@ -58,13 +58,16 @@ class LoginController extends Controller
      */
     protected function credentials(Request $request)
     {
+        $login = $request->input($this->username());
+        $field = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 //        return $request->only($this->username(), 'password'); Tener Encuenta por si suceden errores de autenticación
-        return ['username'=>$request->{$this->username()},'password'=>$request->password, 'state'=>'Activo'];
+//        return ['username'=>$request->{$this->username()},'password'=>$request->password, 'state'=>'Activo'];
+        return [$field => $login,'password'=>$request->password, 'state'=>'Activo'];
     }
 
     public function username()
     {
-        return 'username';
+        return 'login';
     }
 
 }

@@ -9,16 +9,16 @@
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
                         <label for="">Nombre </label>
-                        <input type="text" class="form-control" v-model="tema.nombre" data-vv-name=" Nombre " v-validate="'required'">
+                        <input type="text" class="form-control" placeholder="Nombre del tema" v-model="tema.nombre" data-vv-name=" Nombre " v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
                         <label for="">Contenido </label>
-                        <textarea class="form-control" v-model="tema.contenido" data-vv-name=" Contenido " rows="4" style="resize: none"></textarea>
+                        <textarea class="form-control" :placeholder="'El contexto del tema ' + tema.nombre + ' debe ser breve, claro y coherente.' " v-model="tema.contenido" data-vv-name=" Contenido " rows="4" style="resize: none"></textarea>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="">Módulo </label>
+                        <label for="">Módulo del <p v-text="tema.nombre"></p></label>
                         <select name="" id="" class="form-control" v-model="tema.modulo_id" data-vv-name=" Módulo "  v-validate="'required'">
-                            <option value="" disabled>Seleccionar Opción </option>
+                            <option value="" disabled>Seleccionar módulo </option>
                             <option class="text-dark" v-for="modulo in modulos" v-bind:value="modulo.id" v-text="modulo.nombre"></option>
                         </select>
                     </div>

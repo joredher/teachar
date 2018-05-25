@@ -568,6 +568,24 @@ header > nav .container-fluid button{
 /* Custom page CSS
 -------------------------------------------------- */
 
+.color_bg_primero{
+    background-color: #63d0ff;
+}
+
+.color_bg_segundo{
+    background-color: #2ECC71;
+}
+
+.color_bg_tercero{
+    background-color: #343a40;
+}
+
+.color_bg_cuarto{
+    background-color: #347D7C;
+}
+
+
+
 .into-back{
     margin: 10px;
     /*width: 150px;!*250px*!*/

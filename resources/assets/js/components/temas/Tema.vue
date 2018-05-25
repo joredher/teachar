@@ -2,8 +2,8 @@
     <div>
         <div>
             <div class="cards slideInDown animated">
-                <a class="tcard [ is-collapsed ]" v-for="tema in modulo.bd_tema">
-                    <div class="tcard__inner [ js-expander ]" >
+                <a class="tcard [ is-collapsed ]" v-for="tema in modulo.bd_tema" >
+                    <div class="tcard__inner [ js-expander ]" :class="color()">
                         <h4 v-text="tema.nombre"></h4>
                         <i class="fas fa-folder"></i>
                     </div>
@@ -44,7 +44,8 @@
         props:['modulo'],
         data: function () {
             return {
-                coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
+                // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
+                coloress: ['color_bg_primero', 'color_bg_segundo', 'color_bg_tercero','color_bg_cuarto'],
             }
         },
         methods:{
