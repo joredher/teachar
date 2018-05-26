@@ -2,7 +2,7 @@
     <div>
         <div>
             <div class="cards slideInDown animated">
-                <a class="tcard [ is-collapsed ]" v-for="tema in modulo.bd_tema" >
+                <a v-show="tema.estado !== 'Inactivo'" class="tcard [ is-collapsed ]" v-for="tema in modulo.bd_tema" >
                     <div class="tcard__inner [ js-expander ]" :class="color()">
                         <h4 v-text="tema.nombre"></h4>
                         <i class="fas fa-folder"></i>
@@ -17,7 +17,7 @@
                                 <div class="col-sm-6">
                                     <div class="card">
                                         <div class="card-header">
-                                            <a :href="'/usuario/modulo/tema/' + tema.id" class="btn btn_push underline text-light">
+                                            <a :href="'/usuario/modulo/tema/' + tema.id + '/' + tema.nombre" class="btn btn_push underline text-light">
                                                 <i class="fas fa-play"></i> Ir </a>
                                             <!--<video width="100%" height="100%" src="https://youtu.be/iOUNpPEFNT0" controls></video>-->
                                         </div>
@@ -44,8 +44,8 @@
         props:['modulo'],
         data: function () {
             return {
-                // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
-                coloress: ['color_bg_primero', 'color_bg_segundo', 'color_bg_tercero','color_bg_cuarto'],
+                // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,
+                coloress: ['color_bg_segundo', 'color_bg_tercero','color_bg_cuarto'],
             }
         },
         methods:{
@@ -54,6 +54,7 @@
             },
         },
         mounted(){
+            console.clear();
             var $cell = $('.tcard');
 
             //open and close card when clicked on card

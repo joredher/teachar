@@ -55,14 +55,7 @@
         {{--<script src="{{asset('js/preloader.js')}}"></script>--}}
 
         @yield('scriptjs')
-        <script>
-            try{
-                var laddaButton = Ladda.create(document.querySelector('.ladda-button-submit'));
-                var laddaButtonSearch = Ladda.create(document.querySelector('.ladda-button-search'));
-            }catch ( ee ){
-                console.log('Falta definir lada button');
-            }
-        </script>
+
         <script src="{{asset('vendors/js//malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"> </script>
 
     </body>

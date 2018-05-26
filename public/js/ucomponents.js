@@ -48027,16 +48027,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['modulos'],
     data: function data() {
         return {
-            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info']
+            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info'],
+            statusMod: this.modulos,
+            modu: Math.floor(Math.random() * this.statusMod)
+            // colEstado: ['desactivado'],
             // image: modulo.foto,
         };
     },
     methods: {
-        color: function color() {
-            return this.coloress[Math.floor(Math.random() * this.coloress.length)];
+        // color() {
+        //     return this.coloress[Math.floor(Math.random() * this.coloress.length)];
+        // },
+
+        desactivado: function desactivado(modulo) {
+
+            return modulo.estado === 'Inactivo';
+
+            // console.log(this.statusMod[1]);
+            // for(var i=0; i<this.statusMod.length; i++){
+            //
+            //     if (this.statusMod[i].estado !== 'Activo'){
+            //         console.log(this.statusMod[i].estado);
+            //         var inactivo = this.colEstado[Math.floor(Math.random() * this.colEstado.length)];
+            //
+            //         return inactivo;
+            //     }
+            // }
         }
     },
     mounted: function mounted() {
+        console.clear();
         // $('.styCard').on('click', function () {
         //     $(this).toggleClass('flipped');
         // });
@@ -48066,6 +48086,7 @@ var render = function() {
                   "div",
                   {
                     staticClass: "card-front",
+                    class: { desactivado: _vm.desactivado(modulo) },
                     style: { "background-image": "url(" + modulo.foto + ")" }
                   },
                   [
@@ -48079,9 +48100,20 @@ var render = function() {
                 _c("div", { staticClass: "card-back" }, [
                   _c(
                     "div",
-                    { staticClass: "content-back d-inline-block text-center" },
+                    {
+                      staticClass: "content-back d-inline-block text-center",
+                      class: { desactivado: _vm.desactivado(modulo) }
+                    },
                     [
                       _c("P", {
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: modulo.estado !== "Inactivo",
+                            expression: "modulo.estado !== 'Inactivo'"
+                          }
+                        ],
                         staticClass: "card-text text-justify",
                         domProps: { textContent: _vm._s(modulo.descripcion) }
                       }),
@@ -48093,8 +48125,22 @@ var render = function() {
                       _c(
                         "a",
                         {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: modulo.estado !== "Inactivo",
+                              expression: "modulo.estado !== 'Inactivo'"
+                            }
+                          ],
                           staticClass: "btn btn_push underline text-light",
-                          attrs: { href: "/usuario/modulo/" + modulo.id }
+                          attrs: {
+                            href:
+                              "/usuario/modulo/" +
+                              modulo.id +
+                              "/" +
+                              modulo.nombre
+                          }
                         },
                         [_vm._v(" Ir ")]
                       )
@@ -49006,8 +49052,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['modulo'],
     data: function data() {
         return {
-            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'],
-            coloress: ['color_bg_primero', 'color_bg_segundo', 'color_bg_tercero', 'color_bg_cuarto']
+            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,
+            coloress: ['color_bg_segundo', 'color_bg_tercero', 'color_bg_cuarto']
         };
     },
     methods: {
@@ -49016,6 +49062,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
     mounted: function mounted() {
+        console.clear();
         var $cell = $('.tcard');
 
         //open and close card when clicked on card
@@ -49063,54 +49110,76 @@ var render = function() {
         "div",
         { staticClass: "cards slideInDown animated" },
         _vm._l(_vm.modulo.bd_tema, function(tema) {
-          return _c("a", { staticClass: "tcard [ is-collapsed ]" }, [
-            _c(
-              "div",
-              {
-                staticClass: "tcard__inner [ js-expander ]",
-                class: _vm.color()
-              },
-              [
-                _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } }),
-                _vm._v(" "),
-                _c("i", { staticClass: "fas fa-folder" })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "tcard__expander" }, [
-              _c("i", { staticClass: "fas fa-times-circle [ js-collapser ]" }),
-              _vm._v(" "),
-              _c("div", [
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-sm-6 text-justify" }, [
-                    _c("p", [
-                      _c("span", {
-                        domProps: { textContent: _vm._s(tema.contenido) }
-                      })
-                    ])
-                  ]),
+          return _c(
+            "a",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: tema.estado !== "Inactivo",
+                  expression: "tema.estado !== 'Inactivo'"
+                }
+              ],
+              staticClass: "tcard [ is-collapsed ]"
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "tcard__inner [ js-expander ]",
+                  class: _vm.color()
+                },
+                [
+                  _c("h4", { domProps: { textContent: _vm._s(tema.nombre) } }),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c("div", { staticClass: "card" }, [
-                      _c("div", { staticClass: "card-header" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "btn btn_push underline text-light",
-                            attrs: { href: "/usuario/modulo/tema/" + tema.id }
-                          },
-                          [
-                            _c("i", { staticClass: "fas fa-play" }),
-                            _vm._v(" Ir ")
-                          ]
-                        )
+                  _c("i", { staticClass: "fas fa-folder" })
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "tcard__expander" }, [
+                _c("i", {
+                  staticClass: "fas fa-times-circle [ js-collapser ]"
+                }),
+                _vm._v(" "),
+                _c("div", [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-sm-6 text-justify" }, [
+                      _c("p", [
+                        _c("span", {
+                          domProps: { textContent: _vm._s(tema.contenido) }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-sm-6" }, [
+                      _c("div", { staticClass: "card" }, [
+                        _c("div", { staticClass: "card-header" }, [
+                          _c(
+                            "a",
+                            {
+                              staticClass: "btn btn_push underline text-light",
+                              attrs: {
+                                href:
+                                  "/usuario/modulo/tema/" +
+                                  tema.id +
+                                  "/" +
+                                  tema.nombre
+                              }
+                            },
+                            [
+                              _c("i", { staticClass: "fas fa-play" }),
+                              _vm._v(" Ir ")
+                            ]
+                          )
+                        ])
                       ])
                     ])
                   ])
                 ])
               ])
-            ])
-          ])
+            ]
+          )
         })
       )
     ])

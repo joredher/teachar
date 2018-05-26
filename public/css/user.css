@@ -248,7 +248,7 @@ header > nav .container-fluid button{
 }
 
 .styCard .card-front{
-    font-family: Lily Script One;
+    font-family: Lily Script One, Roboto, Sans-Serif;
     font-size: 60px;
     justify-content: center;
     -webkit-box-align: center;
@@ -344,6 +344,37 @@ header > nav .container-fluid button{
     background-color: rgba(40, 60, 70, 0.7)
     /*background-color: rgba(34, 138, 230, 0.8) !*#228AE6*!*/
     /*background-color: rgba(34, 138, 230, 0.7) !*#228AE6*!*/
+}
+
+.desactivado{
+    background-color: rgba(40, 60, 70, 0.7);
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 1000px 100px #6C757D;
+}
+
+.desactivado::after{
+    content: 'PRÓXIMAMENTE';
+    opacity: 0.75;
+    color: white;
+    position: absolute;
+    /*border-radius: 5px;*/
+    /*padding: 10px;*/
+    /*box-shadow: 0px 5px 50px 4px #6C757D;*/
+    /*background-color: rgba(40, 60, 70, 0.7);*/
+    -webkit-transform: rotateZ(315deg);
+    transform: rotateZ(315deg);
+    font-size: 3.5rem;
+}
+
+
+.card-back .desactivado::after{
+    opacity: 0.75;
+    color: white;
+    position: absolute;
+    font-family: Lily Script One, Roboto, Sans-Serif;
+    padding: 0;
+    left: -6%;
+    top: 38%;
 }
 
 /* COMPONENTE TEMAS*/

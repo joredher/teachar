@@ -19,8 +19,4 @@ class ModuloUsuarioController extends Controller
         $modulo = BdModulo::where('id',$id)->with(['BdTema'])->first();
         return view('usuario.temas-usuario.index', ['modulo' => $modulo] );
     }
-
-    public function viewIndex(){
-
-    }
 }

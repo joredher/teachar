@@ -140,6 +140,14 @@
 @endsection
 
 @section('scriptjs')
+    <script>
+        try{
+            var laddaButton = Ladda.create(document.querySelector('.ladda-button-submit'));
+            var laddaButtonSearch = Ladda.create(document.querySelector('.ladda-button-search'));
+        }catch ( ee ){
+            console.log('Falta definir lada button');
+        }
+    </script>
     {{--<script src="{{asset('admin/js/jquery.min.js')}}"></script>--}}
     <script src="{{asset('admin/js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>
     <script src="{{asset('vendors/js/jquery.cookie/jquery.cookie.js') }}"></script>

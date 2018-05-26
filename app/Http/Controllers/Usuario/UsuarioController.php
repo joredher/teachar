@@ -19,9 +19,9 @@ class UsuarioController extends Controller
         $modulos = BdModulo::all();
         return view('usuario.modulos-usuario.index', ['modulos' => $modulos]);
     }
-    public function getModulos(Request $request){
-        $modulos = BdModulo::Buscar($request->datos->busqueda)->orderBy('id', 'asc')->get();
-        return $modulos;
-    }
+//    public function getModulos(Request $request){
+//        $modulos = BdModulo::Buscar($request->datos->busqueda)->orderBy('id', 'asc')->get();
+//        return $modulos;
+//    }
 
 }
