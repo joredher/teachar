@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('title', 'Admin')
 
 @section('links')
@@ -46,7 +45,7 @@
                     </li>
                     <li>
                         <a href="{{route('modulos')}}">
-                            <i class="fas fa-suitcase"></i>
+                            <i class="fas fa-archive"></i>
                             <span class="oculto">Módulos</span>
                         </a>
                     </li>
@@ -91,8 +90,12 @@
 
                         <div class="form-inline nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                             <span class="font-weight-bold mr-1 pt-2">{{ Auth::user()->name }}</span>
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-user-circle fa-w-16 fa-3x"></i>
+                            <a href="{{ route('main') }}" class="nav-link">
+                                @if(\Illuminate\Support\Facades\Auth::user()->isOnline())
+                                    <i class="fas fa-user-circle fa-w-16 fa-3x iconActive"></i>
+                                @else
+                                    <i class="fas fa-user-circle fa-w-16 fa-3x"></i>
+                                @endif
                             </a>
                         </div>
                     </div>

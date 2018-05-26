@@ -35,10 +35,17 @@ a:visited:hover {
 .texto{
     font-size: 2.6rem;
     font-weight: lighter;
+    color: #313435 !important;
+}
+
+.texto2{
+    color: #72777a!important ;
+    font-size: 1.5rem;
+    margin-top: 40px !important;
 }
 
 #oopss {
-    background: #8CC8FF;
+    /*background: #8CC8FF;*/
     text-align: center;
     margin-bottom: 50px;
     font-weight: 400;
@@ -52,7 +59,8 @@ a:visited:hover {
 }
 
 #error-text {
-    top: 30%;
+    /*top: 30%;*/
+    top: 15%;
     position: relative;
     font-size: 40px;
     color: #eee;
@@ -90,13 +98,15 @@ a:visited:hover {
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 .hmpg:hover, .hmpg:focus, .hmpg:active {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 8px rgba(39, 179, 222, 0.6);
+    /*box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);*/
 }
 
 #error-text span {
     position: relative;
     background: white;/*#ef4824*/;
-    color: #ef4824;
+    color: #f44336;
+    /*color: #ef4824;*/
     font-size: 300%;
     padding: 0 20px;
     border-radius: 5px;
@@ -128,6 +138,7 @@ a:visited:hover {
     content: '';
     height: 0;
     width: 0;
+    display: none;
     position: absolute;
     pointer-events: none;
     border-color: rgba(136, 183, 213, 0);
@@ -176,6 +187,10 @@ a:visited:hover {
 /* CSS Error Page Responsive */
 
 @media only screen and (max-width:640px) {
+    #error-text img{
+        margin-bottom: 10%;
+    }
+
     #error-text span {
         font-size: 200%;
     }
@@ -184,7 +199,7 @@ a:visited:hover {
     }
 
     .texto{
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 }
 
@@ -197,13 +212,15 @@ a:visited:hover {
 }
 
 .back:hover {
-    background: #4c4c4c;
+    /*background: #4c4c4c;*/
+    background: #39B3DE;
     color: #fff;
 }
 
 .back {
     text-decoration: none;
-    background: #5b5a5a;
+    /*background: #5b5a5a;*/
+    background: #39B3DF;
     color: #fff;
     padding: 10px 20px;
     font-size: 20px;

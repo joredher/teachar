@@ -79,7 +79,7 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
-                        'descripcion' => 'required',
+                        'descripcion' => 'required|max:250',
                     ]);
 
                 if ($validador->fails()){
@@ -110,7 +110,7 @@ class ModulosController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
-                    'descripcion' => 'required',
+                    'descripcion' => 'required|max:250',
                     'foto' => 'required'
                 ]);
                 if ($validador->fails()){
