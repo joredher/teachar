@@ -48027,39 +48027,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['modulos'],
     data: function data() {
         return {
-            coloress: ['bg-success', 'bg-dark', 'bg-danger', 'bg-info'],
             statusMod: this.modulos,
-            modu: Math.floor(Math.random() * this.statusMod)
-            // colEstado: ['desactivado'],
-            // image: modulo.foto,
+            modu: Math.floor(Math.random() * this.statusMod),
+            urlModu: '/storage/'
         };
     },
     methods: {
-        // color() {
-        //     return this.coloress[Math.floor(Math.random() * this.coloress.length)];
-        // },
-
+        imagen: function imagen(modulo) {
+            return this.urlModu + modulo.foto;
+        },
         desactivado: function desactivado(modulo) {
-
             return modulo.estado === 'Inactivo';
-
-            // console.log(this.statusMod[1]);
-            // for(var i=0; i<this.statusMod.length; i++){
-            //
-            //     if (this.statusMod[i].estado !== 'Activo'){
-            //         console.log(this.statusMod[i].estado);
-            //         var inactivo = this.colEstado[Math.floor(Math.random() * this.colEstado.length)];
-            //
-            //         return inactivo;
-            //     }
-            // }
         }
     },
     mounted: function mounted() {
         console.clear();
-        // $('.styCard').on('click', function () {
-        //     $(this).toggleClass('flipped');
-        // });
     }
 });
 
@@ -48087,7 +48069,9 @@ var render = function() {
                   {
                     staticClass: "card-front",
                     class: { desactivado: _vm.desactivado(modulo) },
-                    style: { "background-image": "url(" + modulo.foto + ")" }
+                    style: {
+                      "background-image": "url(" + _vm.imagen(modulo) + ")"
+                    }
                   },
                   [
                     _c("h4", {

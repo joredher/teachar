@@ -16,10 +16,10 @@
                         <textarea class="form-control" :placeholder="'El contexto del tema ' + tema.nombre + ' debe ser breve, claro y coherente.' " v-model="tema.contenido" data-vv-name=" Contenido " rows="4" style="resize: none"></textarea>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <label for="">Módulo del <p v-text="tema.nombre"></p></label>
-                        <select name="" id="" class="form-control" v-model="tema.modulo_id" data-vv-name=" Módulo "  v-validate="'required'">
+                        <label for="">Módulo <p v-text="tema.nombre"></p></label>
+                        <select name="" id="mactivo" class="form-control" v-model="tema.modulo_id" data-vv-name=" Módulo "  v-validate="'required'">
                             <option value="" disabled>Seleccionar módulo </option>
-                            <option class="text-dark" v-for="modulo in modulos" v-bind:value="modulo.id" v-text="modulo.nombre"></option>
+                            <option class="text-dark" v-for="modulo in modulos" v-bind:value="modulo.id" :hidden="modulo.estado === 'Inactivo'" v-text="modulo.nombre"></option>
                         </select>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="tema.id !=''">

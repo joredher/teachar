@@ -20,7 +20,7 @@
                 <label class="btn btn btn-outline-info" :for="target?target+'input':'input-foto'" title="Upload image file" style="margin-bottom: 0px">
                     <input type="file" class="sr-only" :id="target?target+'input':'input-foto'" name="file" accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
                     <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="" data-original-title="Cargar imagen desde disco duro">
-                        <i class="fas fa-upload"> </i> Cargar foto
+                        <i class="fas fa-upload"> </i> Cargar imagen
                     </span>
                 </label>
                 <button type="button" class="btn btn-outline-danger" id="clear" @click="destroy"><i class="fas fa-sync"></i></button>
@@ -69,7 +69,8 @@
 
             classPreview: function () {
                 if(this.previewRounded){
-                    return 'rounded-circle'
+                    return 'img-fluid'
+                    // return 'rounded-circle'
                 }
             }
         },

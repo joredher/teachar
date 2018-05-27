@@ -174,7 +174,7 @@
                                     }
                                     app.$refs.vpaginator.fetchData(this.resource_url);
                                     $('#myModal').modal('hide');
-                                    $('#inputFoto').val('')
+                                    $('#input-foto').val('')
                                 }else if(response.body.estado == 'validador'){
                                     errores = response.body.errors;
                                     jQuery.each(errores,function (i,value) {
@@ -232,6 +232,7 @@
                 this.formReset();
             },
             mounted(){
+                console.clear();
                 var app = this;
                 $("#myModal").on("hidden.bs.modal", function () {
                     app.formReset();

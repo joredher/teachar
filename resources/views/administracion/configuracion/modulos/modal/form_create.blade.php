@@ -23,14 +23,16 @@
                                         <label for="">Descripción </label>
                                         <textarea class="form-control" :placeholder="'El contexto del módulo ' + modulo.nombre + ' debe ser breve, claro y coherente.' " v-model="modulo.descripcion" data-vv-name=" Descripción " rows="4" style="resize: none"></textarea>
                                     </div>
-                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" v-if="modulo.id != '' && modulo.foto">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12" :hidden="modulo.id === ''">
                                         <label for="">Imagen Actual: </label>
                                        <div>
-                                           <img :src="modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
-                                           {{--<img :src="'http://localhost:8000/imagenes/modulos/' + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">--}}
+                                           <img v-if="modulo.id !== '' && modulo.foto" :src="'/storage/'+ modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
+                                           <img v-else-if="modulo.foto !== null  || modulo.foto === ''" :src="modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
+                                           <img v-else :src="modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
+                                           {{--<img :src="'http://localhost:8000/imagenes/modulos/' v-if="modulo.id !==''" + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">--}}
                                        </div>
                                     </div>
-                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"   v-if="modulo.id !=''">
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <label for="">Estado</label>
                                         <switch-ts id="estado" :value="modulo.estado" @update:value="val => modulo.estado = val"></switch-ts>
                                     </div>

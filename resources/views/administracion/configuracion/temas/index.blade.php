@@ -225,6 +225,12 @@
                     app.modal.title = (app.tema.id != ''?'Edición de ':'Nuevo ') + 'Tema';
                     app.complementosTemas();
                 });
+
+                $('#mactivo').tooltip({
+                    'show':true,
+                    'placement': 'right',
+                    'title': 'Módulos Activos'
+                });
             },
             created() {
                 this.start();

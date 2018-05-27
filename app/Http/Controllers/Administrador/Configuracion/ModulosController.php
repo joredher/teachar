@@ -43,8 +43,9 @@ class ModulosController extends Controller
                 $modulo = BdModulo::find($id);
 //                $fileName = Input::get('imagen');
 //                $path = public_path().'/imagenes/modulos/';
-                if ($modulo){
+                if ($modulo || $modulo->file_exists(storage_path($modulo->foto))){
                     $modulo->delete();
+                    Storage::disk('public')->delete($modulo->foto);
                     return response()->json([
                         'estado' => 'ok',
                         'id' => $modulo->id,
@@ -62,18 +63,19 @@ class ModulosController extends Controller
 
     public function guardar(Request $request){
         try{
-//            $exploded = array_pad(explode(',', $request->imagen),2,null);
-//            $decoded = base64_decode($exploded[1]);
-//
-//            if(str_contains($exploded[0], 'jpeg'))
-//                $extension = 'jpg';
-//            else
-//                $extension = 'png';
-//
-//            $fileName = str_random().'.'.$extension;
-//            $path = public_path().'/imagenes/modulos/'.$fileName;
-//            file_put_contents($path, $decoded);
-//            file_put_contents($path, $decoded);
+
+            $nombreModulo = preg_replace("/[^a-zA-Z0-9\_\-]+/", "_", $request->nombre);
+
+            if ($request->foto && $request->foto != 'undefined' || $request->foto != null) {
+                $imagen = $request->foto;
+                $imagen = str_replace('data:image/png;base64,', '', $imagen);
+                $imagen = str_replace(' ', '+', $imagen);
+                $imageName = str_random(10) . '.' . 'png';
+                $uploadImage = 'imagenes_modulos' . '/'.  $nombreModulo .'/'. $imageName;
+                Storage::disk('public')->put($uploadImage, base64_decode($imagen));
+//                \File::put(storage_path() . '/' . 'app/public/' . '/' . $uploadImage, base64_decode($imagen));
+            }
+
             if ($request->id != ''){
                 //update
                 $validador = Validator::make($request->all(),
@@ -89,15 +91,16 @@ class ModulosController extends Controller
                     ]);
                 }
                 $modulo = BdModulo::find($request->id);
-                $modulo -> nombre = $request->nombre;
-                $modulo -> descripcion = $request->descripcion;
-                $modulo-> foto = '';
+                $modulo-> nombre = $request->nombre;
+                $modulo-> descripcion = $request->descripcion;
                 if ($request->foto){
+                    $old_filename = '/public/' . $modulo->foto;
+                    $modulo->foto = $uploadImage;
+                    Storage::disk('local')->delete($old_filename);
+                }elseif ($request->foto == $modulo->foto){
                     $modulo->foto = $request->foto;
-//                    $modulo->foto = $fileName;
                 }
                 $modulo -> estado = $request->estado;
-//                $modulo -> user_id = Auth::user()->id;
                 $modulo -> save();
 
                 return response()->json([
@@ -122,9 +125,8 @@ class ModulosController extends Controller
                 $modulo = new BdModulo();
                 $modulo -> nombre = $request->nombre;
                 $modulo -> descripcion = $request->descripcion;
-                if($request->foto){
-                    $modulo->foto = $request->foto;
-//                    $modulo->foto = $fileName;
+                if ($request->foto) {
+                    $modulo->foto = $uploadImage;
                 }
                 $modulo -> estado = $request->estado;
                 $modulo -> user_id = Auth::user()->id;

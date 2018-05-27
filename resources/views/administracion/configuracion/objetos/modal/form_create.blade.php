@@ -33,7 +33,7 @@
                         <label for="">Temática Objeto </label>
                         <select name="tema" id="tema" class="form-control" v-model="objeto.tema_id" data-vv-name=" Tema "  v-validate="'required'">
                             <option value="" disabled>Seleccionar tema </option>
-                            <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" v-text="tema.nombre"></option>
+                            <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" :hidden="tema.estado === 'Inactivo'" v-text="tema.nombre"></option>
                         </select>
                     </div>
                 </div>

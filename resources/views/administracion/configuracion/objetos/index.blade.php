@@ -251,6 +251,12 @@
                     app.complementosFiles();
                 });
 
+                $('#tema').tooltip({
+                    'show':true,
+                    'placement': 'right',
+                    'title': 'Temas Activos'
+                });
+
             },
             created() {
                 this.start();

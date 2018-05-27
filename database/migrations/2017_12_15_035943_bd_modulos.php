@@ -17,7 +17,7 @@ class BdModulos extends Migration
             $table->increments('id');
             $table->string('nombre')->unique();
             $table->text('descripcion');
-            $table->binary('foto')->nullable();
+            $table->string('foto')->nullable();
             $table->enum('estado',['Activo','Inactivo']);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
