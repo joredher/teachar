@@ -208,8 +208,13 @@ header > nav .container-fluid button{
     -moz-perspective: 800px;
     -ms-perspective: 800px;
     perspective: 800px;
-    border-radius: 4px;
+    border-radius: 5%;
+    /*border-radius: 4px;*/
     cursor: pointer;
+}
+
+.contentCard .card {
+    border-radius: 5%;
 }
 
 .styCard{
@@ -233,7 +238,8 @@ header > nav .container-fluid button{
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    border-radius: 6px;
+    border-radius: 5%;
+    /*border-radius: 6px;*/
     background: #fff;
     display: -ms-flexbox;
     display: box;
@@ -309,13 +315,59 @@ header > nav .container-fluid button{
     box-shadow: none;
 }
 
-/*.styCard.flipped {*/
-    /*-webkit-transform: rotateY(180deg);*/
-    /*transform: rotateY(180deg);*/
-/*}*/
+.btn_eye{
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    border-radius: 5px;
+    background-color: rgba(57, 179, 223, 0.5);
+    /*-webkit-box-reflect: below -25px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.5)));*/
+    /*background-color: #39B3DF; !*#2ECC71*!*/
+    border-bottom: 4px solid #39B3DF;
+    box-shadow: 1px 1px 10px -1px #39B3F2;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn_eye:hover{
+    border-bottom: 1.8px solid #39B3F2;
+    box-shadow: 0px 3px 5px -2px #39B3F2;
+    transition: 0.5s;
+}
+
+
+.btn_eye i:first-child{
+    -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: 0.5s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+    color: #fff;
+}
+
+.btn_eye:hover i:first-child{
+    display: none;
+    color: #fff;
+    -webkit-transition: 0.5s, color 0.5s, display 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: 0.5s, color 0.5s, display 0.5s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
+.btn_eye i:nth-child(2){
+    color: transparent;
+}
+
+.btn_eye:hover i:nth-child(2){
+    color: #fff;
+    -webkit-transition: 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: 0.5s;
+    -webkit-transition-timing-function: ease;
+    transition-timing-function: ease;
+}
+
 /*.styCard.flipped*/
-/*{*/
-/*}*/
 
 .styCard::after {
     position: absolute;
@@ -329,6 +381,7 @@ header > nav .container-fluid button{
     content: '';
     opacity: 0;
     z-index: -1;
+    border-radius: 5%;
 }
 .styCard:hover, .styCard:focus {
     transform: scale3d(1.006, 1.006, 1);
@@ -421,9 +474,12 @@ header > nav .container-fluid button{
 }
 
 .tcard:hover .tcard__inner {
-    background-color: #39B3DF;
+    /*background-color: #39B3DF;*/
+    /*background-color: rgba(52, 58, 64, 0.65);*/
+    background: -webkit-gradient(linear, left top, right top, from(rgba(52, 125, 124, 0.5)), to(rgba(57, 179, 242, 0.65)));
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
+    /*box-shadow: 1px 1px 10px rgba(0,0,0,0.4);*/
 }
 
 .tcard__inner {
@@ -451,7 +507,8 @@ header > nav .container-fluid button{
 .tcard__expander{
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    background-color: #333a45;
+    /*border: 1px solid rgba(40, 60, 70, 0.3);*/
+    background: -webkit-gradient(linear, left top, left bottom, from(#e9ecef), to(rgba(255, 255, 255, 0.5)));
     width: 100%;
     position: relative;
     display: -webkit-box;
@@ -464,8 +521,12 @@ header > nav .container-fluid button{
     -ms-flex-align: center;
     align-items: center;
     /*text-transform: uppercase;*/
-    color: #eceef1;
+    color: rgba(40, 60, 70, 0.5);
+    /*color: #eceef1;*/
     font-size: 1.2rem;
+    box-shadow: 0px 8px 15px -5px rgba(0,0,0,0.4);
+    /*box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.4);*/
+
 }
 
 .tcard__expander .fa-times-circle{
@@ -492,7 +553,9 @@ header > nav .container-fluid button{
 }
 
 .tcard.is-expanded .tcard__inner {
-    background-color: rgba(57, 179, 223, 0.65);
+    /*background-color: rgba(57, 179, 223, 0.65);*/
+    color: white;
+    box-shadow: 1px 1px 12px -1px rgba(0,0,0,0.4);
 }
 .tcard.is-expanded .tcard__inner:after {
     content: "";
@@ -505,7 +568,8 @@ header > nav .container-fluid button{
     left: calc(50% - 15px);
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 15px solid #333a45;
+    border-bottom: 15px solid #e9ecef;
+    /*border-bottom: 15px solid #333a45;*/
 }
 .tcard.is-expanded .tcard__inner .fa-folder:before {
     content: "\f07c";
@@ -531,6 +595,8 @@ header > nav .container-fluid button{
 .tcard.is-inactive .tcard__inner {
     pointer-events: none;
     opacity: 0.5;
+    filter: blur(3px);
+    transform: scale(0.98);
 }
 
 .tcard.is-inactive:hover .tcard__inner {

@@ -11,27 +11,18 @@
                         <i class="fas fa-times-circle [ js-collapser ]"></i>
                         <div>
                             <div class="row">
-                                <div class="col-sm-6 text-justify">
-                                    <p> <span v-text="tema.contenido"></span></p>
+                                <div class="col-sm-12">
+                                    <h1 class="display-4" v-text="tema.nombre + ':'"></h1>
+                                    <p class="lead text-justify" v-text="tema.contenido"></p>
+                                    <hr class="my-4">
+                                    <a :href="'/usuario/modulo/tema/' + tema.id + '/' + tema.nombre" class="btn btn_eye underline">
+                                        <i class="fas fa-eye-slash fa-w-16 fa-5x position-absolute"></i>
+                                        <i class="fas fa-eye fa-w-16 fa-5x"></i>
+                                    </a>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <a :href="'/usuario/modulo/tema/' + tema.id + '/' + tema.nombre" class="btn btn_push underline text-light">
-                                                <i class="fas fa-play"></i> Ir </a>
-                                            <!--<video width="100%" height="100%" src="https://youtu.be/iOUNpPEFNT0" controls></video>-->
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
+
                         </div>
-                        <!--<div class="content-back d-inline-block text-center">-->
-                        <!--&lt;!&ndash;<P class="card-text text-justify" v-text="tema.descripcion"></P>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<br/>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<p id="tema"></p>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<a :href="'/usuarios/configuracion/modulo/'+modulo.id" class="btn btn_push underline text-light"> Ir </a>&ndash;&gt;-->
-                        <!--</div>-->
                     </div>
                 </a>
             </div>
@@ -55,6 +46,13 @@
         },
         mounted(){
             console.clear();
+
+            $('.btn_eye').tooltip({
+                'show':true,
+                'placement': 'right',
+                'title': 'Aumenta la experiencia...'
+            });
+
             var $cell = $('.tcard');
 
             //open and close card when clicked on card

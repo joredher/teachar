@@ -49021,15 +49021,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'temas',
@@ -49047,6 +49038,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     mounted: function mounted() {
         console.clear();
+
+        $('.btn_eye').tooltip({
+            'show': true,
+            'placement': 'right',
+            'title': 'Aumenta la experiencia...'
+        });
+
         var $cell = $('.tcard');
 
         //open and close card when clicked on card
@@ -49128,36 +49126,40 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", [
                   _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-6 text-justify" }, [
-                      _c("p", [
-                        _c("span", {
-                          domProps: { textContent: _vm._s(tema.contenido) }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-6" }, [
-                      _c("div", { staticClass: "card" }, [
-                        _c("div", { staticClass: "card-header" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn_push underline text-light",
-                              attrs: {
-                                href:
-                                  "/usuario/modulo/tema/" +
-                                  tema.id +
-                                  "/" +
-                                  tema.nombre
-                              }
-                            },
-                            [
-                              _c("i", { staticClass: "fas fa-play" }),
-                              _vm._v(" Ir ")
-                            ]
-                          )
-                        ])
-                      ])
+                    _c("div", { staticClass: "col-sm-12" }, [
+                      _c("h1", {
+                        staticClass: "display-4",
+                        domProps: { textContent: _vm._s(tema.nombre + ":") }
+                      }),
+                      _vm._v(" "),
+                      _c("p", {
+                        staticClass: "lead text-justify",
+                        domProps: { textContent: _vm._s(tema.contenido) }
+                      }),
+                      _vm._v(" "),
+                      _c("hr", { staticClass: "my-4" }),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn_eye underline",
+                          attrs: {
+                            href:
+                              "/usuario/modulo/tema/" +
+                              tema.id +
+                              "/" +
+                              tema.nombre
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass:
+                              "fas fa-eye-slash fa-w-16 fa-5x position-absolute"
+                          }),
+                          _vm._v(" "),
+                          _c("i", { staticClass: "fas fa-eye fa-w-16 fa-5x" })
+                        ]
+                      )
                     ])
                   ])
                 ])
