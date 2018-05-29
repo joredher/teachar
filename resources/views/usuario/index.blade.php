@@ -22,12 +22,21 @@
     <div class="contenedor-general">
         <div class="layout_contenedor" id="izquierda">
             <div class="centro">
-                <div class="card intro" data-toggle="popover">
+                <div class="card intro" data-toggle="popover" data-trigger="hover">
                     <div class="card-header border-bottom-0">
                         <img src="{{asset('imagenes/default_avatar_male.jpg')}}" alt="user">
                     </div>
                     <div class="card-body p-3">
                         <h5 class="card-title mb-0">{{ Auth::user()->name .' '. Auth::user()->last_name }}</h5>
+                        <h6 class="card-subtitle text-muted mt-0">
+                            @if(Auth::user()->isOnline())
+                                <i class="fab fa-cuttlefish text-success"></i>
+                                {{ Auth::user()->identification }}
+                            @else
+                                <i class="fab fa-cuttlefish"></i>
+                                {{ Auth::user()->identification }}
+                            @endif
+                        </h6>
                     </div>
                 </div>
             </div>
@@ -49,7 +58,6 @@
         $(document).ready(function($) {
 
             $('[data-toggle="popover"]').popover({
-                'trigger': 'click',
                 'placement': 'bottom',
                 'content': '¡Bienvenido Profe!'
             });

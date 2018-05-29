@@ -243,29 +243,52 @@ body {
     display: none;
 }
 
-
-
-#front span{
+#front span, #front a{
     width: 64px;
     height: 64px;
     position: absolute;
 }
 
-#front span i{
+#front span i, #front a i{
     cursor: pointer;
 }
 
-#front span i:first-child{
+#front span i:first-child, #front a i:first-child{
     position: absolute;
     z-index: 1;
     color: white;
 }
 
-#front span i.icon-shadow {
+#front span i.icon-shadow, #front a i.icon-shadow {
     position: relative;
     left: .025em;
     top: .025em;
     color: #999;
+}
+
+/*.video-info{*/
+    /*width: 10%;*/
+    /*height: 10%;*/
+    /*left: 0;*/
+    /*top: 2.5%;*/
+    /*margin-left: 26px;*/
+    /*margin-top: 10px;*/
+/*}*/
+
+.return-tema{
+    left: 0;
+    top: 2.5%;
+    margin-left: 26px;
+    margin-top: 10px;
+    padding: 5px 15px !important;
+}
+
+.video-info{
+    left: 0;
+    top: 2.5%;
+    margin-left: 26px;
+    margin-top: 84px;
+    padding: 5px 15px !important;
 }
 
 .zoom-plus{
@@ -324,4 +347,74 @@ body {
     top: 100%;
     margin-left: -74px;
     margin-top: -80px;
+}
+
+/**
+Modal VIDEO
+**/
+
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-container {
+    width: 300px;
+    margin: 0px auto;
+    /*padding: 20px 30px;*/
+    /*background-color: #fff;*/
+    border-radius: 0 !important;
+    /*border-radius: 2px;*/
+    /*box-shadow: 0 2px 8px rgba(0, 0, 0, .33);*/
+    transition: all .3s ease;
+    /*font-family: Helvetica, Arial, sans-serif;*/
+}
+
+.modal-header a {
+    margin-top: 0;
+    cursor: pointer;
+    /*color: #42b983;*/
+}
+
+.modal-body {
+    margin: 20px 0;
+}
+
+.modal-default-button {
+    float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+    opacity: 0;
+}
+
+.modal-leave-active {
+    opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }

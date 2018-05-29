@@ -17,6 +17,7 @@ class BdTemas extends Migration
             $table->increments('id');
             $table->string('nombre')->unique();
             $table->string('contenido');
+            $table->string('video_url');
             $table->enum('estado',['Activo','Inactivo']);
             $table->integer('modulo_id')->unsigned();
             $table->foreign('modulo_id')->references('id')->on('bd_modulos')

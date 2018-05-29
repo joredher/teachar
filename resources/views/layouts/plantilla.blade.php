@@ -52,33 +52,6 @@
                 </div>
             </nav>
 
-            {{--<nav class="navbar navbar-expand-md navbar-dark bg-white">--}}
-                {{--<div class="container-fluid">--}}
-                    {{--<div class="navbar-brand">--}}
-                        {{--@yield('contenido-item')--}}
-                    {{--</div>--}}
-                    {{--<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">--}}
-                        {{--<span class="text-dark"> <i class="fas fa-bars"></i></span>--}}
-                    {{--</button>--}}
-                    {{--<div class="collapse navbar-collapse" id="navbarCollapse">--}}
-                        {{--<ul class="nav navbar-nav">--}}
-                            {{--<li class="nav-item active">--}}
-                            {{--Hola Mundo--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                        {{--<div class="clearfix form-inline float-right mt-2 mt-md-0 pr-5">--}}
-                            {{--<a href="{{ route('logout') }}" onclick="event.preventDefault();--}}
-                            {{--document.getElementById('logout-form').submit();" class="text-dark">--}}
-                                {{--<i class="fas fa-sign-out-alt fa-w-16 fa-2x"></i>--}}
-                            {{--</a>--}}
-                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                                {{--{{ csrf_field() }}--}}
-                            {{--</form>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</nav>--}}
-            <!-- Navegación pulse animated-->
         </header>
 
         <!-- Inicia contenido de Página -->

@@ -34,43 +34,75 @@
                 </a-scene>
             </div>
             <div id="front" class="bounceIn">
-            <span class="zoom-plus">
-                <i class="fas fa-plus-circle fa-w-16 fa-3x"></i>
-                <i class="icon-shadow fas fa-plus-circle fa-w-16 fa-3x"></i>
-            </span>
-                <span class="zoom-menus">
-                <i class="fas fa-minus-circle  fa-w-16 fa-3x"></i>
-                <i class="icon-shadow fas fa-minus-circle  fa-w-16 fa-3x"></i>
-            </span>
+                <a  class="return-tema btn btn_push bg-warning border-warning" :href="'/usuario/modulo/'+tema.bd_modulo.id+'/'+tema.bd_modulo.nombre">
+                    <i class="fas fa-caret-square-left fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-caret-square-left fa-w-16 fa-3x"></i>
+                </a>
+                <a  class="video-info btn btn_push"  data-toggle="modal" data-target="#myVideo"  @click.prevent="mostrar(tema)" >
+                    <i class="fas fa-lightbulb fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-lightbulb fa-w-16 fa-3x"></i>
+                </a>
+                <span class="zoom-plus">
+                    <i class="fas fa-plus-circle fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-plus-circle fa-w-16 fa-3x"></i>
+                </span>
+                 <span class="zoom-menus">
+                    <i class="fas fa-minus-circle  fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-minus-circle  fa-w-16 fa-3x"></i>
+                </span>
 
                 <span class="orientacion-obj">
-                <img  id="marker-orientation" src="/imagenes/orientation_horizontal.png" alt="orientacion" >
-            </span>
+                    <img  id="marker-orientation" src="/imagenes/orientation_horizontal.png" alt="orientacion" >
+                </span>
                 <span id="marker-detection"></span>
-                <!--<span class="orientacion-obj" id="marker-orientation">-->
-                <!--<i class="fas fa-random  fa-w-16 fa-3x"></i>-->
-                <!--<i class="icon-shadow fas fa-random  fa-w-16 fa-3x"></i>-->
-                <!--</span>-->
-
+                    <!--span class="orientacion-obj" id="marker-orientation">
+                    <i class="fas fa-random  fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-random  fa-w-16 fa-3x"></i>
+                    </span-->
                 <span class="arrow_left" id="leftArrow" >
-                <i class="fas fa-angle-double-left fa-w-16 fa-3x"></i>
-                <i class="icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"></i>
-            </span>
+                    <i class="fas fa-angle-double-left fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"></i>
+                </span>
 
                 <span class="rotate-obj">
-                <i class="fas fa-sync  fa-w-16 fa-4x"></i>
-                <i class="icon-shadow fas fa-sync fa-w-16 fa-4x"></i>
-            </span>
+                    <i class="fas fa-sync  fa-w-16 fa-4x"></i>
+                    <i class="icon-shadow fas fa-sync fa-w-16 fa-4x"></i>
+                </span>
 
                 <span class="arrow_right" id="rightArrow" >
-                <i class="fas fa-angle-double-right fa-w-16 fa-3x"></i>
-                <i class="icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"></i>
-            </span>
+                    <i class="fas fa-angle-double-right fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"></i>
+                </span>
 
                 <span class="expand-cam" onclick="screenfull.toggle()">
-                <i class="fas fa-expand fa-w-16 fa-3x"></i>
-                <i class="icon-shadow fas fa-expand fa-w-16 fa-3x"></i>
-            </span>
+                    <i class="fas fa-expand fa-w-16 fa-3x"></i>
+                    <i class="icon-shadow fas fa-expand fa-w-16 fa-3x"></i>
+                </span>
+            </div>
+            <div class="modal fade" id="myVideo" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-mask">
+                  <div class="modal-dialog modal-dialog-centered modal-lg modal-wrapper" role="document">
+                      <div class="modal-content modal-container bg-transparent border-0">
+                          <div class="modal-header border-0 p-0">
+                              <h5 class="modal-title text-white" id="exampleModalCenterTitle" v-text="'Video Informativo: ' + tema.nombre"></h5>
+                              <a class="bg-transparent text-white" data-dismiss="modal" aria-label="Close">
+                                  <span class="" aria-hidden="true"><i class="fas fa-times fa-2x text-white"></i></span>
+                              </a>
+                          </div>
+                          <div class="modal-body mt-0 p-0">
+                              <div class="embed-responsive embed-responsive-4by3">
+                                  <!--<iframe class="embed-responsive-item" id="youtube" :src="'https://www.youtube.com/embed/'+tema.video_url+'?controls=0&fs=0&rel=0&showinfo=0&color=white'" allowfullscreen></iframe>-->
+                                  <iframe
+                                          class="embed-responsive-item"
+                                          id="youtube"
+                                          frameborder="0"
+                                          allowfullscreen
+                                          src=''></iframe>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             </div>
         </div>
     </div>
@@ -104,14 +136,39 @@
 
                 objetoCount: this.tema.bd_objeto.length,
                 objetoNbr: Math.floor(Math.random() * this.objetoCount),
+                // datTema: this.tema.video_url
+                // showModal: false
                 // sceneEL: document.querySelector('a-scene'),
                 // entityEL: document.querySelector('a-entity')
             }
         },
         methods:{
 
+            mostrar: function(tema){
+                var id = tema.video_url;
+                // console.log(id);
+                var autoplay = '?autoplay=1';
+                var related_no = '&rel=0';
+
+                var src = 'https://www.youtube.com/embed/'+id+autoplay+related_no;
+                // console.log(src);
+                $('#youtube').attr('src', src);
+            }
+
         },
         mounted() {
+            var app =this;
+
+            $('.video-info').tooltip({
+                'show':true,
+                'placement': 'right',
+                'title': 'Video del Tema'
+            });
+            $('.return-tema').tooltip({
+                'show':true,
+                'placement': 'right',
+                'title': 'Regresar a Temas'
+            });
 
             console.clear();
 
@@ -198,6 +255,13 @@
 
             document.getElementById("loader").style.display = "none";
             document.getElementById("error").style.display = "none";
+
+            // MODAL VIDEO
+            $("#myVideo").on("hidden.bs.modal", function () {
+                $("#youtube").attr("src", '');
+            });
+            $('#myVideo').on("show.bs.modal", function () {
+            })
         }
 
     }

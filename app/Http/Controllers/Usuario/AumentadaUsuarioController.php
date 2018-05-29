@@ -19,7 +19,7 @@ class AumentadaUsuarioController extends Controller
     public function show(Request $request, $id){
         $request->user()->authorizeRoles('profe');
 
-        $tema = BdTema::where('id', $id)->with(['BdObjeto'])->first();
+        $tema = BdTema::where('id', $id)->with(['BdObjeto','BdModulo'])->first();
         return view('usuario.aumentadas-usuario.index_ra', ['tema' => $tema]);
     }
 }

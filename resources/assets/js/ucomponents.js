@@ -5,6 +5,8 @@ window.Vue = require('vue');
 
 require('animate.css');
 
+import VueYouTubeEmbed from 'vue-youtube-embed'
+Vue.use(VueYouTubeEmbed);
 
  Vue.component('modulos', require('./components/modulos/Modulo.vue'));
  Vue.component('aumentadas', require('./components/aumentadas/Aumentada.vue'));

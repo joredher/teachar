@@ -13,6 +13,9 @@
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aumentadas/aumentadas.css') }}">
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/user.css')}}">
+
     <title>Prueba RA</title>
     <script src="{{ asset('js/aumentadas/aframe.js') }}"></script>
     <script src="{{ asset('js/aumentadas/aframe-animation-component.js') }}"></script>

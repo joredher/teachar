@@ -27,6 +27,7 @@
                 </a>
             </div>
         </div>
+        <!--<div id="player"></div>-->
     </div>
 </template>
 <script>

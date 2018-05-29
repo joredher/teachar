@@ -70,6 +70,15 @@ class TemasController extends Controller
         }
     }
 
+    function id_youtube($url) {
+        $patron = '%^ (?:https?://)? (?:www\.)? (?: youtu\.be/ | youtube\.com (?: /embed/ | /v/ | /watch\?v= ) ) ([\w-]{10,12}) $%x';
+        $array = preg_match($patron, $url, $parte);
+        if (false !== $array) {
+            return $parte[1];
+        }
+        return false;
+    }
+
     public function guardar(Request $request){
         try{
             if ($request->id != ''){
@@ -89,6 +98,7 @@ class TemasController extends Controller
                 $tema = BdTema::find($request->id);
                 $tema -> nombre = $request->nombre;
                 $tema -> contenido = $request->contenido;
+                $tema -> video_url = $this->id_youtube($request->video_url);
                 $tema -> estado = $request->estado;
                 $tema -> modulo_id = $request->modulo_id;
                 $tema -> save();
@@ -115,6 +125,7 @@ class TemasController extends Controller
                 $tema = new BdTema();
                 $tema -> nombre = $request->nombre;
                 $tema -> contenido = $request->contenido;
+                $tema -> video_url = $this->id_youtube($request->video_url);
                 $tema -> estado = $request->estado;
                 $tema -> modulo_id = $request->modulo_id;
                 $tema -> save();

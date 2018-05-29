@@ -124,6 +124,7 @@
                         id: '',
                         nombre: '',
                         contenido:'',
+                        video_url:'',
                         fecha:'',
                         estado: 1,
                         modulo_id: '',
@@ -230,6 +231,16 @@
                     'show':true,
                     'placement': 'right',
                     'title': 'Módulos Activos'
+                });
+                $('.basic-url').tooltip({
+                    'show':true,
+                    'placement': 'bottom',
+                    'title': 'Click para Buscar Video'
+                });
+                $('#basic-url').tooltip({
+                    'show':true,
+                    'placement': 'bottom',
+                    'title': 'COLOCAR ENLACE'
                 });
             },
             created() {

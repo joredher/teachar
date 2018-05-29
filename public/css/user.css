@@ -322,9 +322,7 @@ header > nav .container-fluid button{
     border: none;
     border-radius: 4px;
     border-radius: 5px;
-    background-color: rgba(57, 179, 223, 0.5);
-    /*-webkit-box-reflect: below -25px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.5)));*/
-    /*background-color: #39B3DF; !*#2ECC71*!*/
+    background-color: rgba(57, 179, 223, 0.8);
     border-bottom: 4px solid #39B3DF;
     box-shadow: 1px 1px 10px -1px #39B3F2;
     outline: none;
@@ -332,7 +330,8 @@ header > nav .container-fluid button{
 }
 
 .btn_eye:hover{
-    border-bottom: 1.8px solid #39B3F2;
+    background-color: rgba(57, 179, 223, 1);
+    border-bottom: 1.8px solid rgba(57, 179, 223, 0.8);
     box-shadow: 0px 3px 5px -2px #39B3F2;
     transition: 0.5s;
 }
@@ -445,7 +444,7 @@ header > nav .container-fluid button{
 }
 
 .cards {
-    padding: 15px;
+    padding: 0 0 15px 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -474,12 +473,9 @@ header > nav .container-fluid button{
 }
 
 .tcard:hover .tcard__inner {
-    /*background-color: #39B3DF;*/
-    /*background-color: rgba(52, 58, 64, 0.65);*/
-    background: -webkit-gradient(linear, left top, right top, from(rgba(52, 125, 124, 0.5)), to(rgba(57, 179, 242, 0.65)));
+    /*background: -webkit-gradient(linear, left top, right top, from(rgba(52, 125, 124, 0.5)), to(rgba(57, 179, 242, 0.65)));*/
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
-    /*box-shadow: 1px 1px 10px rgba(0,0,0,0.4);*/
 }
 
 .tcard__inner {
@@ -507,7 +503,6 @@ header > nav .container-fluid button{
 .tcard__expander{
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
-    /*border: 1px solid rgba(40, 60, 70, 0.3);*/
     background: -webkit-gradient(linear, left top, left bottom, from(#e9ecef), to(rgba(255, 255, 255, 0.5)));
     width: 100%;
     position: relative;
@@ -521,10 +516,13 @@ header > nav .container-fluid button{
     -ms-flex-align: center;
     align-items: center;
     /*text-transform: uppercase;*/
-    color: rgba(40, 60, 70, 0.5);
+    color: rgba(40, 60, 70, 1);
     /*color: #eceef1;*/
     font-size: 1.2rem;
-    box-shadow: 0px 8px 15px -5px rgba(0,0,0,0.4);
+    box-shadow: 0px 6.5px 15px 0.5px rgba(0,0,0,0.086);
+    border-left: 1px solid rgba(0,0,0,0.02);
+    border-right: 1px solid rgba(0,0,0,0.02);
+    border-bottom: 1px solid rgba(0,0,0,0.02);
     /*box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.4);*/
 
 }
@@ -555,7 +553,7 @@ header > nav .container-fluid button{
 .tcard.is-expanded .tcard__inner {
     /*background-color: rgba(57, 179, 223, 0.65);*/
     color: white;
-    box-shadow: 1px 1px 12px -1px rgba(0,0,0,0.4);
+    box-shadow: 2px 3px 5px -1px rgba(0,0,0,0.4);
 }
 .tcard.is-expanded .tcard__inner:after {
     content: "";
@@ -581,9 +579,10 @@ header > nav .container-fluid button{
     overflow: visible;
     margin-top: 30px;
     opacity: 1;
-    padding: 20%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 10%;
+    border-radius: 4px;
+    /*padding-left: 10%;*/
+    /*padding-right: 10%;*/
     /*padding: 40%;*/
 }
 
@@ -595,7 +594,7 @@ header > nav .container-fluid button{
 .tcard.is-inactive .tcard__inner {
     pointer-events: none;
     opacity: 0.5;
-    filter: blur(3px);
+    filter: blur(1.6px);
     transform: scale(0.98);
 }
 
