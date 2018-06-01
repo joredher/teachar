@@ -4,6 +4,36 @@
 @section('modulo-nombre', '')
 
 @section('contenido')
+    <style type="text/css">
+        /*table {*/
+            /*width: 50%;*/
+        /*}*/
+
+        thead, tbody, tr, td, th {
+            display: block;
+        }
+
+        /*thead th {*/
+            /*height: 30px;*/
+        /*}*/
+
+        tbody {
+            overflow-y: auto;
+            height: 150px;
+        }
+
+        tbody td, thead th {
+            float: left;
+            width: 50%;
+        }
+
+        tr:after {
+            clear: both;
+            content: ' ';
+            display: block;
+            visibility: hidden;
+        }
+    </style>
 
     <div class="panel-body">
         <div class="card border-0 bg-transparent" style="box-shadow: none">
@@ -46,7 +76,7 @@
                             <div class="card-header text-center">
                                 <h3 class="card-title">Usuarios Online</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body pr-0 pl-0 pb-0">
                                 <div class="card-block card-dashboard">
                                     <div class="table-responsive">
                                         <table class="table table-hover">

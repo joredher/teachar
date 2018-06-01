@@ -114,30 +114,30 @@ class ObjetosController extends Controller
                     switch ($extension) {
                         case ('gltf'):
                             $fileName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedFileName = $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
+                            $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
                             $objeto->storeAs('public', $uploadedFileName);
                             break;
                         case ('dae') :
                             $fileName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedFileName = $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
+                            $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
                             $objeto->storeAs('public', $uploadedFileName);
                             break;
                         case ('obj') :
                             if ($extension == 'obj'){
                                 $fileName = str_slug($fileNameOnly) . "." . $extension;
-                                $uploadedFileName = $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
+                                $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
                                 $objeto->storeAs('public', $uploadedFileName);
                             }
                             break;
                         case ('mtl'):
                             $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                             $materialName = str_slug($materialNameOnly) . "." . $extension;
-                            $uploadedMaterialName = $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $materialName;
+                            $uploadedMaterialName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $materialName;
                             $objeto->storeAs('public', $uploadedMaterialName);
                             break;
                         default:
                             $imageName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedImageName = $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $imageName;
+                            $uploadedImageName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $imageName;
                             $objeto->storeAs('public', $uploadedImageName);
 //
                     }
@@ -206,6 +206,12 @@ class ObjetosController extends Controller
                 }
                 $objeto->tema_id = $tema;
                 $objeto->format = $extension;
+                $objeto->scaleInc = 1;
+                $objeto->scale = '1 1 1';
+                $objeto->positionH = '0 0 0';
+                $objeto->rotationH = '0 180 0';
+                $objeto->positionV = '0 0.5 0';
+                $objeto->rotationV = '90 180 0';
                 $objeto->save();
 
 

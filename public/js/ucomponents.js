@@ -48500,7 +48500,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48875,9 +48875,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
-
-// import 'aframe'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "aumentadas",
@@ -48897,8 +48938,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 name: 'kanji'
             }],
 
-            objetoCount: this.tema.bd_objeto.length,
-            objetoNbr: Math.floor(Math.random() * this.objetoCount)
+            nextRotationEvent: "rotation-start",
+            // Orientation du marker par défaut.
+            isMarkerHorizontal: true,
+            // Indicateur de support de la détection d'orientation.
+            hasDeviceOrientationEvent: false,
+            // Détection automatique de l'orientation.
+            isDeviceOrientationDetection: true,
+            // Orientation de l'appareil au moment de la suppression de détection automatique.
+            isDeviceOrientationHorizontal: true,
+            // Orientation de l'appareil (Portrait vs Paysage).
+            isPortraitMode: true,
+            // Angle limite de la position de l'appareil pour détecter une observation de marker horizontal ou vertical.
+            ANGLE: 45
+
+            // objetoCount: this.tema.bd_objeto.length,
+            // objetoNbr: Math.floor(Math.random() * this.objetoCount),
             // datTema: this.tema.video_url
             // showModal: false
             // sceneEL: document.querySelector('a-scene'),
@@ -48916,11 +48971,182 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var src = 'https://www.youtube.com/embed/' + id + autoplay + related_no;
             // console.log(src);
             $('#youtube').attr('src', src);
+        },
+
+        NextModel: function NextModel(tema, inc) {
+            var modelCount = tema.bd_objeto.length;
+            console.log('Soy Yo: ' + modelCount);
+            var modelNbr = Math.floor(Math.random() * modelCount);
+
+            // document.getElementById("error").style.display = "none";
+            // document.getElementById("loader").style.display = "inline";
+
+            modelNbr = (modelNbr + inc) % tema.bd_objeto.length;
+            modelNbr = modelNbr < 0 ? tema.bd_objeto.length + modelNbr : modelNbr;
+            console.log(">>> Model " + tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
+
+            this.RotationStop();
+
+            for (var i = 0; i < document.getElementsByName("model").length; i++) {
+                document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
+                document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
+                switch (tema.bd_objeto[modelNbr].format) {
+                    case "gltf":
+                        document.getElementById("gltf1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);
+                        document.getElementsByName("model")[i].setAttribute("gltf-model", "#gltf1");
+                        document.getElementsByName("model")[i].removeAttribute("obj-model");
+                        break;
+                    case "obj":
+                        document.getElementById("obj1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);
+                        document.getElementById("mtl1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].material);
+                        document.getElementsByName("model")[i].setAttribute("obj-model", "obj: #obj1; mtl: #mtl1");
+                        document.getElementsByName("model")[i].removeAttribute("gltf-model");
+                        break;
+                    default:
+                        console.log(">>> Format\"" + tema.bd_objeto[modelNbr].format + "\" unknown!");
+                }
+                document.getElementsByName("model")[i].setAttribute("scale", tema.bd_objeto[modelNbr].scale);
+                document.getElementsByName("model")[i].setAttribute("position", this.isMarkerHorizontal ? tema.bd_objeto[modelNbr].positionH : tema.bd_objeto[modelNbr].positionV);
+                document.getElementsByName("model")[i].setAttribute("rotation", this.isMarkerHorizontal ? tema.bd_objeto[modelNbr].rotationH : tema.bd_objeto[modelNbr].rotationV);
+            }
+        },
+
+        RotationStop: function RotationStop() {
+            // console.log(">>> Stop rotation");
+            var rotateBtn = $(".rotate-obj");
+            // this.nextRotationEvent = "rotation-restart";
+            for (var i = 0; i < document.getElementsByName("rotation").length; i++) {
+                rotateBtn.removeClass("rotate_fade");
+                document.getElementsByName("rotation")[i].emit("rotation-pause");
+                document.getElementsByName("rotation")[i].setAttribute("rotation", "0 0 0");
+            }
+        },
+
+        RotationOnOff: function RotationOnOff() {
+            console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
+            var rotateBtn = $(".rotate-obj");
+            for (var i = 0; i < document.getElementsByName("rotation").length; i++) {
+                rotateBtn.addClass("rotate_fade");
+                if (this.isMarkerHorizontal) {
+                    document.getElementsByName("rotation")[i].setAttribute("animation", "to", "0 360 0");
+                } else {
+                    document.getElementsByName("rotation")[i].setAttribute("animation", "to", "0 0 360");
+                }
+                document.getElementsByName("rotation")[i].emit(this.nextRotationEvent);
+            }
+            switch (this.nextRotationEvent) {
+                case "rotation-start":
+                case "rotation-restart":
+                case "rotation-resume":
+                    this.nextRotationEvent = "rotation-pause";
+                    rotateBtn.addClass("rotate_fade");
+                    break;
+                case "rotation-pause":
+                    this.nextRotationEvent = "rotation-resume";
+                    rotateBtn.removeClass("rotate_fade");
+                    break;
+                default:
+                    console.log(">>> Event \"" + this.nextRotationEvent + "\" unknown !");
+            }
+        },
+
+        Zoom: function Zoom(tema, sign) {
+            var modelCount = tema.bd_objeto.length;
+            console.log('Soy Yo' + modelCount);
+            var modelNbr = Math.floor(Math.random() * modelCount);
+            console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
+
+            for (var i = 0; i < document.getElementsByName("model").length; i++) {
+                var oScale = document.getElementsByName("model")[i].getAttribute("scale");
+                if (sign < 0 && 0.0001 < oScale.x - tema.bd_objeto[modelNbr].scaleInc || 0 < sign) {
+                    // Floating point problem.
+                    var factor = 1 + sign * tema.bd_objeto[modelNbr].scaleInc / oScale.x;
+                    var oPosition = document.getElementsByName("model")[i].getAttribute("position");
+                    var sPosition = oPosition.x * factor + " " + oPosition.y * factor + " " + oPosition.z * factor;
+                    document.getElementsByName("model")[i].setAttribute("animation__position", "to", sPosition);
+
+                    var sScale = parseFloat(oScale.x) + sign * tema.bd_objeto[modelNbr].scaleInc + " " + (parseFloat(oScale.y) + sign * tema.bd_objeto[modelNbr].scaleInc) + " " + (parseFloat(oScale.z) + sign * tema.bd_objeto[modelNbr].scaleInc);
+                    document.getElementsByName("model")[i].setAttribute("animation__scale", "to", sScale);
+                    document.getElementsByName("model")[i].emit("zoom-start");
+                }
+            }
+        },
+
+        PrintOrientation: function PrintOrientation(beta, gamma) {
+            var orientationAngle;
+            if (this.isPortraitMode) {
+                orientationAngle = beta ? Math.round(beta) : "";
+            } else {
+                orientationAngle = gamma ? Math.round(gamma) : "";
+            }
+            document.getElementById("marker-detection").textContent = this.isDeviceOrientationDetection ? orientationAngle + "°" : "";
+
+            document.getElementById("marker-orientation").src = "/imagenes/" + (this.isMarkerHorizontal ? "orientation_horizontal.png" : "orientation_vertical.png");
+        },
+        SwitchDetection: function SwitchDetection() {
+            this.isDeviceOrientationDetection = !this.isDeviceOrientationDetection;
+            console.log(">>> Switch to " + (this.isDeviceOrientationDetection ? "automatic detection of" : "forced") + " marker orientation");
+            this.PrintOrientation(false, false);
+        },
+        SwitchOrientation: function SwitchOrientation(beta, gamma, tema) {
+            var modelCount = tema.bd_objeto.length;
+            console.log('Soy Yo: ' + modelCount);
+            var modelNbr = Math.floor(Math.random() * modelCount);
+            this.RotationStop();
+            this.isMarkerHorizontal = !this.isMarkerHorizontal;
+            console.log(">>> Switch to " + (this.isMarkerHorizontal ? "horizontal" : "vertical") + " marker");
+            this.PrintOrientation(beta, gamma);
+            for (var i = 0; i < document.getElementsByName("model").length; i++) {
+                document.getElementsByName("model")[i].setAttribute("position", this.isMarkerHorizontal ? tema.bd_objeto[modelNbr].positionH : tema.bd_objeto[modelNbr].positionV);
+                document.getElementsByName("model")[i].setAttribute("rotation", this.isMarkerHorizontal ? tema.bd_objeto[modelNbr].rotationH : tema.bd_objeto[modelNbr].rotationV);
+            }
+        },
+
+
+        CycleOrientation: function CycleOrientation(tema) {
+            if (this.isDeviceOrientationDetection) {
+                this.SwitchDetection();
+                this.isDeviceOrientationHorizontal = this.isMarkerHorizontal;
+            } else {
+                if (this.isMarkerHorizontal === this.isDeviceOrientationHorizontal || !this.hasDeviceOrientationEvent) {
+                    this.SwitchOrientation(false, false, tema);
+                } else {
+                    this.SwitchDetection();
+                }
+            }
         }
 
     },
     mounted: function mounted() {
+        var _this = this;
+
         var app = this;
+
+        var modelCount = this.tema.bd_objeto.length;
+        var modelNbr = Math.floor(Math.random() * modelCount);
+
+        if (modelCount === 1) {
+            document.getElementById("leftArrow").style.display = "none";
+            document.getElementById("rightArrow").style.display = "none";
+        };
+
+        document.getElementsByName("model")[0].addEventListener("model-loader", function () {
+            console.log(">>> Model " + _this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + _this.tema.bd_objeto.length + ") loaded");
+            document.getElementById("loader").style.display = "none";
+            for (var i = 0; i < document.getElementsByName("model").length; i++) {
+                // Soft display.
+                document.getElementsByName("model")[i].emit("fadeIn");
+            }
+        });
+
+        document.getElementsByName("model")[0].addEventListener("model-error", function () {
+            console.log(">>> Model " + _this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + _this.tema.bd_objeto.length + ") error");
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("error").style.display = "inline";
+        });
+
+        app.NextModel(this.tema, 0);
+        // app.NextModel(tema, 0);
 
         $('.video-info').tooltip({
             'show': true,
@@ -48932,87 +49158,148 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             'placement': 'right',
             'title': 'Regresar a Temas'
         });
+        // console.clear();
 
-        console.clear();
+        /*** Código de Orientación... ***/
 
-        AFRAME.registerComponent('ejemplo', {
-            init: function init() {
+        window.addEventListener("deviceorientation", function (event) {
+            // Détection du support "réel" de l'évènement d'orientation de l'appareil.
+            if (event.alpha !== null && event.beta !== null && event.gamma !== null) {
+                app.hasDeviceOrientationEvent = true;
+            } else {
+                app.hasDeviceOrientationEvent = false;
+                app.isDeviceOrientationDetection = false;
+                app.PrintOrientation(false, false);
+            }
 
-                var entityEL = document.querySelector('#crea_obj'),
-                    gltfModel = document.querySelector('#crea_gltf'),
-                    scaleBtn = $(".zoom-plus"),
-                    menusScale = $(".zoom-menus"),
-                    rotateBtn = $(".rotate-obj");
-
-                rotateBtn.click(function () {
-                    if (rotateBtn.hasClass("rotate_fade")) {
-                        gtlfModel.emit('endRotate');
-                        entityEL.emit('endRotate');
-                        rotateBtn.removeClass("rotate_fade");
+            // Screen Orientation non supporté par Safari : https://caniuse.com/#feat=screen-orientation
+            // => Alternative : https://davidwalsh.name/orientation-change
+            app.isPortraitMode = window.matchMedia("(orientation: portrait)").matches ? true : false;
+            // Si on est en mode détection automatique et que la position de l'appareil n'est pas en accord avec la position du marker, alors on switch.
+            if (app.hasDeviceOrientationEvent && app.isDeviceOrientationDetection) {
+                var toSwitch = false;
+                if (app.isPortraitMode) {
+                    if (app.isMarkerHorizontal) {
+                        if (event.beta < -app.ANGLE || app.ANGLE < event.beta) {
+                            toSwitch = true;
+                        }
                     } else {
-                        gtlfModel.emit('rotate');
-                        entityEL.emit('rotate');
-                        rotateBtn.addClass("rotate_fade");
+                        if (-app.ANGLE < event.beta && event.beta < app.ANGLE) {
+                            toSwitch = true;
+                        }
                     }
-                });
-
-                var scaleFlag = 0;
-
-                scaleBtn.click(function () {
-                    if (scaleFlag === 0) {
-                        scaleFlag = 1;
-                        entityEL.object3D.scale.set(1.5, 1.5, 1.5);
-                        gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
-                        // scaleBtn.addClass("scale_one");
-                    } else if (scaleFlag === 1) {
-                        scaleFlag = 2;
-                        entityEL.object3D.scale.set(2, 2, 2);
-                        gltfModel.object3D.scale.set(2, 2, 2);
-                        // scaleBtn.addClass("scale_two");
-                        // scaleBtn.removeClass("scale_one");
-                    } else if (scaleFlag === 2) {
-                        scaleFlag = 3;
-                        entityEL.object3D.scale.set(2.5, 2.5, 2.5);
-                        gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
-                        // scaleBtn.removeClass("scale_two");
-                    } else if (scaleFlag === 3) {
-                        scaleFlag = 4;
-                        entityEL.object3D.scale.set(3, 3, 3);
-                        gltfModel.object3D.scale.set(3, 3, 3);
-                        // scaleBtn.removeClass("scale_two");
+                } else {
+                    if (app.isMarkerHorizontal) {
+                        if (event.gamma < -app.ANGLE || app.ANGLE < event.gamma) {
+                            toSwitch = true;
+                        }
+                    } else {
+                        if (-app.ANGLE < event.gamma && event.gamma < app.ANGLE) {
+                            toSwitch = true;
+                        }
                     }
-                });
-
-                menusScale.click(function () {
-                    if (scaleFlag === 4) {
-                        scaleFlag = 3;
-                        entityEL.object3D.scale.set(2.5, 2.5, 2.5);
-                        gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
-                    } else if (scaleFlag === 3) {
-                        scaleFlag = 2;
-                        entityEL.object3D.scale.set(2, 2, 2);
-                        gltfModel.object3D.scale.set(2, 2, 2);
-                    } else if (scaleFlag === 2) {
-                        scaleFlag = 1;
-                        entityEL.object3D.scale.set(1.5, 1.5, 1.5);
-                        gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
-                    } else if (scaleFlag === 1) {
-                        scaleFlag = 0;
-                        entityEL.object3D.scale.set(1, 1, 1);
-                        gltfModel.object3D.scale.set(1, 1, 1);
-                    }
-                });
-
-                // console.log(this.sceneEl);
+                }
+                if (toSwitch) {
+                    app.SwitchOrientation(event.beta, event.gamma, tema);
+                }
+                app.PrintOrientation(event.beta, event.gamma);
             }
         });
+        // Affichage de la position par défaut du marker.
+        app.PrintOrientation(false, false);
 
-        var gtlfModel = document.querySelector('#crea_gltf'),
-            objModel = document.querySelector('#crea_obj'),
-            rotateBtn = $(".rotate-obj"),
-            scaleBtn = $(".zoom-plus"),
-            switchBtn = $(".arrow_right"),
-            gotitBtn = $(".gotit");
+        // AFRAME.registerComponent('ejemplo', {
+        //     init: function () {
+        //
+        //         var entityEL = document.querySelector('#crea_obj'), gltfModel = document.querySelector('#crea_gltf') ,
+        //             scaleBtn = $(".zoom-plus"), menusScale = $(".zoom-menus"), rotateBtn = $(".rotate-obj");
+        //
+        //         rotateBtn.click(function () {
+        //             if (rotateBtn.hasClass("rotate_fade")){
+        //                 gtlfModel.emit('endRotate');
+        //                 entityEL.emit('endRotate');
+        //                 rotateBtn.removeClass("rotate_fade");
+        //             }else {
+        //                 gtlfModel.emit('rotate');
+        //                 entityEL.emit('rotate');
+        //                 rotateBtn.addClass("rotate_fade");
+        //             }
+        //         });
+        //
+        //         var scaleFlag = 0;
+        //
+        //         scaleBtn.click(function () {
+        //             if (scaleFlag === 0){
+        //                 scaleFlag = 1;
+        //                 entityEL.object3D.scale.set(1.5, 1.5, 1.5);
+        //                 gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
+        //                 // scaleBtn.addClass("scale_one");
+        //             }else if (scaleFlag === 1){
+        //                 scaleFlag = 2;
+        //                 entityEL.object3D.scale.set(2, 2, 2);
+        //                 gltfModel.object3D.scale.set(2, 2, 2);
+        //                 // scaleBtn.addClass("scale_two");
+        //                 // scaleBtn.removeClass("scale_one");
+        //             }else if (scaleFlag === 2){
+        //                 scaleFlag = 3;
+        //                 entityEL.object3D.scale.set(2.5, 2.5, 2.5);
+        //                 gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
+        //                 // scaleBtn.removeClass("scale_two");
+        //             }else if (scaleFlag === 3){
+        //                 scaleFlag = 4;
+        //                 entityEL.object3D.scale.set(3, 3, 3);
+        //                 gltfModel.object3D.scale.set(3, 3, 3);
+        //                 // scaleBtn.removeClass("scale_two");
+        //             }
+        //         });
+        //
+        //         menusScale.click(function () {
+        //             if (scaleFlag === 4){
+        //                 scaleFlag = 3;
+        //                 entityEL.object3D.scale.set(2.5, 2.5, 2.5);
+        //                 gltfModel.object3D.scale.set(2.5, 2.5, 2.5);
+        //             }else if (scaleFlag === 3){
+        //                 scaleFlag = 2;
+        //                 entityEL.object3D.scale.set(2, 2, 2);
+        //                 gltfModel.object3D.scale.set(2, 2, 2);
+        //             }else if (scaleFlag === 2){
+        //                 scaleFlag = 1;
+        //                 entityEL.object3D.scale.set(1.5, 1.5, 1.5);
+        //                 gltfModel.object3D.scale.set(1.5, 1.5, 1.5);
+        //             }else if (scaleFlag === 1){
+        //                 scaleFlag = 0;
+        //                 entityEL.object3D.scale.set(1, 1, 1);
+        //                 gltfModel.object3D.scale.set(1, 1, 1);
+        //             }
+        //         });
+        //
+        //         // var groupObject3D = gltfModel.object3D;
+        //         //
+        //         // console.log(groupObject3D)
+        //         // console.log(this.sceneEl);
+        //     },
+        //
+        //
+        //     // schema: { type: 'vec3' },
+        //     //
+        //     // update: function () {
+        //     //     this.el.object3D.position.set(
+        //     //       this.data.x,
+        //     //       this.data.y,
+        //     //       this.data.z
+        //     //     );
+        //     // }
+        //
+        // });
+
+
+        // var gtlfModel = document.querySelector('#crea_gltf'),
+        //     objModel = document.querySelector('#crea_obj'),
+        //     rotateBtn = $(".rotate-obj"),
+        //     scaleBtn = $(".zoom-plus"),
+        //     switchBtn = $(".arrow_right"),
+        //     gotitBtn = $(".gotit");
+
 
         document.getElementById("loader").style.display = "none";
         document.getElementById("error").style.display = "none";
@@ -49034,253 +49321,326 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "div",
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.tema.bd_objeto, function(objeto) {
-          return _c(
-            "div",
+    _c("div", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "div",
+        [
+          _c(
+            "a-scene",
+            {
+              attrs: {
+                id: "scene",
+                ejemplo: "",
+                stats: "false",
+                arjs:
+                  "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+              }
+            },
             [
               _c(
-                "a-scene",
-                {
-                  attrs: {
-                    id: "scene",
-                    ejemplo: "",
-                    stats: "",
-                    arjs:
-                      "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-                  }
-                },
+                "a-assets",
                 [
-                  _c(
-                    "a-assets",
-                    [
-                      objeto.format === "obj"
-                        ? _c("a-asset-item", {
-                            attrs: { id: "obj1", src: "/storage/" + objeto.src }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      objeto.format === "obj"
-                        ? _c("a-asset-item", {
-                            attrs: {
-                              id: "mtl1",
-                              src: "/storage/" + objeto.material
-                            }
-                          })
-                        : _vm._e(),
-                      _vm._v(" "),
-                      objeto.format === "gltf"
-                        ? _c("a-asset-item", {
-                            attrs: { id: "gltf", src: "/storage/" + objeto.src }
-                          })
-                        : _vm._e()
-                    ],
-                    1
-                  ),
+                  _c("a-asset-item", { attrs: { id: "obj1", src: "" } }),
                   _vm._v(" "),
-                  _vm._l(_vm.markers, function(marker) {
-                    return _c(
-                      "a-marker",
-                      { key: marker.id, attrs: { preset: marker.name } },
+                  _c("a-asset-item", { attrs: { id: "mtl1", src: "" } }),
+                  _vm._v(" "),
+                  _c("a-asset-item", { attrs: { id: "gltf1", src: "" } })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm._l(_vm.markers, function(marker) {
+                return _c(
+                  "a-marker",
+                  { key: marker.id, attrs: { preset: marker.name } },
+                  [
+                    _c("a-entity", {
+                      attrs: {
+                        light:
+                          "type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "a-entity",
+                      {
+                        attrs: {
+                          name: "rotation",
+                          animation:
+                            "\n                            property:rotation;\n                            dir:alternate;\n                            easing: linear;\n                            dur: 10000;\n                            loop: true;\n                            startEvents: rotation-start;\n                            pauseEvents: rotation-pause;\n                            resumeEvents: rotation-resume;\n                            restartEvents: rotation-restart;"
+                        }
+                      },
                       [
                         _c("a-entity", {
                           attrs: {
-                            light:
-                              "type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"
+                            name: "model",
+                            id: "crea",
+                            "animation-mixer": "",
+                            animation__position:
+                              "\n                                property: position;\n                                easing: easeInOutBack;\n                                dur: 300;\n                                startEvents: zoom-start;",
+                            animation__scale:
+                              "\n                                property: scale;\n                                easing: easeInOutBack;\n                                dur: 300;\n                                startEvents: zoom-start;"
                           }
                         }),
                         _vm._v(" "),
-                        _c(
-                          "a-gltf-model",
-                          {
-                            attrs: {
-                              id: "crea_gltf",
-                              side: "double",
-                              src: "#gltf",
-                              position: "0.0 0.2 0",
-                              scale: "1 1 1"
-                            }
-                          },
-                          [
-                            _c("a-animation", {
-                              attrs: {
-                                attribute: "rotation",
-                                begin: "rotate",
-                                end: "endRotate",
-                                dur: "26000",
-                                fill: "forward",
-                                to: "0 270 0",
-                                repeat: "indefinite",
-                                easing: "linear"
-                              }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "a-entity",
-                          {
-                            attrs: {
-                              id: "crea_obj",
-                              side: "double",
-                              rotation: "0 -90 0",
-                              position: "0.0 0.9 0",
-                              scale: "1 1 1",
-                              "obj-model": "obj: #obj1; mtl: #mtl1"
-                            }
-                          },
-                          [
-                            _c("a-animation", {
-                              attrs: {
-                                attribute: "rotation",
-                                begin: "rotate",
-                                end: "endRotate",
-                                dur: "26000",
-                                fill: "forward",
-                                to: "0 270 0",
-                                repeat: "indefinite",
-                                easing: "linear"
-                              }
-                            })
-                          ],
-                          1
-                        )
+                        _c("a-animation", {
+                          attrs: {
+                            attribute: "scale",
+                            begin: "fadein",
+                            from: "0 0 0",
+                            to: "1 1 1",
+                            dur: "500"
+                          }
+                        })
                       ],
                       1
                     )
-                  }),
-                  _vm._v(" "),
-                  _c("a-entity", { attrs: { camera: "" } })
-                ],
-                2
-              )
-            ],
-            1
-          )
-        }),
-        _vm._v(" "),
-        _c("div", { staticClass: "bounceIn", attrs: { id: "front" } }, [
-          _c(
-            "a",
-            {
-              staticClass: "return-tema btn btn_push bg-warning border-warning",
-              attrs: {
-                href:
-                  "/usuario/modulo/" +
-                  _vm.tema.bd_modulo.id +
-                  "/" +
-                  _vm.tema.bd_modulo.nombre
-              }
-            },
-            [
-              _c("i", {
-                staticClass: "fas fa-caret-square-left fa-w-16 fa-3x"
+                  ],
+                  1
+                )
               }),
               _vm._v(" "),
-              _c("i", {
-                staticClass:
-                  "icon-shadow fas fa-caret-square-left fa-w-16 fa-3x"
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "video-info btn btn_push",
-              attrs: { "data-toggle": "modal", "data-target": "#myVideo" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.mostrar(_vm.tema)
-                }
-              }
-            },
-            [
-              _c("i", { staticClass: "fas fa-lightbulb fa-w-16 fa-3x" }),
-              _vm._v(" "),
-              _c("i", {
-                staticClass: "icon-shadow fas fa-lightbulb fa-w-16 fa-3x"
-              })
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _vm._m(3),
-          _vm._v(" "),
-          _c("span", { attrs: { id: "marker-detection" } }),
-          _vm._v(" "),
-          _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _vm._m(6),
-          _vm._v(" "),
-          _vm._m(7)
-        ]),
-        _vm._v(" "),
+              _c("a-entity", { attrs: { camera: "" } })
+            ],
+            2
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "bounceIn", attrs: { id: "front" } }, [
         _c(
-          "div",
+          "a",
           {
-            staticClass: "modal fade",
+            staticClass:
+              "return-tema btn btn_push bg-warning btn-warning border-bottom ",
             attrs: {
-              id: "myVideo",
-              "data-keyboard": "false",
-              tabindex: "-1",
-              role: "dialog",
-              "aria-labelledby": "myModalLabel"
+              href:
+                "/usuario/modulo/" +
+                _vm.tema.bd_modulo.id +
+                "/" +
+                _vm.tema.bd_modulo.nombre
             }
           },
           [
-            _c("div", { staticClass: "modal-mask" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "modal-dialog modal-dialog-centered modal-lg modal-wrapper",
-                  attrs: { role: "document" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "modal-content modal-container bg-transparent border-0"
-                    },
-                    [
-                      _c("div", { staticClass: "modal-header border-0 p-0" }, [
-                        _c("h5", {
-                          staticClass: "modal-title text-white",
-                          attrs: { id: "exampleModalCenterTitle" },
-                          domProps: {
-                            textContent: _vm._s(
-                              "Video Informativo: " + _vm.tema.nombre
-                            )
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm._m(8)
-                      ]),
-                      _vm._v(" "),
-                      _vm._m(9)
-                    ]
-                  )
-                ]
-              )
-            ])
+            _c("i", { staticClass: "fas fa-caret-left fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-caret-left fa-w-16 fa-3x"
+            })
           ]
-        )
-      ],
-      2
-    )
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "video-info btn btn_push",
+            attrs: { "data-toggle": "modal", "data-target": "#myVideo" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.mostrar(_vm.tema)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-lightbulb fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-lightbulb fa-w-16 fa-3x"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "zoom-plus",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.Zoom(_vm.tema, +1)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-plus-circle fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-plus-circle fa-w-16 fa-3x"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "zoom-menus",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.Zoom(_vm.tema, -1)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-minus-circle  fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-minus-circle  fa-w-16 fa-3x"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "orientacion-obj",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.CycleOrientation(_vm.tema)
+              }
+            }
+          },
+          [
+            _c("img", {
+              attrs: {
+                id: "marker-orientation",
+                src: "/imagenes/orientation_horizontal.png",
+                alt: "orientacion"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("span", {
+          attrs: { id: "marker-detection" },
+          on: {
+            click: function($event) {
+              $event.preventDefault()
+              _vm.CycleOrientation(_vm.tema)
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "arrow_left",
+            attrs: { id: "leftArrow" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.NextModel(_vm.tema, -1)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-angle-double-left fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "rotate-obj",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.RotationOnOff()
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-sync  fa-w-16 fa-4x" }),
+            _vm._v(" "),
+            _c("i", { staticClass: "icon-shadow fas fa-sync fa-w-16 fa-4x" })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "arrow_right",
+            attrs: { id: "rightArrow" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.NextModel(_vm.tema, +1)
+              }
+            }
+          },
+          [
+            _c("i", { staticClass: "fas fa-angle-double-right fa-w-16 fa-3x" }),
+            _vm._v(" "),
+            _c("i", {
+              staticClass: "icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "myVideo",
+            "data-keyboard": "false",
+            tabindex: "-1",
+            role: "dialog",
+            "aria-labelledby": "myModalLabel"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-mask" }, [
+            _c(
+              "div",
+              {
+                staticClass:
+                  "modal-dialog modal-dialog-centered modal-lg modal-wrapper",
+                attrs: { role: "document" }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "modal-content modal-container bg-transparent border-0"
+                  },
+                  [
+                    _c("div", { staticClass: "modal-header border-0 p-0" }, [
+                      _c("h5", {
+                        staticClass: "modal-title text-white",
+                        attrs: { id: "exampleModalCenterTitle" },
+                        domProps: {
+                          textContent: _vm._s(
+                            "Video Informativo: " + _vm.tema.nombre
+                          )
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm._m(2)
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3)
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -49301,82 +49661,6 @@ var staticRenderFns = [
         attrs: { id: "error", src: "/imagenes/error.png", alt: "error" }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "zoom-plus" }, [
-      _c("i", { staticClass: "fas fa-plus-circle fa-w-16 fa-3x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-plus-circle fa-w-16 fa-3x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "zoom-menus" }, [
-      _c("i", { staticClass: "fas fa-minus-circle  fa-w-16 fa-3x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-minus-circle  fa-w-16 fa-3x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "orientacion-obj" }, [
-      _c("img", {
-        attrs: {
-          id: "marker-orientation",
-          src: "/imagenes/orientation_horizontal.png",
-          alt: "orientacion"
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "arrow_left", attrs: { id: "leftArrow" } },
-      [
-        _c("i", { staticClass: "fas fa-angle-double-left fa-w-16 fa-3x" }),
-        _vm._v(" "),
-        _c("i", {
-          staticClass: "icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"
-        })
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "rotate-obj" }, [
-      _c("i", { staticClass: "fas fa-sync  fa-w-16 fa-4x" }),
-      _vm._v(" "),
-      _c("i", { staticClass: "icon-shadow fas fa-sync fa-w-16 fa-4x" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "arrow_right", attrs: { id: "rightArrow" } },
-      [
-        _c("i", { staticClass: "fas fa-angle-double-right fa-w-16 fa-3x" }),
-        _vm._v(" "),
-        _c("i", {
-          staticClass: "icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"
-        })
-      ]
-    )
   },
   function() {
     var _vm = this
