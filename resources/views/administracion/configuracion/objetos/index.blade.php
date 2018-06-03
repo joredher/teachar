@@ -74,6 +74,7 @@
 
 @section('scripts')
     @include('helpers.FileInput')
+    @include('helpers.ProgressBar')
     <script>
         var app = new Vue({
             el: '#contenido',
@@ -88,7 +89,10 @@
                 modal:{
                     title:'',
                 },
-                files:[],
+                files:'',
+                progress: 0,
+                isUploading: false,
+                disabledUploadButton: true,
                 titulo:'',
                 tema_id:'',
                 objetoEnEdicion : '',
@@ -120,8 +124,14 @@
 
                 setFiles(files){
                   if (files !== undefined){
-                      this.files = files
+                      this.files = files;
+                      this.disabledUploadButton = false
                   }
+                },
+
+                clearFiles(){
+                    this.files = [];
+                    this.disabledUploadButton = true;
                 },
 
                 formReset : function (files) {
@@ -137,10 +147,10 @@
                         bd_tema:[]
                     };
 
-                    if(this.$refs.file){
-                        this.$refs.file.destroy();
-                    }
-                    this.setFiles(files)
+                    this.files = [];
+                    // if(this.$refs.file){
+                    //     this.$refs.file.destroy();
+                    // }
                 },
 
                 complementosFiles: function () {
@@ -155,6 +165,9 @@
 
                 guardar : function () {
                     var app = this;
+
+                    app.isUploading = true;
+                    app.disabledUploadButton = true;
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
@@ -167,9 +180,16 @@
                             formData.append('titulo', this.objeto.titulo);
                             formData.append('tema', this.objeto.tema_id);
 
-                            this.$refs.file.value = [];
+                            // this.$refs.file.value = [];
 
-                            this.$http.post('/administracion/configuracion/guardar-objeto', formData).then((response)=>{
+                            this.$http.post('/administracion/configuracion/guardar-objeto', formData, {
+                                onUploadProgress: e => {
+                                    if (e.lengthComputable){
+                                        this.progress = (e.loaded / e.total) * 10;
+                                        console.log(this.progress)
+                                    }
+                                }
+                            }).then((response)=>{
                                 laddaButton.stop();
                                 if(response.body.estado=='ok'){
                                     if(response.body.tipo == 'update'){
@@ -179,6 +199,10 @@
                                         // console.log(response);
                                         // this.objeto.id = response.body.id;
                                         console.log(formData);
+                                        setTimeout(() => {
+                                            app.isUploading = false;
+                                            this.files = [];
+                                        }, 100);
                                         toastr["success"]('Objeto creado correctamente.');
                                     }
                                     app.$refs.vpaginator.fetchData(this.resource_url);

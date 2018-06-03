@@ -48500,7 +48500,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48917,7 +48917,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -48932,10 +48931,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             markers: [{
                 id: 1,
-                name: 'hiro'
+                name: 'hiro',
+                type: 'pattern'
             }, {
                 id: 2,
-                name: 'kanji'
+                name: 'kanji',
+                type: 'pattern'
+            }, {
+                id: 3,
+                name: 'pattern',
+                url: '/imagenes/path/pattern-marker.patt',
+                type: 'pattern'
             }],
 
             nextRotationEvent: "rotation-start",
@@ -48952,12 +48958,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             // Angle limite de la position de l'appareil pour détecter une observation de marker horizontal ou vertical.
             ANGLE: 45
 
-            // objetoCount: this.tema.bd_objeto.length,
-            // objetoNbr: Math.floor(Math.random() * this.objetoCount),
-            // datTema: this.tema.video_url
-            // showModal: false
-            // sceneEL: document.querySelector('a-scene'),
-            // entityEL: document.querySelector('a-entity')
+            // objetoV: '',
         };
     },
     methods: {
@@ -48973,23 +48974,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             $('#youtube').attr('src', src);
         },
 
-        NextModel: function NextModel(tema, inc) {
+        NextModel: function NextModel(inc, tema) {
             var modelCount = tema.bd_objeto.length;
-            console.log('Soy Yo: ' + modelCount);
             var modelNbr = Math.floor(Math.random() * modelCount);
-
-            // document.getElementById("error").style.display = "none";
-            // document.getElementById("loader").style.display = "inline";
 
             modelNbr = (modelNbr + inc) % tema.bd_objeto.length;
             modelNbr = modelNbr < 0 ? tema.bd_objeto.length + modelNbr : modelNbr;
             console.log(">>> Model " + tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
 
+            // document.getElementById("error").style.display = "none";
+            // document.getElementById("loader").style.display = "none";
             this.RotationStop();
 
             for (var i = 0; i < document.getElementsByName("model").length; i++) {
-                document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
-                document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
+                // document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
+                // document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
+
                 switch (tema.bd_objeto[modelNbr].format) {
                     case "gltf":
                         document.getElementById("gltf1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);
@@ -49052,7 +49052,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         Zoom: function Zoom(tema, sign) {
             var modelCount = tema.bd_objeto.length;
-            console.log('Soy Yo' + modelCount);
             var modelNbr = Math.floor(Math.random() * modelCount);
             console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
 
@@ -49122,6 +49121,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         var app = this;
 
+        // MODAL VIDEO
+        $("#myVideo").on("hidden.bs.modal", function () {
+            $("#youtube").attr("src", '');
+        });
+        $('#myVideo').on("show.bs.modal", function () {});
+
         var modelCount = this.tema.bd_objeto.length;
         var modelNbr = Math.floor(Math.random() * modelCount);
 
@@ -49130,22 +49135,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             document.getElementById("rightArrow").style.display = "none";
         };
 
-        document.getElementsByName("model")[0].addEventListener("model-loader", function () {
+        document.getElementsByName("model")[0].addEventListener("loader", function () {
             console.log(">>> Model " + _this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + _this.tema.bd_objeto.length + ") loaded");
             document.getElementById("loader").style.display = "none";
             for (var i = 0; i < document.getElementsByName("model").length; i++) {
                 // Soft display.
-                document.getElementsByName("model")[i].emit("fadeIn");
+                document.getElementsByName("model")[i].emit("fadein");
             }
         });
 
-        document.getElementsByName("model")[0].addEventListener("model-error", function () {
+        document.getElementsByName("model")[0].addEventListener("error", function () {
             console.log(">>> Model " + _this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + _this.tema.bd_objeto.length + ") error");
             document.getElementById("loader").style.display = "none";
             document.getElementById("error").style.display = "inline";
         });
 
-        app.NextModel(this.tema, 0);
+        app.NextModel(0, this.tema);
         // app.NextModel(tema, 0);
 
         $('.video-info').tooltip({
@@ -49200,7 +49205,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     }
                 }
                 if (toSwitch) {
-                    app.SwitchOrientation(event.beta, event.gamma, tema);
+                    app.SwitchOrientation(event.beta, event.gamma, _this.tema);
                 }
                 app.PrintOrientation(event.beta, event.gamma);
             }
@@ -49303,12 +49308,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         document.getElementById("loader").style.display = "none";
         document.getElementById("error").style.display = "none";
-
-        // MODAL VIDEO
-        $("#myVideo").on("hidden.bs.modal", function () {
-            $("#youtube").attr("src", '');
-        });
-        $('#myVideo').on("show.bs.modal", function () {});
     }
 });
 
@@ -49322,7 +49321,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", [
     _c("div", [
-      _vm._m(0),
+      _c("img", {
+        attrs: {
+          id: "loader",
+          src: "/imagenes/preloader_ra.gif",
+          alt: "loading"
+        }
+      }),
+      _vm._v(" "),
+      _c("img", {
+        attrs: { id: "error", src: "/imagenes/error.png", alt: "error" }
+      }),
       _vm._v(" "),
       _c(
         "div",
@@ -49354,7 +49363,14 @@ var render = function() {
               _vm._l(_vm.markers, function(marker) {
                 return _c(
                   "a-marker",
-                  { key: marker.id, attrs: { preset: marker.name } },
+                  {
+                    key: marker.id,
+                    attrs: {
+                      preset: marker.name,
+                      url: marker.url,
+                      type: marker.type
+                    }
+                  },
                   [
                     _c("a-entity", {
                       attrs: {
@@ -49534,7 +49550,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                _vm.NextModel(_vm.tema, -1)
+                _vm.NextModel(-1, _vm.tema)
               }
             }
           },
@@ -49573,7 +49589,7 @@ var render = function() {
             on: {
               click: function($event) {
                 $event.preventDefault()
-                _vm.NextModel(_vm.tema, +1)
+                _vm.NextModel(+1, _vm.tema)
               }
             }
           },
@@ -49586,7 +49602,7 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _vm._m(1)
+        _vm._m(0)
       ]),
       _vm._v(" "),
       _c(
@@ -49629,10 +49645,10 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _vm._m(2)
+                      _vm._m(1)
                     ]),
                     _vm._v(" "),
-                    _vm._m(3)
+                    _vm._m(2)
                   ]
                 )
               ]
@@ -49644,24 +49660,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "carga_mode" }, [
-      _c("img", {
-        attrs: {
-          id: "loader",
-          src: "/imagenes/preloader_ra.gif",
-          alt: "loading"
-        }
-      }),
-      _vm._v(" "),
-      _c("img", {
-        attrs: { id: "error", src: "/imagenes/error.png", alt: "error" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -212,10 +212,12 @@
                 });
 
                 $("#correoUser").focusout(function () {
-                    var emailAdrees = $(this).val();
-                    var emailUser = emailAdrees.substring(0, emailAdrees.indexOf("@"));
-                    var nombreUser = $("#userName").val(emailUser);
-                    app.docente.username = nombreUser.val();
+                    if (app.docente.id === ''){
+                        var emailAdrees = $(this).val();
+                        var emailUser = emailAdrees.substring(0, emailAdrees.indexOf("@"));
+                        var nombreUser = $("#userName").val(emailUser);
+                        app.docente.username = nombreUser.val();
+                    }
                 })
             }
         });

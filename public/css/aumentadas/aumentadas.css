@@ -239,7 +239,20 @@ body {
     margin-top: -64px;
 }
 
+#loader{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -64px;
+    margin-top: -64px;
+}
+
 #error{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -64px;
+    margin-top: -64px;
     display: none;
 }
 

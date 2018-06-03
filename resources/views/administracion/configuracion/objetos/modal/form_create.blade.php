@@ -13,7 +13,7 @@
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <label>Carga de Objeto/s</label>
-                        <file-input ref="file" v-on:file-change="setFiles"></file-input>
+                        <file-input :files="files" v-on:file-change="setFiles" @file-clear="clearFiles"></file-input>
                         <div class="form-group text-center" v-if="objeto.id !== ''">
                             <hr class="mb-0">
                             <label class="pt-1"><strong>Archivos Cargados</strong></label>
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{--<input type="file"  ref="file" class="d-none" @change="onChange" multiple>--}}
+                        {{--<input type="file" ref="file"  ref="file" class="d-none" @change="onChange" multiple>--}}
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <label for="">Temática Objeto </label>
@@ -36,11 +36,14 @@
                             <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" :hidden="tema.estado === 'Inactivo'" v-text="tema.nombre"></option>
                         </select>
                     </div>
+                    <div class="form-group col-xs-12 col-sm-12">
+                        <progress-bar :progress="progress" v-if="isUploading"></progress-bar>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn  btn-outline-grey" data-dismiss="modal" >Cancelar</button>
-                <button type="submit"  class="ladda-button ladda-button-submit btn btn-info" data-style="expand-right">
+                <button type="submit"  class="ladda-button ladda-button-submit btn btn-info" data-style="expand-right" :disabled="disabledUploadButton">
                     <span class="ladda-label">Guardar</span>
                     <span class="ladda-spinner"></span>
                 </button>

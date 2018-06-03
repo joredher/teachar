@@ -1,10 +1,10 @@
 <template>
     <div>
         <div>
-            <div class="carga_mode">
-                <img id="loader" src="/imagenes/preloader_ra.gif" alt="loading">
-                <img id="error" src="/imagenes/error.png" alt="error">
-            </div>
+            <!--<div class="carga_mode">-->
+            <img id="loader" src="/imagenes/preloader_ra.gif" alt="loading">
+            <img id="error" src="/imagenes/error.png" alt="error">
+            <!--</div>-->
             <div>
                 <a-scene id="scene" ejemplo stats="false" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
                     <!--vr-mode-ui="enabled: false" v-for="objeto in tema.bd_objeto"-->
@@ -18,7 +18,7 @@
                         <a-asset-item  id="gltf1" src="" ></a-asset-item>
                     </a-assets>
 
-                    <a-marker v-for="marker in markers" :key="marker.id" v-bind:preset="marker.name">
+                    <a-marker v-for="marker in markers" :key="marker.id" v-bind:preset="marker.name" v-bind:url='marker.url' v-bind:type='marker.type'>
                         <a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>
 
                         <a-entity
@@ -46,8 +46,7 @@
                                     property: scale;
                                     easing: easeInOutBack;
                                     dur: 300;
-                                    startEvents: zoom-start;"
-                                    >
+                                    startEvents: zoom-start;">
                                 <!-- side="double"<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="26000" fill="forward" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>-->
                             </a-entity>
                             <a-animation
@@ -102,7 +101,7 @@
                     <i class="fas fa-random  fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-random  fa-w-16 fa-3x"></i>
                     </span-->
-                <span class="arrow_left" id="leftArrow" @click.prevent="NextModel(tema, -1)">
+                <span class="arrow_left" id="leftArrow" @click.prevent="NextModel(-1, tema)">
                     <i class="fas fa-angle-double-left fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-angle-double-left fa-w-16 fa-3x"></i>
                 </span>
@@ -112,7 +111,7 @@
                     <i class="icon-shadow fas fa-sync fa-w-16 fa-4x"></i>
                 </span>
 
-                <span class="arrow_right" id="rightArrow" @click.prevent="NextModel(tema, +1)">
+                <span class="arrow_right" id="rightArrow" @click.prevent="NextModel(+1, tema)">
                     <i class="fas fa-angle-double-right fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-angle-double-right fa-w-16 fa-3x"></i>
                 </span>
@@ -168,11 +167,19 @@
                     {
                         id: 1,
                         name: 'hiro',
+                        type: 'pattern'
                     },
                     {
                         id: 2,
-                        name: 'kanji'
+                        name: 'kanji',
+                        type: 'pattern'
                     },
+                    {
+                        id: 3,
+                        name: 'pattern',
+                        url:'/imagenes/path/pattern-marker.patt',
+                        type: 'pattern'
+                    }
                 ],
 
                 nextRotationEvent: "rotation-start",
@@ -189,12 +196,7 @@
                 // Angle limite de la position de l'appareil pour détecter une observation de marker horizontal ou vertical.
                 ANGLE: 45,
 
-                // objetoCount: this.tema.bd_objeto.length,
-                // objetoNbr: Math.floor(Math.random() * this.objetoCount),
-                // datTema: this.tema.video_url
-                // showModal: false
-                // sceneEL: document.querySelector('a-scene'),
-                // entityEL: document.querySelector('a-entity')
+                // objetoV: '',
             }
         },
         methods:{
@@ -210,24 +212,22 @@
                 $('#youtube').attr('src', src);
             },
 
-            NextModel: function(tema, inc){
+            NextModel: function(inc, tema){
                 var modelCount = tema.bd_objeto.length;
-                console.log('Soy Yo: ' + modelCount);
-                var modelNbr = Math.floor(Math.random() * modelCount);
-
-
-                // document.getElementById("error").style.display = "none";
-                // document.getElementById("loader").style.display = "inline";
+                var modelNbr =  Math.floor(Math.random() * modelCount);
 
                 modelNbr = (modelNbr + inc) % tema.bd_objeto.length;
                 modelNbr = modelNbr < 0 ? tema.bd_objeto.length + modelNbr : modelNbr;
                 console.log(">>> Model " + tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
 
+                // document.getElementById("error").style.display = "none";
+                // document.getElementById("loader").style.display = "none";
                 this.RotationStop();
 
                 for (var i=0; i < document.getElementsByName("model").length; i++){
-                    document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
-                    document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
+                    // document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
+                    // document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
+
                     switch (tema.bd_objeto[modelNbr].format){
                         case "gltf":
                             document.getElementById("gltf1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);
@@ -290,7 +290,6 @@
 
             Zoom: function(tema, sign) {
                 var modelCount = tema.bd_objeto.length;
-                console.log('Soy Yo' + modelCount);
                 var modelNbr = Math.floor(Math.random() * modelCount);
                 console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
 
@@ -363,6 +362,13 @@
         mounted() {
             var app =this;
 
+            // MODAL VIDEO
+            $("#myVideo").on("hidden.bs.modal", function () {
+                $("#youtube").attr("src", '');
+            });
+            $('#myVideo').on("show.bs.modal", function () {
+            })
+
             var modelCount = this.tema.bd_objeto.length;
             var modelNbr = Math.floor(Math.random() * modelCount);
 
@@ -371,22 +377,22 @@
                 document.getElementById("rightArrow").style.display = "none";
             };
 
-            document.getElementsByName("model")[0].addEventListener("model-loader", () => {
+            document.getElementsByName("model")[0].addEventListener("loader", () => {
                 console.log(">>> Model " + this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + this.tema.bd_objeto.length + ") loaded");
                 document.getElementById("loader").style.display = "none";
                 for (var i = 0; i < document.getElementsByName("model").length; i++) {
                     // Soft display.
-                    document.getElementsByName("model")[i].emit("fadeIn");
+                    document.getElementsByName("model")[i].emit("fadein");
                 }
             });
 
-            document.getElementsByName("model")[0].addEventListener("model-error", () => {
+            document.getElementsByName("model")[0].addEventListener("error", () => {
                 console.log(">>> Model " + this.tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + this.tema.bd_objeto.length + ") error");
                 document.getElementById("loader").style.display = "none";
                 document.getElementById("error" ).style.display = "inline";
             });
 
-            app.NextModel(this.tema, 0);
+            app.NextModel(0, this.tema);
             // app.NextModel(tema, 0);
 
             $('.video-info').tooltip({
@@ -441,19 +447,13 @@
                         }
                     }
                     if (toSwitch) {
-                        app.SwitchOrientation(event.beta, event.gamma, tema);
+                        app.SwitchOrientation(event.beta, event.gamma, this.tema);
                     }
                     app.PrintOrientation(event.beta, event.gamma);
                 }
             });
             // Affichage de la position par défaut du marker.
             app.PrintOrientation(false, false);
-
-
-
-
-
-
 
             // AFRAME.registerComponent('ejemplo', {
             //     init: function () {
@@ -552,13 +552,6 @@
 
             document.getElementById("loader").style.display = "none";
             document.getElementById("error").style.display = "none";
-
-            // MODAL VIDEO
-            $("#myVideo").on("hidden.bs.modal", function () {
-                $("#youtube").attr("src", '');
-            });
-            $('#myVideo').on("show.bs.modal", function () {
-            })
         }
 
     }

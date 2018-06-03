@@ -16,7 +16,7 @@
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
 
-    <title>Prueba RA</title>
+    <title>TeachAR | Experiencia Aumentada</title>
     <script src="{{ asset('js/aumentadas/aframe.js') }}"></script>
     <script src="{{ asset('js/aumentadas/aframe-animation-component.js') }}"></script>
     <script src="{{ asset('js/aumentadas/aframe-extras.loaders.js') }}"></script>

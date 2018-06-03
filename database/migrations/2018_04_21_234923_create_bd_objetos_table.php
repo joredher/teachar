@@ -20,6 +20,12 @@ class CreateBdObjetosTable extends Migration
             $table->string('src');
             $table->string('material');
             $table->string('format');
+            $table->float('scaleInc');
+            $table->string('scale');
+            $table->string('positionH');
+            $table->string('rotationH');
+            $table->string('positionV');
+            $table->string('rotationV');
             $table->integer('tema_id')->unsigned();
             $table->foreign('tema_id')->references('id')->on('bd_temas')
                 ->onUpdate('cascade')->onDelete('cascade');

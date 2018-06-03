@@ -60,10 +60,16 @@ class ObjetosController extends Controller
             if ($request->id != '') {
                 $id = $request->get('id');
                 $objeto = BdObjeto::find($id);
+                $titulo = $objeto->titulo;
+                $titleName = preg_replace("/[^a-zA-Z0-9\_\-]+/", "_", $titulo);
 //                if ($objeto || $objeto->file_exists( storage_path($objeto->modelo)) && $objeto->file_exists( storage_path($objeto->material)))
                 if ($objeto || $objeto->file_exists(storage_path($objeto->src)) && $objeto->file_exists(storage_path($objeto->material))) {
                     $objeto->delete();
                     Storage::disk('public')->delete([$objeto->src, $objeto->material]);
+                    Storage::deleteDirectory('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName);
+//                    Storage::deleteDirectory(storage_path('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName));
+//                    &&
+//                    Storage::file_exists(storage_path('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName))
 //                    Storage::disk('public')->delete([$objeto->modelo, $objeto->material]);
                     return response()->json([
                         'estado' => 'ok',
@@ -105,7 +111,7 @@ class ObjetosController extends Controller
 
             if ($request->hasFile('file')){
                 $objetos = $request->file('file');
-
+//                dd($objetos);
                 foreach ($objetos as $objeto) {
                     $originalFileName = $objeto->getClientOriginalName();
                     $extension = $objeto->getClientOriginalExtension();
@@ -113,16 +119,20 @@ class ObjetosController extends Controller
 //                    dd($extension);
                     switch ($extension) {
                         case ('gltf'):
+                            $exten = $extension;
+//                            dd($prueba);
                             $fileName = str_slug($fileNameOnly) . "." . $extension;
                             $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
                             $objeto->storeAs('public', $uploadedFileName);
                             break;
                         case ('dae') :
+                            $exten = $extension;
                             $fileName = str_slug($fileNameOnly) . "." . $extension;
                             $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
                             $objeto->storeAs('public', $uploadedFileName);
                             break;
                         case ('obj') :
+                            $exten = $extension;
                             if ($extension == 'obj'){
                                 $fileName = str_slug($fileNameOnly) . "." . $extension;
                                 $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
@@ -130,6 +140,7 @@ class ObjetosController extends Controller
                             }
                             break;
                         case ('mtl'):
+                            $extenMtl = $extension;
                             $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
                             $materialName = str_slug($materialNameOnly) . "." . $extension;
                             $uploadedMaterialName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $materialName;
@@ -159,31 +170,52 @@ class ObjetosController extends Controller
                 }
 
                 $objeto = BdObjeto::find($request->id);
-                $old_filename = storage_path($objeto->src);
-                $new_filename = $uploadedFileName;
-                if (Storage::disk('public')->file_exists([$old_filename])) {
-                    if (Storage::disk('public')->move([$old_filename, $new_filename])) {
-                        $objeto->titulo = $titulo;
-                        $objeto->nombre_modelo = $fileNameOnly;
-                        $objeto->tema_id = $tema;
-                        $objeto->format = $extension;
-                        $objeto->save();
-
-                        return response()->json([
-                            'estado' => 'ok',
-                            'id' => $objeto->id,
-                            'tipo' => 'update',
-                            'objetos' => BdObjeto::whereId($objeto->id)->with([
-                                'BdTema'
-                            ])->get(),
-                        ]);
-                    }
+                if (Input::get('titulo')){
+                    $objeto->titulo = $titulo;
+                }elseif($request->get('titulo') == $objeto->titulo){
+                    $objeto->titulo = $objeto->titulo;
                 }
+                if ($request->file('file')) {
+                    $objeto->nombre_modelo = $fileNameOnly;
+                    $old_filename = '/public/' . $objeto->src;
+                    $old_material = '/public/' . $objeto->material;
+                    $objeto->src = $uploadedFileName;
+                    Storage::disk('local')->delete($old_filename);
+                    if ($extension == 'obj') {
+                        $objeto->material = $uploadedMaterialName;
+                        Storage::disk('local')->delete($old_material);
+                    }else{
+                        $objeto->material = 'texto';
+                        Storage::disk('local')->delete($old_material);
+                    }
+                    $objeto->format = $extension;
+                }
+                if ($request->get('tema')){
+                    $objeto->tema_id = $tema;
+                }elseif ($request->get('tema') == $objeto->tema_id){
+                    $objeto->tema_id = $request->get('tema');
+                }
+                $objeto->scaleInc = 1;
+                $objeto->scale = '1 1 1';
+                $objeto->positionH = '0 0 0';
+                $objeto->rotationH = '0 180 0';
+                $objeto->positionV = '0 0.5 0';
+                $objeto->rotationV = '90 180 0';
+                $objeto->save();
+
+                return response()->json([
+                    'estado' => 'ok',
+                    'id' => $objeto->id,
+                    'tipo' => 'update',
+                    'objetos' => BdObjeto::whereId($objeto->id)->with([
+                        'BdTema'
+                    ])->get(),
+                ]);
 
             } else {
                 //Create
                 $validador = Validator::make($request->all(), [
-//                    'titulo' => 'required|unique:bd_objetos',
+                    'titulo' => 'required|unique:bd_objetos',
                     'file' => 'required',
                     'tema' => 'required',
                 ]);
@@ -199,18 +231,22 @@ class ObjetosController extends Controller
                 $objeto->titulo = $titulo;
                 $objeto->nombre_modelo = $fileNameOnly;
                 $objeto->src = $uploadedFileName;
-                if ($extension == 'obj'){
+                if ($extension == 'obj' && $extenMtl == 'mtl'){
                     $objeto->material = $uploadedMaterialName;
                 }else{
-                    $objeto->material = 'texto';
+                    $objeto->material = $uploadedImageName;
                 }
                 $objeto->tema_id = $tema;
-                $objeto->format = $extension;
+                if ($extension != $exten){
+                    $objeto->format = $exten;
+                }else{
+                    $objeto->format = $extension;
+                }
                 $objeto->scaleInc = 1;
                 $objeto->scale = '1 1 1';
                 $objeto->positionH = '0 0 0';
                 $objeto->rotationH = '0 180 0';
-                $objeto->positionV = '0 0.5 0';
+                $objeto->positionV = '0 0 0';
                 $objeto->rotationV = '90 180 0';
                 $objeto->save();
 

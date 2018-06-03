@@ -98,7 +98,11 @@ class TemasController extends Controller
                 $tema = BdTema::find($request->id);
                 $tema -> nombre = $request->nombre;
                 $tema -> contenido = $request->contenido;
-                $tema -> video_url = $this->id_youtube($request->video_url);
+                if ($request->video_url == $tema->video_url){
+                    $tema->video_url = $request->video_url;
+                }else{
+                    $tema -> video_url = $this->id_youtube($request->video_url);
+                }
                 $tema -> estado = $request->estado;
                 $tema -> modulo_id = $request->modulo_id;
                 $tema -> save();

@@ -89,6 +89,7 @@
                                             <tbody>
                                             @foreach(\Illuminate\Support\Facades\Auth::user()->all() as $user)
                                                 <tr>
+                                                    @if($user->state == 'Activo')
                                                     <td>{{$user->name}}</td>
                                                     <td>
                                                         @if($user->isOnline())
@@ -101,6 +102,7 @@
                                                             </li>
                                                         @endif
                                                     </td>
+                                                    @endif
                                                 </tr>
                                             @endforeach
                                             </tbody>

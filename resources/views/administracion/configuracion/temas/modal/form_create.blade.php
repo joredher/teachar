@@ -21,7 +21,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text bg-light basic-url" id="basic-addon3"><a class="text-dark nav-link bold" target="_blank" href="https://www.youtube.com/"><i class="fab fa-youtube fa-1x" style="color: #FF0000"></i> YouTube</a></span>
                             </div>
-                            <input type="text" class="form-control"   v-model="tema.video_url" placeholder="https://youtu.be/example" id="basic-url" aria-describedby="basic-addon3">
+                            <input type="text" class="form-control" v-model="tema.video_url" placeholder="https://youtu.be/example" id="basic-url" aria-describedby="basic-addon3">
                         </div>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
