@@ -13,17 +13,25 @@
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <body>
-<div class="text-center">
-    <img src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
-    <article>
-        <h1>&iexcl;Regresaremos pronto!</h1>
-        <div>
-            <p>Pedimos disculpas por los incovenientes causados pero estamos trabajando en cosas interesantes.&iexcl;Pronto estaremos en línea de nuevo!</p>
-            <p>&mdash; El equipo</p>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
+                <div class="card-body">
+                    <h3 class="card-title">&iexcl;Regresaremos pronto!</h3>
+                    <article>
+                        <div>
+                            <p class="card-text">Pedimos disculpas por los incovenientes causados pero estamos trabajando en cosas interesantes.&iexcl;Pronto estaremos en línea de nuevo!</p>
+                            <p class="card-text">&mdash; El equipo</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
-    </article>
+    </div>
 </div>
-<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="{{asset('admin/js/popper.min.js')}}"></script>
 <script src="{{asset('admin/js/bootstrap.min.js')}}"></script>
 </body>
