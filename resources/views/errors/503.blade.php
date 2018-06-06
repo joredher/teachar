@@ -13,17 +13,18 @@
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
 </head>
 <body>
-<div class="row">
+<div class="row ml-0 mr-0">
     <div class="col-sm-12">
         <div class="text-center">
-            <div class="card">
-                <img class="card-img-top" src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
-                <div class="card-body">
-                    <h3 class="card-title">&iexcl;Regresaremos pronto!</h3>
+            <div class="card border-0" style="margin: 0 auto;">
+                <img class="card-img-top" width="30%" src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
+                <div class="card-body pt-0">
+                    <h3 class="card-title">¡Regresaremos pronto!</h3>
                     <article>
                         <div>
-                            <p class="card-text">Pedimos disculpas por los incovenientes causados pero estamos trabajando en cosas interesantes.&iexcl;Pronto estaremos en línea de nuevo!</p>
-                            <p class="card-text">&mdash; El equipo</p>
+                            <p class="card-text">Pedimos disculpas por los inconvenientes causados pero estamos trabajando en cosas interesantes.</p>
+                            <p class="card-text">¡Pronto estaremos en línea de nuevo!</p>
+                            <p class="card-text">&mdash; El equipo TeachAR</p>
                         </div>
                     </article>
                 </div>
