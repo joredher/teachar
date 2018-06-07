@@ -145,7 +145,8 @@
             var laddaButton = Ladda.create(document.querySelector('.ladda-button-submit'));
             var laddaButtonSearch = Ladda.create(document.querySelector('.ladda-button-search'));
         }catch ( ee ){
-            console.log('Falta definir lada button');
+            console.time();
+            // console.log('Falta definir lada button');
         }
     </script>
     {{--<script src="{{asset('admin/js/jquery.min.js')}}"></script>--}}

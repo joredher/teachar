@@ -26,6 +26,7 @@ Vue.http.interceptors.push((Request, next) => {
 });
 
 require('animate.css');
+import swal from 'sweetalert';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

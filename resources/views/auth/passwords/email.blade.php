@@ -5,24 +5,20 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{--<meta name="csrf-token" id="token" content="{{ csrf_token() }}" value="{{ csrf_token() }}">--}}
+    <meta name="csrf-token" id="token" content="{{ csrf_token() }}" value="{{ csrf_token() }}">
     <title>Teach AR</title>
     <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
     <link rel="stylesheet" href="{{asset('css/login.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
     <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
 </head>
 <body class="container-reset">
     <div id="wrapper">
         <div class="loggin reset">
             <img src="{{asset('imagenes/logo/logo_teach_2.png')}}" alt="Imagen de Login">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
             <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
                 {{ csrf_field() }}
                 <label for="reset"></label>
@@ -30,11 +26,6 @@
                     <div class="efecto-login">
                         {{--<input type="text" name="username" placeholder="Nombre de Usuario" id="user-username" required>--}}
                         <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Correo Electónico" required>
-                        @if ($errors->has('email'))
-                            <span class="alert alert-danger">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
                     </div>
                     <div class="opcion">
                         <input type="submit" name="submit" value="Link Reset" class="btn_login">
@@ -62,7 +53,40 @@
         <div id="ground"></div>
     </div>
 </div>
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script src="{{asset('js/login.js')}}"></script>
+    @if (session('status'))
+        <script>
+            toastr.success('{{ session('status') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+        </script>
+    @endif
+    @if ($errors->has('email'))
+        <script>
+            toastr.error('{{ $errors->first('email') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+        </script>
+    @endif
+    <script>console.clear();
+        $(document).ready(function(){
+            $("#email").on('paste', function(e){
+                e.preventDefault();
+                swal("Oops", "¡Acción no Permitida!", "error");
+            });
+
+            $("#email").on('copy', function(e){
+                e.preventDefault();
+                swal("Oops", "¡Acción no Permitida!", "error");
+            });
+
+            $(".btn_login").on('click', function (e) {
+                // e.preventDefault();
+                if ($('#email').val() === ''){
+                    swal( "¡Vaya! " , "¡El campo correo electrónico no debe estar vacío! " , "warning" )   ;
+                }
+
+            })
+
+        })
+    </script>
 </body>
 </html>

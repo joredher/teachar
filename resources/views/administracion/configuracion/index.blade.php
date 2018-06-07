@@ -5,17 +5,9 @@
 
 @section('contenido')
     <style type="text/css">
-        /*table {*/
-            /*width: 50%;*/
-        /*}*/
-
         thead, tbody, tr, td, th {
             display: block;
         }
-
-        /*thead th {*/
-            /*height: 30px;*/
-        /*}*/
 
         tbody {
             overflow-y: auto;
@@ -58,18 +50,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <!--div class="card p-0 boxCard">
-                            <div class="">
-                                {{--<img src="{{asset('imagenes/imagenAdmin2.jpg')}}" class="img-fluid" alt="">--}}
-                            </div>
-                            <div class="card-body text-center">
-                                {{--<h4 class="card-title">{{ Auth::user()->name.' '.Auth::user()->last_name }}</h4>--}}
-                                {{--<h6 class="card-subtitle mb-2 text-muted">{{ Auth::user()->identification}}</h6>--}}
-                                <p class="card-text">
-                                    {{--{{ Auth::user()->email }}--}}
-                                </p>
-                            </div>
-                        </div-->
                     </div>
                     <div class="col-xs-12 col-sm-12 pb-5 col-md-12 col-lg-6 col-xl-6">
                         <div class="card boxCard">
@@ -143,12 +123,5 @@
             'placement': 'top',
             'title': 'Ir a registrar assets..'
         });
-
-
-        // $('.userDocentes').tooltip('show');
-        // $('.userModulos').tooltip('show');
-        // $('.userTemas').tooltip('show');
-        // $('.userObjetos').tooltip('show');
-
     </script>
 @endsection

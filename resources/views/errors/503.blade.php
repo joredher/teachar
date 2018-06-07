@@ -11,13 +11,44 @@
     <meta name="author" content="Jorge Eduardo Hernández Oropeza y Edisson Fernando Quiñonez Díaz">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <style type="text/css">
+        .card-img-top{
+            width: 90%;
+        }
+
+        @media screen and (min-width: 480px){
+            .card-img-top{
+                width: 70%;
+            }
+        }
+        @media screen and (min-width: 600px){
+            .card-img-top{
+                width: 60%;
+            }
+        }
+        @media screen and (min-width: 767px) {
+            .card-img-top{
+                width: 50%;
+            }
+        }
+        @media screen and (min-width: 950px) {
+            .card-img-top{
+                width: 40%;
+            }
+        }
+        @media screen and (min-width: 1024px){
+            .card-img-top{
+                width: 30%;
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="row ml-0 mr-0">
     <div class="col-sm-12">
         <div class="text-center">
             <div class="card border-0" style="margin: 0 auto;">
-                <img class="card-img-top" width="30%" src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
+                <img class="card-img-top" style="margin: 0 auto" src="{{ asset('imagenes/modo_mantenimiento.jpg') }}" alt="mantenimiento">
                 <div class="card-body pt-0">
                     <h3 class="card-title">¡Regresaremos pronto!</h3>
                     <article>

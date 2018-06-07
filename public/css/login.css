@@ -23,6 +23,10 @@ body{
 	/*z-index: 1;*/
 }
 
+#wrapper #a-scene{
+	position: initial;
+}
+
 #clouds{
 	background:url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/56901/bg-clouds2-tinypng.png") repeat-x 0 bottom #ACE6FF;
 	width:100%;

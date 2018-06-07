@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/login.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
     <script src="{{asset('js/aumentadas/aframe.js')}}"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
@@ -20,18 +21,8 @@
     <div id="logginID">
         <div class="loggin">
             <img src="{{asset('imagenes/logo/logo_teach_2.png')}}" alt="Imagen de Login">
-            @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
             <form method="POST" action="{{ route('login') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
                 <div>
                     <div class="efecto-login">
                         {{--<input type="text" name="username" placeholder="Nombre de Usuario" id="user-username" required>--}}
@@ -65,7 +56,7 @@
             </p>
         </footer>
     </div>
-    <a-scene fog="type: exponential; color: #39B3DF"   vr-mode-ui="enabled: false">
+    <a-scene id="a-scene" embedded vr-mode-ui="enabled: false;" debugUIEnabled="false">
         <a-assets>
             {{--<a-img id="example" src="/imagenes/fondo_360-min.png"></a-img>--}}
             <a-img id="example" src="/imagenes/rotate_360-min.png"></a-img>
@@ -133,6 +124,46 @@
     {{--<div id="clouds"></div>--}}
     {{--<div id="ground"></div>--}}
 </div>
-<script>console.clear();</script>
+<script src="{{asset('js/app.js')}}"></script>
+@if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+        <script>
+            toastr.error('{{ $error }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+        </script>
+    @endforeach
+@endif
+<script>console.clear();
+    $(document).ready(function(){
+        $("#user-username").on('paste', function(e){
+            e.preventDefault();
+            swal("Oops", "¡Acción no Permitida!", "error");
+        });
+
+        $("#user-password").on('paste', function(e){
+            e.preventDefault();
+            swal("Oops", "¡Acción no Permitida!", "error");
+
+        });
+
+        $("#user-username").on('copy', function(e){
+            e.preventDefault();
+            swal("Oops", "¡Acción no Permitida!", "error");
+        });
+
+        $("#user-password").on('copy', function(e){
+            e.preventDefault();
+            swal("Oops", "¡Acción no Permitida!", "error");
+        })
+
+        $(".btn_login").on('click', function (e) {
+            // e.preventDefault();
+            if ($('#user-username').val() === '' || $('#user-password').val() === '' ){
+                swal( "¡Vaya! " , "¡Ningún campo debe estar vacío! " , "warning" )   ;
+            }
+
+        })
+
+    })
+</script>
 </body>
 </html>

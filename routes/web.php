@@ -69,3 +69,5 @@ Route::group(['middleware' => ['AuthUser']], function (){
 
         });
 });
+
+Route::get('form-step', 'FileController@index');

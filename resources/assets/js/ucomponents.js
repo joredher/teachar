@@ -4,7 +4,8 @@ window.toastr = require('../vendors/js/extensions/toastr.min');
 window.Vue = require('vue');
 
 require('animate.css');
-
+import VueFormWizard from  'vue-form-wizard'
+Vue.use(VueFormWizard);
 import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.use(VueYouTubeEmbed);
 
@@ -14,5 +15,10 @@ Vue.use(VueYouTubeEmbed);
 
  // require('aframe');
 const app = new Vue({
-    el: '#ucontenido'
+    el: '#ucontenido',
+    methods: {
+        onComplete: function () {
+            alert('Yay. Done!');
+        }
+    }
 });
