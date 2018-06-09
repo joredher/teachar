@@ -42,71 +42,48 @@
     </div>
 </div>
 <script src="{{asset('js/app.js')}}"></script>
+<script src="{{ asset('js/alert_sweet.min.js') }}"></script>
 <span class="{{ $errors->has('email') ? ' has-error' : '' }}" style="margin-top: 3%">
     @if ($errors->has('email'))
         <script>
-            toastr.error('{{ $errors->first('email') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+            swal({
+                title: 'Oops',
+                text: '{{ $errors->first('email') }}',
+                icon: "error",
+                className: "red-bg",
+                buttons: false,
+                timer: 4000,
+            });
         </script>
     @endif
 </span>
 <span class="{{ $errors->has('password') ? ' has-error' : '' }}" style="margin-top: 3%">
     @if ($errors->has('password'))
         <script>
-            toastr.error('{{ $errors->first('password') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+            swal({
+                title: 'Oops',
+                text: '{{ $errors->first('password') }}',
+                icon: "error",
+                className: "red-bg",
+                buttons: false,
+                timer: 4000,
+            });
         </script>
     @endif
 </span>
 <span class="{{ $errors->has('password_confirmation') ? ' has-error' : '' }}" style="margin-top: 3%">
     @if ($errors->has('password_confirmation'))
         <script>
-            toastr.error('{{ $errors->first('password_confirmation') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+            swal({
+                title: 'Oops',
+                text: '{{ $errors->first('password_confirmation') }}',
+                icon: "error",
+                className: "red-bg",
+                buttons: false,
+                timer: 4000,
+            });
         </script>
     @endif
 </span>
-<script>console.clear();
-    $(document).ready(function(){
-        $("#email").on('paste', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-        });
-
-        $("#password").on('paste', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-
-        });
-
-        $("#password-confirm").on('paste', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-
-        });
-
-        $("#email").on('copy', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-        });
-
-        $("#password").on('copy', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-        });
-
-        $("#password-confirm").on('copy', function(e){
-            e.preventDefault();
-            swal("Oops", "¡Acción no Permitida!", "error");
-        });
-
-        $(".btn_login").on('click', function (e) {
-            // e.preventDefault();
-            if ($('#email').val() === '' || $('#password').val() === '' || $('#password-confirm').val() === '' ){
-                swal( "¡Vaya! " , "¡Ningún campo debe estar vacío! " , "warning" )   ;
-            }
-
-        })
-
-    })
-</script>
-
 </body>
 </html>

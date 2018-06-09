@@ -16,10 +16,10 @@ class AumentadaUsuarioController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(Request $request, $id){
+    public function show(Request $request, $slug){
         $request->user()->authorizeRoles('profe');
 
-        $tema = BdTema::where('id', $id)->with(['BdObjeto','BdModulo'])->first();
-        return view('usuario.aumentadas-usuario.index_ra', ['tema' => $tema]);
+        $tema = BdTema::where('slug','=', $slug)->with(['BdObjeto','BdModulo'])->firstOrFail();
+        return view('usuario.aumentadas-usuario.index_ra', ['tema' => $tema], compact('tema'));
     }
 }

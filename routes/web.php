@@ -62,9 +62,9 @@ Route::group(['middleware' => ['AuthUser']], function (){
         ->group(function (){
 
             Route::get('modulos-usuario','UsuarioController@index')->name('index');
-            Route::get('modulo/{id}/{nombre}', 'ModuloUsuarioController@show')->name('temas-usuario');
+            Route::get('modulo/{slug}', ['middleware' => 'temaModulo', 'uses' => 'ModuloUsuarioController@show'])->name('temas-usuario');
 //            Route::get('get-modulos','UsuarioController@getModulos');
-            Route::get('modulo/tema/{id}/{nombre}' , 'AumentadaUsuarioController@show');
+            Route::get('modulo/tema/{slug}' , ['middleware' => 'temaModulo', 'uses' => 'AumentadaUsuarioController@show']);
 //            Route::get('/realidad-aumentada', 'AumentadaUsuarioController@index')->name('realidad-aumentada');
 
         });

@@ -17,7 +17,7 @@
                                 <div class="row">
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
                                         <label for="">Nombre </label>
-                                        <input type="text" class="form-control" placeholder="Nombre del módulo" v-model="modulo.nombre" data-vv-name=" Nombre " v-validate="'required'">
+                                        <input type="text" id="nombre" class="form-control" placeholder="Nombre del módulo" v-model="modulo.nombre" data-vv-name=" Nombre " v-validate="'required'">
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
                                         <label for="">Descripción </label>
@@ -31,6 +31,10 @@
                                            <img v-else :src="modulo.foto" class="img-thumbnail mx-auto d-block" width="50%">
                                            {{--<img :src="'http://localhost:8000/imagenes/modulos/' v-if="modulo.id !==''" + modulo.imagen" class="img-thumbnail mx-auto d-block" width="50%">--}}
                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-0" hidden>
+                                        <label for="slug">URL Amigable</label>
+                                        <input type="text" id="slug" class="form-control" readonly placeholder=" Url amigable" v-model="modulo.slug">
                                     </div>
                                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                         <label for="">Estado</label>

@@ -13,10 +13,10 @@ class ModuloUsuarioController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(Request $request, $id){
+    public function show(Request $request, $slug){
 
         $request->user()->authorizeRoles('profe');
-        $modulo = BdModulo::where('id',$id)->with(['BdTema'])->first();
-        return view('usuario.temas-usuario.index', ['modulo' => $modulo] );
+        $modulo = BdModulo::where('slug', '=', $slug)->with(['BdTema'])->firstOrFail();
+        return view('usuario.temas-usuario.index', ['modulo' => $modulo], compact('modulo') );
     }
 }

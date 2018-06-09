@@ -99,6 +99,7 @@
 @section('scripts')
     @include('helpers.switch')
     @include('helpers.vcropp')
+    <script src="{{ asset('js/jquery.stringToSlug.min.js') }}"></script>
     <script>
 
         var app = new Vue({
@@ -150,6 +151,7 @@
                         foto:'',
                         estado: 1,
                         fecha:'',
+                        slug: ''
                     };
                     if(this.$refs.vcropp){
                       this.$refs.vcropp.destroy();
@@ -242,6 +244,14 @@
                     app.modal.title = (app.modulo.id != ''?'Edición de ':'Nuevo ') + 'Módulo';
                     $('.nav-tabs-modulo').find('li:nth-child(1)').find('a').click();
                 });
+
+                //slug
+                $("#nombre, #slug").stringToSlug({
+                    callback: function (text) {
+                        var slugTex = $("#slug").val(text);
+                        app.modulo.slug = slugTex.val();
+                    }
+                })
             },
             created() {
                 this.start();

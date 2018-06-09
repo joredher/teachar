@@ -76,7 +76,7 @@
                 </a-scene>
             </div>
             <div id="front" class="bounceIn">
-                <a  class="return-tema btn btn_push bg-warning btn-warning border-bottom " :href="'/usuario/modulo/'+tema.bd_modulo.id+'/'+tema.bd_modulo.nombre">
+                <a  class="return-tema btn btn_push bg-warning btn-warning border-bottom " :href="'/usuario/modulo/' + tema.bd_modulo.slug">
                     <i class="fas fa-caret-left fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-caret-left fa-w-16 fa-3x"></i>
                 </a>

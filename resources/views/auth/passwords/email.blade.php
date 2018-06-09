@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
     <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
 </head>
 <body class="container-reset">
@@ -56,37 +55,34 @@
     <script src="{{asset('js/app.js')}}"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
     <script src="{{asset('js/login.js')}}"></script>
+    <script src="{{ asset('js/alert_sweet.min.js') }}"></script>
     @if (session('status'))
         <script>
-            toastr.success('{{ session('status') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+                swal(
+                    {
+                        title: "{{ 'Ahora, ' . session('status') }}",
+                        icon: "success",
+                        buttons: false,
+                        timer: 4000
+                    }).then(timer => {
+                        if (timer <= 0){
+                            // window.open("http://localhost:8000/")
+                            window.location.href = "{{ route('main') }}"
+                        }
+                })
         </script>
     @endif
     @if ($errors->has('email'))
         <script>
-            toastr.error('{{ $errors->first('email') }}' , '', {positionClass: 'toast-top-full-width', containerId: 'toast-top-full-width'})
+            swal({
+                title: 'Oops',
+                text: '{{ $errors->first('email') }}',
+                icon: "error",
+                className: "red-bg",
+                buttons: false,
+                timer: 4000,
+            });
         </script>
     @endif
-    <script>console.clear();
-        $(document).ready(function(){
-            $("#email").on('paste', function(e){
-                e.preventDefault();
-                swal("Oops", "¡Acción no Permitida!", "error");
-            });
-
-            $("#email").on('copy', function(e){
-                e.preventDefault();
-                swal("Oops", "¡Acción no Permitida!", "error");
-            });
-
-            $(".btn_login").on('click', function (e) {
-                // e.preventDefault();
-                if ($('#email').val() === ''){
-                    swal( "¡Vaya! " , "¡El campo correo electrónico no debe estar vacío! " , "warning" )   ;
-                }
-
-            })
-
-        })
-    </script>
 </body>
 </html>

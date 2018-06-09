@@ -82,6 +82,7 @@ class ModulosController extends Controller
                     [
                         'nombre' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                         'descripcion' => 'required|max:250',
+                        'slug' => ['required', Rule::unique('bd_modulos')->ignore($request->id)],
                     ]);
 
                 if ($validador->fails()){
@@ -101,6 +102,7 @@ class ModulosController extends Controller
                     $modulo->foto = $request->foto;
                 }
                 $modulo -> estado = $request->estado;
+                $modulo -> slug = $request->slug;
                 $modulo -> save();
 
                 return response()->json([
@@ -114,7 +116,8 @@ class ModulosController extends Controller
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_modulos',
                     'descripcion' => 'required|max:250',
-                    'foto' => 'required'
+                    'foto' => 'required',
+                    'slug' =>  'required | unique:bd_modulos',
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -130,6 +133,7 @@ class ModulosController extends Controller
                 }
                 $modulo -> estado = $request->estado;
                 $modulo -> user_id = Auth::user()->id;
+                $modulo -> slug = $request->slug;
                 $modulo -> save();
 
                 return response()->json([

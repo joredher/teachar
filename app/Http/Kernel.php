@@ -60,5 +60,6 @@ class Kernel extends HttpKernel
         'AuthAdmin' => \App\Http\Middleware\AuthAdminMiddleware::class,
         'AuthUser' => \App\Http\Middleware\AuthUserMiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'temaModulo' => \App\Http\Middleware\TemaModulosMiddleware::class,
     ];
 }

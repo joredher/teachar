@@ -74,8 +74,8 @@
 
 @section('scripts')
     @include('helpers.switch')
+    <script src="{{ asset('js/jquery.stringToSlug.min.js') }}"></script>
     <script>
-
         var app = new Vue({
             el: '#contenido',
             data : {
@@ -128,6 +128,7 @@
                         fecha:'',
                         estado: 1,
                         modulo_id: '',
+                        slug: '',
 
                     }
                 },
@@ -242,6 +243,15 @@
                     'placement': 'bottom',
                     'title': 'COLOCAR ENLACE'
                 });
+                
+                //SLUG
+                $("#nombre, #slug").stringToSlug({
+                    callback: function (text) {
+                        var slugTex = $("#slug").val(text);
+                        app.tema.slug = slugTex.val();
+                    }
+                })
+                
             },
             created() {
                 this.start();

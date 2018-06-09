@@ -87,6 +87,7 @@ class TemasController extends Controller
                     [
                         'nombre' => ['required', Rule::unique('bd_temas')->ignore($request->id)],
                         'contenido' => 'required|max:250',
+                        'slug' => ['required', Rule::unique('bd_temas')->ignore($request->id)]
                     ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -105,6 +106,7 @@ class TemasController extends Controller
                 }
                 $tema -> estado = $request->estado;
                 $tema -> modulo_id = $request->modulo_id;
+                $tema -> slug = $request->slug;
                 $tema -> save();
 
                 return response()->json([
@@ -118,6 +120,7 @@ class TemasController extends Controller
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_temas',
                     'contenido' => 'required|max:250',
+                    'slug' => 'required|unique:bd_temas'
                 ]);
                 if ($validador->fails()){
                     return response()->json([
@@ -132,6 +135,7 @@ class TemasController extends Controller
                 $tema -> video_url = $this->id_youtube($request->video_url);
                 $tema -> estado = $request->estado;
                 $tema -> modulo_id = $request->modulo_id;
+                $tema -> slug = $request->slug;
                 $tema -> save();
 
 

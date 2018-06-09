@@ -194,10 +194,43 @@ header nav{
     width: 100%;
     /*background-color: #39B3DF;*/
     /*background-color: rgba(0, 0, 0, 0.5);*/
+    /*background-color: rgba(109, 211, 231, 0.95);*/
+    background-color: rgba(57, 179, 223, 0.8);
 }
 
 header > nav .container-fluid button{
     outline: none;
+}
+.into-back{
+    margin: 10px;
+    /*width: 150px;!*250px*!*/
+    /*height: 162px;*/
+    /*border: solid;*/
+    /*margin-right: 10px;*/
+}
+
+.into img{
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+nav .navbar-toggler .navbar-toggler-icon{
+    float: right;
+}
+
+.navbar-collapse ul{
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 1px 0 #263238;
+}
+
+.close{
+    float: none;
+    font-size: initial;
+    font-weight: normal;
+    line-height: normal;
+    color: #000;
+    text-shadow: none;
+    opacity: 1;
 }
 
 /**** Cards ****/
@@ -270,7 +303,7 @@ header > nav .container-fluid button{
     transform: rotateY(180deg);
 }
 
-.card-back .content-back {
+.card-back .content-back div {
     padding: 3.5rem 2.5rem 0.5rem;
     font-family: 'Nunito', Sans-Serif;
 }
@@ -681,19 +714,6 @@ header > nav .container-fluid button{
 }
 
 
-
-.into-back{
-    margin: 10px;
-    /*width: 150px;!*250px*!*/
-    /*height: 162px;*/
-    /*border: solid;*/
-    /*margin-right: 10px;*/
-}
-
-.into img{
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
 code {
     font-size: 80%;
 }
@@ -759,5 +779,145 @@ code {
         width: 100%;
     }
 }
+
+/** MEDIA QUERY Nav   991.98px**/
+@media (max-width: 575.99px) {
+
+    header{
+        height: 100px;
+    }
+
+    body > div .container-fluid {
+        padding-top: 150px;
+    }
+
+    .offcanvas-collapse {
+        position: fixed;
+        top: 0;
+        /*top: 10%; !* Height of navbar *!*/
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: rgba(57, 179, 223, 0.8);
+        /*background-color: #343a40;*/
+        transition-timing-function: ease-in-out;
+        transition-duration: .3s;
+        transition-property: left, visibility;
+    }
+    .offcanvas-collapse.open {
+        left: 0;
+        visibility: visible;
+    }
+
+    .offcanvas-collapse.close {
+        right: 100%;
+        opacity: 1;
+    }
+
+    .navbar-collapse span{
+        cursor: none;
+        display: block !important;
+        text-align: right;
+        margin-left: 96%;
+        padding-left: 0;
+    }
+
+    .navbar-collapse span i{
+        cursor: pointer;
+    }
+
+    .navbar-collapse ul{
+        text-align: center;
+        text-shadow: none;
+        font-size: 2rem;
+        padding-top: 100px;
+        padding-bottom: 60px;
+    }
+
+    .navbar-collapse div div:first-child{
+        margin-right: auto !important;
+    }
+
+    .navbar-collapse div{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .into-back div.py-3{
+        padding: 0.5rem 0 !important;
+    }
+
+    .texto-modulo{
+        display: none;
+    }
+
+    .back a i{
+        font-size: 2em !important;
+    }
+
+    .card-back .content-back div{
+        position: relative;
+        display: block;
+        padding: 1.5rem 2.0rem 1rem;
+    }
+
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    color: rgba(255, 255, 255, .75);
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-underline .nav-link {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: .875rem;
+    color: #6c757d;
+}
+
+.navbar-toggler-icon:focus{
+    outline: none;
+}
+
+.nav-underline .nav-link:hover {
+    color: #007bff;
+}
+
+.nav-underline .active {
+    font-weight: 500;
+    color: #343a40;
+}
+
+.text-white-50 { color: rgba(255, 255, 255, .5); }
+
+.bg-purple { background-color: #6f42c1; }
+
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.lh-100 { line-height: 1; }
+.lh-125 { line-height: 1.25; }
+.lh-150 { line-height: 1.5; }
 
 

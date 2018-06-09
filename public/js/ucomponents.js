@@ -48300,6 +48300,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'modulos',
@@ -48361,33 +48363,15 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "card-back" }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "content-back d-inline-block text-center",
-                      class: { desactivado: _vm.desactivado(modulo) }
-                    },
-                    [
-                      _c("P", {
-                        directives: [
-                          {
-                            name: "show",
-                            rawName: "v-show",
-                            value: modulo.estado !== "Inactivo",
-                            expression: "modulo.estado !== 'Inactivo'"
-                          }
-                        ],
-                        staticClass: "card-text text-justify",
-                        domProps: { textContent: _vm._s(modulo.descripcion) }
-                      }),
-                      _vm._v(" "),
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("p", { attrs: { id: "modulo" } }),
-                      _vm._v(" "),
-                      _c(
-                        "a",
-                        {
+                  _c("div", { staticClass: "content-back text-center" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "d-block",
+                        class: { desactivado: _vm.desactivado(modulo) }
+                      },
+                      [
+                        _c("P", {
                           directives: [
                             {
                               name: "show",
@@ -48396,20 +48380,30 @@ var render = function() {
                               expression: "modulo.estado !== 'Inactivo'"
                             }
                           ],
-                          staticClass: "btn btn_push underline text-light",
-                          attrs: {
-                            href:
-                              "/usuario/modulo/" +
-                              modulo.id +
-                              "/" +
-                              modulo.nombre
-                          }
-                        },
-                        [_vm._v(" Ir ")]
-                      )
-                    ],
-                    1
-                  )
+                          staticClass: "card-text text-justify",
+                          domProps: { textContent: _vm._s(modulo.descripcion) }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: modulo.estado !== "Inactivo",
+                                expression: "modulo.estado !== 'Inactivo'"
+                              }
+                            ],
+                            staticClass: "btn btn_push underline text-light",
+                            attrs: { href: "/usuario/modulo/" + modulo.slug }
+                          },
+                          [_vm._v(" Ir ")]
+                        )
+                      ],
+                      1
+                    )
+                  ])
                 ])
               ])
             ])
@@ -49447,13 +49441,7 @@ var render = function() {
           {
             staticClass:
               "return-tema btn btn_push bg-warning btn-warning border-bottom ",
-            attrs: {
-              href:
-                "/usuario/modulo/" +
-                _vm.tema.bd_modulo.id +
-                "/" +
-                _vm.tema.bd_modulo.nombre
-            }
+            attrs: { href: "/usuario/modulo/" + _vm.tema.bd_modulo.slug }
           },
           [
             _c("i", { staticClass: "fas fa-caret-left fa-w-16 fa-3x" }),
@@ -49941,13 +49929,7 @@ var render = function() {
                         "a",
                         {
                           staticClass: "btn btn_eye underline",
-                          attrs: {
-                            href:
-                              "/usuario/modulo/tema/" +
-                              tema.id +
-                              "/" +
-                              tema.nombre
-                          }
+                          attrs: { href: "/usuario/modulo/tema/" + tema.slug }
                         },
                         [
                           _c("i", {

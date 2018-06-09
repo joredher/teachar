@@ -8,11 +8,13 @@
                             <h4 class="text-white position-absolute p-2" v-text="modulo.nombre"></h4>
                         </div>
                         <div class="card-back">
-                            <div class="content-back d-inline-block text-center" :class="{ desactivado: desactivado(modulo)}" >
-                                <P v-show="modulo.estado !== 'Inactivo'" class="card-text text-justify" v-text="modulo.descripcion"></P>
-                                <br/>
-                                <p id="modulo"></p>
-                                <a v-show="modulo.estado !== 'Inactivo'" :href="'/usuario/modulo/'+modulo.id+'/'+modulo.nombre" class="btn btn_push underline text-light"> Ir </a>
+                            <div class="content-back text-center">
+                                <div class="d-block" :class="{ desactivado: desactivado(modulo)}">
+                                    <P v-show="modulo.estado !== 'Inactivo'" class="card-text text-justify" v-text="modulo.descripcion"></P>
+                                    <!--<br/>-->
+                                    <!--<p id="modulo"></p>-->
+                                    <a v-show="modulo.estado !== 'Inactivo'" :href="'/usuario/modulo/'+modulo.slug" class="btn btn_push underline text-light"> Ir </a>
+                                </div>
                             </div>
                         </div>
                     </a>

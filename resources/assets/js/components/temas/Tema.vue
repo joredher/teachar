@@ -15,7 +15,7 @@
                                     <h1 class="display-4" v-text="tema.nombre + ':'"></h1>
                                     <p class="lead text-justify" v-text="tema.contenido"></p>
                                     <hr class="my-4">
-                                    <a :href="'/usuario/modulo/tema/' + tema.id + '/' + tema.nombre" class="btn btn_eye underline">
+                                    <a :href="'/usuario/modulo/tema/'+ tema.slug" class="btn btn_eye underline">
                                         <i class="fas fa-eye-slash fa-w-16 fa-5x position-absolute"></i>
                                         <i class="fas fa-eye fa-w-16 fa-5x"></i>
                                     </a>
