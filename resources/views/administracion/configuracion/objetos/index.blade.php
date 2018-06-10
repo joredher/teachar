@@ -129,9 +129,11 @@
                   }
                 },
 
-                clearFiles(){
+                clearFiles(files){
                     this.files = [];
-                    this.disabledUploadButton = true;
+                    if(files === undefined || files === null || files === '' ){
+                        this.disabledUploadButton = true;
+                    }
                 },
 
                 formReset : function (files) {
@@ -198,7 +200,7 @@
                                     }else{
                                         // console.log(response);
                                         // this.objeto.id = response.body.id;
-                                        console.log(formData);
+                                        // console.log(formData);
                                         setTimeout(() => {
                                             app.isUploading = false;
                                             this.files = [];

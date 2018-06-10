@@ -1,4 +1,4 @@
-console.clear();
+// console.clear();
 $(document).ready(function(){
     $("#user-username").on('paste', function(e){
         e.preventDefault();

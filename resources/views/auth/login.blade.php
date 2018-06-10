@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="{{asset('css/login.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <link rel="stylesheet" href="{{asset('css/roboto.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
-    <script src="{{asset('js/aumentadas/aframe.js')}}"></script>
+    {{--<script src="{{asset('js/aumentadas/aframe.js')}}"></script>--}}
+    <script src="{{asset('js/aumentadas/version master/aframe.min.js')}}"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
 </head>
 <body>
@@ -61,7 +61,7 @@
     {{--<div id="ground"></div>--}}
 </div>
 <script src="{{asset('js/app.js')}}"></script>
-<script src="{{ asset('js/alert_sweet.min.js') }}"></script>
+<script src="{{ asset('js/alert_sweet.js') }}"></script>
 @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <script>

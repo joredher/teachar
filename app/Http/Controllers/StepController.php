@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 
-class FileController extends Controller
+class StepController extends Controller
 {
 //    private $file_ext = ['OBJ','obj','fbx','FBX'];
 //    private $material_ext = ['mtl'];

@@ -43,7 +43,7 @@
         </div>
         <div class="layout_contenedor" id="derecha">
             <div class="centro">
-                <a class="moon" href="{{route('index')}}">
+                <a class="moon" href="{{route('modulos-usuario')}}">
                     <img id="aparecer" src="{{ asset('imagenes/logo/logo_teach_2.png') }}" alt="Teach AR">
                     <img id="desaparecer" src="{{ asset('imagenes/logo/logo_teach_2.svg') }}" alt="Teach AR">
                 </a>

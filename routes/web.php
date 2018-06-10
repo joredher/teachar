@@ -56,18 +56,16 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
 });
 
 Route::group(['middleware' => ['AuthUser']], function (){
-//    Route::get('usuario','HomeController@index');
     Route::prefix('usuario')
         ->namespace('Usuario')
         ->group(function (){
-
-            Route::get('modulos-usuario','UsuarioController@index')->name('index');
-            Route::get('modulo/{slug}', ['middleware' => 'temaModulo', 'uses' => 'ModuloUsuarioController@show'])->name('temas-usuario');
-//            Route::get('get-modulos','UsuarioController@getModulos');
+            Route::get('index', 'UsuarioController@index')->name('index');
+            Route::get('modulos-usuario','ModuloUsuarioController@show')->name('modulos-usuario');
+            Route::get('modulo/{slug}', ['middleware' => 'temaModulo', 'uses' => 'TemaUsuarioController@show'])->name('temas-usuario');
             Route::get('modulo/tema/{slug}' , ['middleware' => 'temaModulo', 'uses' => 'AumentadaUsuarioController@show']);
+//            Route::get('get-modulos', , 'step''UsuarioController@getModulos');
 //            Route::get('/realidad-aumentada', 'AumentadaUsuarioController@index')->name('realidad-aumentada');
-
+//            Route::get('usuario','HomeController@index');
+//            Route::get('form-step', 'StepController@index')->name('step');
         });
 });
-
-Route::get('form-step', 'FileController@index');

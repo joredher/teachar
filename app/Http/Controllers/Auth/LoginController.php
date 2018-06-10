@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -72,10 +72,10 @@ class LoginController extends Controller
         $request->session()->regenerate();
         $previous_session = Auth::user()->session_id;
         if ($previous_session) {
-            Session::getHandler()->destroy($previous_session);
+            \Session::getHandler()->destroy($previous_session);
         }
 
-        Auth::user()->session_id = Session::getId();
+        Auth::user()->session_id = \Session::getId();
         Auth::user()->save();
         $this->clearLoginAttempts($request);
 

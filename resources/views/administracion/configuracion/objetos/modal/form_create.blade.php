@@ -36,12 +36,12 @@
                             <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" :hidden="tema.estado === 'Inactivo'" v-text="tema.nombre"></option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12">
-                        <progress-bar :progress="progress" v-if="isUploading"></progress-bar>
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <div class="form-group col-xs-12 col-sm-12">
+                    <progress-bar :progress="progress" v-if="isUploading"></progress-bar>
+                </div>
                 <button type="button" class="btn  btn-outline-grey" data-dismiss="modal" >Cancelar</button>
                 <button type="submit"  class="ladda-button ladda-button-submit btn btn-info" data-style="expand-right" :disabled="disabledUploadButton">
                     <span class="ladda-label">Guardar</span>

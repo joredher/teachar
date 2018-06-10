@@ -50,44 +50,18 @@
                             </form>
                         </div>
                     </div>
+                    <div class="texto_info d-none mx-auto text-center">
+                        <div><h6 class="text-white mb-0"><strong>Lic. </strong>{{ Auth::user()->name.' '.Auth::user()->last_name }}</h6></div>
+                        <div>
+                            <p class="mb-0">
+                                <small class="text-muted" style="padding-left: 2px">
+                                    <label class="text-white">Liceo Pedagógico San Martín</label>
+                                </small>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </nav>
-            {{--<nav class="navbar navbar-expand-lg navbar-light">--}}
-                {{--<a class="navbar-brand font-weight-bold text-white" href="{{route('index')}}">--}}
-                    {{--@yield('contenido-item')--}}
-                {{--</a>--}}
-                {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-                    {{--<span class="text-white"> <i class="fas fa-bars"></i></span>--}}
-                {{--</button>--}}
-
-                {{--<div class="collapse navbar-collapse" id="navbarCollapse">--}}
-                    {{--<ul class="navbar-nav mr-auto">--}}
-                        {{--<li class="nav-item active">--}}
-                            {{--<a class="nav-link disabled d-none" href="#">Disabled</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<div class="form-inline my-2 my-lg-0">--}}
-                        {{--<div class="mr-4">--}}
-                            {{--<a class="text-white" href="{{ route('main') }}">--}}
-                                {{--<i class="fas fa-home fa-w-16 fa-2x"></i>--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                        {{--<div class="my-2 my-sm-0">--}}
-                            {{--<a href="{{ route('logout') }}" onclick="event.preventDefault();--}}
-                                        {{--document.getElementById('logout-form').submit();" class="text-white">--}}
-                                {{--<i class="fas fa-sign-out-alt fa-w-16 fa-2x"></i>--}}
-                            {{--</a>--}}
-                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-                                {{--{{ csrf_field() }}--}}
-                            {{--</form>--}}
-                        {{--</div>--}}
-
-                        {{--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--}}
-                        {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</nav>--}}
-
         </header>
 
         <!-- Inicia contenido de Página -->

@@ -19,7 +19,7 @@ class BdTema extends Model
 
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
-            ->orwhere('contenido', 'like', $data. '%')
+            ->orwhere('descripcion', 'like', $data. '%')
             ->orwhere('estado', 'like', $data. '%')->orWhereHas('BdModulo', function ($query) use ($data){
                 $query->where('nombre', 'like', $data. '%');
             });

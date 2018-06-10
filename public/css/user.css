@@ -698,7 +698,7 @@ nav .navbar-toggler .navbar-toggler-icon{
 -------------------------------------------------- */
 
 .color_bg_primero{
-    background-color: #63d0ff;
+    background-color: #FFFF6B;/*63d0ff;*/
 }
 
 .color_bg_segundo{
@@ -706,11 +706,11 @@ nav .navbar-toggler .navbar-toggler-icon{
 }
 
 .color_bg_tercero{
-    background-color: #343a40;
+    background-color: #FFA382;/*343a40;*/
 }
 
 .color_bg_cuarto{
-    background-color: #347D7C;
+    background-color: #F2545B;/*347D7C;*/
 }
 
 
@@ -784,11 +784,16 @@ code {
 @media (max-width: 575.99px) {
 
     header{
-        height: 100px;
+        height: 60px;
+        bottom: 0;
+        transition: bottom 1s;
+        box-shadow: 0 -0.75rem .75rem rgba(0, 0, 0, .05);
     }
 
     body > div .container-fluid {
-        padding-top: 150px;
+        /*padding-top: 150px;*/
+        padding-top: 0;
+        margin-top: 5%;
     }
 
     .offcanvas-collapse {
@@ -847,12 +852,27 @@ code {
         margin-right: auto;
     }
 
-    .into-back div.py-3{
+    .into-back div.py-3, .into-back div.my-4{
         padding: 0.5rem 0 !important;
+        margin: 0.5rem 0 !important;
+    }
+
+    .into-back div.py-1{
+        padding: 0 !important;
     }
 
     .texto-modulo{
         display: none;
+    }
+
+    .texto_info{
+        display: block !important;
+        margin-top: 80px;
+    }
+
+    .into img{
+        display: block;
+        width: 42px;
     }
 
     .back a i{
@@ -863,6 +883,9 @@ code {
         position: relative;
         display: block;
         padding: 1.5rem 2.0rem 1rem;
+    }
+    footer{
+        display: none;
     }
 
 }

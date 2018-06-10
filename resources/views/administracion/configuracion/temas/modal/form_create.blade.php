@@ -12,8 +12,8 @@
                         <input type="text" id="nombre" class="form-control" placeholder="Nombre del tema" v-model="tema.nombre" data-vv-name=" Nombre " v-validate="'required'">
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  >
-                        <label for="">Contenido </label>
-                        <textarea class="form-control" :placeholder="'El contexto del tema ' + tema.nombre + ' debe ser breve, claro y coherente.' " v-model="tema.contenido" data-vv-name=" Contenido " rows="4" style="resize: none"></textarea>
+                        <label for="">Descripción </label>
+                        <textarea class="form-control" :placeholder="'El contexto del tema ' + tema.nombre + ' debe ser breve, claro y coherente.' " v-model="tema.descripcion" data-vv-name=" Contenido " rows="4" style="resize: none"></textarea>
                     </div>
                     <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 mb-0"  >
                         <label for="basic-url">URL Video Informativo</label>

@@ -123,7 +123,7 @@
                     this.tema ={
                         id: '',
                         nombre: '',
-                        contenido:'',
+                        descripcion:'',
                         video_url:'',
                         fecha:'',
                         estado: 1,

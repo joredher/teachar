@@ -61,5 +61,6 @@ class Kernel extends HttpKernel
         'AuthUser' => \App\Http\Middleware\AuthUserMiddleware::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'temaModulo' => \App\Http\Middleware\TemaModulosMiddleware::class,
+        'step' => \App\Http\Middleware\StepMiddleware::class,
     ];
 }

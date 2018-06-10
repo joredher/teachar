@@ -146,10 +146,26 @@ class ObjetosController extends Controller
                             $uploadedMaterialName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $materialName;
                             $objeto->storeAs('public', $uploadedMaterialName);
                             break;
+                        case ('bin'):
+                            $extenBin = $extension;
+                            $binNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                            $binName = str_slug($binNameOnly) . "." . $extension;
+                            $uploadedBinName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $binName;
+                            $objeto->storeAs('public', $uploadedBinName);
+                            break;
                         default:
-                            $imageName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedImageName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $imageName;
-                            $objeto->storeAs('public', $uploadedImageName);
+                            $defaultNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                            $defaultName = str_slug($defaultNameOnly) . "." . $extension;
+                            $uploadedDefaultName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $defaultName;
+                            $objeto->storeAs('public', $uploadedDefaultName);
+//                            if ($extension == ''){
+////                                $extenImage = $extension;
+//                                $imageName = str_slug($fileNameOnly) . "." . $extension;
+//                                $uploadedImageName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $imageName;
+//                                $objeto->storeAs('public', $uploadedImageName);
+//                            }else{
+//
+//                            }
 //
                     }
                 }
@@ -233,9 +249,12 @@ class ObjetosController extends Controller
                 $objeto->src = $uploadedFileName;
                 if ($extension == 'obj' && $extenMtl == 'mtl'){
                     $objeto->material = $uploadedMaterialName;
-                }else{
-                    $objeto->material = $uploadedImageName;
+                }elseif ($extension == 'gltf'){
+                    $objeto->material = 'untexto';
+                }elseif($extenBin == 'bin'){
+                    $objeto->material = $uploadedBinName;
                 }
+
                 $objeto->tema_id = $tema;
                 if ($extension != $exten){
                     $objeto->format = $exten;

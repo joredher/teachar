@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h1 class="display-4" v-text="tema.nombre + ':'"></h1>
-                                    <p class="lead text-justify" v-text="tema.contenido"></p>
+                                    <p class="lead text-justify" v-text="tema.descripcion"></p>
                                     <hr class="my-4">
                                     <a :href="'/usuario/modulo/tema/'+ tema.slug" class="btn btn_eye underline">
                                         <i class="fas fa-eye-slash fa-w-16 fa-5x position-absolute"></i>

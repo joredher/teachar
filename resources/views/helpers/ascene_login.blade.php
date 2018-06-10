@@ -98,7 +98,7 @@
         <a-entity light="type: ambient; color: #444;"></a-entity>
     </a-entity>
 
-    <a-entity  position="-2 2 3" rotation="-4 10 -4">
+    <a-entity  position="-1.5 0.5 3.5" rotation="-4 10 -4">
         <a-camera></a-camera>
     </a-entity>
 </a-scene>

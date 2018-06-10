@@ -16,7 +16,7 @@ class BdTemas extends Migration
         Schema::create('bd_temas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre')->unique();
-            $table->string('contenido');
+            $table->string('descripcion');
             $table->string('video_url');
             $table->enum('estado',['Activo','Inactivo']);
             $table->integer('modulo_id')->unsigned();

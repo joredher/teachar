@@ -49920,7 +49920,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("p", {
                         staticClass: "lead text-justify",
-                        domProps: { textContent: _vm._s(tema.contenido) }
+                        domProps: { textContent: _vm._s(tema.descripcion) }
                       }),
                       _vm._v(" "),
                       _c("hr", { staticClass: "my-4" }),
