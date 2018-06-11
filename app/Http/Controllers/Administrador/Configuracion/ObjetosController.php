@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Storage;
 
 class ObjetosController extends Controller
 {
+
+        private $file_ext = ['obj','gltf','dae'];
+        private $material_ext = ['mtl','bin'];
+        private $image_ext = ['jpg','jpeg','png','PNG','JPG'];
+
     /**
      * Constructor
      */
@@ -24,9 +29,6 @@ class ObjetosController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles('admin');
-
-//        $objetos = BdObjeto::orderBy('created_at', 'desc')->get();
-//        return view('administracion.configuracion.objetos.index', compact('objetos'));
         return view('administracion.configuracion.objetos.index');
     }
 
@@ -54,6 +56,10 @@ class ObjetosController extends Controller
         }
     }
 
+    public function allExtensions(){
+        return array_merge($this->file_ext, $this->material_ext, $this->image_ext);
+    }
+
     public function destroy(Request $request)
     {
         try {
@@ -62,22 +68,16 @@ class ObjetosController extends Controller
                 $objeto = BdObjeto::find($id);
                 $titulo = $objeto->titulo;
                 $titleName = preg_replace("/[^a-zA-Z0-9\_\-]+/", "_", $titulo);
-//                if ($objeto || $objeto->file_exists( storage_path($objeto->modelo)) && $objeto->file_exists( storage_path($objeto->material)))
                 if ($objeto || $objeto->file_exists(storage_path($objeto->src)) && $objeto->file_exists(storage_path($objeto->material))) {
                     $objeto->delete();
                     Storage::disk('public')->delete([$objeto->src, $objeto->material]);
                     Storage::deleteDirectory('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName);
-//                    Storage::deleteDirectory(storage_path('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName));
-//                    &&
-//                    Storage::file_exists(storage_path('public/assets_ar/' . $this->getDir($objeto->tema_id) . '/' . $titleName))
-//                    Storage::disk('public')->delete([$objeto->modelo, $objeto->material]);
                     return response()->json([
                         'estado' => 'ok',
                         'id' => $objeto->id,
                         'tipo' => 'delete',
                     ]);
                 }
-//                    return $data;
                 $data['success'] = false;
                 return $data;
             }
@@ -154,27 +154,24 @@ class ObjetosController extends Controller
                             $objeto->storeAs('public', $uploadedBinName);
                             break;
                         default:
-                            $defaultNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                            $defaultName = str_slug($defaultNameOnly) . "." . $extension;
-                            $uploadedDefaultName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $defaultName;
-                            $objeto->storeAs('public', $uploadedDefaultName);
-//                            if ($extension == ''){
-////                                $extenImage = $extension;
-//                                $imageName = str_slug($fileNameOnly) . "." . $extension;
-//                                $uploadedImageName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $imageName;
-//                                $objeto->storeAs('public', $uploadedImageName);
-//                            }else{
-//
-//                            }
-//
+                            if ($extension === 'png' || $extension == 'jpg') {
+                                $defaultNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
+                                $defaultName = str_slug($defaultNameOnly) . "." . $extension;
+                                $uploadedDefaultName = 'assets_ar/' . $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $defaultName;
+                                $objeto->storeAs('public', $uploadedDefaultName);
+                            }
                     }
                 }
             }
+
+            $all_ext = implode(',', $this->file_ext);
+//            $all_ext = implode(',', $this->allExtensions());
+
             if ($request->id != '') {
                 //update
                 $validador = Validator::make($request->all(),
                     [
-//                        'titulo' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
+                        'titulo' => ['required', Rule::unique('bd_objetos')->ignore($request->id)],
                         'file' => 'required',
                         'tema' => 'required',
                     ]);
@@ -186,38 +183,6 @@ class ObjetosController extends Controller
                 }
 
                 $objeto = BdObjeto::find($request->id);
-                if (Input::get('titulo')){
-                    $objeto->titulo = $titulo;
-                }elseif($request->get('titulo') == $objeto->titulo){
-                    $objeto->titulo = $objeto->titulo;
-                }
-                if ($request->file('file')) {
-                    $objeto->nombre_modelo = $fileNameOnly;
-                    $old_filename = '/public/' . $objeto->src;
-                    $old_material = '/public/' . $objeto->material;
-                    $objeto->src = $uploadedFileName;
-                    Storage::disk('local')->delete($old_filename);
-                    if ($extension == 'obj') {
-                        $objeto->material = $uploadedMaterialName;
-                        Storage::disk('local')->delete($old_material);
-                    }else{
-                        $objeto->material = 'texto';
-                        Storage::disk('local')->delete($old_material);
-                    }
-                    $objeto->format = $extension;
-                }
-                if ($request->get('tema')){
-                    $objeto->tema_id = $tema;
-                }elseif ($request->get('tema') == $objeto->tema_id){
-                    $objeto->tema_id = $request->get('tema');
-                }
-                $objeto->scaleInc = 1;
-                $objeto->scale = '1 1 1';
-                $objeto->positionH = '0 0 0';
-                $objeto->rotationH = '0 180 0';
-                $objeto->positionV = '0 0.5 0';
-                $objeto->rotationV = '90 180 0';
-                $objeto->save();
 
                 return response()->json([
                     'estado' => 'ok',
@@ -242,21 +207,33 @@ class ObjetosController extends Controller
                     ]);
                 }
 
-
                 $objeto = new BdObjeto();
                 $objeto->titulo = $titulo;
                 $objeto->nombre_modelo = $fileNameOnly;
                 $objeto->src = $uploadedFileName;
-                if ($extension == 'obj' && $extenMtl == 'mtl'){
-                    $objeto->material = $uploadedMaterialName;
-                }elseif ($extension == 'gltf'){
-                    $objeto->material = 'untexto';
-                }elseif($extenBin == 'bin'){
-                    $objeto->material = $uploadedBinName;
+
+                switch ($exten){
+                    case ('obj'):
+                        if (isset($extenMtl) || $extenMtl != ''){
+                            $objeto->material = $uploadedMaterialName;
+                        }else{
+                            unset($extenMtl);
+                            $objeto->material = 'default';
+                        }
+                        break;
+                    case ('gltf'):
+                        if (isset($extenBin)){
+                            $objeto->material = $uploadedBinName;
+                        }else{
+                            unset($extenBin);
+                            $objeto->material = 'default';
+                        }
+                        break;
                 }
 
                 $objeto->tema_id = $tema;
                 if ($extension != $exten){
+//                    unset($extension);
                     $objeto->format = $exten;
                 }else{
                     $objeto->format = $extension;

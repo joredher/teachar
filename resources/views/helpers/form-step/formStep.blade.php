@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es" class="loaded">
 <head>
-    <title> Paso a Paso</title>
+    <title>TeachAR | Tutorial Docente</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -11,38 +11,26 @@
     <meta name="author" content="Jorge Eduardo Hernández Oropeza y Edisson Fernando Quiñonez Díaz">
     <link rel="icon" href="{{ asset('imagenes/logo/logo_teach_2.png') }}" type="image/png">
     {{--<script defer src="{{ asset('js/fontawesome.js') }}"></script>--}}
+    <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/user.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/aumentadas/vue-form-wizard.min.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset('css/aumentadas/vue-form-wizard.min.css') }}">--}}
+    <style>
+        @media (max-width: 575.99px) {
+            html {
+                overflow: scroll;
+            }
+        }
+    </style>
 </head>
-<body>
-<style>
-    .wizard-header{
-        display: none;
-    }
-</style>
+<body class="bodyStep">
 <div id="ucontenido">
-        <form-wizard @on-complete="onComplete"
-                     shape="square"
-                     color="#3498db"
-                     back-button-text="Anterior"
-                     next-button-text="Siguiente"
-                     finish-button-text="Finalizar" finish="{{ route('index') }}">
-            <tab-content title="Personal details"
-                         icon="far fa-file-alt">
-                My first tab content
-            </tab-content>
-            <tab-content title="Additional Info"
-                         icon="fas fa-cube">
-                My second tab content
-            </tab-content>
-            <tab-content title="Last step"
-                         icon="far fa-play-circle">
-                Yuhuuu! This seems pretty damn simple
-            </tab-content>
-        </form-wizard>
+    <div class="previewStep">
+        <previstas :user="{{json_encode($user)}}"></previstas>
+    </div>
 </div>
 {{--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--}}
 <script src="{{asset('js/ucomponents.js')}}"></script>
-<script src="{{ asset('js/aumentadas/vue-form-wizard.js') }}"></script>
+{{--<script src="{{ asset('js/aumentadas/vue-form-wizard.js') }}"></script>--}}
 </body>
 </html>

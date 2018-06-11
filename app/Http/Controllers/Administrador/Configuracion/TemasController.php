@@ -86,7 +86,7 @@ class TemasController extends Controller
                 $validador = Validator::make($request->all(),
                     [
                         'nombre' => ['required', Rule::unique('bd_temas')->ignore($request->id)],
-                        'contenido' => 'required|max:250',
+                        'descripcion' => 'required|max:250',
                         'slug' => ['required', Rule::unique('bd_temas')->ignore($request->id)]
                     ]);
                 if ($validador->fails()){
@@ -119,7 +119,7 @@ class TemasController extends Controller
                 //Create
                 $validador = Validator::make($request->all(),[
                     'nombre' =>  'required | unique:bd_temas',
-                    'contenido' => 'required|max:250',
+                    'descripcion' => 'required|max:250',
                     'slug' => 'required|unique:bd_temas'
                 ]);
                 if ($validador->fails()){

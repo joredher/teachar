@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Queue\InteractsWithQueue;
@@ -27,8 +28,9 @@ class LogSuccessfulLogin
      */
     public function handle(Login $event)
     {
+//        date('Y-m-d H:i:s')
         $user = $event->user;
-        $user->last_login_at = date('Y-m-d H:i:s');
+//        $user->last_login_at = Carbon::now();
         $user->last_login_ip = $this->request->ip();
         $user->save();
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\BdTema;
 use App\File;
+use App\User;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,14 +12,26 @@ use Illuminate\Validation\Rule;
 
 class StepController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function show(Request $request){
+        $usuario = User::all();
+        return compact($usuario);
+    }
+
 //    private $file_ext = ['OBJ','obj','fbx','FBX'];
 //    private $material_ext = ['mtl'];
 //    private $image_ext = ['jpg','jpeg','png','gif','svg'];
 
-    public function index(Request $request){
-//        $request->user()->authorizeRoles('profe');
-        return view('helpers.form-step.formStep');
-    }
+//    public function index(Request $request){
+////        $request->user()->authorizeRoles('profe');
+//        return view('helpers.form-step.formStep');
+//    }
+
+
 
 //    public function guardar(Request $request){
 //        try{

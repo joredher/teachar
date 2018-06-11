@@ -943,4 +943,51 @@ code {
 .lh-125 { line-height: 1.25; }
 .lh-150 { line-height: 1.5; }
 
+/**** FORM STEP ***/
 
+.bodyStep{
+ background-color: #efefef;
+}
+
+.wizard-header{
+    display: block;
+}
+
+.previewStep{
+    /*margin-top: 5%;*/
+    margin-bottom: 25%;
+}
+
+.cardStep{
+    /*position: relative;*/
+    /*width: 320px;*/
+    /*height: 200px;*/
+    background-color: #fff;
+    margin: 20px auto;
+    /*padding: 20px;*/
+    overflow: hidden;
+    box-shadow: 0 9px 20px 0px rgba(133, 144, 166, 0.1);
+}
+
+.wizard-tab-content .wizard-tab-container:first-child .row div:nth-child(2){
+    padding-top: 2rem;
+}
+.wizard-tab-content .wizard-tab-container:nth-child(2) .row div:first-child div a img{
+    /*padding-top: 2rem;*/
+    width: 50% ;
+}
+
+@media (max-width: 575.99px) {
+    .bodyStep{
+        overflow-y: hidden;
+    }
+
+    .wizard-tab-content .wizard-tab-container:first-child .row div:nth-child(2){
+        padding-top: 2rem;
+    }
+
+    .wizard-tab-content .wizard-tab-container:nth-child(2) .row div:first-child div a img{
+        /*padding-top: 2rem;*/
+        width: 100% ;
+    }
+}

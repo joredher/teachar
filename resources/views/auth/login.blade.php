@@ -61,7 +61,7 @@
     {{--<div id="ground"></div>--}}
 </div>
 <script src="{{asset('js/app.js')}}"></script>
-<script src="{{ asset('js/alert_sweet.js') }}"></script>
+<script src="{{ asset('js/alert_sweet.min.js') }}"></script>
 @if (count($errors) > 0)
     @foreach ($errors->all() as $error)
         <script>

@@ -53,7 +53,15 @@
         <script src="https://pixinvent.com/bootstrap-admin-template/robust/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
         {{--<script src="https://code.jquery.com/jquery-3.2.1.js"></script>--}}
         {{--<script src="{{asset('js/preloader.js')}}"></script>--}}
-
+        <script>
+            try{
+                var laddaButton = Ladda.create(document.querySelector('.ladda-button-submit'));
+                var laddaButtonSearch = Ladda.create(document.querySelector('.ladda-button-search'));
+            }catch ( ee ){
+                console.time();
+                // console.log('Falta definir lada button');
+            }
+        </script>
         @yield('scriptjs')
 
         <script src="{{asset('vendors/js//malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"> </script>
