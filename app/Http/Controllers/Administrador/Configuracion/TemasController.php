@@ -25,7 +25,7 @@ class TemasController extends Controller
     public function obtenerTemas(Request $request){
         try{
             $request = json_decode($request->getContent());
-            $temas = BdTema::Buscar($request->datos->busqueda)->with(['BdModulo', 'BdObjeto'])
+            $temas = BdTema::Buscar($request->datos->busqueda)
                 ->orderBy('id','asc')
                 ->paginate(3);
             //dd($modulos);

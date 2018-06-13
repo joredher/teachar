@@ -2,7 +2,7 @@ require('./bootstrap');
 
 window.toastr = require('../vendors/js/extensions/toastr.min');
 window.Vue = require('vue');
-
+Vue.use(require('vue-resource'));
 require('animate.css');
 import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.use(VueYouTubeEmbed);

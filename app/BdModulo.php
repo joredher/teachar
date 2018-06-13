@@ -14,11 +14,12 @@ class BdModulo extends Model
 
     protected $appends = ['fecha'];
 
+//    protected $with = ['BdTema'];
+
     public function scopeBuscar($query, $data){
         return $query->where('nombre','like','%' .$data. '%')
             ->orwhere('descripcion', 'like', $data. '%')
             ->orwhere('estado', 'like', $data. '%');
-        //            ->orwhere('imagen', 'like', $data. '%')
     }
 
     public function setEstadoAttribute($value){
@@ -35,5 +36,8 @@ class BdModulo extends Model
         return $this->hasMany('App\BdTema','modulo_id','id');
     }
 
+    public function BdUser(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
 
 }

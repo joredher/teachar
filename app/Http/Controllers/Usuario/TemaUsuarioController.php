@@ -15,8 +15,8 @@ class TemaUsuarioController extends Controller
 
     public function show(Request $request, $slug){
 
-        $request->user()->authorizeRoles('profe');
+//        $request->user()->authorizeRoles('profe');
         $modulo = BdModulo::where('slug', '=', $slug)->with(['BdTema'])->firstOrFail();
-        return view('usuario.temas-usuario.index', ['modulo' => $modulo], compact('modulo') );
+        return view('usuario.temas-usuario.index', ['modulo' => $modulo]);
     }
 }

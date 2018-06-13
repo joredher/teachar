@@ -30,7 +30,8 @@ class LogSuccessfulLogin
     {
 //        date('Y-m-d H:i:s')
         $user = $event->user;
-//        $user->last_login_at = Carbon::now();
+        $user->last_login_at = $event->user->current_sign_in_at ? $event->user->current_sign_in_at : Carbon::now();
+        $user->current_sign_in_at = Carbon::now();
         $user->last_login_ip = $this->request->ip();
         $user->save();
     }

@@ -13,7 +13,9 @@ require('vue-resource');
 window.VeeValidate = require('vee-validate');
 var es = require('vee-validate/dist/locale/es');
 Vue.use(VeeValidate, {locale: 'es'});
+Vue.use(VeeValidate);
 window.VuePaginator = require('./paginado');
+Vue.use(VuePaginator);
 
 Vue.http.headers.common['X-CSRF-TOKEN'] = document.getElementById("token").getAttribute("value");
 

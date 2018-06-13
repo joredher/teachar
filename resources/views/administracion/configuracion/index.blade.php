@@ -67,7 +67,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\Illuminate\Support\Facades\Auth::user()->all() as $user)
+                                            @foreach(auth()->user()->all() as $user)
                                                 <tr>
                                                     @if($user->state == 'Activo')
                                                     <td>{{$user->name}}</td>
@@ -78,7 +78,11 @@
                                                             </li>
                                                         @else
                                                             <li class="text-muted d-block">
-                                                                Offline
+                                                                @if($user->last_login_at == null || $user->current_sign_in_at == null)
+                                                                    Offline
+                                                                @else
+                                                                    {{  $user->fech }}
+                                                                @endif
                                                             </li>
                                                         @endif
                                                     </td>

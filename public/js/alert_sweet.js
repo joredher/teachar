@@ -1,15 +1,15 @@
 // console.clear();
 $(document).ready(function(){
-    $("#user-username").on('paste', function(e){
-        e.preventDefault();
-        swal("Oops", "¡Acción no Permitida!", "error");
-    });
-
-    $("#user-password").on('paste', function(e){
-        e.preventDefault();
-        swal("Oops", "¡Acción no Permitida!", "error");
-
-    });
+    // $("#user-username").on('paste', function(e){
+    //     e.preventDefault();
+    //     swal("Oops", "¡Acción no Permitida!", "error");
+    // });
+    //
+    // $("#user-password").on('paste', function(e){
+    //     e.preventDefault();
+    //     swal("Oops", "¡Acción no Permitida!", "error");
+    //
+    // });
 
     $("#user-username").on('copy', function(e){
         e.preventDefault();
@@ -42,10 +42,10 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#email").on('paste', function(e){
-        e.preventDefault();
-        swal("Oops", "¡Acción no Permitida!", "error");
-    });
+    // $("#email").on('paste', function(e){
+    //     e.preventDefault();
+    //     swal("Oops", "¡Acción no Permitida!", "error");
+    // });
 
     $("#email").on('copy', function(e){
         e.preventDefault();
@@ -68,17 +68,17 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#password").on('paste', function(e){
-        e.preventDefault();
-        swal("Oops", "¡Acción no Permitida!", "error");
-
-    });
-
-    $("#password-confirm").on('paste', function(e){
-        e.preventDefault();
-        swal("Oops", "¡Acción no Permitida!", "error");
-
-    });
+    // $("#password").on('paste', function(e){
+    //     e.preventDefault();
+    //     swal("Oops", "¡Acción no Permitida!", "error");
+    //
+    // });
+    //
+    // $("#password-confirm").on('paste', function(e){
+    //     e.preventDefault();
+    //     swal("Oops", "¡Acción no Permitida!", "error");
+    //
+    // });
 
     $("#password").on('copy', function(e){
         e.preventDefault();

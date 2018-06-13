@@ -2,12 +2,12 @@
     <div>
         <div>
             <div class="cards slideInDown animated">
-                <a v-show="tema.estado !== 'Inactivo'" class="tcard [ is-collapsed ]" v-for="tema in modulo.bd_tema" >
-                    <div class="tcard__inner [ js-expander ]" :class="color()">
+                <a class="tcard [ is-collapsed ]"  v-for="tema in modulo.bd_tema" >
+                    <div class="tcard__inner [ js-expander ]" :class="color() && {desactivo: desactivado(tema)}" >
                         <h4 v-text="tema.nombre"></h4>
                         <i class="fas fa-folder"></i>
                     </div>
-                    <div class="tcard__expander">
+                    <div v-show="tema.estado !== 'Inactivo'" class="tcard__expander">
                         <i class="fas fa-times-circle [ js-collapser ]"></i>
                         <div>
                             <div class="row">
@@ -44,6 +44,10 @@
             color() {
                 return this.coloress[Math.floor(Math.random() * this.coloress.length)];
             },
+
+            desactivado(tema){
+                return tema.estado === 'Inactivo';
+            }
         },
         mounted(){
             console.clear();

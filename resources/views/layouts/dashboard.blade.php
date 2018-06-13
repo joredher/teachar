@@ -145,9 +145,6 @@
     <script src="{{asset('vendors/js/jquery.cookie/jquery.cookie.js') }}"></script>
     <script src="{{asset('vendors/js/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('admin/js/dashboard.js')}} "></script>
-    <script>
-        Vue.use(VeeValidate);
-        Vue.use(VuePaginator);
-    </script>
+    <script></script>
     @yield('scripts')
 @endsection

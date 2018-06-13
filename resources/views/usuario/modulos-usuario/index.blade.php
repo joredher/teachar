@@ -11,7 +11,7 @@
             </div>
             <hr class="mt-0 mb-1">{{--Está etiqueta sirve para crear una línea--}}
             <div class="texto-modulo mx-auto text-center">
-                <div><h6 class="text-bold mb-0"><strong>Lic. </strong>{{ Auth::user()->name.' '.Auth::user()->last_name }}</h6></div>
+                <div><h6 class="text-bold mb-0"><strong>Lic. </strong>{{ auth()->user()->name }}</h6></div>
                 <div>
                     <p class="mb-0">
                         <small class="text-muted" style="padding-left: 2px">
@@ -30,8 +30,4 @@
     <section id="ucontenido">
         <modulos  :modulos="{{json_encode($modulos)}}"></modulos>
     </section>
-@endsection
-
-@section('scripts')
-
 @endsection

@@ -11,6 +11,11 @@
 |
 */
 
+
+//DB::listen(function ($query){
+//   var_dump($query->sql);
+//}); Consultas de BD
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -67,5 +72,6 @@ Route::group(['middleware' => ['AuthUser']], function (){
 //            Route::get('/realidad-aumentada', 'AumentadaUsuarioController@index')->name('realidad-aumentada');
 //            Route::get('usuario','HomeController@index');
 //            Route::get('form-step', 'StepController@index')->name('step');
+            //Route::post('step', 'StepController@guardar');
         });
 });

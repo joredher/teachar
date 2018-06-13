@@ -17,10 +17,18 @@ class StepController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(Request $request){
-        $usuario = User::all();
-        return compact($usuario);
+    public function guardar(Request $request){
+        $request->user()->authorizeRoles('profe');
+
+        $user = new User();
+        $user -> last_login_at = $request->last_login_at;
+        $user->save();
     }
+
+//    public function show(Request $request){
+//        $usuario = User::all();
+//        return compact($usuario);
+//    }
 
 //    private $file_ext = ['OBJ','obj','fbx','FBX'];
 //    private $material_ext = ['mtl'];

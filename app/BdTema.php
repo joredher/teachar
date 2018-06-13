@@ -9,8 +9,10 @@ class BdTema extends Model
 {
     protected $appends = ['fecha'];
 
+    protected $with = ['BdModulo', 'BdObjeto'];
+
     public function BdModulo(){
-        return $this->belongsTo('App\BdModulo','modulo_id');
+        return $this->belongsTo('App\BdModulo','modulo_id', 'id');
     }
 
     public function BdObjeto(){

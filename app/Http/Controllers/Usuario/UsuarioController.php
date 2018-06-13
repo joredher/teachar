@@ -13,7 +13,7 @@ class UsuarioController extends Controller
     }
 
     public function index(Request $request){
-        $request->user()->authorizeRoles('profe');
+//        $request->user()->authorizeRoles('profe');
         return view('usuario.index');
     }
 }

@@ -27,14 +27,14 @@
                         <img src="{{asset('imagenes/default_avatar_male.jpg')}}" alt="user">
                     </div>
                     <div class="card-body p-3">
-                        <h5 class="card-title mb-0">{{ Auth::user()->name .' '. Auth::user()->last_name }}</h5>
+                        <h5 class="card-title mb-0">{{ auth()->user()->name .' '. auth()->user()->last_name }}</h5>
                         <h6 class="card-subtitle text-muted mt-0">
-                            @if(Auth::user()->isOnline())
+                            @if(auth()->user()->isOnline())
                                 <i class="fab fa-cuttlefish text-success"></i>
-                                {{ Auth::user()->identification }}
+                                {{ auth()->user()->identification }}
                             @else
                                 <i class="fab fa-cuttlefish"></i>
-                                {{ Auth::user()->identification }}
+                                {{ auth()->user()->identification }}
                             @endif
                         </h6>
                     </div>

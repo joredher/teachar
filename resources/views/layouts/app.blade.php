@@ -33,7 +33,8 @@
         @if(Auth::user()->hasRole('admin'))
             @yield('admin-content')
             <script src="{{asset('js/app.js')}}"></script>
-        @elseif(Auth::user()->hasRole('profe'))
+        {{--@elseif(Auth::user()->hasRole('profe'))--}}
+        @else
             @yield('content-profe')
             <script src="{{asset('js/ucomponents.js')}}"></script>
         @endif
@@ -64,7 +65,7 @@
         </script>
         @yield('scriptjs')
 
-        <script src="{{asset('vendors/js//malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')}}"> </script>
+        <script src="{{asset('vendors/js//malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js')}}"> </script>
 
     </body>
 </html>

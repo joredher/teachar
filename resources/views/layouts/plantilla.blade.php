@@ -64,8 +64,8 @@
             </nav>
         </header>
 
-        <!-- Inicia contenido de Página -->
-        <div class="scroll-user mCustomScrollbar">
+        <!-- Inicia contenido de Página mCustomScrollbar-->
+        <div class="scroll-user">
             <main role="main" class="container-fluid">
                 @yield('contenido')
             </main>

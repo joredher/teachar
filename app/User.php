@@ -7,73 +7,46 @@ use App\Notifications\ResetPasswordNotification;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Cache;
 use Jenssegers\Date\Date;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $appends = ['fecha'];
+    protected $appends = ['fecha', 'fech'];
 //    public function roles(){
 //        return $this->belongsToMany('App\Role')->withTimestamps();
 //    }
+    protected $dates = [
+        'current_sign_in_at', 'last_login_at'
+    ];
 
     public function getFechaAttribute(){
         $fecha = new Date($this->created_at);
         return $fecha->format('d \d\e F');
     }
 
-
-    public function roles(){
-        return $this->belongsToMany('App\Role','role_user','user_id','role_id')->withTimestamps();
+    public function getFechAttribute(){
+        $fech = Carbon::parse($this->last_login_at)->diffForHumans();
+        return $fech;
     }
 
-//    public function user(){
-//        return $this->belongsTo('App\User','user_id','id');
-//    }
 
-//
-//    public function authorizeRoles($roles)
-//    {
-//        if (is_array($roles)) {
-//            return $this->hasAnyRole($roles) ||
-//                abort(401, 'Acción no autorizada.');
-//        }
-//        return $this->hasRole($roles) ||
-//            abort(401, 'Acción no autorizada.');
-//    }
-////    /**
-////     * Check multiple roles
-////     * @param array $roles
-////     */
-//    public function hasAnyRole($roles)
-//    {
-//        return null !== $this->roles()->whereIn('name', $roles)->first();
-//    }
-////    /**
-////     * Check one role
-////     * @param string $role
-////     */
-//    public function hasRole($role)
-//    {
-//        return null !== $this->roles()->where('name', $role)->first();
-//    }
+    public function roles(){
+        return $this->belongsToMany('App\Role','role_user')->withTimestamps();
+    }
+
+    /**
+    ** Check multiple roles
+    ** @param array $roles
+    **/
 
     public function authorizeRoles($roles){
-
-//        if (is_array($roles)){
-//            return $this->hasAnyRole($roles) ||
-//                abort(401,'Está acción no está autorizada.');
-//        }
-//
-//        return $this->hasRole($roles) ||
-//            abort(401,'Está acción no está autorizada.');
 
         if ($this->hasAnyRole($roles)){
             return true;
         }
         return view('errors.404','Acción no encontrada',404);
-//        return redirect('/layouts/404','404');
-//        abort(404, 'Está acción no está autorizada.');
     }
 
     public function hasAnyRole($roles){
