@@ -49763,11 +49763,15 @@ Vue.component('aumentadas', __webpack_require__(64));
 Vue.component('temas', __webpack_require__(70));
 Vue.component('previstas', __webpack_require__(73));
 
-// require('aframe');
-var app = new Vue({
+// require('aframe'); const app =
+new Vue({
   el: '#ucontenido',
   methods: {}
 });
+
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
 
 /***/ }),
 /* 57 */

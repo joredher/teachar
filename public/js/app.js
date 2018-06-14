@@ -49438,6 +49438,9 @@ __webpack_require__(44);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
 
 /***/ }),
 /* 51 */

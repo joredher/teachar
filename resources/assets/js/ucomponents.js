@@ -21,10 +21,14 @@ import swal from 'sweetalert';
  Vue.component('temas', require('./components/temas/Tema.vue'));
  Vue.component('previstas', require('./components/prevista/Prevista.vue'));
 
- // require('aframe');
-const app = new Vue({
+ // require('aframe'); const app =
+new Vue({
     el: '#ucontenido',
     methods: {
 
     }
 });
+
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;

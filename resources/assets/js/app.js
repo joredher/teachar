@@ -35,3 +35,6 @@ import swal from 'sweetalert';
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+Vue.config.devtools = false;
+Vue.config.debug = false;
+Vue.config.silent = true;
