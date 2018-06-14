@@ -49744,7 +49744,11 @@ __webpack_require__(15);
 
 window.toastr = __webpack_require__(38);
 window.Vue = __webpack_require__(40);
-Vue.use(__webpack_require__(42));
+// Vue.use(require('vue-resource'));
+var VueResource = __webpack_require__(42);
+Vue.use(VueResource);
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.getElementById("token").getAttribute("value");
+
 __webpack_require__(44);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_youtube_embed___default.a);
@@ -51683,7 +51687,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51797,6 +51801,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "previstas",
@@ -51804,8 +51810,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             videoId: 'Zn6ZGeDo3ec',
-            last_login_at: ''
-        };
+            datoUser: {
+                id: this.user.id,
+                last_login_at: ''
+                // last_login_at: ''
+            } };
     },
     methods: {
         onComplete: function onComplete() {
@@ -51819,6 +51828,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 if (timer <= 0) {
                     // window.open("http://localhost:8000/")
                     window.location.href = "/usuario/index";
+                }
+            });
+        },
+
+        enviar: function enviar() {
+            var _this = this;
+
+            this.$http.post('/usuario/form-step', this.datoUser).then(function (response) {
+                if (response.body.estado === 'ok') {
+                    if (response.body.tipo === 'update') {
+                        swal({
+                            text: "¡Vamos! " + _this.user.name,
+                            icon: "success",
+                            buttons: false,
+                            timer: 2000
+                        }).then(function (timer) {
+                            if (timer <= 0) {
+                                // window.open("http://localhost:8000/")
+                                window.location.href = "/usuario/index";
+                            }
+                        });
+                    }
+                } else if (response.body.estado !== 'ok') {
+                    swal("Oops", "Error!", "error");
                 }
             });
         },
@@ -51847,261 +51880,270 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "card cardStep" }, [
-      _c(
-        "div",
-        { staticClass: "card-body" },
-        [
-          _c(
-            "form-wizard",
-            {
-              attrs: { shape: "tab", color: "#39B3DF" },
-              on: { "on-complete": _vm.onComplete },
-              scopedSlots: _vm._u([
-                {
-                  key: "footer",
-                  fn: function(props) {
-                    return [
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.enviar()
+              }
+            }
+          },
+          [
+            _c(
+              "form-wizard",
+              {
+                attrs: { shape: "tab", color: "#39B3DF" },
+                on: { "on-complete": _vm.onComplete },
+                scopedSlots: _vm._u([
+                  {
+                    key: "footer",
+                    fn: function(props) {
+                      return [
+                        _c(
+                          "div",
+                          { staticClass: "wizard-footer-left" },
+                          [
+                            props.activeTabIndex > 0 && !props.isLastStep
+                              ? _c(
+                                  "wizard-button",
+                                  {
+                                    style: props.fillButtonStyle,
+                                    nativeOn: {
+                                      click: function($event) {
+                                        props.prevTab()
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Anterior")]
+                                )
+                              : _vm._e()
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "wizard-footer-right" },
+                          [
+                            !props.isLastStep
+                              ? _c(
+                                  "wizard-button",
+                                  {
+                                    staticClass: "wizard-footer-right",
+                                    style: props.fillButtonStyle,
+                                    nativeOn: {
+                                      click: function($event) {
+                                        props.nextTab()
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Siguiente")]
+                                )
+                              : _c(
+                                  "wizard-button",
+                                  {
+                                    staticClass:
+                                      "wizard-footer-right finish-button",
+                                    style: props.fillButtonStyle,
+                                    attrs: { type: "submit" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(
+                                        props.isLastStep
+                                          ? "Finalizar"
+                                          : "Siguiente"
+                                      )
+                                    )
+                                  ]
+                                )
+                          ],
+                          1
+                        )
+                      ]
+                    }
+                  }
+                ])
+              },
+              [
+                _c(
+                  "h2",
+                  {
+                    staticClass: "text-info",
+                    attrs: { slot: "title" },
+                    slot: "title"
+                  },
+                  [_vm._v("Bienvenido a TeachAR")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tab-content",
+                  { attrs: { title: "Información", icon: "far fa-file-alt" } },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("div", { staticClass: "text-justify" }, [
+                          _c("h4", { staticClass: "card-title" }, [
+                            _vm._v(
+                              "\n                                        ¡Hola "
+                            ),
+                            _c("strong", {
+                              domProps: { textContent: _vm._s(_vm.user.name) }
+                            }),
+                            _vm._v("!\n                                    ")
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                        El objeto primordial de esta aplicación es plasmar el valor de Las TIC en el colegio Liceo Pedagógico San Martín,\n                                        complementando mediante la tecnología de la\n                                        "
+                            ),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "underline",
+                                attrs: {
+                                  target: "_blank",
+                                  href:
+                                    "http://realidadaumentada.info/tecnologia/"
+                                }
+                              },
+                              [_c("strong", [_vm._v("realidad aumentada")])]
+                            ),
+                            _vm._v(
+                              " la percepción e interacción del estudiante con el mundo real.\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                        A continuación, sigue este corto tutorial donde indicaremos\n                                        brevemente como puedes enriquecer la experiencia en el aula.\n                                    "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v("Att: Jorge Hernández")
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-12" }, [
+                        _c("p", { staticClass: "text-muted" }, [
+                          _c("i", [
+                            _c("strong", [
+                              _vm._v(
+                                "\n                                            “La tecnología por sí misma no es transformativa. Es la escuela, la pedagogía, la que es transformativa”\n                                        "
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tab-content",
+                  {
+                    attrs: { title: "Tecnología", icon: "far fa-play-circle" }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
                       _c(
                         "div",
-                        { staticClass: "wizard-footer-left" },
+                        {
+                          staticClass:
+                            "col-sm-12 col-md-12 col-lg-6 col-xl-6 text-justify pb-md-2"
+                        },
                         [
-                          props.activeTabIndex > 0 && !props.isLastStep
-                            ? _c(
-                                "wizard-button",
-                                {
-                                  style: props.fillButtonStyle,
-                                  nativeOn: {
-                                    click: function($event) {
-                                      props.prevTab()
-                                    }
-                                  }
-                                },
-                                [_vm._v("Anterior")]
-                              )
-                            : _vm._e()
-                        ],
-                        1
+                          _c("h4", { staticClass: "card-title text-center" }, [
+                            _vm._v(
+                              "\n                                    ¿Qué es la realidad aumentada?\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                    La realidad aumentada consiste en combinar el mundo real con el virtual mediante un proceso\n                                    informático, enriqueciendo la experiencia visual y mejorando la calidad de comunicación.\n                                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "card-text" }, [
+                            _vm._v(
+                              "\n                                    En esta tecnología se puede añadir información visual a la realidad, y crear todo tipo de experiencias interactivas.\n                                "
+                            )
+                          ])
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
                         "div",
-                        { staticClass: "wizard-footer-right" },
+                        {
+                          staticClass: "col-sm-12 col-md-12 col-lg-6 col-xl-6"
+                        },
                         [
-                          !props.isLastStep
-                            ? _c(
-                                "wizard-button",
-                                {
-                                  staticClass: "wizard-footer-right",
-                                  style: props.fillButtonStyle,
-                                  nativeOn: {
-                                    click: function($event) {
-                                      props.nextTab()
-                                    }
-                                  }
-                                },
-                                [_vm._v("Siguiente")]
-                              )
-                            : _c(
-                                "wizard-button",
-                                {
-                                  staticClass:
-                                    "wizard-footer-right finish-button",
-                                  style: props.fillButtonStyle,
-                                  nativeOn: {
-                                    click: function($event) {
-                                      return _vm.onComplete($event)
-                                    }
-                                  }
-                                },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      props.isLastStep
-                                        ? "Finalizar"
-                                        : "Siguiente"
-                                    )
-                                  )
-                                ]
-                              )
-                        ],
-                        1
-                      )
-                    ]
-                  }
-                }
-              ])
-            },
-            [
-              _c(
-                "h2",
-                {
-                  staticClass: "text-info",
-                  attrs: { slot: "title" },
-                  slot: "title"
-                },
-                [_vm._v("Bienvenido a TeachAR")]
-              ),
-              _vm._v(" "),
-              _c(
-                "tab-content",
-                { attrs: { title: "Información", icon: "far fa-file-alt" } },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-12" }, [
-                      _c("div", { staticClass: "text-justify" }, [
-                        _c("h4", { staticClass: "card-title" }, [
-                          _vm._v(
-                            "\n                                    ¡Hola "
-                          ),
-                          _c("strong", {
-                            domProps: { textContent: _vm._s(_vm.user.name) }
-                          }),
-                          _vm._v("!\n                                ")
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                                    El objeto primordial de esta aplicación es plasmar el valor de Las TIC en el colegio Liceo Pedagógico San Martín,\n                                    complementando mediante la tecnología de la\n                                    "
-                          ),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "underline",
-                              attrs: {
-                                target: "_blank",
-                                href:
-                                  "http://realidadaumentada.info/tecnologia/"
-                              }
-                            },
-                            [_c("strong", [_vm._v("realidad aumentada")])]
-                          ),
-                          _vm._v(
-                            " la percepción e interacción del estudiante con el mundo real.\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                                    A continuación, sigue este corto tutorial donde indicaremos\n                                    brevemente como puedes enriquecer la experiencia en el aula.\n                                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v("Att: Jorge Hernández")
-                        ])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-sm-12" }, [
-                      _c("p", { staticClass: "text-muted" }, [
-                        _c("i", [
-                          _c("strong", [
-                            _vm._v(
-                              "\n                                        “La tecnología por sí misma no es transformativa. Es la escuela, la pedagogía, la que es transformativa”\n                                    "
-                            )
+                          _c("div", { staticClass: "text-center" }, [
+                            _c("div", [
+                              _c("video", {
+                                attrs: {
+                                  width: "320",
+                                  height: "240",
+                                  src: "/imagenes/aumentada_info/ra_video.mp4",
+                                  poster:
+                                    "/imagenes/aumentada_info/post_video.JPG",
+                                  controls: ""
+                                }
+                              })
+                            ])
                           ])
-                        ])
-                      ])
+                        ]
+                      )
                     ])
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "tab-content",
-                { attrs: { title: "Tecnología", icon: "far fa-play-circle" } },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass:
-                          "col-sm-12 col-md-12 col-lg-6 col-xl-6 text-justify pb-md-2"
-                      },
-                      [
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "tab-content",
+                  {
+                    attrs: {
+                      title: "Aumenta la Experiencia",
+                      icon: "fas fa-cube"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _c("div", { staticClass: "col-sm-12 pl-1 pr-1" }, [
                         _c("h4", { staticClass: "card-title text-center" }, [
                           _vm._v(
-                            "\n                                ¿Qué es la realidad aumentada?\n                            "
+                            "\n                                    GUÍA\n                                "
                           )
                         ]),
                         _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                                La realidad aumentada consiste en combinar el mundo real con el virtual mediante un proceso\n                                informático, enriqueciendo la experiencia visual y mejorando la calidad de comunicación.\n                            "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("p", { staticClass: "card-text" }, [
-                          _vm._v(
-                            "\n                                En esta tecnología se puede añadir información visual a la realidad, y crear todo tipo de experiencias interactivas.\n                            "
-                          )
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "col-sm-12 col-md-12 col-lg-6 col-xl-6" },
-                      [
                         _c("div", { staticClass: "text-center" }, [
-                          _c("div", [
-                            _c("video", {
-                              attrs: {
-                                width: "320",
-                                height: "240",
-                                src: "/imagenes/aumentada_info/ra_video.mp4",
-                                poster:
-                                  "/imagenes/aumentada_info/post_video.JPG",
-                                controls: ""
-                              }
-                            })
-                          ])
+                          _c("video", {
+                            attrs: {
+                              width: "320",
+                              height: "240",
+                              src: "#",
+                              poster: "/imagenes/aumentada_info/imagen.jpg",
+                              controls: "",
+                              loop: ""
+                            }
+                          })
                         ])
-                      ]
-                    )
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "tab-content",
-                {
-                  attrs: {
-                    title: "Aumenta la Experiencia",
-                    icon: "fas fa-cube"
-                  }
-                },
-                [
-                  _c("div", { staticClass: "row" }, [
-                    _c("div", { staticClass: "col-sm-12 pl-1 pr-1" }, [
-                      _c("h4", { staticClass: "card-title text-center" }, [
-                        _vm._v(
-                          "\n                                GUÍA\n                            "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "text-center" }, [
-                        _c("video", {
-                          attrs: {
-                            width: "320",
-                            height: "240",
-                            src: "#",
-                            poster: "/imagenes/aumentada_info/imagen.jpg",
-                            controls: "",
-                            loop: ""
-                          }
-                        })
                       ])
                     ])
-                  ])
-                ]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
+                  ]
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ])
     ])
   ])
 }

@@ -2,7 +2,11 @@ require('./bootstrap');
 
 window.toastr = require('../vendors/js/extensions/toastr.min');
 window.Vue = require('vue');
-Vue.use(require('vue-resource'));
+// Vue.use(require('vue-resource'));
+var VueResource = require('vue-resource');
+Vue.use(VueResource);
+Vue.http.headers.common['X-CSRF-TOKEN'] = document.getElementById("token").getAttribute("value");
+
 require('animate.css');
 import VueYouTubeEmbed from 'vue-youtube-embed'
 Vue.use(VueYouTubeEmbed);

@@ -13,7 +13,6 @@
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
     <link rel="stylesheet" href="{{ asset('css/fontawesome-all.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset('css/aumentadas/vue-form-wizard.min.css') }}">--}}
     <style>
         html {
             overflow: scroll;
@@ -27,8 +26,6 @@
         <previstas :user="{{json_encode($user)}}"></previstas>
     </div>
 </div>
-{{--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--}}
 <script src="{{asset('js/ucomponents.js')}}"></script>
-{{--<script src="{{ asset('js/aumentadas/vue-form-wizard.js') }}"></script>--}}
 </body>
 </html>

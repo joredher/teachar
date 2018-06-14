@@ -60,10 +60,10 @@
         <script>
                 swal(
                     {
-                        title: "{{ 'Ahora, ' . session('status') }}",
+                        text: "{{ 'Ahora, ' . session('status') }}",
                         icon: "success",
                         buttons: false,
-                        timer: 4000
+                        timer: 3500
                     }).then(timer => {
                         if (timer <= 0){
                             // window.open("http://localhost:8000/")

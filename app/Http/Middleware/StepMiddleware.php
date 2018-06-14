@@ -19,16 +19,9 @@ class StepMiddleware
      */
     public function handle($request, Closure $next)
     {
-
-//        if ($request->user()->hasRole('profe') && $request->user()->last_login_at !== null) {
-//            return redirect('usuario/index');
-//        }else
-        $times = Carbon::now()->addMinute(5)->diffForHumans();
-        $ultimo = Carbon::parse($request->user()->current_sign_in_at)->diffForHumans();
         if($request->user()->hasRole('profe') && $request->user()->last_login_at === null ){
             $user = User::where('id', '=', $request->user()->id)->firstOrFail();
-//            return dd($user);
-            return response()->view('helpers.form-step.formStep', compact('user'));
+            return response()->view('usuario.form-step.formStep', compact('user'));
         }
 
         return $next($request);
