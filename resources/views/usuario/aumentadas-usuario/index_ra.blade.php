@@ -17,11 +17,11 @@
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
 
     <title>TeachAR | Experiencia Aumentada</title>
-    <script src="{{ asset('js/aumentadas/aframe.js') }}"></script>
+    <script src="{{ asset('js/aumentadas/aframe.min.js') }}"></script>
     {{--<script src="{{ asset('js/aumentadas/version master/aframe.js') }}"></script>--}}
-    <script src="{{ asset('js/aumentadas/aframe-animation-component.js') }}"></script>
-    <script src="{{ asset('js/aumentadas/aframe-extras.loaders.js') }}"></script>
-    <script src="{{ asset('js/aumentadas/aframe-ar.js') }}"></script>
+    <script src="{{ asset('js/aumentadas/aframe-animation-component.min.js') }}"></script>
+    <script src="{{ asset('js/aumentadas/aframe-extras.loaders.min.js') }}"></script>
+    <script src="{{ asset('js/aumentadas/aframe-ar.min.js') }}"></script>
     {{--<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>--}}
     {{--<script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>--}}
     {{--<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.loaders.min.js"></script>--}}
@@ -37,6 +37,6 @@
 <script src="{{asset('js/ucomponents.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.min.js"></script>
-<script src="{{asset('js/aumentadas/webar.js')}}"></script>
+{{--<script src="{{asset('js/aumentadas/webar.js')}}"></script>--}}
 </body>
 </html>

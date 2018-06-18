@@ -75,8 +75,8 @@
 @section('scripts')
     @include('helpers.FileInput')
     @include('helpers.ProgressBar')
-    <script>
-        var app = new Vue({
+    <script> //var app =
+        new Vue({
             el: '#contenido',
             data : {
                 objetos:[],

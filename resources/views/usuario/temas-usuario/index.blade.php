@@ -15,7 +15,7 @@
     </div>
 @endsection
 
-@section('contenido-item', 'TEMAS')
+@section('contenido-item','Temas de ' . $modulo->nombre)
 
 @section('contenido')
     <section id="ucontenido">

@@ -73,10 +73,11 @@
                             <div class="row">
                                 <div class="col-sm-12 pl-1 pr-1">
                                     <h4 class="card-title text-center">
-                                        GUÍA
+                                        Vídeo Turorial
                                     </h4>
                                     <div class="text-center">
-                                        <video width="320" height="240"  src="#" poster="/imagenes/aumentada_info/imagen.jpg" controls loop></video>
+                                        <video width="320" height="240"
+                                               src="/imagenes/aumentada_info/teachAR - Tutotial.mp4" poster="/imagenes/aumentada_info/post_tuto.JPG" controls></video>
                                     </div>
                                 </div>
                             </div>

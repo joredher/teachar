@@ -75,7 +75,8 @@
 @section('scripts')
     @include('helpers.switch')
     <script>
-        var app = new Vue({
+        // var app =
+        new Vue({
             el: '#contenido',
             data : {
                 docentes:[],

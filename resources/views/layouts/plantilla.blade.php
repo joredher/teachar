@@ -81,13 +81,13 @@
 @section('scriptjs')
 
     <script type="text/javascript">
-        (function ($) {
-            $(window).on("load", function () {
-                $(".scroll-user").mCustomScrollbar({
-                    axis:"y"
-                });
-            })
-        })(jQuery);
+        // (function ($) {
+        //     $(window).on("load", function () {
+        //         $(".scroll-user").mCustomScrollbar({
+        //             axis:"y"
+        //         });
+        //     })
+        // })(jQuery);
 
         $(function () {
             'use strict';

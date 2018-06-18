@@ -157,12 +157,25 @@ body > .scroll-user{
 }
 
 body > div .container-fluid {
-    padding: 20px;
-    padding-top: 210px;
+    /*padding: 20px;*/
+    padding-top: 150px;
     z-index: -1;
+    padding-right: 0;
+    padding-left: 0;
+    /*padding-top: 210px;*/
     /*z-index: -1;*/
     /*180px*/
     /*padding: 60px 15px 0;*/
+}
+
+.scrolly-viewport{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+}
+
+.vertical-scrollbar-demo{
+    height: -webkit-fill-available !important;
 }
 
 .mCSB_scrollTools {
@@ -182,8 +195,12 @@ body > div .container-fluid {
 }
 
 /*Scroll*/
-.vuescroll-content{
+.scrolly-bar{
+    border: 8.5px solid transparent !important;
+}
 
+.scrolly-bar:before{
+    background: rgba(34, 138, 230, 0.3) !important;
 }
 
 
@@ -530,12 +547,17 @@ nav .navbar-toggler .navbar-toggler-icon{
     padding: 30px;
     position: relative;
     cursor: pointer;
-    background-color: #949fb0;
+    background-color: rgba(52, 125, 231, 0.8);
+    /*background-color: #949fb0;*/
     color: #eceef1;
     font-size: 1.5em;
     text-transform: uppercase;
     text-align: center;
     transition: all 0.2s ease-in-out;
+}
+
+.tcard__inner.desactivo{
+    background-color: #949fb0;
 }
 
 .tcard__inner:after {
@@ -811,7 +833,11 @@ code {
     body > div .container-fluid {
         /*padding-top: 150px;*/
         padding-top: 0;
-        margin-top: 5%;
+        /*margin-top: 5%;*/
+    }
+
+    .scrolly-viewport{
+        padding-top: 20px;
     }
 
     .offcanvas-collapse {
@@ -1001,8 +1027,9 @@ code {
     height: 100%;
     border-radius: 4%;
 }
-.wizard-tab-content .wizard-tab-container:nth-child(3) .row div:nth-child(3) div video{
-    height: 240px;
+.wizard-tab-content .wizard-tab-container:nth-child(3) .row div div video{
+    height: auto;
+    width: 60%;
 }
 .wizard-tab-content .wizard-tab-container:nth-child(2){
     padding: 5px 20px 10px;
@@ -1022,6 +1049,7 @@ code {
     }
 
     .wizard-tab-content .wizard-tab-container:nth-child(3) .row div div video{
-        height: 100%;
+        /*height: 100%;*/
+        width: 100%;
     }
 }

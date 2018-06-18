@@ -100,9 +100,8 @@
     @include('helpers.switch')
     @include('helpers.vcropp')
     <script src="{{ asset('js/jquery.stringToSlug.min.js') }}"></script>
-    <script>
-
-        var app = new Vue({
+    <script> //var app =
+        new Vue({
             el: '#contenido',
             data : {
                 modulos :[],
