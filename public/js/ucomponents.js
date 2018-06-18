@@ -52237,7 +52237,7 @@ var render = function() {
                               width: "320",
                               height: "240",
                               src:
-                                "/imagenes/aumentada_info/teachAR - Tutotial.mp4",
+                                "/imagenes/aumentada_info/teachAR - Tutorial.mp4",
                               poster: "/imagenes/aumentada_info/post_tuto.JPG",
                               controls: ""
                             }
