@@ -219,7 +219,6 @@
                 modelNbr = (modelNbr + inc) % tema.bd_objeto.length;
                 modelNbr = modelNbr < 0 ? tema.bd_objeto.length + modelNbr : modelNbr;
                 console.log(">>> Model " + tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
-
                 // document.getElementById("error").style.display = "none";
                 // document.getElementById("loader").style.display = "none";
                 this.RotationStop();
@@ -227,7 +226,6 @@
                 for (var i=0; i < document.getElementsByName("model").length; i++){
                     // document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
                     // document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
-
                     switch (tema.bd_objeto[modelNbr].format){
                         case "gltf":
                             document.getElementById("gltf1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);

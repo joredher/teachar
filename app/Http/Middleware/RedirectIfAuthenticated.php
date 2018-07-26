@@ -21,7 +21,6 @@ class RedirectIfAuthenticated
 //            return redirect('/home');
             if ($request->user()->hasRole('profe')){
                 return redirect('/usuario/');
-
             }
             if ($request->user()->hasRole('admin')){
                 return redirect('/administracion/configuracion/');

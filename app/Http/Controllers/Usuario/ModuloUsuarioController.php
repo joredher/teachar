@@ -15,9 +15,9 @@ class ModuloUsuarioController extends Controller
 
     public function show(Request $request)
     {
-//        $request->user()->authorizeRoles('profe');
-// ['modulos' => $modulos];
         $modulos = BdModulo::all();
         return view('usuario.modulos-usuario.index', compact('modulos') );
     }
 }
+//        $request->user()->authorizeRoles('profe');
+// ['modulos' => $modulos];

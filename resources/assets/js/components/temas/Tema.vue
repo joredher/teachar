@@ -1,6 +1,6 @@
 <template>
     <div>
-        <scrolly class="vertical-scrollbar-demo" :passive-scroll="true" @scrollchange="logScrollLayout">
+        <scrolly class="vertical-scrollbar-demo" :passive-scroll="true">
             <scrolly-viewport>
                 <div>
                     <div class="cards slideInDown animated">
@@ -42,7 +42,7 @@
         props:['modulo'],
         data: function () {
             return {
-                // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,
+                // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,@scrollchange="logScrollLayout"
                 coloress: ['color_bg_segundo', 'color_bg_tercero','color_bg_cuarto'],
             }
         },

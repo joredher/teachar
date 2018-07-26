@@ -50203,9 +50203,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         desactivado: function desactivado(modulo) {
             return modulo.estado === 'Inactivo';
-        },
-        logScrollLayout: function logScrollLayout(scrollLayout) {
-            console.log('scrollLayout:', scrollLayout);
         }
     },
     mounted: function mounted() {}
@@ -50226,8 +50223,7 @@ var render = function() {
         "scrolly",
         {
           staticClass: "vertical-scrollbar-demo",
-          attrs: { "passive-scroll": true },
-          on: { scrollchange: _vm.logScrollLayout }
+          attrs: { "passive-scroll": true }
         },
         [
           _c("scrolly-viewport", [
@@ -50430,7 +50426,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50690,7 +50686,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             modelNbr = (modelNbr + inc) % tema.bd_objeto.length;
             modelNbr = modelNbr < 0 ? tema.bd_objeto.length + modelNbr : modelNbr;
             console.log(">>> Model " + tema.bd_objeto[modelNbr].src.split("/")[1] + " (" + (modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
-
             // document.getElementById("error").style.display = "none";
             // document.getElementById("loader").style.display = "none";
             this.RotationStop();
@@ -50698,7 +50693,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             for (var i = 0; i < document.getElementsByName("model").length; i++) {
                 // document.getElementsByName("model")[i].setAttribute("animation__scale", "to", null);
                 // document.getElementsByName("model")[i].setAttribute("animation__position", "to", null);
-
                 switch (tema.bd_objeto[modelNbr].format) {
                     case "gltf":
                         document.getElementById("gltf1").setAttribute('src', '/storage/' + tema.bd_objeto[modelNbr].src);
@@ -51520,7 +51514,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['modulo'],
     data: function data() {
         return {
-            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,
+            // coloress: ['bg-success', 'bg-dark', 'bg-danger','bg-info'] 'color_bg_primero', ,@scrollchange="logScrollLayout"
             coloress: ['color_bg_segundo', 'color_bg_tercero', 'color_bg_cuarto']
         };
     },
@@ -51597,8 +51591,7 @@ var render = function() {
         "scrolly",
         {
           staticClass: "vertical-scrollbar-demo",
-          attrs: { "passive-scroll": true },
-          on: { scrollchange: _vm.logScrollLayout }
+          attrs: { "passive-scroll": true }
         },
         [
           _c("scrolly-viewport", [

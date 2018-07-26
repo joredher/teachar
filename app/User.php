@@ -46,7 +46,7 @@ class User extends Authenticatable
         if ($this->hasAnyRole($roles)){
             return true;
         }
-        return view('errors.404','Acción no encontrada',404);
+        return response()->view('errors.404', [], 404) ? abort(404,'No autorizado') : '';
     }
 
     public function hasAnyRole($roles){

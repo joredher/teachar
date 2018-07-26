@@ -15,8 +15,9 @@ class AuthUserMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $request->user()->authorizeRoles(['profe']);
-
+//        if ($request->user()->authorizeRoles(['profe'])) {
+            $request->user()->authorizeRoles(['profe']);
+//        }
         return $next($request);
     }
 }

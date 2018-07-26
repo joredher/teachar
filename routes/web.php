@@ -30,7 +30,7 @@ Route::group(['middleware' => ['AuthAdmin']], function (){
         ->group(function (){
             Route::get('home', 'AdministradorController@index')->name('/');
 
-            Route::get('docentes','DocentesController@vIndex')->name('docentes');
+            Route::get('docentes','DocentesController@index')->name('docentes');
             Route::post('obtener-docentes','DocentesController@obtener');
             Route::post('guardar-docente','DocentesController@guardarDocente');
             Route::delete('eliminar-docente', 'DocentesController@destroy');

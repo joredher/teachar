@@ -18,7 +18,7 @@ class DocentesController extends Controller
         $this->middleware('auth');
     }
 
-    public function vIndex(Request $request){
+    public function index(Request $request){
         $request->user()->authorizeRoles('admin');
         return view('administracion.configuracion.docentes.index');
     }

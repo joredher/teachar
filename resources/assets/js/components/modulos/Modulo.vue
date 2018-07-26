@@ -1,6 +1,6 @@
 <template>
     <div>
-    <scrolly class="vertical-scrollbar-demo" :passive-scroll="true" @scrollchange="logScrollLayout">
+    <scrolly class="vertical-scrollbar-demo" :passive-scroll="true">
         <scrolly-viewport>
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pt-sm-0 pt-md-3 pt-lg-3 pt-xl-3 pb-5 zoomIn animated" v-for="modulo in modulos">
@@ -56,10 +56,10 @@
            desactivado(modulo){
                return modulo.estado === 'Inactivo';
            },
-
-           logScrollLayout(scrollLayout) {
-               console.log('scrollLayout:', scrollLayout);
-           }
+           // @scrollchange="logScrollLayout"
+           // logScrollLayout(scrollLayout) {
+           //     console.log('scrollLayout:', scrollLayout);
+           // }
 
 
        },
