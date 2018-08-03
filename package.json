@@ -35,6 +35,7 @@
     "vue-scrolly": "^0.9.3",
     "vue-template-compiler": "^2.5.16",
     "vue-youtube-embed": "^2.1.3",
+    "vue2-scrollbar": "0.0.3",
     "vuejs-paginator": "^2.0.2"
   }
 }

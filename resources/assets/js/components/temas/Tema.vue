@@ -1,7 +1,7 @@
 <template>
     <div>
-        <scrolly class="vertical-scrollbar-demo" :passive-scroll="true">
-            <scrolly-viewport>
+        <vue-scrollbar classes="my-scrollbar" ref="Scrollbar">
+            <div class="otroScroll">
                 <div>
                     <div class="cards slideInDown animated">
                         <a class="tcard [ is-collapsed ]"  v-for="tema in modulo.bd_tema" >
@@ -29,14 +29,13 @@
                         </a>
                     </div>
                 </div>
-            </scrolly-viewport>
-            <scrolly-bar axis="y"></scrolly-bar>
-        </scrolly>
+            </div>
+        </vue-scrollbar>
         <!--<div id="player"></div>-->
     </div>
 </template>
 <script>
-    import { Scrolly, ScrollyViewport, ScrollyBar } from 'vue-scrolly';
+    import VueScrollbar from 'vue2-scrollbar';
     export default {
         name:'temas',
         props:['modulo'],
@@ -47,9 +46,7 @@
             }
         },
         components: {
-            Scrolly,
-            ScrollyViewport,
-            ScrollyBar
+            VueScrollbar
         },
         methods:{
             color() {
@@ -60,7 +57,10 @@
                 return tema.estado === 'Inactivo';
             },
             logScrollLayout(scrollLayout) {
-                console.log('scrollLayout:', scrollLayout);
+                let scroll = scrollLayout;
+            },
+            someMethod() {
+                this.$refs.Scrollbar.scrollToY(100)
             }
         },
         mounted(){
@@ -107,3 +107,16 @@
         }
     };
 </script>
+
+<style scoped>
+    .my-scrollbar{
+        width: 100% !important;
+        min-width: 300px;
+        max-height: 450px;
+    }
+
+    /*The Content*/
+    .scroll-me{
+        min-width: 750px;
+    }
+</style>

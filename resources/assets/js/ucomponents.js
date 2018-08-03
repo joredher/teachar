@@ -14,6 +14,7 @@ import VueFormWizard from 'vue-form-wizard'
 import 'vue-form-wizard/dist/vue-form-wizard.min.css'
 Vue.use(VueFormWizard);
 
+require('vue2-scrollbar/dist/style/app.css');
 import swal from 'sweetalert';
 
  Vue.component('modulos', require('./components/modulos/Modulo.vue'));
