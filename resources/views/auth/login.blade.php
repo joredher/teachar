@@ -47,7 +47,7 @@
                     <p>Ingeniería de Sistemas</p>
                 </div>
                 <div class="desarrolladores">
-                    <p>Edisson Fernando Quiñonez Díaz</p>
+                    <p>Mónica Andrea Suaréz Vargas</p>
                     <p>Jorge Eduardo Hernández Oropeza</p>
                 </div>
             </div>
