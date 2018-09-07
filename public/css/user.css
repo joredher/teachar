@@ -137,7 +137,16 @@
 /*.layout_contenedor:hover .centro img{*/
     /*opacity: 1;*/
 /*}*/
+.infor {
+    float: right;
+    padding-right: 0;
+    text-decoration: none !important;
+    color: lightcoral !important;
+}
 
+.infor i {
+    font-size: 1.5em !important;
+}
 /* CSS de Módulos y Temas
 -------------------------------------------------- */
 

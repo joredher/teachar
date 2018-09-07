@@ -74,6 +74,12 @@
         <footer class="footer">
             <div class="container">
                 <span class="text-muted">TeachAR - Ciencias Básicas.</span>
+                <a id="home"
+                   data-toggle="popover"
+                   data-trigger="hover" class="text-black infor"
+                   target="_blank" href="https://drive.google.com/open?id=1_lAhRkhgO3I_Ix2xKomOGRgmYfUcuIJr">
+                    <i class="fas fa-info-circle fa-w-16 fa-2x"></i>
+                </a>
             </div>
         </footer>
 @endsection
@@ -98,6 +104,11 @@
             $('.navbar-collapse span').click(function () {
                 $('.navbar-collapse').collapse('hide')
             })
+
+            $('[data-toggle="popover"]').popover({
+                'placement': 'top',
+                'content': '¡Manual de Usuario!'
+            });
         });
     </script>
 
