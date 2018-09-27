@@ -200,9 +200,7 @@
                                         var index = this.objetos.indexOf(this.objetoEnEdicion);
                                         toastr["success"]('Objeto actualizado correctamente.');
                                     }else{
-                                        // console.log(response);
                                         // this.objeto.id = response.body.id;
-                                        // console.log(formData);
                                         setTimeout(() => {
                                             app.isUploading = false;
                                             this.files = [];

@@ -5,7 +5,7 @@
             <img id="loader" src="/imagenes/preloader_ra.gif" alt="loading">
             <img id="error" src="/imagenes/error.png" alt="error">
             <div>
-                <a-scene id="scene" ejemplo stats="true" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+                <a-scene id="scene" ejemplo stats="false" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
                     <!--vr-mode-ui="enabled: false"-->
                     <a-assets>
                         <a-asset-item  id="obj1" src="" ></a-asset-item>

@@ -37,7 +37,7 @@
                             <option class="text-dark" v-for="tema in temas" v-bind:value="tema.id" :hidden="tema.estado === 'Inactivo'" v-text="tema.nombre"></option>
                         </select>
                     </div>
-                    <div class="form-group col-xs-12 col-sm-12">
+                    <div class="form-group col-xs-12 col-sm-12" hidden>
                         <progress-bar :progress="progress" v-if="isUploading"></progress-bar>
                     </div>
                 </div>

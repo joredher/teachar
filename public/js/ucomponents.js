@@ -52183,7 +52183,7 @@ var render = function() {
               attrs: {
                 id: "scene",
                 ejemplo: "",
-                stats: "true",
+                stats: "false",
                 arjs:
                   "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
               }
