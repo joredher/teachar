@@ -78,24 +78,26 @@
     <script> //var app =
         new Vue({
             el: '#contenido',
-            data : {
-                objetos:[],
-                resource_url : '/administracion/configuracion/obtener-objeto',
-                temas:[],
-                datos : {
-                    busqueda :''
-                },
-                objeto :{},
-                modal:{
-                    title:'',
-                },
-                files:'',
-                progress: 0,
-                isUploading: false,
-                disabledUploadButton: true,
-                titulo:'',
-                tema_id:'',
-                objetoEnEdicion : '',
+            data () {
+                return {
+                    objetos:[],
+                    resource_url : '/administracion/configuracion/obtener-objeto',
+                    temas:[],
+                    datos : {
+                        busqueda :''
+                    },
+                    objeto :{},
+                    modal:{
+                        title:'',
+                    },
+                    files: [],
+                    progress: 0,
+                    isUploading: false,
+                    disabledUploadButton: true,
+                    titulo:'',
+                    tema_id:'',
+                    objetoEnEdicion : '',
+                }
             },
             components:{
                 VPaginator: VuePaginator
@@ -183,9 +185,9 @@
                             formData.append('tema', this.objeto.tema_id);
 
                             // this.$refs.file.value = [];
-
                             this.$http.post('/administracion/configuracion/guardar-objeto', formData, {
                                 onUploadProgress: e => {
+                                    console.log('Cargas', e)
                                     if (e.lengthComputable){
                                         this.progress = (e.loaded / e.total) * 10;
                                         console.log(this.progress)

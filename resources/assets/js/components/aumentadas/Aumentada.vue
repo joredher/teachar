@@ -5,16 +5,20 @@
             <img id="loader" src="/imagenes/preloader_ra.gif" alt="loading">
             <img id="error" src="/imagenes/error.png" alt="error">
             <div>
-                <a-scene id="scene" ejemplo stats="false" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' vr-mode-ui="enabled: false">
+                <a-scene id="scene" ejemplo stats="true" arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
+                    <!--vr-mode-ui="enabled: false"-->
                     <a-assets>
                         <a-asset-item  id="obj1" src="" ></a-asset-item>
                         <a-asset-item  id="mtl1" src="" ></a-asset-item>
                         <a-asset-item  id="gltf1" src="" ></a-asset-item>
+                        <a-asset-item  id="fbx1" src="" ></a-asset-item>
+                        <a-asset-item  id="dae1" src="" ></a-asset-item>
                     </a-assets>
 
                     <a-marker v-for="marker in markers"
                               :key="marker.id" v-bind:preset="marker.name" v-bind:url='marker.url' v-bind:type='marker.type'>
-                        <a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>
+                        <!--<a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>-->
+                        <!--<a-entity light="type: hemisphere; color: #fefddd; groundColor: #fff; intensity: 0.5"></a-entity>-->
 
                         <a-entity
                                 name="rotation"
@@ -303,15 +307,33 @@
 
                 switch (objeto.format){
                     case "gltf":
+                        valueId.removeAttribute("collada-model");
+                        valueId.removeAttribute("fbx-model");
                         valueId.removeAttribute("obj-model");
                         document.getElementById("gltf1").setAttribute('src', '/storage/' + objeto.src);
                         valueId.setAttribute("gltf-model", "#gltf1");
                         break;
                     case "obj":
+                        valueId.removeAttribute("collada-model");
+                        valueId.removeAttribute("fbx-model");
                         valueId.removeAttribute("gltf-model");
                         document.getElementById("obj1").setAttribute('src', '/storage/' + objeto.src);
                         document.getElementById("mtl1").setAttribute('src', '/storage/' + objeto.material);
                         valueId.setAttribute("obj-model",  "obj: #obj1; mtl: #mtl1");
+                        break;
+                    case "fbx":
+                        valueId.removeAttribute("collada-model");
+                        valueId.removeAttribute("gltf-model");
+                        valueId.removeAttribute("obj-model");
+                        document.getElementById("fbx1").setAttribute('src', '/storage/' + objeto.src);
+                        valueId.setAttribute("fbx-model", "#fbx1");
+                        break;
+                    case "dae":
+                        valueId.removeAttribute("gltf-model");
+                        valueId.removeAttribute("fbx-model");
+                        valueId.removeAttribute("obj-model");
+                        document.getElementById("dae1").setAttribute('src', '/storage/' + objeto.src);
+                        valueId.setAttribute("collada-model", "#dae1");
                         break;
                     default:
                         console.log(">>> Format\"" + objeto.format + "\" unknown!");
@@ -327,7 +349,7 @@
                 console.log(">>> Stop rotation");
                 var rotateBtn = $(".rotate-obj");
                 // this.nextRotationEvent = "rotation-restart";
-                let valueRotate = this.valueRotation
+                let valueRotate = this.valueRotation;
                 Object.keys(valueRotate).forEach((key) => {
                     rotateBtn.removeClass("rotate_fade");
                     valueRotate[key].emit("rotation-pause");
@@ -338,7 +360,7 @@
             RotationOnOff: function(){
                 console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
                 var rotateBtn = $(".rotate-obj");
-                let valueRotate = this.valueRotation
+                let valueRotate = this.valueRotation;
 
                 Object.keys(valueRotate).forEach((key) => {
                    rotateBtn.addClass("rotate_fade");

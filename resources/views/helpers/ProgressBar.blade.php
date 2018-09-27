@@ -1,7 +1,7 @@
 <script type="text/x-template" id="progressBar">
     <div class="progress">
         <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" :style="{ width: getProgress }" >
-            @{{ progress < 100 ? getProgress : "Cargado Completo!" }}
+            @{{ progress < 100 ? getProgress : "Cargado Completo!"  }}
         </div>
     </div>
 </script>

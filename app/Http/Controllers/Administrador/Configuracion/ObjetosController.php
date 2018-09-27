@@ -13,11 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ObjetosController extends Controller
 {
-
-        private $file_ext = ['obj','gltf','dae'];
-        private $material_ext = ['mtl','bin'];
-        private $image_ext = ['jpg','jpeg','png','PNG','JPG'];
-
     /**
      * Constructor
      */
@@ -88,7 +83,6 @@ class ObjetosController extends Controller
 
     private function getDir($id)
     {
-//        $temas = BdTema::all();
         $temas = BdTema::where('id', '=', $id)->get();
         foreach ($temas as $tema) {
             $nombre = preg_replace("/[^a-zA-Z0-9\_\-]+/", "_", $tema->nombre);
@@ -105,67 +99,74 @@ class ObjetosController extends Controller
                 $titleName = preg_replace("/[^a-zA-Z0-9\_\-]+/", "_", $titulo);
             }
 
-            if ($request->get('tema')) {
-                $tema = $request->get('tema');
-            }
+            if ($request->get('tema')) { $tema = $request->get('tema'); }
 
             if ($request->hasFile('file')){
                 $objetos = $request->file('file');
-//                dd($objetos);
                 foreach ($objetos as $objeto) {
                     $originalFileName = $objeto->getClientOriginalName();
-                    $extension = $objeto->getClientOriginalExtension();
                     $fileNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-//                    dd($extension);
-                    switch ($extension) {
-                        case ('gltf'):
-                            $exten = $extension;
-//                            dd($prueba);
-                            $fileName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
-                            $objeto->storeAs('public', $uploadedFileName);
-                            break;
-                        case ('dae') :
-                            $exten = $extension;
-                            $fileName = str_slug($fileNameOnly) . "." . $extension;
-                            $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
-                            $objeto->storeAs('public', $uploadedFileName);
-                            break;
-                        case ('obj') :
-                            $exten = $extension;
-                            if ($extension == 'obj'){
-                                $fileName = str_slug($fileNameOnly) . "." . $extension;
-                                $uploadedFileName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $fileName;
-                                $objeto->storeAs('public', $uploadedFileName);
+                    $rutaArchivo = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' .$titleName . '/' . $fileNameOnly;
+                    Storage::extractTo('public/' . $rutaArchivo, $objeto->path());
+                    $files = Storage::files('public/' . $rutaArchivo);
+
+                    foreach ($files as $key=>$file) {
+                        $arch = $files[$key];
+                        $exp1 = explode('/', $arch);
+                        $exp2 = explode('.', array_last($exp1));
+                        $nameFi = $exp2[0];
+                        if (array_key_exists(1, $exp1) && array_key_exists(1, $exp2)) {
+                            $extension = $exp2[1];
+                            switch ($extension) {
+                                case ('gltf'):
+                                    $exten = $extension;
+                                    $fileName = $nameFi;
+                                    $uploadedFileName = substr($arch, 7);
+                                    break;
+                                case ('dae') :
+                                    $exten = $extension;
+                                    $fileName = $nameFi;
+                                    $uploadedFileName = substr($arch, 7);
+                                    break;
+                                case ('obj') :
+                                    $exten = $extension;
+                                    if ($extension == 'obj'){
+                                        $fileName = $nameFi;
+                                        $uploadedFileName = substr($arch, 7);
+                                    }
+                                    break;
+                                case ('mtl'):
+                                    $extenMtl = $extension;
+                                    $materialNameOnly = $nameFi;
+                                    $materialName = $materialNameOnly;
+                                    $uploadedMaterialName = substr($arch, 7);
+                                    break;
+                                case ('bin'):
+                                    $extenBin = $extension;
+                                    $binNameOnly = $nameFi;
+                                    $binName = $binNameOnly;
+                                    $uploadedBinName = substr($arch, 7);
+                                    break;
+                                case ('fbx'):
+                                    $exten = $extension;
+                                    $fileName = $nameFi;
+                                    $uploadedFileName = substr($arch, 7);
+                                    break;
+                                default:
+                                    if ($extension === 'png' || $extension == 'jpg') {
+                                        $defaultNameOnly = $nameFi;
+                                        $defaultName = $defaultNameOnly;
+                                        $uploadedDefaultName = substr($arch, 7);
+                                    }
                             }
-                            break;
-                        case ('mtl'):
-                            $extenMtl = $extension;
-                            $materialNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                            $materialName = str_slug($materialNameOnly) . "." . $extension;
-                            $uploadedMaterialName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $materialName;
-                            $objeto->storeAs('public', $uploadedMaterialName);
-                            break;
-                        case ('bin'):
-                            $extenBin = $extension;
-                            $binNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                            $binName = str_slug($binNameOnly) . "." . $extension;
-                            $uploadedBinName = 'assets_ar/'. $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $binName;
-                            $objeto->storeAs('public', $uploadedBinName);
-                            break;
-                        default:
-                            if ($extension === 'png' || $extension == 'jpg') {
-                                $defaultNameOnly = pathinfo($originalFileName, PATHINFO_FILENAME);
-                                $defaultName = str_slug($defaultNameOnly) . "." . $extension;
-                                $uploadedDefaultName = 'assets_ar/' . $this->getDir($request->get('tema')) . '/' . $titleName . '/' . $defaultName;
-                                $objeto->storeAs('public', $uploadedDefaultName);
-                            }
+                        } else {
+                            $defaultNameOnly = $nameFi;
+                            $defaultName = $defaultNameOnly;
+                            $uploadedDefaultName = substr($arch, 7);
+                        }
                     }
                 }
             }
-
-            $all_ext = implode(',', $this->file_ext);
-//            $all_ext = implode(',', $this->allExtensions());
 
             if ($request->id != '') {
                 //update
@@ -229,23 +230,27 @@ class ObjetosController extends Controller
                             $objeto->material = 'default';
                         }
                         break;
+                    case ('fbx'):
+                        $objeto->material = 'default';
+                        break;
+                    case ('dae'):
+                        $objeto->material = 'default';
+                        break;
                 }
 
                 $objeto->tema_id = $tema;
                 if ($extension != $exten){
-//                    unset($extension);
                     $objeto->format = $exten;
                 }else{
                     $objeto->format = $extension;
                 }
-                $objeto->scaleInc = 1;
-                $objeto->scale = '1 1 1';
+                $objeto->scaleInc = 0.5;
+                $objeto->scale = '0.5 0.5 0.5';
                 $objeto->positionH = '0 0 0';
                 $objeto->rotationH = '0 180 0';
                 $objeto->positionV = '0 0 0';
                 $objeto->rotationV = '90 180 0';
                 $objeto->save();
-
 
                 return response()->json([
                     'estado' => 'ok',

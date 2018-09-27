@@ -51680,7 +51680,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51691,6 +51691,10 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -51999,15 +52003,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             switch (objeto.format) {
                 case "gltf":
+                    valueId.removeAttribute("collada-model");
+                    valueId.removeAttribute("fbx-model");
                     valueId.removeAttribute("obj-model");
                     document.getElementById("gltf1").setAttribute('src', '/storage/' + objeto.src);
                     valueId.setAttribute("gltf-model", "#gltf1");
                     break;
                 case "obj":
+                    valueId.removeAttribute("collada-model");
+                    valueId.removeAttribute("fbx-model");
                     valueId.removeAttribute("gltf-model");
                     document.getElementById("obj1").setAttribute('src', '/storage/' + objeto.src);
                     document.getElementById("mtl1").setAttribute('src', '/storage/' + objeto.material);
                     valueId.setAttribute("obj-model", "obj: #obj1; mtl: #mtl1");
+                    break;
+                case "fbx":
+                    valueId.removeAttribute("collada-model");
+                    valueId.removeAttribute("gltf-model");
+                    valueId.removeAttribute("obj-model");
+                    document.getElementById("fbx1").setAttribute('src', '/storage/' + objeto.src);
+                    valueId.setAttribute("fbx-model", "#fbx1");
+                    break;
+                case "dae":
+                    valueId.removeAttribute("gltf-model");
+                    valueId.removeAttribute("fbx-model");
+                    valueId.removeAttribute("obj-model");
+                    document.getElementById("dae1").setAttribute('src', '/storage/' + objeto.src);
+                    valueId.setAttribute("collada-model", "#dae1");
                     break;
                 default:
                     console.log(">>> Format\"" + objeto.format + "\" unknown!");
@@ -52161,10 +52183,9 @@ var render = function() {
               attrs: {
                 id: "scene",
                 ejemplo: "",
-                stats: "false",
+                stats: "true",
                 arjs:
-                  "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;",
-                "vr-mode-ui": "enabled: false"
+                  "trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
               }
             },
             [
@@ -52175,7 +52196,11 @@ var render = function() {
                   _vm._v(" "),
                   _c("a-asset-item", { attrs: { id: "mtl1", src: "" } }),
                   _vm._v(" "),
-                  _c("a-asset-item", { attrs: { id: "gltf1", src: "" } })
+                  _c("a-asset-item", { attrs: { id: "gltf1", src: "" } }),
+                  _vm._v(" "),
+                  _c("a-asset-item", { attrs: { id: "fbx1", src: "" } }),
+                  _vm._v(" "),
+                  _c("a-asset-item", { attrs: { id: "dae1", src: "" } })
                 ],
                 1
               ),
@@ -52192,13 +52217,6 @@ var render = function() {
                     }
                   },
                   [
-                    _c("a-entity", {
-                      attrs: {
-                        light:
-                          "type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"
-                      }
-                    }),
-                    _vm._v(" "),
                     _c(
                       "a-entity",
                       {
