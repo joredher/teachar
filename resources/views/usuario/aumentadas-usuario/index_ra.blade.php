@@ -17,8 +17,10 @@
     <link rel="stylesheet" href="{{asset('css/user.css')}}">
 
     <title>TeachAR | Experiencia Aumentada</title>
-    {{--<script src="{{ asset('js/aumentadas/version master/aframe.js') }}"></script>--}}
-    <script src="{{ asset('js/aumentadas/aframe.min.js') }}"></script>
+    <script src="{{ asset('js/aumentadas/version master/aframe.min.js') }}"></script>
+    {{--<script src="{{ asset('js/aumentadas/aframe.js') }}"></script>--}}
+    {{--<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>--}}
+    {{--<script src="{{ asset('js/aumentadas/aframe.min.js') }}"></script>--}}
     <script src="{{ asset('js/aumentadas/aframe-animation-component.min.js') }}"></script>
     <script src="{{ asset('js/aumentadas/aframe-extras.loaders.min.js') }}"></script>
     <script src="{{ asset('js/aumentadas/aframe-ar.min.js') }}"></script>

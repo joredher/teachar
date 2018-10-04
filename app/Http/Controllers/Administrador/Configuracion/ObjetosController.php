@@ -93,6 +93,7 @@ class ObjetosController extends Controller
 
     public function guardar(Request $request)
     {
+//        dd($request->all());
         try {
             if (Input::get('titulo')) {
                 $titulo = $request->input('titulo');
@@ -221,6 +222,8 @@ class ObjetosController extends Controller
                             unset($extenMtl);
                             $objeto->material = 'default';
                         }
+                        $objeto->scaleInc = 0.082;
+                        $objeto->scale = '0.08 0.08 0.08';
                         break;
                     case ('gltf'):
                         if (isset($extenBin)){
@@ -229,12 +232,18 @@ class ObjetosController extends Controller
                             unset($extenBin);
                             $objeto->material = 'default';
                         }
+                        $objeto->scaleInc = 0.0065;
+                        $objeto->scale = '0.006 0.006 0.006';
                         break;
                     case ('fbx'):
                         $objeto->material = 'default';
+                        $objeto->scaleInc = 0.8;
+                        $objeto->scale = '0.8 0.8 0.8';
                         break;
                     case ('dae'):
                         $objeto->material = 'default';
+                        $objeto->scaleInc = 0.65;
+                        $objeto->scale = '0.6 0.6 0.6';
                         break;
                 }
 
@@ -244,8 +253,6 @@ class ObjetosController extends Controller
                 }else{
                     $objeto->format = $extension;
                 }
-                $objeto->scaleInc = 0.5;
-                $objeto->scale = '0.5 0.5 0.5';
                 $objeto->positionH = '0 0 0';
                 $objeto->rotationH = '0 180 0';
                 $objeto->positionV = '0 0 0';

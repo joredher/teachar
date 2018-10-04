@@ -66,7 +66,7 @@
                     <i class="fas fa-caret-left fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-caret-left fa-w-16 fa-3x"></i>
                 </a>
-                <a  class="video-info btn btn_push"  data-toggle="modal" data-target="#myVideo"  @click.prevent="mostrar(tema)" >
+                <a  class="video-info btn btn_push" :data-toggle="tema.bd_objeto.length ? 'modal' : null" data-target="#myVideo"  @click.prevent="tema.bd_objeto.length ? mostrar(tema) : null" >
                     <i class="fas fa-lightbulb fa-w-16 fa-3x"></i>
                     <i class="icon-shadow fas fa-lightbulb fa-w-16 fa-3x"></i>
                 </a>
@@ -144,9 +144,6 @@
         created(){
           console.log(this.tema.bd_objeto);
         },
-        computed:{
-
-        },
         data: function () {
             return {
                 markers:[
@@ -216,7 +213,7 @@
             });
 
             // COD COMPONENETES RA
-            if (this.modelCount === 1){
+            if (this.modelCount === 1 || this.modelCount === 0){
                 document.getElementById("leftArrow").style.display = "none";
                 document.getElementById("rightArrow").style.display = "none";
             };
@@ -274,6 +271,11 @@
                 document.getElementById("loader").style.display = "none";
                 document.getElementById("error" ).style.display = "inline";
             });
+
+            var sceneEl = document.querySelector('a-scene');
+            var entity = sceneEl.querySelector('a-entity').object3D;
+            console.log('> escene', entity);
+            // entity.
         },
         methods:{
             mostrar: function(tema){
@@ -286,19 +288,26 @@
             },
 
             NextModel: function(inc, tema){
-                document.getElementById("error" ).style.display = "none";
-                document.getElementById("loader").style.display = "inline";
+                if (tema.bd_objeto.length) {
+                    document.getElementById("error" ).style.display = "none";
+                    document.getElementById("loader").style.display = "inline";
 
-                this.modelNbr = ((this.modelNbr + inc) % this.modelCount);
-                this.modelNbr = this.modelNbr < 0 ? (tema.bd_objeto.length + this.modelNbr) : this.modelNbr;
-                console.log(">>> Model " + tema.bd_objeto[this.modelNbr].src.split("/")[1] + " (" + (this.modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
+                    this.modelNbr = ((this.modelNbr + inc) % this.modelCount);
+                    this.modelNbr = this.modelNbr < 0 ? (tema.bd_objeto.length + this.modelNbr) : this.modelNbr;
+                    console.log(">>> Model " + tema.bd_objeto[this.modelNbr].src.split("/")[1] + " (" + (this.modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
 
-                this.RotationStop();
+                    this.RotationStop();
 
-                let value = this.valueName;
-                Object.keys(value).forEach((key) => {
-                    this.switchObject(value[key], tema.bd_objeto[this.modelNbr]);
-                });
+                    let value = this.valueName;
+                    Object.keys(value).forEach((key) => {
+                        this.switchObject(value[key], tema.bd_objeto[this.modelNbr]);
+                    });
+                } else {
+                    console.clear();
+                    console.log(">>> Next not function by undefined or null.");
+                    document.getElementById("error" ).style.display = "inline";
+                    document.getElementById("loader").style.display = "none";
+                }
             },
 
             switchObject (valueId, objeto) {
@@ -358,53 +367,61 @@
             },
 
             RotationOnOff: function(){
-                console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
-                var rotateBtn = $(".rotate-obj");
-                let valueRotate = this.valueRotation;
+                if (this.tema.bd_objeto.length) {
+                    console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
+                    var rotateBtn = $(".rotate-obj");
+                    let valueRotate = this.valueRotation;
 
-                Object.keys(valueRotate).forEach((key) => {
-                   rotateBtn.addClass("rotate_fade");
-                    if (this.isMarkerHorizontal) {
-                        valueRotate[key].setAttribute("animation", "to", "0 360 0");
-                    } else {
-                        valueRotate[key].setAttribute("animation", "to", "0 0 360");
-                    }
-                    valueRotate[key].emit(this.nextRotationEvent);
-                });
-                switch (this.nextRotationEvent) {
-                    case "rotation-start":
-                    case "rotation-restart":
-                    case "rotation-resume":
-                        this.nextRotationEvent = "rotation-pause";
+                    Object.keys(valueRotate).forEach((key) => {
                         rotateBtn.addClass("rotate_fade");
-                        break;
-                    case "rotation-pause":
-                        this.nextRotationEvent = "rotation-resume";
-                        rotateBtn.removeClass("rotate_fade");
-                        break;
-                    default:
-                        console.log(">>> Event \"" + this.nextRotationEvent + "\" unknown !");
+                        if (this.isMarkerHorizontal) {
+                            valueRotate[key].setAttribute("animation", "to", "0 360 0");
+                        } else {
+                            valueRotate[key].setAttribute("animation", "to", "0 0 360");
+                        }
+                        valueRotate[key].emit(this.nextRotationEvent);
+                    });
+                    switch (this.nextRotationEvent) {
+                        case "rotation-start":
+                        case "rotation-restart":
+                        case "rotation-resume":
+                            this.nextRotationEvent = "rotation-pause";
+                            rotateBtn.addClass("rotate_fade");
+                            break;
+                        case "rotation-pause":
+                            this.nextRotationEvent = "rotation-resume";
+                            rotateBtn.removeClass("rotate_fade");
+                            break;
+                        default:
+                            console.log(">>> Event \"" + this.nextRotationEvent + "\" unknown !");
+                    }
+                } else {
+                    console.log(">>> Rotation not function by undefined or null.");
                 }
             },
 
             Zoom: function(tema, sign) {
-                console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
-                let valueName = this.valueName
-                Object.keys(valueName).forEach((key) => {
-                    var oScale = valueName[key].getAttribute("scale");
-                    if ((sign < 0 && 0.0001 < oScale.x - tema.bd_objeto[this.modelNbr].scaleInc) || 0 < sign) {	// Floating point problem.
-                        var factor = 1 + sign * tema.bd_objeto[this.modelNbr].scaleInc / oScale.x;
-                        var oPosition = valueName[key].getAttribute("position");
-                        var sPosition = oPosition.x * factor + " " + oPosition.y * factor + " " + oPosition.z * factor;
-                        valueName[key].setAttribute("animation__position", "to", sPosition);
+                if (tema.bd_objeto.length) {
+                    console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
+                    let valueName = this.valueName
+                    Object.keys(valueName).forEach((key) => {
+                        var oScale = valueName[key].getAttribute("scale");
+                        if ((sign < 0 && 0.0001 < oScale.x - tema.bd_objeto[this.modelNbr].scaleInc) || 0 < sign) {	// Floating point problem.
+                            var factor = 1 + sign * tema.bd_objeto[this.modelNbr].scaleInc / oScale.x;
+                            var oPosition = valueName[key].getAttribute("position");
+                            var sPosition = oPosition.x * factor + " " + oPosition.y * factor + " " + oPosition.z * factor;
+                            valueName[key].setAttribute("animation__position", "to", sPosition);
 
-                        var sScale =  (parseFloat(oScale.x) + sign * tema.bd_objeto[this.modelNbr].scaleInc) + " "
-                            + (parseFloat(oScale.y) + sign * tema.bd_objeto[this.modelNbr].scaleInc) + " "
-                            + (parseFloat(oScale.z) + sign * tema.bd_objeto[this.modelNbr].scaleInc);
-                        valueName[key].setAttribute("animation__scale", "to", sScale);
-                        valueName[key].emit("zoom-start");
-                    }
-                });
+                            var sScale =  (parseFloat(oScale.x) + sign * tema.bd_objeto[this.modelNbr].scaleInc) + " "
+                                + (parseFloat(oScale.y) + sign * tema.bd_objeto[this.modelNbr].scaleInc) + " "
+                                + (parseFloat(oScale.z) + sign * tema.bd_objeto[this.modelNbr].scaleInc);
+                            valueName[key].setAttribute("animation__scale", "to", sScale);
+                            valueName[key].emit("zoom-start");
+                        }
+                    });
+                } else {
+                    console.log(">>> Zoom not function by undefined or null.");
+                }
             },
 
             PrintOrientation(beta, gamma) {
@@ -434,15 +451,19 @@
             },
 
             CycleOrientation: function(tema){
-                if (this.isDeviceOrientationDetection) {
-                    this.SwitchDetection();
-                    this.isDeviceOrientationHorizontal = this.isMarkerHorizontal;
-                } else {
-                    if (this.isMarkerHorizontal === this.isDeviceOrientationHorizontal || !this.hasDeviceOrientationEvent) {
-                        this.SwitchOrientation(false, false, tema)
-                    } else {
+                if (tema.bd_objeto.length) {
+                    if (this.isDeviceOrientationDetection) {
                         this.SwitchDetection();
+                        this.isDeviceOrientationHorizontal = this.isMarkerHorizontal;
+                    } else {
+                        if (this.isMarkerHorizontal === this.isDeviceOrientationHorizontal || !this.hasDeviceOrientationEvent) {
+                            this.SwitchOrientation(false, false, tema)
+                        } else {
+                            this.SwitchDetection();
+                        }
                     }
+                } else {
+                    console.log(">>> Cycle not function by undefined or null.");
                 }
             }
 

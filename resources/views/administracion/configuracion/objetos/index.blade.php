@@ -37,7 +37,7 @@
             <div class="card-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4 pl-1 pr-1" v-for="(objeto, index) in objetos">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 pb-4 pl-1 pr-1" v-for="(objeto, index) in objetos" :key="`3${index}`">
                             <div v-if="objeto.format !== 'mtl'" class="conten bounceIn animated">
                                 <a class="card sty">
                                     <div class="card-front text-center">
@@ -52,7 +52,8 @@
                                         <p class="card-text">Modelo: <strong v-text="objeto.nombre_modelo"></strong></p>
                                         <hr>
                                         <div>
-                                            <button class="btn btn-sm btn-info" disabled hidden @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-sm btn-info" disabled hidden @click.prevent="mostrarEditar(objeto, index)" data-toggle="modal" data-target="#myModal">
+                                                <i class="fas fa-edit"></i></button>
                                             <button class="btn btn-sm btn-outline-secondary" @click.prevent="eliminarDato(objeto, index)"><i class="fas fa-trash-alt" ></i></button>
                                             {{--<button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>--}}
                                         </div>
@@ -62,7 +63,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="card-footer ">
                 <v-paginator ref="vpaginator" :resource_url="resource_url" @update="updateResource" :datos="datos"></v-paginator>
@@ -138,7 +138,7 @@
                     }
                 },
 
-                formReset : function (files) {
+                formReset : function () {
                     this.objeto ={
                         id:'',
                         titulo:'',
@@ -152,9 +152,6 @@
                     };
 
                     this.files = [];
-                    // if(this.$refs.file){
-                    //     this.$refs.file.destroy();
-                    // }
                 },
 
                 complementosFiles: function () {
@@ -169,9 +166,8 @@
 
                 guardar : function () {
                     var app = this;
-
                     app.isUploading = true;
-                    app.disabledUploadButton = true;
+                    // app.disabledUploadButton = true;
                     this.$validator.validateAll().then((result) => {
                         if (result) {
                             laddaButton.start();
@@ -189,8 +185,8 @@
                                 onUploadProgress: e => {
                                     console.log('Cargas', e)
                                     if (e.lengthComputable){
-                                        this.progress = (e.loaded / e.total) * 10;
-                                        console.log(this.progress)
+                                        this.progress = (e.loaded / e.total) * 100;
+                                        // console.log(this.progress)
                                     }
                                 }
                             }).then((response)=>{
@@ -202,7 +198,7 @@
                                     }else{
                                         // this.objeto.id = response.body.id;
                                         setTimeout(() => {
-                                            app.isUploading = false;
+                                            this.isUploading = false;
                                             this.files = [];
                                         }, 100);
                                         toastr["success"]('Objeto creado correctamente.');
@@ -240,7 +236,6 @@
                     this.objeto = JSON.parse(JSON.stringify(objeto));
                 },
 
-
                 eliminarDato(objeto, index){
                     var vue = this;
                     var params ={
@@ -259,9 +254,6 @@
                     })
 
                 },
-
-
-
             },
             beforeMount(){
                 this.formReset();

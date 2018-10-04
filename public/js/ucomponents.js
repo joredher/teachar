@@ -51680,7 +51680,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51838,7 +51838,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(this.tema.bd_objeto);
     },
 
-    computed: {},
     data: function data() {
         return {
             markers: [{
@@ -51905,7 +51904,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         // COD COMPONENETES RA
-        if (this.modelCount === 1) {
+        if (this.modelCount === 1 || this.modelCount === 0) {
             document.getElementById("leftArrow").style.display = "none";
             document.getElementById("rightArrow").style.display = "none";
         };
@@ -51967,6 +51966,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             document.getElementById("loader").style.display = "none";
             document.getElementById("error").style.display = "inline";
         });
+
+        var sceneEl = document.querySelector('a-scene');
+        var entity = sceneEl.querySelector('a-entity').object3D;
+        console.log('> escene', entity);
+        // entity.
     },
 
     methods: {
@@ -51982,19 +51986,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         NextModel: function NextModel(inc, tema) {
             var _this2 = this;
 
-            document.getElementById("error").style.display = "none";
-            document.getElementById("loader").style.display = "inline";
+            if (tema.bd_objeto.length) {
+                document.getElementById("error").style.display = "none";
+                document.getElementById("loader").style.display = "inline";
 
-            this.modelNbr = (this.modelNbr + inc) % this.modelCount;
-            this.modelNbr = this.modelNbr < 0 ? tema.bd_objeto.length + this.modelNbr : this.modelNbr;
-            console.log(">>> Model " + tema.bd_objeto[this.modelNbr].src.split("/")[1] + " (" + (this.modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
+                this.modelNbr = (this.modelNbr + inc) % this.modelCount;
+                this.modelNbr = this.modelNbr < 0 ? tema.bd_objeto.length + this.modelNbr : this.modelNbr;
+                console.log(">>> Model " + tema.bd_objeto[this.modelNbr].src.split("/")[1] + " (" + (this.modelNbr + 1) + "/" + tema.bd_objeto.length + ") loading...");
 
-            this.RotationStop();
+                this.RotationStop();
 
-            var value = this.valueName;
-            Object.keys(value).forEach(function (key) {
-                _this2.switchObject(value[key], tema.bd_objeto[_this2.modelNbr]);
-            });
+                var value = this.valueName;
+                Object.keys(value).forEach(function (key) {
+                    _this2.switchObject(value[key], tema.bd_objeto[_this2.modelNbr]);
+                });
+            } else {
+                console.clear();
+                console.log(">>> Next not function by undefined or null.");
+                document.getElementById("error").style.display = "inline";
+                document.getElementById("loader").style.display = "none";
+            }
         },
 
         switchObject: function switchObject(valueId, objeto) {
@@ -52056,54 +52067,62 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         RotationOnOff: function RotationOnOff() {
             var _this3 = this;
 
-            console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
-            var rotateBtn = $(".rotate-obj");
-            var valueRotate = this.valueRotation;
+            if (this.tema.bd_objeto.length) {
+                console.log(">>> " + (this.nextRotationEvent === "rotation-pause" ? "Pause" : "Play") + " rotation");
+                var rotateBtn = $(".rotate-obj");
+                var valueRotate = this.valueRotation;
 
-            Object.keys(valueRotate).forEach(function (key) {
-                rotateBtn.addClass("rotate_fade");
-                if (_this3.isMarkerHorizontal) {
-                    valueRotate[key].setAttribute("animation", "to", "0 360 0");
-                } else {
-                    valueRotate[key].setAttribute("animation", "to", "0 0 360");
-                }
-                valueRotate[key].emit(_this3.nextRotationEvent);
-            });
-            switch (this.nextRotationEvent) {
-                case "rotation-start":
-                case "rotation-restart":
-                case "rotation-resume":
-                    this.nextRotationEvent = "rotation-pause";
+                Object.keys(valueRotate).forEach(function (key) {
                     rotateBtn.addClass("rotate_fade");
-                    break;
-                case "rotation-pause":
-                    this.nextRotationEvent = "rotation-resume";
-                    rotateBtn.removeClass("rotate_fade");
-                    break;
-                default:
-                    console.log(">>> Event \"" + this.nextRotationEvent + "\" unknown !");
+                    if (_this3.isMarkerHorizontal) {
+                        valueRotate[key].setAttribute("animation", "to", "0 360 0");
+                    } else {
+                        valueRotate[key].setAttribute("animation", "to", "0 0 360");
+                    }
+                    valueRotate[key].emit(_this3.nextRotationEvent);
+                });
+                switch (this.nextRotationEvent) {
+                    case "rotation-start":
+                    case "rotation-restart":
+                    case "rotation-resume":
+                        this.nextRotationEvent = "rotation-pause";
+                        rotateBtn.addClass("rotate_fade");
+                        break;
+                    case "rotation-pause":
+                        this.nextRotationEvent = "rotation-resume";
+                        rotateBtn.removeClass("rotate_fade");
+                        break;
+                    default:
+                        console.log(">>> Event \"" + this.nextRotationEvent + "\" unknown !");
+                }
+            } else {
+                console.log(">>> Rotation not function by undefined or null.");
             }
         },
 
         Zoom: function Zoom(tema, sign) {
             var _this4 = this;
 
-            console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
-            var valueName = this.valueName;
-            Object.keys(valueName).forEach(function (key) {
-                var oScale = valueName[key].getAttribute("scale");
-                if (sign < 0 && 0.0001 < oScale.x - tema.bd_objeto[_this4.modelNbr].scaleInc || 0 < sign) {
-                    // Floating point problem.
-                    var factor = 1 + sign * tema.bd_objeto[_this4.modelNbr].scaleInc / oScale.x;
-                    var oPosition = valueName[key].getAttribute("position");
-                    var sPosition = oPosition.x * factor + " " + oPosition.y * factor + " " + oPosition.z * factor;
-                    valueName[key].setAttribute("animation__position", "to", sPosition);
+            if (tema.bd_objeto.length) {
+                console.log(">>> Zoom" + (0 < sign ? "in" : "out"));
+                var valueName = this.valueName;
+                Object.keys(valueName).forEach(function (key) {
+                    var oScale = valueName[key].getAttribute("scale");
+                    if (sign < 0 && 0.0001 < oScale.x - tema.bd_objeto[_this4.modelNbr].scaleInc || 0 < sign) {
+                        // Floating point problem.
+                        var factor = 1 + sign * tema.bd_objeto[_this4.modelNbr].scaleInc / oScale.x;
+                        var oPosition = valueName[key].getAttribute("position");
+                        var sPosition = oPosition.x * factor + " " + oPosition.y * factor + " " + oPosition.z * factor;
+                        valueName[key].setAttribute("animation__position", "to", sPosition);
 
-                    var sScale = parseFloat(oScale.x) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc + " " + (parseFloat(oScale.y) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc) + " " + (parseFloat(oScale.z) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc);
-                    valueName[key].setAttribute("animation__scale", "to", sScale);
-                    valueName[key].emit("zoom-start");
-                }
-            });
+                        var sScale = parseFloat(oScale.x) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc + " " + (parseFloat(oScale.y) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc) + " " + (parseFloat(oScale.z) + sign * tema.bd_objeto[_this4.modelNbr].scaleInc);
+                        valueName[key].setAttribute("animation__scale", "to", sScale);
+                        valueName[key].emit("zoom-start");
+                    }
+                });
+            } else {
+                console.log(">>> Zoom not function by undefined or null.");
+            }
         },
 
         PrintOrientation: function PrintOrientation(beta, gamma) {
@@ -52137,15 +52156,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
         CycleOrientation: function CycleOrientation(tema) {
-            if (this.isDeviceOrientationDetection) {
-                this.SwitchDetection();
-                this.isDeviceOrientationHorizontal = this.isMarkerHorizontal;
-            } else {
-                if (this.isMarkerHorizontal === this.isDeviceOrientationHorizontal || !this.hasDeviceOrientationEvent) {
-                    this.SwitchOrientation(false, false, tema);
-                } else {
+            if (tema.bd_objeto.length) {
+                if (this.isDeviceOrientationDetection) {
                     this.SwitchDetection();
+                    this.isDeviceOrientationHorizontal = this.isMarkerHorizontal;
+                } else {
+                    if (this.isMarkerHorizontal === this.isDeviceOrientationHorizontal || !this.hasDeviceOrientationEvent) {
+                        this.SwitchOrientation(false, false, tema);
+                    } else {
+                        this.SwitchDetection();
+                    }
                 }
+            } else {
+                console.log(">>> Cycle not function by undefined or null.");
             }
         }
 
@@ -52285,11 +52308,14 @@ var render = function() {
           "a",
           {
             staticClass: "video-info btn btn_push",
-            attrs: { "data-toggle": "modal", "data-target": "#myVideo" },
+            attrs: {
+              "data-toggle": _vm.tema.bd_objeto.length ? "modal" : null,
+              "data-target": "#myVideo"
+            },
             on: {
               click: function($event) {
                 $event.preventDefault()
-                _vm.mostrar(_vm.tema)
+                _vm.tema.bd_objeto.length ? _vm.mostrar(_vm.tema) : null
               }
             }
           },
