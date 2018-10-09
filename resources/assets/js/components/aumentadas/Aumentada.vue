@@ -162,6 +162,12 @@
                         name: 'pattern',
                         url:'/imagenes/path/pattern-marker.patt',
                         type: 'pattern'
+                    },
+                    {
+                        id: 4,
+                        name: 'pattern',
+                        url:'/imagenes/triangulo/path/pattern-marker.patt',
+                        type: 'pattern'
                     }
                 ],
                 nextRotationEvent: "rotation-start",
