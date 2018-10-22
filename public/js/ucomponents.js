@@ -53461,8 +53461,7 @@ var render = function() {
                             attrs: {
                               width: "320",
                               height: "240",
-                              src:
-                                "/imagenes/aumentada_info/teachAR - Tutorial.mp4",
+                              src: "/imagenes/aumentada_info/tutorial.mp4",
                               poster: "/imagenes/aumentada_info/post_tuto.JPG",
                               controls: ""
                             }

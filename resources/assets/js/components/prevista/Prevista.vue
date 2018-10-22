@@ -77,7 +77,7 @@
                                     </h4>
                                     <div class="text-center">
                                         <video width="320" height="240"
-                                               src="/imagenes/aumentada_info/teachAR - Tutorial.mp4" poster="/imagenes/aumentada_info/post_tuto.JPG" controls></video>
+                                               src="/imagenes/aumentada_info/tutorial.mp4" poster="/imagenes/aumentada_info/post_tuto.JPG" controls></video>
                                     </div>
                                 </div>
                             </div>
