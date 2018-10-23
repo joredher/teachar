@@ -166,13 +166,7 @@
                     {
                         id: 4,
                         name: 'pattern',
-                        url:'/imagenes/triangulo/path/pattern-marker.patt',
-                        type: 'pattern'
-                    },
-                    {
-                        id: 5,
-                        name: 'pattern',
-                        url:'/imagenes/path/path/pattern-marker.patt',
+                        url:'/imagenes/natural/path/pattern-marker.patt',
                         type: 'pattern'
                     }
                 ],
