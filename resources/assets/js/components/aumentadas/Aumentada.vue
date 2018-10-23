@@ -168,6 +168,12 @@
                         name: 'pattern',
                         url:'/imagenes/triangulo/path/pattern-marker.patt',
                         type: 'pattern'
+                    },
+                    {
+                        id: 5,
+                        name: 'pattern',
+                        url:'/imagenes/triangulo/path/path/pattern-marker.patt',
+                        type: 'pattern'
                     }
                 ],
                 nextRotationEvent: "rotation-start",
